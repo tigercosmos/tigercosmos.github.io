@@ -13,6 +13,8 @@ tags: [Chinese Posts,English Posts,Localization,Rust,Rustlang,English,Rust Taiwa
 
 <strong class="hj hv"><em class="hw">TL;DR</em></strong> <br>I am glad to announce that the Traditional Chinese (正體中文) version of the Rust official website has been launched. Thanks to all contributors in the community. This article records our experience to achieve the work.
 
+<!-- more --> 
+
 <strong class="hj hv"><em class="hw">What is Rust? </em></strong><br>It is a language empowering everyone to build reliable and efficient software, the toast in the software town.
 
 Rust website in traditional Chinese:

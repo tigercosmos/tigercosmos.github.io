@@ -15,6 +15,8 @@ This summer, I have been a software engineering intern at <a href="https://www.c
 
 During two months of the summer, I have participated in some features development and fixed some bugs. Meanwhile, I have a look at the whole picture of Puffin Browser.
 
+<!-- more --> 
+
 Puffin is a well-known remote browser with many users all over the world, and it is famous for Flash support on iOS and Android devices. Leveraging resources on remote servers allows Puffin to be faster than regular browsers, especially when browsing bandwidth-hogging or data-intensive websites on low-end mobile devices or with a low-bandwidth connection.
 
 As a remote browser, Puffin has many advantages over other popular browsers on the market, and I will discuss what makes Puffin stand out in this article.

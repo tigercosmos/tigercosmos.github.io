@@ -17,6 +17,8 @@ tags: [Chinese Posts,English Posts,Weather Bot,氣象機器人,Bottender,Line Bo
 
 想查天氣的時候我想大部分人可能就是 Google 一下、上中央氣象局網站、使用 APP、看新聞。或是有種很潮的做法是問 Siri，不過效果可能不太好 ⋯⋯。
 
+<!-- more --> 
+
 <img class="dz t u go ak" src="https://miro.medium.com/max/1288/0*6g3mklj9wFm9l0Lf.png" role="presentation"><br/>
 
 其實還有一種做法是建立一個<a href="https://www.facebook.com/WxKitty.tw" class="dj by im in io ip" target="_blank" rel="noopener nofollow">天氣機器人</a>，其實概念就是聊天機器人，讓我們可以和機器人對話取得天氣資訊。你可能會問那和查 App 或問 Siri 差在哪裡呢？首先氣象機器人因為著重在氣象資訊上，所以資料處理非常細膩，尤其是台灣地區的資料是處理得非常完善，並且國外地區也支援。再來就是聊天機器人最好玩的地方就是，大家可以一起跟機器人對話，這也是聊天機器人最好玩的地方！

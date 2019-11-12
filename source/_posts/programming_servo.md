@@ -15,6 +15,8 @@ Servo is a huge project. I have counted the lines of code for you. There are alm
 
 In this article, I will teach you some tips to use GDB developing and debugging your Rust code in the Servo project.
 
+<!-- more --> 
+
 ## So, How to Debug?
 
 I assume you are not familiar with software developing, but you have some skills to write codes.

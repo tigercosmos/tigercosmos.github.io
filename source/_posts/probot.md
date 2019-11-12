@@ -15,6 +15,8 @@ The First Time Developing Github App via Probot
 
 最近在開發<a href="https://github.com/weather-bot/weather-bot" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">氣象機器人</a>的時候，為了要促進工作流程的效率，不得不加入 bot（機器人） 進來工作流程。所以就邊研究邊實做了一個，在此記下開發心得。
 
+<!-- more --> 
+
 Github 上的 bot 專有名詞稱為 Github App，其實原理跟 Line Bot、Messenger Bot 等等都差不多。
 
 你可能在大型開源專案上看過以下情況：

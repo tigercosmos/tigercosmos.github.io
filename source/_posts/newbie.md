@@ -17,6 +17,8 @@ I know there are many people want to join the open source community whether they
 
 I thought many people would have the same question which is how to commit to open source, so I write this article to record my experience and guide you to find the way. If you just want to read open-source parts, skip the previous paragraphs and jump to the rear.
 
+<!-- more --> 
+
 ### First time to programming
 
 The first time I wrote code was at the time when I was studying in junior high school. I read a tutorial book and wrote a simple C language program like finding prime numbers, but I didn’t dig it further. Two years later when I was in high school, since I had had a long time not to write code and I found that I could not understand what the computer science teacher was talking about, so I went to borrow a book and read C/C++ again. That was the second time I learned coding.

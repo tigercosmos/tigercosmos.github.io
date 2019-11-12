@@ -13,6 +13,8 @@ tags: [Chinese Posts,English Posts,Mozilla,Mozilla Taiwan,Servo,Open Source,Chin
 
 不知不覺，兩個月下來已經在 Mozilla 的 <a href="https://github.com/servo/servo" class="dj by hv hw hx hy" target="_blank" rel="noopener nofollow">Servo</a> 有 <a href="https://github.com/servo/servo/commits?author=tigercosmos" class="dj by hv hw hx hy" target="_blank" rel="noopener nofollow"><em class="hz">8 次 commits</em></a>。 Servo 為新一代 Firefox 的基石，所以做起來非常有成就感，也對瀏覽器本身開始有極大興趣。而且這個社群非常友善，開發過程讓人覺得很快樂，看著兩個月以來的紀錄，有感而發寫下這篇文章。
 
+<!-- more --> 
+
 <span style="font-size: 26px; color: #696969; font-style:italic">關於 Servo 可以看這邊的介紹：剖析極速 CSS 引擎：Quantum CSS</span>
 
 關於 Servo 可以看這邊的介紹：<a class="dj by hv hw hx hy" target="_blank" rel="noopener" href="/@moz2000tw/剖析極速-css-引擎-quantum-css-原名stylo-上-723f08d064f1">剖析極速 CSS 引擎：Quantum CSS</a>

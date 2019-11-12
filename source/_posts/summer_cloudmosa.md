@@ -11,6 +11,8 @@ tags: [Chinese Posts,English Posts,Cloudmosa,Intern,Puffin Browser,Chinese,]
 
 大約在一年前，因緣際會我開始接觸瀏覽器開發，一開始是貢獻 Mozilla 的 Servo Brower Engine 專案，後來覺得還是不夠了解瀏覽器，就想說就由寫文章來強迫自己學習。ITHome 的鐵人賽剛好給了我一個行動的契機，於是就開始寫了有關於瀏覽器的系列文章。
 
+<!-- more --> 
+
 ### <div class="cd gz cj ck ha cm">《來做個網路瀏覽器吧！》文章列表 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</div>
 
 寫著寫著，因為我都會到處去分享我的文章，恰好文章就被 CloudMosa 的人看到。CloudMosa 是一家臺灣的瀏覽器開發公司，產品為 Puffin Browser，關於甚麼是 Puffin 我在另外一篇文章中有詳細介紹。
