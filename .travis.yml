@@ -13,7 +13,6 @@ before_script:
 
 script:
   - hexo deploy
-  - cp CNAME public
 
 deploy:
   provider: pages
