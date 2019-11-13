@@ -9,7 +9,7 @@
 
 ## Demo
 
-[preview](http://ssnowy.coding.me/demo-autumn/)
+[preview](https://ssnowy.coding.me/demo-autumn/)
 
 ## Usage
 

@@ -45,7 +45,7 @@ tags: [Chinese Posts,English Posts,Weather Bot,氣象機器人,Bottender,Line Bo
 
 ## Line Bot
 
-想使用 Line Bot 的話，要先申請 <a href="https://developers.line.me/en/" class="dj by im in io ip" target="_blank" rel="noopener nofollow">Line@</a> 帳號，可以參考 OOXX 寫的 <a href="http://www.oxxostudio.tw/articles/201701/line-bot.html" class="dj by im in io ip" target="_blank" rel="noopener nofollow">LINE BOT 實戰 ( 原理篇 )</a>。這篇介紹非常完整，照著文章步驟，使用 NodeJS 可以快速建立一個 Hello World Bot。這邊可以試著寫一個，或是等下會介紹用框架來做。
+想使用 Line Bot 的話，要先申請 <a href="https://developers.line.me/en/" class="dj by im in io ip" target="_blank" rel="noopener nofollow">Line@</a> 帳號，可以參考 OOXX 寫的 <a href="https://www.oxxostudio.tw/articles/201701/line-bot.html" class="dj by im in io ip" target="_blank" rel="noopener nofollow">LINE BOT 實戰 ( 原理篇 )</a>。這篇介紹非常完整，照著文章步驟，使用 NodeJS 可以快速建立一個 Hello World Bot。這邊可以試著寫一個，或是等下會介紹用框架來做。
 
 Line Bot 建立非常方便，如果要開放公開給大家使用也很容易，只要讓別人加你的機器人好友就好。完全不需要其他的審查或申請（除非要申請認證帳號），相較於 Messenger 可說是非常友善。不過免費帳號只能夠「回應」，不能讓機器人主動「推播」，這是與 Messenger 非常不同的地方，如果要做到跨平台且都支援主動推播，就只好買付費服務了。
 
@@ -151,7 +151,7 @@ async function platformReplyImage(context, url) {
 
 ## 機器人回應設計思路
 
-在繼續閱讀之前，希望大家能先看這篇「<a href="http://zake7749.github.io/2016/12/17/how-to-develop-chatbot/" class="dj by im in io ip" target="_blank" rel="noopener nofollow">聊天機器人的開發思路</a>」，這篇文章介紹了機器人回應的幾種模式，以及適用情況。那麼接著就是要考慮我在氣象機器人中，要採用下列模型的哪一種了：
+在繼續閱讀之前，希望大家能先看這篇「<a href="https://zake7749.github.io/2016/12/17/how-to-develop-chatbot/" class="dj by im in io ip" target="_blank" rel="noopener nofollow">聊天機器人的開發思路</a>」，這篇文章介紹了機器人回應的幾種模式，以及適用情況。那麼接著就是要考慮我在氣象機器人中，要採用下列模型的哪一種了：
 
 <ul>
 <li id="19f1" class="hr hs em at ht b hu if hw ig hy ih ia ii ic ij ie ja jb jc">樣板式模型 (Rule-based model)</li><li id="8f86" class="hr hs em at ht b hu jw hw jx hy jy ia jz ic ka ie ja jb jc">檢索式模型 (Retrieval-based model)</li><li id="36b3" class="hr hs em at ht b hu jw hw jx hy jy ia jz ic ka ie ja jb jc">生成式模型 (Generative model)</li>
@@ -229,7 +229,7 @@ async function platformReplyImage(context, url) {
 公開 API 就是一些開放平台，或是商業機構，提供正式的 API 服務，可以藉由這些 API 取得你要的資料。例如：
 
 <ul>
-<li id="2032" class="hr hs em at ht b hu if hw ig hy ih ia ii ic ij ie ja jb jc"><a href="http://opendata.cwb.gov.tw/index" class="dj by im in io ip" target="_blank" rel="noopener nofollow">氣象資料開放平臺</a>：氣象局的公開資料</li><li id="c2ee" class="hr hs em at ht b hu jw hw jx hy jy ia jz ic ka ie ja jb jc"><a href="https://openweathermap.org/api" class="dj by im in io ip" target="_blank" rel="noopener nofollow">Open Weather Map</a>：國外的氣象資料服務商</li>
+<li id="2032" class="hr hs em at ht b hu if hw ig hy ih ia ii ic ij ie ja jb jc"><a href="https://opendata.cwb.gov.tw/index" class="dj by im in io ip" target="_blank" rel="noopener nofollow">氣象資料開放平臺</a>：氣象局的公開資料</li><li id="c2ee" class="hr hs em at ht b hu jw hw jx hy jy ia jz ic ka ie ja jb jc"><a href="https://openweathermap.org/api" class="dj by im in io ip" target="_blank" rel="noopener nofollow">Open Weather Map</a>：國外的氣象資料服務商</li>
 </ul>
 
 還有很多，就不多列舉了。
@@ -347,7 +347,7 @@ var PATTERN = new RegExp(
 
 ## 地點
 
-要判斷句子中的地點真的很難，世界的地名五花八門，連「<a href="http://chimei.jitenon.jp/data/kanji.php?kanji=%E5%A4%AA%E9%99%BD&amp;search=id" class="dj by im in io ip" target="_blank" rel="noopener nofollow">太陽</a>」都可以是地名。我的處理辦法是分台灣地區和國外地區。
+要判斷句子中的地點真的很難，世界的地名五花八門，連「<a href="https://chimei.jitenon.jp/data/kanji.php?kanji=%E5%A4%AA%E9%99%BD&amp;search=id" class="dj by im in io ip" target="_blank" rel="noopener nofollow">太陽</a>」都可以是地名。我的處理辦法是分台灣地區和國外地區。
 
 <ul>
 <li id="1236" class="hr hs em at ht b hu if hw ig hy ih ia ii ic ij ie ja jb jc">台灣地區：台灣的行政區最低層級是村或里，全部加起來也才不到一萬個，所以台灣地區先建檔，可以很明確的辨識出來。檔案包含縣市、鄉鎮市、村里和經緯度資訊。</li><li id="0e11" class="hr hs em at ht b hu jw hw jx hy jy ia jz ic ka ie ja jb jc">非行政地區、國外地區：如果是非行政區的地名，例如台灣大學、總統府等等，或是國外的地區，例如紐約、東京等。這時候我會用 <a href="https://developers.google.com/maps/documentation/geocoding/intro?hl=zh-tw" class="dj by im in io ip" target="_blank" rel="noopener nofollow">Google Map Api</a> 來查對應的經緯度。</li>
@@ -387,4 +387,4 @@ var PATTERN = new RegExp(
 
 <span style="font-size: 26px; color: #696969; font-style:italic">關於作者 劉安齊 軟體工程師，熱愛寫程式，更喜歡推廣程式讓更多人學會。歡迎追蹤 微中子，我會在上面分享各種新知與最新作品，也可以去逛逛我的 個人網站 或 Github。</span>
 
-<strong class="ht iv">關於作者</strong><em class="at"> <br></em><strong class="ht iv"><em class="at">劉安齊</em></strong><em class="at"> 軟體工程師，熱愛寫程式，更喜歡推廣程式讓更多人學會。歡迎追蹤 </em><a href="https://www.facebook.com/CodingNeutrino/" class="dj by im in io ip" target="_blank" rel="noopener nofollow"><strong class="ht iv"><em class="at">微中子</em></strong></a><em class="at">，我會在上面分享各種新知與最新作品，也可以去逛逛我的 </em><a href="http://tigercosmos.xyz" class="dj by im in io ip" target="_blank" rel="noopener nofollow"><strong class="ht iv"><em class="at">個人網站</em></strong></a><em class="at"> 或 </em><a href="https://github.com/tigercosmos" class="dj by im in io ip" target="_blank" rel="noopener nofollow"><strong class="ht iv"><em class="at">Github</em></strong></a><em class="at">。</em>
+<strong class="ht iv">關於作者</strong><em class="at"> <br></em><strong class="ht iv"><em class="at">劉安齊</em></strong><em class="at"> 軟體工程師，熱愛寫程式，更喜歡推廣程式讓更多人學會。歡迎追蹤 </em><a href="https://www.facebook.com/CodingNeutrino/" class="dj by im in io ip" target="_blank" rel="noopener nofollow"><strong class="ht iv"><em class="at">微中子</em></strong></a><em class="at">，我會在上面分享各種新知與最新作品，也可以去逛逛我的 </em><a href="https://tigercosmos.xyz" class="dj by im in io ip" target="_blank" rel="noopener nofollow"><strong class="ht iv"><em class="at">個人網站</em></strong></a><em class="at"> 或 </em><a href="https://github.com/tigercosmos" class="dj by im in io ip" target="_blank" rel="noopener nofollow"><strong class="ht iv"><em class="at">Github</em></strong></a><em class="at">。</em>
