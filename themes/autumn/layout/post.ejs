@@ -23,3 +23,12 @@
         <%- page.content %>
     </div>
 </article>
+<script>
+    hljs.configure({
+        useBR: true
+    });
+
+    document.querySelectorAll('.code').forEach((block) => {
+        hljs.highlightBlock(block);
+    });
+</script>
