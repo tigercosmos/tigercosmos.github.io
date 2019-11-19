@@ -3,7 +3,7 @@ title: Angular 2 + Ionic = Mobile App ( 2 ) 建構
 date: 2017-01-06 23:16:47
 tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
-<p><a href="http://ithelp.ithome.com.tw/articles/10188464" target="_blank">&#x4E0A;&#x4E00;&#x7BC7;</a>&#x5DF2;&#x7D93;&#x4ECB;&#x7D39; Ionic &#x642D;&#x914D; Angular 2 &#x662F;&#x751A;&#x9EBC;&#x4E86;&#xFF0C;&#x63A5;&#x4E0B;&#x4F86;&#x5C31;&#x4F86;&#x4ECB;&#x7D39;&#x5982;&#x4F55;&#x5EFA;&#x69CB;&#x4E00;&#x500B; App&#x3002;</p>
+<p><a href="https://ithelp.ithome.com.tw/articles/10188464" target="_blank">&#x4E0A;&#x4E00;&#x7BC7;</a>&#x5DF2;&#x7D93;&#x4ECB;&#x7D39; Ionic &#x642D;&#x914D; Angular 2 &#x662F;&#x751A;&#x9EBC;&#x4E86;&#xFF0C;&#x63A5;&#x4E0B;&#x4F86;&#x5C31;&#x4F86;&#x4ECB;&#x7D39;&#x5982;&#x4F55;&#x5EFA;&#x69CB;&#x4E00;&#x500B; App&#x3002;</p>
 <h2>&#x5B89;&#x88DD;</h2>
 <p>&#x9996;&#x5148;&#x8981;&#x78BA;&#x5B9A; <a href="https://nodejs.org/en/" target="_blank">Node.js</a> &#x6709;&#x5B89;&#x88DD;</p>
 <p>&#x63A5;&#x8005;&#x5B89;&#x88DD; Cordova&#xFF0C;Cordova &#x662F;&#x8DE8;&#x5E73;&#x53F0;&#x5E95;&#x5C64;&#x7684;&#x67B6;&#x69CB;</p>
@@ -39,7 +39,7 @@ tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之�
 <pre><code>cd myIonic2App
 ionic serve
 </code></pre>
-<p>&#x4F60;&#x6703;&#x88AB;&#x554F;&#x5982;&#x4F55; serve&#xFF0C;&#x9078; <code>localhost:8100</code>&#xFF0C;&#x7136;&#x5F8C;&#x61C9;&#x8A72;&#x6703;&#x81EA;&#x52D5;&#x8D77;&#x52D5;&#x700F;&#x89BD;&#x5668;&#x5230; <code>http://localhost:8100</code>&#xFF0C;&#x5982;&#x679C;&#x6C92;&#x6709;&#x5C31;&#x624B;&#x52D5;&#x8F38;&#x5165;&#x3002;</p>
+<p>&#x4F60;&#x6703;&#x88AB;&#x554F;&#x5982;&#x4F55; serve&#xFF0C;&#x9078; <code>localhost:8100</code>&#xFF0C;&#x7136;&#x5F8C;&#x61C9;&#x8A72;&#x6703;&#x81EA;&#x52D5;&#x8D77;&#x52D5;&#x700F;&#x89BD;&#x5668;&#x5230; <code>https://localhost:8100</code>&#xFF0C;&#x5982;&#x679C;&#x6C92;&#x6709;&#x5C31;&#x624B;&#x52D5;&#x8F38;&#x5165;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x662F;&#x7528; Chrome&#xFF0C;&#x6309; <code>F12</code> &#x958B;&#x555F;&#x958B;&#x767C;&#x8005;&#x5DE5;&#x5177;&#xFF0C;&#x53EF;&#x4EE5;&#x5207;&#x63DB;&#x6210;&#x624B;&#x6A5F;&#x700F;&#x89BD;&#x6A21;&#x5F0F;&#xFF0C;&#x9084;&#x53EF;&#x4EE5;&#x9078;&#x64C7;&#x6A5F;&#x6B3E;&#x6A21;&#x64EC;&#xFF0C;&#x50CF;&#x9019;&#x908A;&#x5C31;&#x9078; iPhone6<br>
 <img src="https://raw.githubusercontent.com/tigercosmos/webImg/master/devtool.PNG" alt></p>
 <p>Chrome &#x958B;&#x767C;&#x6A21;&#x5F0F;&#x4E0B;&#x770B;&#x5230;&#x7684;&#x6A23;&#x5B50;&#x6703;&#x9577;&#x9019;&#x6A23;<br>

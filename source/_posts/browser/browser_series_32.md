@@ -5,7 +5,7 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
 ---
 
                     
-&#x4ECA;&#x65E5;&#x8AD6;&#x6587;&#xFF1A;<a href="http://ieeexplore.ieee.org/document/7839666/" target="_blank">Parallel Performance-Energy Predictive Modeling of Browsers: Case Study of Servo</a><br>
+&#x4ECA;&#x65E5;&#x8AD6;&#x6587;&#xFF1A;<a href="https://ieeexplore.ieee.org/document/7839666/" target="_blank">Parallel Performance-Energy Predictive Modeling of Browsers: Case Study of Servo</a><br>
 &#x767C;&#x8868;&#xFF1A; High Performance Computing (HiPC), 2016 IEEE 23rd International Conference<br>
 &#x4F5C;&#x8005;&#xFF1A; Rohit Zambre(CA)&#x3001;Lars Bergstrom(Mozilla)&#x3001;Laleh Aghababaie Beni(CA)</p>
 <blockquote>

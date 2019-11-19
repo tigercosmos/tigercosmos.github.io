@@ -25,10 +25,10 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
 <a href="https://github.com/admin36/LURE" target="_blank">LURE (Lua)</a>
 </li>
 <li>
-<a href="http://www.netsurf-browser.org/" target="_blank">NetSurf (C)</a>
+<a href="https://www.netsurf-browser.org/" target="_blank">NetSurf (C)</a>
 </li>
 <li>
-<a href="http://hsbrowser.wordpress.com/3s-functional-web-browser/" target="_blank">Simple San Simon (Haskell)</a>
+<a href="https://hsbrowser.wordpress.com/3s-functional-web-browser/" target="_blank">Simple San Simon (Haskell)</a>
 </li>
 <li>
 <a href="https://github.com/Kozea/WeasyPrint" target="_blank">WeasyPrint (Python)</a>

@@ -76,7 +76,7 @@ import { CapitalizePipe } from &apos;./capitalize.pipe&apos;; // &#x5C0E;&#x5165
 export class AppModule { }
 </code></pre>
 <p>&#x9019;&#x6A23;&#x4E4B;&#x5F8C;&#x8981;&#x7528; Pipe &#x5C31;&#x4E0D;&#x7528;&#x6BCF;&#x500B; Component &#x90FD;&#x4E00;&#x4E00;&#x5BA3;&#x544A;&#x56C9;&#xFF01;<br>
-<a href="http://plnkr.co/edit/LVwYDhFXhAbqffs03g9h?p=preview" target="_blank">Plurk</a> &#x7BC4;&#x4F8B;</p>
+<a href="https://plnkr.co/edit/LVwYDhFXhAbqffs03g9h?p=preview" target="_blank">Plurk</a> &#x7BC4;&#x4F8B;</p>
  <br>
                                                     </div>
                     </div>

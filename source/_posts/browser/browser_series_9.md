@@ -20,25 +20,25 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
 <a href="https://raw.githubusercontent.com/larsbergstrom/papers/master/icse16-servo-preprint.pdf" target="_blank">Engineering the Servo Web Browser Engine using Rust</a>
 </li>
 <li>
-<a href="http://arxiv.org/abs/1505.07383" target="_blank">Experience Report: Developing the Servo Web Browser Engine using Rust</a>
+<a href="https://arxiv.org/abs/1505.07383" target="_blank">Experience Report: Developing the Servo Web Browser Engine using Rust</a>
 </li>
 <li>
-<a href="http://www.tinmith.net/papers/cascaval-ppopp-2013.pdf" target="_blank">ZOOMM: A Parallel Web Browser Engine for Multicore Mobile Devices</a>
+<a href="https://www.tinmith.net/papers/cascaval-ppopp-2013.pdf" target="_blank">ZOOMM: A Parallel Web Browser Engine for Multicore Mobile Devices</a>
 </li>
 <li>
 <a href="https://www.usenix.org/system/files/conference/hotpar12/hotpar12-final58.pdf" target="_blank">A Case for Parallelizing Web Pages</a>
 </li>
 <li>
-<a href="http://research.microsoft.com/pubs/79655/gazelle.pdf" target="_blank">The Multi-Principal OS Construction of the Gazelle Web Browser</a>
+<a href="https://research.microsoft.com/pubs/79655/gazelle.pdf" target="_blank">The Multi-Principal OS Construction of the Gazelle Web Browser</a>
 </li>
 </ul>
 <h2>&#x700F;&#x89BD;&#x5668;&#x5DE5;&#x4F5C;&#x7684;&#x5E73;&#x884C;&#x5316;</h2>
 <ul>
 <li>
-<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7396817" target="_blank">Parallel JavaScript Execution in Web Navigation Sequences</a>
+<a href="https://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7396817" target="_blank">Parallel JavaScript Execution in Web Navigation Sequences</a>
 </li>
 <li>
-<a href="http://dl.acm.org/citation.cfm?id=2555301" target="_blank">HPar: A practical parallel parser for HTML--taming HTML complexities for parallel parsing</a>
+<a href="https://dl.acm.org/citation.cfm?id=2555301" target="_blank">HPar: A practical parallel parser for HTML--taming HTML complexities for parallel parsing</a>
 </li>
 <li>
 <a href="https://lmeyerov.github.io/projects/pbrowser/pubfiles/paper.pdf" target="_blank">Fast and Parallel Webpage Layout</a>
@@ -50,58 +50,58 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
 <h2>&#x700F;&#x89BD;&#x5668;&#x5DE5;&#x4F5C;&#x7684;&#x5206;&#x6790;&#x8207;&#x5EFA;&#x6A21;</h2>
 <ul>
 <li>
-<a href="http://dl.acm.org/citation.cfm?id=2883014" target="_blank">An In-depth Study of Mobile Browser Performance</a>
+<a href="https://dl.acm.org/citation.cfm?id=2883014" target="_blank">An In-depth Study of Mobile Browser Performance</a>
 </li>
 <li>
-<a href="http://www.sciencedirect.com/science/article/pii/S2210537916000081" target="_blank">Energy consumption and privacy in mobile Web browsing: Individual issues and connected solutions</a>
+<a href="https://www.sciencedirect.com/science/article/pii/S2210537916000081" target="_blank">Energy consumption and privacy in mobile Web browsing: Individual issues and connected solutions</a>
 </li>
 <li>
-<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=7140678" target="_blank">Concurrency in Mobile Browser Engines</a>
+<a href="https://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=7140678" target="_blank">Concurrency in Mobile Browser Engines</a>
 </li>
 <li>
-<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6327179" target="_blank">Exploiting Webpage Characteristics for Energy-Efficient Mobile Web Browsing</a>
+<a href="https://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6327179" target="_blank">Exploiting Webpage Characteristics for Energy-Efficient Mobile Web Browsing</a>
 </li>
 <li>
-<a href="http://www.yuhaozhu.com/pubs/isca14.pdf" target="_blank">WebCore: Architectural Support for Mobile Web Browsing</a>
+<a href="https://www.yuhaozhu.com/pubs/isca14.pdf" target="_blank">WebCore: Architectural Support for Mobile Web Browsing</a>
 </li>
 <li>
 <a href="https://www3.cs.stonybrook.edu/%7Earunab/papers/wprof.pdf" target="_blank">Demystifying Page Load Performance with WProf</a>
 </li>
 <li>
-<a href="http://3nity.io/%7Evj/downloads/publications/zhu10hpca.pdf" target="_blank">High-Performance and Energy-Efficient Mobile Web Browsing on Big/Little Systems</a>
+<a href="https://3nity.io/%7Evj/downloads/publications/zhu10hpca.pdf" target="_blank">High-Performance and Energy-Efficient Mobile Web Browsing on Big/Little Systems</a>
 </li>
 <li>
-<a href="http://delivery.acm.org/10.1145/2530000/2525402/p3-larres.pdf?ip=169.234.217.188&amp;id=2525402&amp;acc=PUBLIC&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=804568850&amp;CFTOKEN=79805568&amp;__acm__=1466664534_ac8d7658ff673120270c10e7287b5e46" target="_blank">A study of performance variations in the Mozilla Firefox web browser</a>
+<a href="https://delivery.acm.org/10.1145/2530000/2525402/p3-larres.pdf?ip=169.234.217.188&amp;id=2525402&amp;acc=PUBLIC&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=804568850&amp;CFTOKEN=79805568&amp;__acm__=1466664534_ac8d7658ff673120270c10e7287b5e46" target="_blank">A study of performance variations in the Mozilla Firefox web browser</a>
 </li>
 <li>
 <a href="https://crypto.stanford.edu/~dabo/pubs/papers/browserpower.pdf" target="_blank">Who killed my battery?: Analyzing Mobile Browser Energy Consumption</a>
 </li>
 <li>
-<a href="http://dl.acm.org/citation.cfm?id=2184508" target="_blank">Why are Web Browers Slow on Smartphones?</a>
+<a href="https://dl.acm.org/citation.cfm?id=2184508" target="_blank">Why are Web Browers Slow on Smartphones?</a>
 </li>
 <li>
-<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5649419" target="_blank">A Limit Study of JavaScript Parallelism</a>
+<a href="https://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5649419" target="_blank">A Limit Study of JavaScript Parallelism</a>
 </li>
 </ul>
 <h2>&#x6539;&#x5584;&#x700F;&#x89BD;&#x5668;&#x7684;&#x6548;&#x7387;</h2>
 <ul>
 <li>
-<a href="http://web.mit.edu/ravinet/www/polaris_nsdi16.pdf" target="_blank">Polaris: Faster Page Loads Using Fine-grained Dependency Tracking</a>
+<a href="https://web.mit.edu/ravinet/www/polaris_nsdi16.pdf" target="_blank">Polaris: Faster Page Loads Using Fine-grained Dependency Tracking</a>
 </li>
 <li>
-<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6776557" target="_blank">Energy-Aware Web Browsing on Smartphones</a>
+<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6776557" target="_blank">Energy-Aware Web Browsing on Smartphones</a>
 </li>
 <li>
-<a href="http://delivery.acm.org/10.1145/2570000/2567971/p575-wang.pdf?ip=169.234.217.188&amp;id=2567971&amp;acc=ACTIVE%20SERVICE&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=804568850&amp;CFTOKEN=79805568&amp;__acm__=1466664056_0298e63e62dbf74a962413739f521a82" target="_blank">Similarity-based web browser optimization</a>
+<a href="https://delivery.acm.org/10.1145/2570000/2567971/p575-wang.pdf?ip=169.234.217.188&amp;id=2567971&amp;acc=ACTIVE%20SERVICE&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=804568850&amp;CFTOKEN=79805568&amp;__acm__=1466664056_0298e63e62dbf74a962413739f521a82" target="_blank">Similarity-based web browser optimization</a>
 </li>
 <li>
-<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6525571&amp;tag=1" target="_blank">Mobile Web Browser Optimizations in the Cloud Era: A Survey</a>
+<a href="https://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6525571&amp;tag=1" target="_blank">Mobile Web Browser Optimizations in the Cloud Era: A Survey</a>
 </li>
 <li>
-<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6689051" target="_blank">GPU acceleration for the web browser based evolutionary computing system</a>
+<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6689051" target="_blank">GPU acceleration for the web browser based evolutionary computing system</a>
 </li>
 <li>
-<a href="http://delivery.acm.org/10.1145/1780000/1772741/p491-zhang.pdf?ip=169.234.16.99&amp;id=1772741&amp;acc=ACTIVE%20SERVICE&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=773108184&amp;CFTOKEN=96473062&amp;__acm__=1461092571_faf3749e491f2a63796ae5bf811efc79" target="_blank">Smart Caching for Web Browsers</a>
+<a href="https://delivery.acm.org/10.1145/1780000/1772741/p491-zhang.pdf?ip=169.234.16.99&amp;id=1772741&amp;acc=ACTIVE%20SERVICE&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=773108184&amp;CFTOKEN=96473062&amp;__acm__=1461092571_faf3749e491f2a63796ae5bf811efc79" target="_blank">Smart Caching for Web Browsers</a>
 </li>
 </ul>
 <h2>&#x4E00;&#x4E9B;&#x6587;&#x4EF6;</h2>
@@ -110,13 +110,13 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
 <a href="https://www.usenix.org/legacy/event/hotpar10/tech/slides/badea.pdf" target="_blank">Towards parallelizing the layout engine of firefox</a>
 </li>
 <li>
-<a href="http://lmeyerov.github.io/projects/pbrowser/hotpar09/paper.pdf" target="_blank">Parallelizing the web browser</a>
+<a href="https://lmeyerov.github.io/projects/pbrowser/hotpar09/paper.pdf" target="_blank">Parallelizing the web browser</a>
 </li>
 <li>
-<a href="http://lmeyerov.github.io/projects/pbrowser/pubfiles/login.pdf" target="_blank">Rethinking Browser Performance</a>
+<a href="https://lmeyerov.github.io/projects/pbrowser/pubfiles/login.pdf" target="_blank">Rethinking Browser Performance</a>
 </li>
 <li>
-<a href="http://parlab.eecs.berkeley.edu/sites/all/parlab/files/playout.pdf" target="_blank">Parallel Webpage Layout</a>
+<a href="https://parlab.eecs.berkeley.edu/sites/all/parlab/files/playout.pdf" target="_blank">Parallel Webpage Layout</a>
 </li>
 </ul>
 <hr>

@@ -95,7 +95,7 @@ import { CreditCardComponent } from &apos;./credit-card.component&apos;;
 export class AppModule { }
 </code></pre>
 <p><code>providers</code> &#x53EA;&#x80FD;&#x7528;&#x5728; root module &#xFF0C;&#x7528;&#x4F86;&#x6CE8;&#x5165;&#x4F9D;&#x8CF4;&#x670D;&#x52D9;&#x3002;&#x7528;&#x5728; feature module &#x7684;&#x8A71;&#xFF0C;&#x5F88;&#x53EF;&#x80FD;&#x6703;&#x5C0E;&#x81F4;&#x4E0D;&#x660E;&#x7684;&#x932F;&#x8AA4;&#x3002;</p>
-<p>&#x4E0B;&#x7BC7; <a href="http://ithelp.ithome.com.tw/articles/10188188" target="_blank">Angular 2 Module ( 2 )</a> &#x6703;&#x7E7C;&#x7E8C;&#x63A2;&#x8A0E;&#x3002;</p>
+<p>&#x4E0B;&#x7BC7; <a href="https://ithelp.ithome.com.tw/articles/10188188" target="_blank">Angular 2 Module ( 2 )</a> &#x6703;&#x7E7C;&#x7E8C;&#x63A2;&#x8A0E;&#x3002;</p>
  <br>
                                                     </div>
                     </div>

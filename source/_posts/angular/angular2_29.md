@@ -8,7 +8,7 @@ tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之�
 <blockquote>
 <p>&#x85C9;&#x7531;&#x5EFA;&#x7ACB;&#x53CA;&#x57F7;&#x884C;&#x55AE;&#x5143;&#x6E2C;&#x8A66;&#xFF0C;&#x6AA2;&#x67E5;&#x60A8;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x662F;&#x5426;&#x5982;&#x9810;&#x671F;&#x822C;&#x57F7;&#x884C;&#x3002; &#x9019;&#x4E4B;&#x6240;&#x4EE5;&#x7A31;&#x70BA;&#x55AE;&#x5143;&#x6E2C;&#x8A66;&#xFF0C;&#x662F;&#x56E0;&#x70BA;&#x60A8;&#x5C07;&#x7A0B;&#x5F0F;&#x529F;&#x80FD;&#x5206;&#x89E3;&#x6210;&#x96E2;&#x6563;&#x7684;&#x53EF;&#x6E2C;&#x8A66;&#x884C;&#x70BA;&#xFF0C;&#x9019;&#x4E9B;&#x884C;&#x70BA;&#x80FD;&#x505A;&#x70BA;&#x500B;&#x5225;&#x7684;&#x300C;&#x55AE;&#x4F4D;&#x300D;(unit) &#x52A0;&#x4EE5;&#x6E2C;&#x8A66;&#x3002;</p>
 </blockquote>
-<p>&#x60F3;&#x66F4;&#x4E86;&#x89E3;&#x55AE;&#x5143;&#x6E2C;&#x8A66;&#x53EF;&#x4EE5;&#x770B;<a href="http://www.codedata.com.tw/java/unit-test-the-way-changes-my-programming" target="_blank">&#x9019;&#x7BC7;</a></p>
+<p>&#x60F3;&#x66F4;&#x4E86;&#x89E3;&#x55AE;&#x5143;&#x6E2C;&#x8A66;&#x53EF;&#x4EE5;&#x770B;<a href="https://www.codedata.com.tw/java/unit-test-the-way-changes-my-programming" target="_blank">&#x9019;&#x7BC7;</a></p>
 <h2>&#x6E2C;&#x8A66;&#x74B0;&#x5883;</h2>
 <h3>&#x6982;&#x5FF5;</h3>
 <p>&#x9019;&#x908A;&#x7528; Jasmine &#x6E2C;&#x8A66;&#xFF0C;&#x4F46;&#x5176;&#x5BE6;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x5176;&#x4ED6;&#x7684;&#x6E2C;&#x8A66;&#x6846;&#x67B6;&#x50CF;&#x662F; <a href="https://mochajs.org/" target="_blank">Mocha</a>.</p>

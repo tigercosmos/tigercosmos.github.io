@@ -3,7 +3,7 @@ title: Angular 2 Module ( 2 )
 date: 2016-12-31 23:49:38
 tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
-<p>&#x63A5;&#x7E8C; <a href="http://ithelp.ithome.com.tw/articles/10188095" target="_blank">Angular 2 Module ( 1 )</a></p>
+<p>&#x63A5;&#x7E8C; <a href="https://ithelp.ithome.com.tw/articles/10188095" target="_blank">Angular 2 Module ( 1 )</a></p>
 <h2>Feature Module</h2>
 <p>Angular &#x4E00;&#x5B9A;&#x6703;&#x6709;&#x4E00;&#x500B; root module&#xFF0C;&#x4F46;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x6709; feature module&#xFF0C;&#x63A5;&#x8457;&#x5C31;&#x4F86;&#x770B;&#x770B;&#x600E;&#x9EBC;&#x5EFA;&#x7ACB;&#x5427;&#xFF01;<br>
 &#x63A5;&#x7E8C;&#x4E0A;&#x4E00;&#x7BC7;&#xFF0C;&#x5047;&#x8A2D;&#x6211;&#x5011;&#x4F9D;&#x820A;&#x6709;<code>CreditCardMaskPipe</code> &#x3001; <code>CreditCardService</code> &#x3001;<code>CreditCardComponent</code>&#xFF0C;&#x4F46;&#x6211;&#x5011;&#x4E0D;&#x60F3;&#x8981;&#x76F4;&#x63A5;&#x653E;&#x9032; root module&#xFF0C;&#x6211;&#x5011;&#x60F3;&#x8981;&#x518D;&#x5EFA;&#x7ACB;&#x4E00;&#x500B; module &#x4F86;&#x5305;&#x88DD;&#x9019;&#x4E9B;&#x6771;&#x897F;&#xFF0C;&#x9019;&#x6642;&#x5019;&#x65B0;&#x7684; module &#x5C31;&#x662F; feature module &#x4E86;&#x3002;</p>

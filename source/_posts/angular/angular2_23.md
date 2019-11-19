@@ -9,7 +9,7 @@ tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之�
 <p>&#x6B64;&#x5916;&#x5B8C;&#x6210;&#x4E00;&#x500B; App &#x9084;&#x5305;&#x62EC;&#x4ED6;&#x7684;&#x5716;&#x793A;&#x4EE5;&#x53CA;&#x4ED6;&#x958B;&#x59CB;&#x756B;&#x9762;&#x3002;</p>
 <h2>Build/Run the App</h2>
 <h3>Android</h3>
-<p>&#x8981;&#x5148;&#x5B89;&#x88DD; Android SDK &#x8DDF; Java&#xFF0C;&#x7D30;&#x7BC0;&#x53EF;&#x4EE5;&#x770B;<a href="http://ionicframework.com/docs/v2/resources/platform-setup/windows-setup.html" target="_blank">&#x9019;&#x908A;</a>&#x3002;</p>
+<p>&#x8981;&#x5148;&#x5B89;&#x88DD; Android SDK &#x8DDF; Java&#xFF0C;&#x7D30;&#x7BC0;&#x53EF;&#x4EE5;&#x770B;<a href="https://ionicframework.com/docs/v2/resources/platform-setup/windows-setup.html" target="_blank">&#x9019;&#x908A;</a>&#x3002;</p>
 <pre><code>ionic platform add android
 </code></pre>
 <p>&#x9019;&#x6A23;&#x6703;&#x5728; platforms &#x589E;&#x52A0;&#x4E00;&#x500B; android &#x8CC7;&#x6599;&#x593E;&#xFF0C;&#x4E26;&#x52A0;&#x5165;&#x4E00;&#x4E9B;&#x5EFA;&#x7ACB; android app &#x9700;&#x8981;&#x7684;&#x8CC7;&#x6E90;&#x3002;</p>

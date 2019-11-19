@@ -5,7 +5,7 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
 ---
 
                     
-&#x4ECA;&#x5929;&#x7814;&#x7A76;&#x8AD6;&#x6587;&#xFF1A; <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.207.1244&amp;rep=rep1&amp;type=pdf" target="_blank">Fast and Parallel Webpage Layout</a></p>
+&#x4ECA;&#x5929;&#x7814;&#x7A76;&#x8AD6;&#x6587;&#xFF1A; <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.207.1244&amp;rep=rep1&amp;type=pdf" target="_blank">Fast and Parallel Webpage Layout</a></p>
 <blockquote>
 <p>&#x8AD6;&#x6587;&#x4F5C;&#x8005;&#x70BA; Leo A. Meyerovich &#x548C; Rastislav Bod&#xED;k&#xFF0C;&#x65BC; 2010 &#x5E74;&#x767C;&#x8868;&#x3002;<br>
 &#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x5716;&#x7247;&#x4F86;&#x81EA;&#x539F;&#x59CB;&#x8AD6;&#x6587;</p>

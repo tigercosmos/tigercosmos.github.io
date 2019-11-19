@@ -42,7 +42,7 @@ Servo &#x53D6;&#x4EE3; Gecko</p>
 <a href="https://servo.org/zh-TW/index.html" target="_blank">Servo &#x4E2D;&#x6587;&#x5B98;&#x7DB2;</a><br>
 <a href="https://www.rust-lang.org/en-US/" target="_blank">Rust</a><br>
 <a href="https://doc.rust-lang.org/book/first-edition/" target="_blank">Rust book</a><br>
-<a href="http://bholley.net/blog/2017/stylo.html" target="_blank">how stylp brough rust and servo to firefox</a></p>
+<a href="https://bholley.net/blog/2017/stylo.html" target="_blank">how stylp brough rust and servo to firefox</a></p>
 <hr>
 <p>&#x5E0C;&#x671B;&#x6709;&#x5E6B;&#x5230;&#x5927;&#x5BB6;&#xFF0C;&#x5927;&#x5BB6;&#x660E;&#x5929;&#x898B;&#xFF01;</p>
 <hr>

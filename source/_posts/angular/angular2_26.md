@@ -6,7 +6,7 @@ tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之�
 <h2>&#x524D;&#x8A00;</h2>
 <p>&#x9023;&#x7E8C;&#x767C;&#x4E86; 20 &#x5E7E;&#x5929;&#x7684;&#x6587;&#xFF0C;&#x80FD;&#x8B1B;&#x7684;&#x4E5F;&#x90FD;&#x8B1B;&#x4E86;&#xFF0C;&#x9081;&#x5411;&#x795E;&#x4E4E;&#x5176;&#x6280;&#x4E4B;&#x8DEF;&#x53EA;&#x5269;&#x4E0B;&#x638C;&#x63E1;&#x5C0F;&#x5730;&#x65B9;&#x4E86;&#x5427;&#xFF01;<br>
 &#x4E4B;&#x524D;&#x4ECB;&#x7D39;&#x904E; <code>&lt;ng-content&gt;</code> &#x8DDF; <code>ContentChild</code>&#xFF0C;&#x9084;&#x6709;&#x500B;&#x5F88;&#x985E;&#x4F3C;&#x7684;&#x662F; <code>@ViewChild</code>&#x88DD;&#x98FE;&#x5668;&#xFF0C;&#x63A5;&#x8457;&#x5C31;&#x4F86;&#x770B;&#x770B;&#x9019;&#x662F;&#x751A;&#x9EBC;&#x5427;&#xFF01;</p>
-<p>&#x9019;&#x7BC7;&#x5EFA;&#x8B70;&#x642D;&#x914D;<a href="http://ithelp.ithome.com.tw/articles/10188796" target="_blank">&#x524D;&#x4E00;&#x7BC7;</a>&#x4E00;&#x8D77;&#x770B;&#x3002;</p>
+<p>&#x9019;&#x7BC7;&#x5EFA;&#x8B70;&#x642D;&#x914D;<a href="https://ithelp.ithome.com.tw/articles/10188796" target="_blank">&#x524D;&#x4E00;&#x7BC7;</a>&#x4E00;&#x8D77;&#x770B;&#x3002;</p>
 <h2>@ViewChild</h2>
 <p>&#x76F4;&#x63A5;&#x4F86;&#x770B;<a href="https://embed.plnkr.co/W15xez8iP7O67SMfXFrL/" target="_blank">&#x7BC4;&#x4F8B;</a>&#xFF0C;&#x9019;&#x500B;&#x7BC4;&#x4F8B;&#x5927;&#x81F4;&#x8DDF; <code>@ContentChild</code> &#x7684;<a href="https://embed.plnkr.co/rSmStf53EZx4Dh4AlI1g/" target="_blank">&#x7BC4;&#x4F8B;</a>&#x5F88;&#x50CF;&#xFF0C;&#x4F46;&#x505A;&#x4E86;&#x4E00;&#x9EDE;&#x4FEE;&#x6539;&#xFF0C;&#x665A;&#x9EDE;&#x6211;&#x5011;&#x6703;&#x505A;&#x6BD4;&#x8F03;&#x3002;</p>
 <h4>app.ts</h4>
