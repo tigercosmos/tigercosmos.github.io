@@ -4,7 +4,7 @@ date: 2019-11-11 00:00:00
 tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
 ---
 
-Gitbook 連結：[htts://tigercosmos.xyz/master-js-in-30-days/](htts://tigercosmos.xyz/master-js-in-30-days/)
+Gitbook 連結： [https://tigercosmos.github.io/master-js-in-30-days/](https://tigercosmos.github.io/master-js-in-30-days/)
 
 # 環境建設與執行第一個程式
 
