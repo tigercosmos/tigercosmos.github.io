@@ -238,7 +238,7 @@ export class MyAppComponent {
 ]
 </code></pre>
 <p>&#x770B;&#x8D77;&#x4F86;&#x5C31;&#x6703;&#x9577;&#x9019;&#x6A23;<br>
-<img src="https://angular.io/resources/images/devguide/animations/animation_timings.gif" alt></p>
+</p>
 <hr>
 <p>&#x5927;&#x591A;&#x6578;&#x7684;&#x52D5;&#x756B;&#x90FD;&#x53EF;&#x4EE5;&#x7528; Angular Component &#x7684;&#x65B9;&#x5F0F;&#x505A;&#x5230;&#xFF0C;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x52D5;&#x5230; TypeScript &#x4F86;&#x63A7;&#x5236;&#x52D5;&#x756B;&#x6548;&#x679C;&#xFF0C;Angular &#x52D5;&#x756B;&#x8A2D;&#x8A08;&#x7684;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x8B93;&#x6211;&#x5011;&#x7528;&#x66F4;&#x76F4;&#x89C0;&#xFF0C;&#x4E0D;&#x76F4;&#x63A5;&#x52D5; DOM &#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x7528; component-&gt;template-&gt;animation &#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x8B93;&#x8A2D;&#x8A08;&#x5E2B;&#x66F4;&#x597D;&#x5EFA;&#x69CB;&#x548C;&#x5BE6;&#x73FE;&#x52D5;&#x756B;&#x3002;</p>
 <p>&#x203B;&#x66F4;&#x8A73;&#x76E1;&#x5167;&#x5BB9;&#x53EF;&#x4EE5;&#x53C3;&#x8003;<a href="https://angular.io/docs/ts/latest/guide/animations.html" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x4EF6;</a></p>
