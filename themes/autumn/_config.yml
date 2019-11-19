@@ -1,5 +1,6 @@
 # Nav
 social:
+  About: /about
   Github: https://github.com/tigercosmos
   LinkedIn: https://www.linkedin.com/in/liuanchi/
 
@@ -17,6 +18,7 @@ widgets:
   # category: enabled
   archive: enabled
   tag: enabled
+  about: enabled
 
 # Set the first image in post to cover
 auto_cover: true

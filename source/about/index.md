@@ -16,3 +16,13 @@ You can reach me in:
 - Facebook Page: [微中子 @tigercosmos](https://www.facebook.com/phy.tiger)
 - Twitter: [@tigercosmos](https://twitter.com/tigercosmos)
 - Email: phy.tiger@gmail.com, acliu@cs.nctu.edu.tw
+
+---
+
+<script async="" defer="" src="https://platform.linkedin.com/badges/js/profile.js" type="text/javascript"></script>
+<div class="LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="horizontal"
+  data-vanity="liuanchi" data-version="v1"><a class="LI-simple-link"
+    href="https://nl.linkedin.com/in/liuanchi/en?trk=profile-badge">An-Chi Liu</a></div><br /><iframe
+  allowtransparency="true" frameborder="0" height="500" scrolling="no"
+  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCodingNeutrino%2F&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId=577288832614270"
+  style="border: none; overflow: hidden;" width="340"></iframe>
