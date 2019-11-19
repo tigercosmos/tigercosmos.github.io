@@ -134,7 +134,6 @@ export class AppComponent {
   &lt;h2&gt;My favorite hero is: {{myHero}}&lt;/h2&gt;
 </code></pre>
 <p>&#x6703;&#x986F;&#x793A;&#x6210;&#x9019;&#x6A23;&#xFF1A;<br>
-<img src="https://angular.io/resources/images/devguide/displaying-data/title-and-hero.png" alt><br>
 &#x56E0;&#x70BA;&#x662F;&#x5728;&#x540C;&#x500B; Component&#xFF0C;&#x7576; Angular &#x5728; Template &#x4E2D;&#x5075;&#x6E2C;&#x5230; <code>{ { } }</code> &#x7684;&#x6642;&#x5019;&#xFF0C; Class &#x88E1;&#x7684;&#x8B8A;&#x6578;&#x6703;&#x76F4;&#x63A5;&#x88AB;&#x653E;&#x5230; <code>{ { } }</code> &#x88E1;&#x9762;&#x3002;&#x7576;&#x8B8A;&#x6578;&#x503C;&#x767C;&#x751F;&#x6539;&#x8B8A;&#x6642;&#x4E5F;&#x6703;&#x8DDF;&#x8457;&#x66F4;&#x65B0;&#x986F;&#x793A;&#xFF0C;&#x6578;&#x503C;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x986F;&#x793A;&#x662F;&#x767C;&#x751F;&#x5728;&#x8207;&#x8996;&#x5716;&#x76F8;&#x95DC;&#x7684;&#x67D0;&#x4E9B;&#x7570;&#x6B65;&#x4E8B;&#x4EF6;&#x4E4B;&#x5F8C;&#xFF0C;&#x4F8B;&#x5982;&#x9EDE;&#x64CA;&#x3001;&#x52FE;&#x9078;&#x3001;&#x547C;&#x53EB; XHR&#x3002;</p>
 <p>&#x9084;&#x53EF;&#x4EE5;&#x62FF;&#x4F86;&#x9019;&#x6A23;&#x7528;&#xFF1A;</p>
 <pre><code>&lt;!-- &quot;The sum of 1 + 1 is 2&quot; --&gt;

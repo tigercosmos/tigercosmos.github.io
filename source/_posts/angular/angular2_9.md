@@ -200,7 +200,6 @@ export class MyAppComponent {
 </code></pre>
 <p>&#x4E0A;&#x9762;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x6703;&#x5148;&#x6709;&#x98DB;&#x5165;&#x6548;&#x679C;&#xFF0C;&#x7DCA;&#x63A5;&#x8005;&#x98DB;&#x51FA;&#x3002;<br>
 &#x770B;&#x8D77;&#x4F86;&#x5C31;&#x6703;&#x9577;&#x9019;&#x6A23;&#xFF1A;<br>
-<img src="https://angular.io/resources/images/devguide/animations/animation_enter_leave.gif" alt></p>
 <hr>
 <h2>&#x52D5;&#x756B;&#x6642;&#x9593;&#x63A7;&#x5236;</h2>
 <p>Angular &#x63D0;&#x4F9B;&#x4E09;&#x7A2E;&#x63A7;&#x5236;&#x6642;&#x9593;&#x6548;&#x679C;&#x7684;&#x5C6C;&#x6027;&#xFF0C;&#x5206;&#x5225;&#x662F; <code>duration</code> &#x3001; <code>delay</code> &#x548C; <code>easing</code>&#x3002;</p>

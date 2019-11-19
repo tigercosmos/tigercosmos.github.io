@@ -52,7 +52,6 @@ export class AppComponent  implements OnInit {
 &lt;router-outlet&gt;&lt;/router-outlet&gt;
 </code></pre>
 <p>&#x770B;&#x8D77;&#x4F86;&#x5C31;&#x6703;&#x9577;&#x9019;&#x6A23;<br>
-<img src="https://angular.io/resources/images/devguide/router/shell-and-outlet.png" alt></p>
 <p>&#x5047;&#x8A2D;&#x8981;&#x50B3;&#x53C3;&#x6578;&#x7684;&#x8A71;&#x5C31;&#x9019;&#x6A23;&#x7528;<br>
 &#x6A21;&#x677F;&#xFF1A;</p>
 <pre><code>  &lt;h1 class=&quot;title&quot;&gt;Angular Router&lt;/h1&gt;
