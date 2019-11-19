@@ -13,7 +13,7 @@ You can reach me in:
 
 - Github: [@tigercosmos](https://github.com/tigercosmos)
 - LinkedIn: [@liuanchi](https://www.linkedin.com/in/liuanchi/)
-- Facebook Page: [微中子 @tigercosmos](https://www.facebook.com/phy.tiger)
+- Facebook Page: [微中子 @tigercosmos](https://www.facebook.com/CodingNeutrino/)
 - Twitter: [@tigercosmos](https://twitter.com/tigercosmos)
 - Email: phy.tiger@gmail.com, acliu@cs.nctu.edu.tw
 
