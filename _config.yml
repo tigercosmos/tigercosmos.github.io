@@ -15,7 +15,7 @@ timezone: 'asia/taipei'
 ## If your site is put in a subdirectory, set url as 'https://yoursite.com/child' and root as '/child/'
 url: https:/blog.tigercosmos.xyz/
 root: /
-permalink: :year/:month/:day/:title/
+permalink: post/:year/:month/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing index.html from permalinks
