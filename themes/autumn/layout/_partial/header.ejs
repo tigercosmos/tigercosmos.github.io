@@ -2,7 +2,7 @@
     <nav class="mobile-menu" style="background: <%- theme.background %>">
         <h3 class="invisibile">
             <a href="<%- url_for() %>" class="logo">
-                <%= config.title %>
+                <%= config.title %>: <%= page.title %>
             </a>
         </h3>
         <button class="menu">menu</button>
@@ -12,7 +12,7 @@
 
     <h1 class="title" id="main-title">
         <a href="<%- url_for() %>" class="logo">
-            <%= config.title %>
+            <%= config.title %>: <%= page.title %>
         </a>
     </h1>
     <h2 class="desc">
