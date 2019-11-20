@@ -12,21 +12,19 @@ Shared memory 讓我們可以建立一塊共用的記憶體空間，`mmap` 會�
 
 實作範例：
 
-```shell
-$ g++ mmap.cc -std=c++17
-```
+<pre><code class="bash">$ g++ mmap.cc -std=c++17
+</pre></code>
 
-```c++
-// mmap.cc 
+<pre><code class="c++">// mmap.cc
 
-#include <memory>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/mman.h>
-#include <unistd.h>
+#include &lt;memory&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/mman.h&gt;
+#include &lt;unistd.h&gt;
 
-template <typename T> T *create_shared_memory() {
+template &lt;typename T&gt; T *create_shared_memory() {
   // 可讀、可寫
   int protection = PROT_READ | PROT_WRITE;
 
@@ -38,7 +36,7 @@ template <typename T> T *create_shared_memory() {
   void *ptr = mmap(NULL, sizeof(T), protection, visibility, -1, 0);
 
   // 將記憶體轉型成 T 物件指標
-  return reinterpret_cast<T *>(ptr);
+  return reinterpret_cast&lt;T *&gt;(ptr);
 }
 
 struct Bar {
@@ -54,20 +52,20 @@ struct Foo {
 int main() {
 
   // 建立 Foo * 在 shared memory 中
-  auto *foo = create_shared_memory<Foo>();
+  auto *foo = create_shared_memory&lt;Foo&gt;();
 
   auto print = [=]() {
-    for (auto i = 0; i < 3; i++) {
-      printf("%d: %d, %d\n", i, foo->bar[i].a, foo->bar[i].b);
+    for (auto i = 0; i &lt; 3; i++) {
+      printf("%d: %d, %d\n", i, foo-&gt;bar[i].a, foo-&gt;bar[i].b);
     }
     // 印出 Foo 的地址，檢驗 parent 和 child 是共用
-    printf("Foo: %p\nFoo.bar: %p\n---\n", foo, foo->bar);
+    printf("Foo: %p\nFoo.bar: %p\n---\n", foo, foo-&gt;bar);
   };
 
   // 初始化
-  foo->bar[0] = Bar(0, 0);
-  foo->bar[1] = Bar(0, 0);
-  foo->bar[2] = Bar(0, 0);
+  foo-&gt;bar[0] = Bar(0, 0);
+  foo-&gt;bar[1] = Bar(0, 0);
+  foo-&gt;bar[2] = Bar(0, 0);
   
   printf("data before fork: \n");
   print();
@@ -78,8 +76,8 @@ int main() {
     print();
 
     // 改動 shared object
-    foo->bar[1].a = 2;
-    foo->bar[1].b = 3;
+    foo-&gt;bar[1].a = 2;
+    foo-&gt;bar[1].b = 3;
 
     printf("Child wrote:\n");
     print();
@@ -94,7 +92,7 @@ int main() {
     print();
   }
 }
-```
+</pre></code>
 
 不過要注意的是，shared object 不能放 STD container，因為 container 產生的指標只能在當下那個 process 所用，其他 process 讀不到。
 
@@ -102,15 +100,15 @@ int main() {
 
 第二種實作大概像這樣：
 
-```c++
+<pre><code class="c++">
 struct Foo {
-  std::vector<std::unique_ptr<Bar>> bars;
+  std::vector&lt;std::unique_ptr&lt;Bar&gt;&gt; bars;
 };
 
 void main() {
-  std::vector<Bar *> bars;
-  for(int i = 0; i < 10; i++) {
-    auto *bar = create_shared_memory<Bar>();
+  std::vector&lt;Bar *&gt; bars;
+  for(int i = 0; i &lt; 10; i++) {
+    auto *bar = create_shared_memory&lt;Bar&gt;();
     bars.push_back(bar);
   }
 
@@ -119,8 +117,8 @@ void main() {
     Foo foo1;
 
     // 把 foo 中的 bar 們一個一個塞回來
-    for(size_t i = 0; i < bars.size(); i++) {
-      std::unique_ptr<Bar> u_bar;
+    for(size_t i = 0; i &lt; bars.size(); i++) {
+      std::unique_ptr&lt;Bar&gt; u_bar;
       u_bar.reset(bars.at(i));
       foo1.push_back(std::move(u_bar));
     }
@@ -134,4 +132,4 @@ void main() {
   }
   // ...
 }
-```
+</pre></code>
