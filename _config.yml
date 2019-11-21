@@ -13,7 +13,7 @@ timezone: 'asia/taipei'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'https://yoursite.com/child' and root as '/child/'
-url: https:/blog.tigercosmos.xyz/
+url: https://tigercosmos.xyz/
 root: /
 permalink: post/:year/:month/:title/
 permalink_defaults:
