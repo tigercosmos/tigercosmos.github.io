@@ -20,6 +20,7 @@ widgets:
   archive: enabled
   tag: enabled
   about: enabled
+  recent: enabled
 
 # Set the first image in post to cover
 auto_cover: true
