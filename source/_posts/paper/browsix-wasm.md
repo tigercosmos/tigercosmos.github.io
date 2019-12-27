@@ -60,7 +60,7 @@ BROWSIX 可以處理 socket、pipe、file system 等 System Call（[Source Code]
 <pre><code class="c">void matmul (int C[NI][NJ], int A[NI][NK], int B[NK][NJ]) {
   for (int i = 0; i < NI; i++) {
     for (int k = 0; k < NK; k++) {
-      for (int j = 0; k < NJ; j++) {
+      for (int j = 0; j < NJ; j++) {  // 原論文這邊有打錯 j 成 k
         C[i][j] += A[i][k] * B[k][j];
       }
     }
@@ -84,7 +84,7 @@ X86-84 Code，論文圖 `7.b` 和 `7.c`：
 
 - Chrome 沒有有效利用 Memory addressing。例如 Clang 在 `7b` 的 14 行只用一行，Chrome 卻在處理 `ecx` 上花了三行。
 - `r13` 和 `r10` 被 V8 佔用，Chrome 可用的 Register 比較少
-- Chrome 比較多 brach。例如 `7b` 的 9 和 15 行，Clang 藉由翻轉 counter 來減少條件檢查。Chrome 為了避免 Register spill 所以必須 jump，例如 `7c` 的 7 到 9 行。
+- Chrome 比較多 brach。例如 `7b` 的 9 和 15 行，Clang 藉由翻轉 counter 來減少條件檢查（這邊用到 x86 的特性，[add](https://c9x.me/x86/html/file_module_x86_id_5.html) 會去改 ZF flag，讓 jne 可以跳出）。Chrome 為了避免 Register spill 所以必須 jump，例如 `7c` 的 7 到 9 行。
 
 ## 效能分析
 
