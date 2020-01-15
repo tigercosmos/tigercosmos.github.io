@@ -3,10 +3,6 @@ title: 半路出家申請國內資工研究所
 date: 2018-11-21 00:00:00
 tags: [Chinese Posts,English Posts,研究所,推甄,交大資工所,台大網媒所,Chinese,]
 ---
-
-
-## 半路出家申請國內資工研究所
-
 ### 申請交大資工丙正取、台大網媒備取的歷程與省思
 
 <img class="dz t u gn ak" src="https://miro.medium.com/max/2360/0*Lo7EBvEhg4nzf9fg.jpg" role="presentation"><br/>
