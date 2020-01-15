@@ -2,7 +2,7 @@
 <div class="recent-post">
   <h1>Recent Posts</h1>
   <ul>
-    <% site.posts.sort('date', -1).limit(5).each(function(post){ %>
+    <% site.posts.sort('date', -1).limit(8).each(function(post){ %>
     <li>
       <a href="<%- url_for(post.path) %>">
         <%= post.title || '(no title)' %>
