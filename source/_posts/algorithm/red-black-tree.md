@@ -18,6 +18,8 @@ tags: [algorithm, red black tree]
 
 在現實生活中，常常用來實作 set 和 dictionary，C++ 中的 `std::set` 和 `std::map` 背後正是紅黑樹。
 
+<!-- more --> 
+
 下圖為一紅黑樹例子：
 ![red black tree](https://user-images.githubusercontent.com/18013815/69704764-131ca180-112f-11ea-9897-ea561e87fc35.png)
 

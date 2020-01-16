@@ -14,6 +14,8 @@ tags: [paper, WebAssembly, browser, CPU SPEC]
 作者們先前開發了 [BROWSIX](https://github.com/plasma-umass/browsix)，可以讓 Unix 程式直接轉成 JavaScript 並跑在瀏覽器。BROWSIX 基本上就是把程式碼轉成 JavaScript 並且用 Browser API 來模擬 Unix System Call。此篇作者更進一步，開發 BROWSIX-WASM（fork 自 [Emscripten](https://github.com/emscripten-core/emscripten)）將程式碼轉成 WebAssembly，一來解決原本 JavaScript 效能不佳問題，同時也能可以拿來和 Native Code 在 SPEC CPU suite of Benchmark 上做效能比較。實驗結果 WebAssembly 在現代瀏覽器（Chrome & Firefox）上慢 Native Code 大約 50%，並深入探討為什麼會這樣。
 
 整體來說我覺得是很有趣的一篇論文，整理了重點並加入一些我個人的見解。
+
+<!-- more --> 
  
 原論文摘要：
 
