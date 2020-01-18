@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
   //
   // 其他參數：
   //  重新啟動可被中斷的 system call 要設 SA_RESTART
-  //  想要有 SIGCHLD 需要設 SA_NOCLDWAIT;
+  //  SIGCHLD 可以設 SA_NOCLDWAIT 來避免疆屍
   act.sa_flags = SA_SIGINFO;
 
   // 設定 SIGUSR1
