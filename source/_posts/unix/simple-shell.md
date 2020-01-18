@@ -56,7 +56,7 @@ $            # pid 0 用 waitpid() 等 pid 1 結束才繼續
 
 ## Shell 範例
 
-執行 `g++ shell.cpp -std=c++17 && ./a.out`
+執行 `g++ shell.cpp && ./a.out`
 
 <pre><code class="c++">// shell.cpp
 #include &lt;errno.h&gt;
@@ -131,4 +131,23 @@ int main(int argc, char **argv) {
   std::cout &lt;&lt; "===" &lt;&lt; std::endl;
   std::cout &lt;&lt; "All done." &lt;&lt; std::endl;
 }
+</pre></code>
+
+輸出會像這樣:
+
+<pre><code class="shell">$ g++ shell.cpp && ./a.out
+- fork 8244
+- fork 8245
+- fork 8246
+- fork 8247
+- fork 8248
+- fork 8249
+- fork 8250
+- fork 8251
+- fork 8252
+FILE_A
+FILE_B
+FILE_C
+===
+All done.
 </pre></code>
