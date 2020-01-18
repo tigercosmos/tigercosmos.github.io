@@ -8,6 +8,10 @@ tags: [unix, shell, fork, dup2, pipe]
 
 不管使用本地端 Unix、Windows 或是連線到伺服器，我們都會打開終端機（Terminal），而連線等入進去的起使畫面會是 Shell，然後開發者可以輸入指令來跑程式。某方面來說，當我們在講「使用終端機」就等同「使用 Shell」，即便他們原本代表意思其實不一樣。關於 Shell 的詳細介紹可以參考「[C Sehll](https://en.wikipedia.org/wiki/C_shell)」英文維基。
 
+<!-- more --> 
+
+<img width="500" alt="shell image" src="https://user-images.githubusercontent.com/18013815/72660990-4b927a80-3a10-11ea-9b89-d6971cf200b1.png">
+
 試想我們平常在用 Unix 時，常常在終端機下指令，例如 `ls` 可以顯示當前目錄有哪些檔案，`cat` 可以顯示檔案內容，`grep` 可以擷取檔案內容。或是執行一些其他工作，比方說 `g++ main.cc`，或是 `node index.js` 之類的。
 
 Shell 最強的地方是，一些平常的工作可以快速解決，像是查詢目前 chrome 開了哪些執行序，就可以下 `ps au | grep chrome`，其中 `ps` 是列出程序，`grep` 是擷取符合 `chrome` 的文字。`|` 是「pipe」，`A | B` 代表將 A 輸出的東西丟給 B，B 會收取 input 然後開始執行。 
