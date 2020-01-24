@@ -1,13 +1,14 @@
 ---
 title: 簡明 CGI 原理與實作
 date: 2020-01-24 15:01:00
-tags: [CGI, web, ]
+tags: [CGI, web, Boost, socket]
 ---
 
 ## CGI 介紹
 
 Common Gateway Interface, CGI 讓伺服器(Server)將路由(Route)轉給轉外部程式(CGI 程式)，使外部程式可以直接和客戶端(通常為瀏覽器) 互動。在 WEB 剛興起的時候，主要還是處於靜態伺服階段，單純傳送檔案或文字資訊而已。如果想要有表單之類的互動，也就是動態網站的話，就要靠呼叫外部程式來幫忙。隨著網路科技的發達，CGI 已經漸漸式微，取而代之的是 Python、NodeJS、PHP、Java 等語言為基礎的網頁框架，像是 Flask 或 Express，抑或著實現前後端分離的 RESTful API 架構。
 
+<!-- more --> 
 CGI 基本原理是，瀏覽器傳送請求(Request)給伺服器，伺服器以環境變數的方式將使用者傳送的資料傳給「外部可執行程式」，讓外部程式根據這些資訊來執行，並將結果傳回給伺服器，伺服器再將結果傳回給瀏覽器。也就是說，伺服器將工作打包給外部程式做，做完之後得到結果送回給客戶端，所以才叫做 Gateway，因為伺服器只負責指派任務。其中外部程式會以 STDIN 和 STDOUT 的方式接收資料和回傳資料給伺服器。
 
 架構圖如下：
@@ -28,7 +29,7 @@ CGI 基本原理是，瀏覽器傳送請求(Request)給伺服器，伺服器以�
 
 ## 示例
 
-接著我們要來實現簡單的 CGI 程式。本文的範例程式碼放在 Github 上[(連結)](https://github.com/tigercosmos/cgi_demo)，請 clone 下來玩玩看。首先，我們要建立 Web 伺服器，這邊我用 C++ 的 Boost Asio 來寫，原則上你可以用任何語言來實現。
+接著我們要來實現簡單的 CGI 程式。本文的範例程式碼放在 Github 上[(連結)](https://github.com/tigercosmos/cgi_demo)，請 clone 下來玩玩看。
 
 操作這個 DEMO 首先要 clone 專案，然後編譯它：
 
@@ -44,7 +45,7 @@ $ ./server 8880
 
 ## 說明
 
-我用 Boost Asio 實現簡單的 TCP Server，你可能需要看一下 Boost 教學來搞懂在幹嘛，但如果你之前寫過其他語言的伺服器，其實本質是很像的。
+首先，我們要建立 Web 伺服器，原則上你可以用任何語言來實現。這邊我用 Boost Asio 實現簡單的 TCP Server，你可能需要看一下 Boost 教學來搞懂在幹嘛，但如果你之前寫過其他語言的伺服器，其實本質是很像的。
 
 其中 `server.cpp` 的 34-43 行，其實就是接受 HTTP request：
 
