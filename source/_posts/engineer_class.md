@@ -4,9 +4,6 @@ date: 2018-12-29 00:00:00
 tags: [Chinese Posts,English Posts,軟體工程師,資訊工程,必修課,Chinese,]
 ---
 
-
-## 軟體工程師必修的三門課
-
 ### 何謂工程師？為什麼所有軟體工程師都該學資料結構與演算法、計算機架構、作業系統？
 
 <img class="dz t u gs ak" src="https://miro.medium.com/max/2400/0*55WpTOasJxnCA1Ny.jpg" role="presentation"><br/>
@@ -23,13 +20,13 @@ tags: [Chinese Posts,English Posts,軟體工程師,資訊工程,必修課,Chines
 
 但你會發現我剛剛描述的內容有個共通點，就是都在使用工具，舉個例子形容的話，跟工匠、工人的感覺差不多。我沒有要歧視行業的意思，只是我相信：
 
-<span style="font-size: 26px; color: #696969; font-style:italic">轉行進軟體產業的人絕不該滿足於當個小小碼農</span>
+> 轉行進軟體產業的人絕不該滿足於當個小小碼農
 
 轉行進軟體產業的人絕不該滿足於當個小小碼農
 
 對於非本科生，該思考的是跟本科生的差別到底是甚麼？為甚麼叫做<em class="iy">台大資訊工程學系</em>、<em class="iy">交大資訊科學與工程研究所</em>？顧名思義，資訊既是科學也是工程，科學的部分我們先不管，那是給 Google、Facebook 的資訊科學家和大學教授來煩惱，我們先著重工程的本質，我們來看看維基百科的定義：
 
-<span style="font-size: 26px; color: #696969; font-style:italic">工程，是通過研究與實踐應用數學、自然科學、社會學等基礎學科的知識，來達到改良各行業中現有材料、建築、機械、儀器、系統、化學和加工步驟的設計和應用方式一門學科。實踐與研究工程學的人叫做工程師。</span>
+> 工程，是通過研究與實踐應用數學、自然科學、社會學等基礎學科的知識，來達到改良各行業中現有材料、建築、機械、儀器、系統、化學和加工步驟的設計和應用方式一門學科。實踐與研究工程學的人叫做工程師。
 
 <strong class="he jc">工程</strong>，是通過研究與實踐<a href="https://zh.wikipedia.org/wiki/%E5%BA%94%E7%94%A8%E6%95%B0%E5%AD%A6" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">應用數學</a>、<a href="https://zh.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%A6" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">自然科學</a>、<a href="https://zh.wikipedia.org/wiki/%E7%A4%BE%E4%BC%9A%E5%AD%A6" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">社會學</a>等基礎學科的知識，來達到改良各行業中現有<a href="https://zh.wikipedia.org/wiki/%E6%9D%90%E6%96%99" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">材料</a>、<a href="https://zh.wikipedia.org/wiki/%E5%BB%BA%E7%AD%91" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">建築</a>、<a href="https://zh.wikipedia.org/wiki/%E6%9C%BA%E6%A2%B0" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">機械</a>、<a href="https://zh.wikipedia.org/wiki/%E4%BB%AA%E5%99%A8" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">儀器</a>、<a href="https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">系統</a>、<a href="https://zh.wikipedia.org/wiki/%E5%8C%96%E5%AD%B8" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">化學</a>和加工步驟的設計和應用方式一門學科。實踐與研究工程學的人叫做<a href="https://zh.wikipedia.org/wiki/%E5%B7%A5%E7%A8%8B%E5%B8%88" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow"><strong class="he jc">工程師</strong></a>。
 
@@ -37,7 +34,7 @@ tags: [Chinese Posts,English Posts,軟體工程師,資訊工程,必修課,Chines
 
 我根據上面對工程的定義來幫軟體工程師定義：
 
-<span style="font-size: 26px; color: #696969; font-style:italic">軟體工程師，是通過研究與應用資訊科學、計算機科學等資訊工程學門中的知識，來達到改良資訊產業中包含網頁前後端開發、機器學習、雲端應用、物聯網的設計和應用方式的一門學科。實踐與研究軟體工程的人，是為軟體工程師。</span>
+> 軟體工程師，是通過研究與應用資訊科學、計算機科學等資訊工程學門中的知識，來達到改良資訊產業中包含網頁前後端開發、機器學習、雲端應用、物聯網的設計和應用方式的一門學科。實踐與研究軟體工程的人，是為軟體工程師。
 
 軟體工程師，是通過研究與應用資訊科學、計算機科學等資訊工程學門中的知識，來達到改良資訊產業中包含網頁前後端開發、機器學習、雲端應用、物聯網的設計和應用方式的一門學科。實踐與研究軟體工程的人，是為軟體工程師。
 
@@ -55,13 +52,13 @@ tags: [Chinese Posts,English Posts,軟體工程師,資訊工程,必修課,Chines
 
 <strong class="he jc"><em class="iy">交大資科工所:</em></strong>
 
-<span style="font-size: 26px; color: #696969; font-style:italic">由本所規定之委員會審查該生之演算法概論、作業系統概論、計算機組織等三科是否修過大學部水準之課程。若有不足者，必須於畢業前完成補修通過大學部課程或選修通過研所相關課程；未完成者不能畢業。</span>
+> 由本所規定之委員會審查該生之演算法概論、作業系統概論、計算機組織等三科是否修過大學部水準之課程。若有不足者，必須於畢業前完成補修通過大學部課程或選修通過研所相關課程；未完成者不能畢業。
 
 由本所規定之委員會審查該生之<strong class="he jc">演算法概論、作業系統概論、計算機組織</strong>等三科是否修過大學部水準之課程。若有不足者，必須於畢業前完成補修通過大學部課程或選修通過研所相關課程；未完成者不能畢業。
 
 <strong class="he jc"><em class="iy">台大資工所：</em></strong>
 
-<span style="font-size: 26px; color: #696969; font-style:italic">除資訊工程、資訊科學、資訊管理、資訊教育等系大學部畢業之學生，必須補修下列科目：(2 選 1：演算法設計與分析、自動機與形式語言)、作業系統、(2 選 1：計算機結構、數位系統與實驗)</span>
+> 除資訊工程、資訊科學、資訊管理、資訊教育等系大學部畢業之學生，必須補修下列科目：(2 選 1：演算法設計與分析、自動機與形式語言)、作業系統、(2 選 1：計算機結構、數位系統與實驗)
 
 除資訊工程、資訊科學、資訊管理、資訊教育等系大學部畢業之學生，必須補修下列科目：(2 選 1：<strong class="he jc">演算法設計與分析</strong>、自動機與形式語言)、<strong class="he jc">作業系統</strong>、(2 選 1：<strong class="he jc">計算機結構</strong>、數位系統與實驗)
 
@@ -107,7 +104,7 @@ DSA 作為最基礎的學問，在各種情景都會用到，但如何應用又�
 
 所以有句話是：
 
-<span style="font-size: 26px; color: #696969; font-style:italic">資料結構與演算法解決不了的問題，交給作業系統來處理。作業系統也解決不了的問題，從計算機架構來想辦法。</span>
+> 資料結構與演算法解決不了的問題，交給作業系統來處理。作業系統也解決不了的問題，從計算機架構來想辦法。
 
 資料結構與演算法解決不了的問題，交給作業系統來處理。作業系統也解決不了的問題，從計算機架構來想辦法。
 
@@ -115,14 +112,6 @@ DSA 作為最基礎的學問，在各種情景都會用到，但如何應用又�
 
 最後引用 Vgod 的話勉勵大家：
 
-<span style="font-size: 26px; color: #696969; font-style:italic">「如果以蓋大樓來形容這個概念，把砌磚作為一種技能，把蓋大樓作為一種知識。我想可以這麼講：如果你早就知道你喜歡砌磚，很會砌磚，就直接去砌磚吧。如果你的夢想是蓋大樓，你要學的東西還很多，那讀大學是你最好的途徑。不是每個人都要蓋大樓，靠砌磚就可以賺錢了，砌的好還可以賺很多錢，大家搶著要。」 — Vgod</span>
+> 「如果以蓋大樓來形容這個概念，把砌磚作為一種技能，把蓋大樓作為一種知識。我想可以這麼講：如果你早就知道你喜歡砌磚，很會砌磚，就直接去砌磚吧。如果你的夢想是蓋大樓，你要學的東西還很多，那讀大學是你最好的途徑。不是每個人都要蓋大樓，靠砌磚就可以賺錢了，砌的好還可以賺很多錢，大家搶著要。」 — Vgod
 
 「如果以蓋大樓來形容這個概念，把砌磚作為一種技能，把蓋大樓作為一種知識。我想可以這麼講：如果你早就知道你喜歡砌磚，很會砌磚，就直接去砌磚吧。如果你的夢想是蓋大樓，你要學的東西還很多，那讀大學是你最好的途徑。不是每個人都要蓋大樓，靠砌磚就可以賺錢了，砌的好還可以賺很多錢，大家搶著要。」 — Vgod
-
----
-
-如果你覺得這篇文章對你有幫助，請幫我拍拍手做為鼓勵！
-
-### About Me
-
-Liu, An-Chi(劉安齊). A software engineer, who loves writing code and promoting CS to people. Welcome to follow me at <a href="https://www.facebook.com/CodingNeutrino/" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">Facebook Page</a>. More information on <a href="https://tigercosmos.xyz/" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">Personal Site</a> and <a href="https://github.com/tigercosmos" class="dj by jd je jf jg" target="_blank" rel="noopener nofollow">Github</a>.
