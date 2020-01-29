@@ -4,9 +4,6 @@ date: 2018-09-08 00:00:00
 tags: [Chinese Posts,English Posts,Puffin Browser,Browsers,Browser Architecture,Cloudmosa,English,]
 ---
 
-
-## How the Puffin Browser Works
-
 ### Puffin is wicked fast. Let’s dig deeper into it.
 
 <img class="dz t u gs ak" src="https://miro.medium.com/max/2238/0*dWo9qcDgSr-F1adr.png" role="presentation"><br/>
