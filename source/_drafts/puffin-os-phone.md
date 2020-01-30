@@ -46,7 +46,13 @@ Puffin OS Phone 想要解決的問題便是針對上述問題而生，POP 希望
 
 ## 效能實測
 
-接下來要來做實驗，實驗設備分別是 Puffin OS Phone、Samsung J2、Sony Xperia 10 Plus 分別代表低階手機和高階手機，同時用 3G (低速) 和 4G (高速) 網路來測試，藉此來較：
+接下來要來做實驗，實驗設備分別是 Puffin OS Phone、Samsung J2、Sony Xperia 10 Plus 分別代表低階手機和高階手機，同時用 3G (低速) 和 4G (高速) 網路來測試，藉此來較。
+
+在繼續閱讀之前，大家可以看一下「[為什麼手機上網速度比較慢呢？](/post/2017/12/browser/browser_series_18/)」體會一下網速差異影響到底有多劇烈。
+
+### 實驗方法
+
+我隨機取了比較常見的網站：Amazon、Wikipedia、Yahoo、Apple、Microsoft，用這五個網站來測試不同情境下打開網站要花多久時間，測試方法如下：
 
 - 低階手機配 Puffin OS 在低速和高速網路效能
 - 低階手機用一般瀏覽器在低速和高速網路效能
@@ -61,7 +67,16 @@ Puffin OS Phone 想要解決的問題便是針對上述問題而生，POP 希望
 
 實驗中 3G 速度為下行 4.46 Mb/s 上行 0.34 Mb/s。，4G 速度為下行 21 Mb/s 上行 4 Mb/s。
 
-在繼續閱讀之前，大家可以看一下「[為什麼手機上網速度比較慢呢？](/post/2017/12/browser/browser_series_18/)」體會一下網速差異影響到底有多劇烈。
+### 實驗結果
+
+以下是針對 4G 和 3G 網速情況下，分別使用 Puffin OS Phone (POP) 內建瀏覽器、Samsung J2 搭配 Chrome、Sony Xperia 10 Plus(X10) 搭配 Chrome 以及 X10 搭配Puffin Browser 來實測結果，長條圖越高代表花越多時間，也就是越矮越優秀：
+
+#### 4G 實驗
 
 ![4G 網頁速度比較](https://user-images.githubusercontent.com/18013815/73379487-47facf80-42fd-11ea-8815-e24e300037b8.png)
+
+首先先來看 4G 得比較結果，可以看到在高網速下，大家幾乎平分秋色。Amazon 高效能手機反而比較慢我推測是因為手機解析度比較高所以下載了比較高解析度的圖片導致時間反而比較久。Wikipedia 很遺憾 POP 反而是最慢的。Yahoo 除了 X10 搭配 Chrome 比較快，其他也差不多。Apple 中 POP 表現和高效能手機一樣好，J2 花的時間就顯得比較長了。
+
+#### 3G 實驗
+
 ![3G 網頁速度比較](https://user-images.githubusercontent.com/18013815/73379501-50eba100-42fd-11ea-9fef-bfc456d4051f.png)
