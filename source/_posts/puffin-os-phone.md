@@ -7,7 +7,7 @@ tags: [Puffin Browser , Browsers, Puffin OS Phone, Cloudmosa,]
 
 ![puffin os phone photo](https://user-images.githubusercontent.com/18013815/73357418-4a4a3300-42d7-11ea-9456-7344680463ba.jpg)
 
-Puffin OS Phone 是台灣軟體開發商 CloudMosa 所研發，搭載其自家作業系統 Puffin OS 的低階智慧手機，CloudMosa 團隊開發的智慧手機將主打第三世界市場，以極低價的成本，藉由其在後端渲染瀏覽器的成熟技術，讓即便網速很低且硬體不強的情況下，仍有市面中階手機在穩定網路環境的使用體驗。本文將深入討論 Puffin OS Phone (之後以 POP 代稱) 的各種面向。
+Puffin OS Phone 是台灣軟體開發商 CloudMosa 所研發，搭載其自家作業系統 Puffin OS 的低階智慧手機，CloudMosa 團隊開發的智慧手機將主打第三世界市場，以極低價的成本，藉由其在後端渲染瀏覽器 Puffin Browser 的成熟技術，讓即便網速很低且硬體不強的情況下，仍有市面中階手機在穩定網路環境的使用體驗。本文將深入討論 Puffin OS Phone (之後以 POP 代稱) 的各種面向。
 
 ## 智慧手機與開發中國家
 
