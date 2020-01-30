@@ -38,7 +38,7 @@ Puffin OS Phone 想要解決的問題便是針對上述問題而生，POP 希望
 
 ## Puffin OS Phone 技術原理
 
-原本 CloudMosa 便有 Puffin Browser，其後端渲染瀏覽器的性質，其實在各種手機上都可以有效降低手機計算量和網路頻寬用量，瀏覽器的技術源里我寫在「[How the Puffin Browser Works](https://tigercosmos.xyz/post/2018/09/puffin/)」一文中，簡單來說 Puffin 背後有數據中心把原本瀏覽器要打開網頁下載資源和渲染網頁的步驟做掉，使用者因而減少計算資源和流量。
+原本 CloudMosa 便有 Puffin Browser，其後端渲染瀏覽器的性質，其實在各種手機上都可以有效降低手機計算量和網路頻寬用量，瀏覽器的技術原理我寫在「[How the Puffin Browser Works](https://tigercosmos.xyz/post/2018/09/puffin/)」一文中，簡單來說 Puffin 背後有數據中心把原本瀏覽器要打開網頁下載資源和渲染網頁的步驟做掉，使用者因而減少計算資源和流量。
 
 所以更進一步，反正 Web 已經可以打天下，大多數服務都可以用 Web App (就是開一個網頁當作是應用程式) 來取得，那麼何必都用 Native App (一般在 Play 商店下載的應用程式) 呢？例如 Instagram、Facebook、新聞、郵件等等，哪一個不是 Web App 辦不到的？一個全部基於 Web App 的作業系統油然而生，於是誕生 Puffin OS ，為根據 Android 修改的簡化版，在整個作業系統中加入 Puffin 技術，並拔除所有 Google Service，因為非常佔空間，且不再需要 Play Store。
 
