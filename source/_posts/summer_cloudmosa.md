@@ -4,20 +4,17 @@ date: 2018-09-08 00:00:00
 tags: [Chinese Posts,English Posts,Cloudmosa,Intern,Puffin Browser,Chinese,]
 ---
 
-
-## 這個暑假我在 CloudMosa 所見所聞
-
 ### What I saw and heard at CloudMosa in this summer.
 
 大約在一年前，因緣際會我開始接觸瀏覽器開發，一開始是貢獻 Mozilla 的 Servo Brower Engine 專案，後來覺得還是不夠了解瀏覽器，就想說就由寫文章來強迫自己學習。ITHome 的鐵人賽剛好給了我一個行動的契機，於是就開始寫了有關於瀏覽器的系列文章。
 
 <!-- more --> 
 
-### <div class="cd gz cj ck ha cm">《來做個網路瀏覽器吧！》文章列表 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</div>
+> 點我： [《來做個網路瀏覽器吧！》](/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/)
 
 寫著寫著，因為我都會到處去分享我的文章，恰好文章就被 CloudMosa 的人看到。CloudMosa 是一家臺灣的瀏覽器開發公司，產品為 Puffin Browser，關於甚麼是 Puffin 我在另外一篇文章中有詳細介紹。
 
-### <div class="cd gz cj ck ha cm">How the Puffin Browser Works</div>
+> 點我： [How the Puffin Browser Works](/post/2018/09/puffin/)
 
 國內有人對瀏覽器這麼有興趣，他們覺得非常少見，所以覺得我應該會滿有趣的，於是我分別收到 CEO Shioupyn 和 CTO Sam 的私訊。
 
@@ -29,7 +26,7 @@ CloudMosa 覺得光是有人喜歡瀏覽器就很難得了，也不管我實力�
 
 我同事 Wens 之前有一篇推坑文，大家也可以參考看看。
 
-### <div class="cd gz cj ck ha cm">[推坑] Puffin Browser 背後的公司 - CloudMosa 美商雲端科技</div>
+> 點我：[[推坑] Puffin Browser 背後的公司 - CloudMosa 美商雲端科技](https://www.ptt.cc/bbs/Soft_Job/M.1419923169.A.41E.html)
 
 不得不說，位於台北市樞紐中高樓的最上層(21樓)，視野真的是美不勝收，看外面風景就讓人心舒暢。
 
@@ -142,9 +139,3 @@ CloudMosa 找我進去是希望我去體驗看看，CEO 也跟我講他不預期
 在公司工作的最後一天，我一如往常地工作，剛好碰到同事下班就一樣說再見。當天我靜靜地待到最後，等所有人都下班之後，我將所有電燈、電扇都關掉。關上最後一盞燈的同時，也宣告我在 CloudMosa 的日子結束了，關上門就此離開公司。
 
 我覺得這樣靜靜地離開滿好的，但心裡也滿感傷的，這個暑假我在 CloudMosa 有很棒的回憶！
-
----
-
-### About Me
-
-Liu, An-Chi(劉安齊). A software engineer, who loves writing code and promoting CS to people. Welcome to follow me at <a href="https://www.facebook.com/CodingNeutrino/" class="dj by kr ks kt ku" target="_blank" rel="noopener nofollow">Facebook Page</a>. More information on <a href="https://tigercosmos.xyz/" class="dj by kr ks kt ku" target="_blank" rel="noopener nofollow">Personal Site</a> and <a href="https://github.com/tigercosmos" class="dj by kr ks kt ku" target="_blank" rel="noopener nofollow">Github</a>.
