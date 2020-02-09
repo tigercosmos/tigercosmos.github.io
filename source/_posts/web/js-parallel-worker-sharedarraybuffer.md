@@ -279,7 +279,7 @@ while (Atomics.load(sharedArray, 0) !== 1) ;
 console.log('notified');
 ```
 
-### 3.2.2 等待通知
+#### 3.2.2 等待通知
 
 用 Busy Waiting 的方式顯然不是好方法，這時我們可以用通知的方式。這邊介紹 `Atomics.wait()` 和 `Atomics.notify()` 用法，注意這兩個函數只能吃 `Int32Array`，並且 `Atomics.wait()` 不能用在主程序 (否則主程序不就被卡住)。
 
@@ -312,7 +312,7 @@ addEventListener('message', function (event) {
 
 `(B)` 這邊用 `Atomics.wait` 去監聽 `int32` 的第 `0` 個元素值有沒有變化，監聽方式是看 `notify` 傳進來的值有沒有和第三個參數不一樣。因為第三個參數設為 `false`，故當 `notify` 傳 `true` 來時，Worker 的 `Atomics` 知道有變動了，於是繼續執行。
 
-### 3.2.3 原子操做
+#### 3.2.3 原子操做
 
 `Atomics` 也提供原子操作的函數：
 
