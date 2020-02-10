@@ -3,35 +3,47 @@ title: 瀏覽器開發進階實戰（四）font-family
 date: 2018-01-01 22:18:07
 tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
 ---
+> 本系列目錄 [《來做個網路瀏覽器吧！》文章列表](/post/2018/02/browser/browser_series_33/)
+
 
                     
-&#x4ECA;&#x5929;&#x4F86;&#x4ECB;&#x7D39; <code>font-family</code>&#x3002;</p>
-<p>&#x7576;&#x6211;&#x5011;&#x5C0D; CSS &#x5B9A;&#x7FA9;&#x300C;&#x5B57;&#x5F62;&#x300D;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x6703;&#x4F7F;&#x7528; <code>font-family</code></p>
-<pre><code>p {
-    font-family: &quot;Times New Roman&quot;, Georgia, Serif;
+今天來介紹 `font-family`。
+
+當我們對 CSS 定義「字形」的時候，會使用 `font-family`
+```
+p {
+    font-family: "Times New Roman", Georgia, Serif;
 }
-</code></pre>
-<p><code>font-family</code> &#x7531;&#x4E00;&#x4E32;&#x5B57;&#x578B;&#x540D;&#x7A31;&#x7D44;&#x6210;&#xFF0C;&#x9810;&#x8A2D;&#x662F;&#x700F;&#x89BD;&#x5668;&#x6703;&#x9078;&#x53D6;&#x7B2C;&#x4E00;&#x500B;&#x5B57;&#x578B;&#x4F86;&#x5448;&#x73FE;&#xFF0C;&#x4EE5;&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x4F86;&#x8AAA;&#xFF0C;&#x5047;&#x8A2D;&#x4F60;&#x7684;&#x96FB;&#x8166;&#x6709; <code>Times New Roman</code> &#x9019;&#x500B;&#x5B57;&#x578B;&#xFF0C;&#x5C31;&#x6703;&#x7528;&#x5B83;&#x4F86;&#x5448;&#x73FE;&#x6587;&#x5B57;&#xFF1B;&#x82E5;&#x662F;&#x6C92;&#x6709;&#x7684;&#x8A71;&#xFF0C;&#x5247;&#x6AA2;&#x67E5;&#x4E0B;&#x4E00;&#x500B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; <code>Georgia</code> &#x662F;&#x5426;&#x6709;&#x3002;&#x5982;&#x679C; <code>font-family</code> &#x5B9A;&#x7FA9;&#x7684;&#x5B57;&#x578B;&#x90FD;&#x6C92;&#x6709;&#xFF0C;&#x5C31;&#x6703;&#x63A1;&#x7528;&#x700F;&#x89BD;&#x5668;&#x9810;&#x8A2D;&#x7684;&#x5B57;&#x578B;&#x3002;</p>
-<p>&#x60F3;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x7684;&#x8A71;&#x53EF;&#x4EE5;&#x770B; <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/font-family" target="_blank">MDN</a> &#x6216;&#x662F; <a href="https://www.w3.org/TR/CSS2/fonts.html#font-family-prop" target="_blank">W3C</a> &#x7684;&#x6587;&#x4EF6;&#x3002;</p>
-<p>&#x800C;&#x4ECA;&#x5929;&#x8981;&#x7279;&#x5225;&#x8B1B;&#x7684;&#x662F;<strong>&#x9810;&#x8A2D;&#x5B57;&#x578B;&#x7684;&#x300C;&#x56DE;&#x8ABF;&#x300D;</strong>&#xFF01;<br>
-&#x4EE5;&#x4E0B;&#x9019;&#x4E32;&#x5B57;&#xFF1A;</p>
-<pre><code>&#x306E;&#x30B3; Hello &#x4F60;&#x597D;&#x55CE; &#xC548;&#xB155;&#xD558;&#xC138;&#xC694; Cze&#x15B;&#x107; Ol&#xE1; &#x417;&#x434;&#x440;&#x430;&#x432;&#x441;&#x442;&#x432;&#x443;&#x439;&#x442;&#x435; &#x266B;
-</code></pre>
-<p>&#x4E26;&#x4E0D;&#x662F;&#x55AE;&#x4E00;&#x5B57;&#x578B;&#x5C31;&#x80FD;&#x8655;&#x7406;&#x7684;&#xFF0C;&#x5373;&#x4F7F;&#x662F;&#x9810;&#x8A2D;&#x5B57;&#x578B;&#xFF0C;&#x4E5F;&#x8981;&#x597D;&#x5E7E;&#x7A2E;&#x624D;&#x80FD;&#x628A;&#x9019;&#x4E32;&#x5B57;&#x5448;&#x73FE;&#x51FA;&#x4F86;&#x3002;</p>
-<p>&#x6240;&#x4EE5;&#x6982;&#x5FF5;&#x5C31;&#x662F;&#x4E00;&#x4E32;&#x5B57;&#xFF0C;&#x6211;&#x5011;&#x5148;&#x8A66;&#x8A66;&#x770B; <code>font-family</code> &#x7684;&#x9806;&#x5E8F;&#x770B;&#x80FD;&#x4E0D;&#x80FD;&#x628A;&#x5B57;&#x5143;&#x5448;&#x73FE;&#xFF0C;&#x4E0D;&#x884C;&#x7684;&#x8A71;&#x5C31;&#x4F7F;&#x7528;&#x700F;&#x89BD;&#x5668;&#x9810;&#x8A2D;&#x7684;&#x5B57;&#x578B;&#xFF0C;&#x700F;&#x89BD;&#x5668;&#x9810;&#x8A2D;&#x7684;&#x4E00;&#x6A23;&#x6709;&#x9806;&#x5E8F;&#xFF0C;&#x5C31;&#x7167;&#x9806;&#x5E8F;&#x76F4;&#x5230;&#x53EF;&#x4EE5;&#x986F;&#x793A;&#x51FA;&#x4F86;&#x70BA;&#x6B62;&#x3002;</p>
-<hr>
-<p>&#x672C;&#x7CFB;&#x5217;&#x672C;&#x4F86;&#x90FD;&#x662F;&#x7528; Servo &#x4ECB;&#x7D39;&#xFF0C;&#x4E0D;&#x904E;&#x76EE;&#x524D;&#x7684;&#x5BEB;&#x6CD5;&#x4E26;&#x6C92;&#x6709;&#x5BE6;&#x8E10; <code>font-family</code>&#xFF0C;&#x4E0D;&#x7BA1;&#x5982;&#x4F55;&#x90FD;&#x76F4;&#x63A5;&#x63A1;&#x7528;&#x9810;&#x8A2D;&#x7684;&#x5B57;&#x578B;&#x3002;&#x76F8;&#x95DC;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x5728;<a href="https://github.com/servo/servo/blob/master/components/gfx/platform/windows/font_list.rs" target="_blank">&#x9019;&#x908A;</a>&#x3002;&#x4F46;&#x4E5F;&#x56E0;&#x70BA;&#x9084;&#x6C92;&#x5BE6;&#x8E10;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x4E0D;&#x62FF;&#x4F86;&#x8209;&#x4F8B;&#xFF0C;&#x82E5;&#x662F;&#x5927;&#x5BB6;&#x6709;&#x8208;&#x8DA3;&#x53EF;&#x4EE5;&#x4E00;&#x8D77;&#x4F86;&#x8CA2;&#x737B;&#x628A;&#x5B83;&#x5B8C;&#x6210;&#x3002;</p>
-<p>&#x4E0D;&#x904E; Firefox &#x7684; Gecko &#x7406;&#x6240;&#x7576;&#x7136;&#x6709;&#x628A;&#x5B83;&#x5BE6;&#x8E10;&#x56C9;&#xFF01;<br>
-&#x9019;&#x908A;&#x4F86;&#x770B; Gecko &#x91DD;&#x5C0D; Windows &#x5E73;&#x53F0;&#x7684;<a href="https://github.com/mozilla/gecko-dev/blob/153c591749d7807372a4ba99e2685b5461d36cf7/gfx/thebes/gfxWindowsPlatform.cpp#L604" target="_blank">&#x7A0B;&#x5F0F;&#x78BC;</a>&#xFF0C;&#x56E0;&#x70BA;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x7684;&#x8655;&#x7406;&#x65B9;&#x5F0F;&#x9084;&#x662F;&#x6709;&#x5DEE;&#x7570;&#xFF0C;&#x6240;&#x4EE5;&#x8655;&#x7406;&#x5B57;&#x578B;&#x7684;&#x90E8;&#x5206;&#x6709;&#x7279;&#x5225;&#x5207;&#x958B;&#x3002;</p>
-<p>Gecko &#x4F7F;&#x7528; <code>GetCommonFallbackFonts</code> &#x9019;&#x500B;&#x51FD;&#x5F0F;&#x4F86;&#x8655;&#x7406;&#x5B57;&#x578B;&#x3002;</p>
-<pre><code>gfxWindowsPlatform::GetCommonFallbackFonts(uint32_t aCh, uint32_t aNextCh,
+```
+`font-family` 由一串字型名稱組成，預設是瀏覽器會選取第一個字型來呈現，以上面例子來說，假設你的電腦有 `Times New Roman` 這個字型，就會用它來呈現文字；若是沒有的話，則檢查下一個，也就是 `Georgia` 是否有。如果 `font-family` 定義的字型都沒有，就會採用瀏覽器預設的字型。
+
+想了解更多的話可以看 [MDN](https://developer.mozilla.org/zh-TW/docs/Web/CSS/font-family) 或是 [W3C](https://www.w3.org/TR/CSS2/fonts.html#font-family-prop) 的文件。
+
+而今天要特別講的是**預設字型的「回調」**！
+以下這串字：
+```
+のコ Hello 你好嗎 안녕하세요 Cześć Olá Здравствуйте ♫
+```
+並不是單一字型就能處理的，即使是預設字型，也要好幾種才能把這串字呈現出來。
+
+所以概念就是一串字，我們先試試看 `font-family` 的順序看能不能把字元呈現，不行的話就使用瀏覽器預設的字型，瀏覽器預設的一樣有順序，就照順序直到可以顯示出來為止。
+
+---
+本系列本來都是用 Servo 介紹，不過目前的寫法並沒有實踐 `font-family`，不管如何都直接採用預設的字型。相關的程式碼在[這邊](https://github.com/servo/servo/blob/master/components/gfx/platform/windows/font_list.rs)。但也因為還沒實踐，所以就不拿來舉例，若是大家有興趣可以一起來貢獻把它完成。
+
+不過 Firefox 的 Gecko 理所當然有把它實踐囉！
+這邊來看 Gecko 針對 Windows 平台的[程式碼](https://github.com/mozilla/gecko-dev/blob/153c591749d7807372a4ba99e2685b5461d36cf7/gfx/thebes/gfxWindowsPlatform.cpp#L604)，因為不同平台的處理方式還是有差異，所以處理字型的部分有特別切開。
+
+Gecko 使用 `GetCommonFallbackFonts` 這個函式來處理字型。
+```
+gfxWindowsPlatform::GetCommonFallbackFonts(uint32_t aCh, uint32_t aNextCh,
                                            Script aRunScript,
-                                           nsTArray&lt;const char*&gt;&amp; aFontList)
+                                           nsTArray<const char*>& aFontList)
 {
     EmojiPresentation emoji = GetEmojiPresentation(aCh);
     if (emoji != EmojiPresentation::TextOnly) {
         if (aNextCh == kVariationSelector16 ||
-           (aNextCh != kVariationSelector15 &amp;&amp;
+           (aNextCh != kVariationSelector15 &&
             emoji == EmojiPresentation::EmojiDefault)) {
             // if char is followed by VS16, try for a color emoji glyph
             aFontList.AppendElement(kFontSegoeUIEmoji);
@@ -43,7 +55,7 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
     aFontList.AppendElement(kFontArial);
 
     if (!IS_IN_BMP(aCh)) {
-        uint32_t p = aCh &gt;&gt; 16;
+        uint32_t p = aCh >> 16;
         if (p == 1) { // SMP plane
             aFontList.AppendElement(kFontSegoeUISymbol);
             aFontList.AppendElement(kFontEbrima);
@@ -51,7 +63,7 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
             aFontList.AppendElement(kFontCambriaMath);
         }
     } else {
-        uint32_t b = (aCh &gt;&gt; 8) &amp; 0xff;
+        uint32_t b = (aCh >> 8) & 0xff;
 
         switch (b) {
         case 0x05:
@@ -80,7 +92,7 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
         case 0x0e:
         // ...
         // ...
-        // &#x4E2D;&#x9593;&#x7701;&#x7565;
+        // 中間省略
         // ...
         // ...
        case 0xff:
@@ -95,28 +107,10 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
     // use it as a last resort
     aFontList.AppendElement(kFontArialUnicodeMS);
 }
-</code></pre>
-<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5149;&#x700F;&#x89BD;&#x5668;&#x9810;&#x8A2D;&#x5B57;&#x578B;&#x5C31;&#x8D85;&#x904E;&#x56DB;&#x5341;&#x7A2E;&#xFF0C;&#x9019;&#x4E5F;&#x662F;&#x56E0;&#x70BA;&#x5404;&#x7A2E;&#x5947;&#x5F62;&#x602A;&#x72C0;&#x7684;&#x7B26;&#x865F;&#x5BE6;&#x5728;&#x592A;&#x591A;&#xFF0C;&#x4E0D;&#x540C;&#x570B;&#x5BB6;&#x7684;&#x6587;&#x5B57;&#x4F7F;&#x7528;&#x7684;&#x5B57;&#x578B;&#x4E5F;&#x4E0D;&#x4E00;&#x6A23;&#xFF0C;&#x70BA;&#x4E86;&#x8B93;&#x5404;&#x7A2E;&#x5B57;&#x5143;&#x90FD;&#x80FD;&#x986F;&#x793A;&#xFF0C;&#x624D;&#x4E0D;&#x6703;&#x51FA;&#x73FE;&#x986F;&#x793A;&#x4E0D;&#x51FA;&#x4F86;&#x8B8A;&#x6210;&#x6846;&#x6846;&#x7684;&#x60C5;&#x5F62;&#x3002;</p>
-<hr>
-<p>&#x5E0C;&#x671B;&#x5C0D;&#x5927;&#x5BB6;&#x6709;&#x5E6B;&#x52A9;&#xFF0C;&#x6211;&#x5011;&#x660E;&#x5929;&#x898B;&#xFF01;</p>
-<hr>
-<blockquote>
-<h3><em><strong>&#x95DC;&#x65BC;&#x4F5C;&#x8005;</strong></em></h3>
-<h2>&#x5289;&#x5B89;&#x9F4A;</h2>
-<p>&#x8EDF;&#x9AD4;&#x5DE5;&#x7A0B;&#x5E2B;&#xFF0C;&#x71B1;&#x611B;&#x5BEB;&#x7A0B;&#x5F0F;&#xFF0C;&#x66F4;&#x559C;&#x6B61;&#x63A8;&#x5EE3;&#x7A0B;&#x5F0F;&#x8B93;&#x66F4;&#x591A;&#x4EBA;&#x5B78;&#x6703;</p>
-<ul>
-<li>
-<a href="https://tigercosmos.github.io" target="_blank">&#x500B;&#x4EBA;&#x7DB2;&#x7AD9;</a>
-</li>
-<li>
-<a href="https://github.com/tigercosmos" target="_blank">Github</a>
-</li>
-<li>
-<a href="https://www.facebook.com/CodingNeutrino/" target="_blank">FB&#x7C89;&#x5C08;--&#x5FAE;&#x4E2D;&#x5B50;</a>
-</li>
-</ul>
-</blockquote>
- <br>
-                                                    </div>
-                    </div>
-                
+```
+
+可以看到光瀏覽器預設字型就超過四十種，這也是因為各種奇形怪狀的符號實在太多，不同國家的文字使用的字型也不一樣，為了讓各種字元都能顯示，才不會出現顯示不出來變成框框的情形。
+
+---
+希望對大家有幫助，我們明天見！
+                                                        

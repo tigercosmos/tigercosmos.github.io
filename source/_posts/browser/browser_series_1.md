@@ -3,34 +3,19 @@ title: 先來看看瀏覽器內核長怎樣吧！
 date: 2017-12-12 21:23:35
 tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
 ---
+> 本系列目錄 [《來做個網路瀏覽器吧！》文章列表](/post/2018/02/browser/browser_series_33/)
+上一篇文章提到瀏覽器會需要解析、渲染，這部分就要靠瀏覽器引擎來處理，又可以稱為排版引擎（layout engine）、瀏覽器內核（web browser engine）、渲染引擎（rendering engine）或樣版引擎。不論怎麼稱呼，就是負責把程式碼變成使用者可以看到的畫面。
 
-                    
-&#x4E0A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x63D0;&#x5230;&#x700F;&#x89BD;&#x5668;&#x6703;&#x9700;&#x8981;&#x89E3;&#x6790;&#x3001;&#x6E32;&#x67D3;&#xFF0C;&#x9019;&#x90E8;&#x5206;&#x5C31;&#x8981;&#x9760;&#x700F;&#x89BD;&#x5668;&#x5F15;&#x64CE;&#x4F86;&#x8655;&#x7406;&#xFF0C;&#x53C8;&#x53EF;&#x4EE5;&#x7A31;&#x70BA;&#x6392;&#x7248;&#x5F15;&#x64CE;&#xFF08;layout engine&#xFF09;&#x3001;&#x700F;&#x89BD;&#x5668;&#x5167;&#x6838;&#xFF08;web browser engine&#xFF09;&#x3001;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#xFF08;rendering engine&#xFF09;&#x6216;&#x6A23;&#x7248;&#x5F15;&#x64CE;&#x3002;&#x4E0D;&#x8AD6;&#x600E;&#x9EBC;&#x7A31;&#x547C;&#xFF0C;&#x5C31;&#x662F;&#x8CA0;&#x8CAC;&#x628A;&#x7A0B;&#x5F0F;&#x78BC;&#x8B8A;&#x6210;&#x4F7F;&#x7528;&#x8005;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7684;&#x756B;&#x9762;&#x3002;</p>
-<p>&#x4E0B;&#x9762;&#x9019;&#x5F35;&#x5716;&#x6E90;&#x81EA; <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/" target="_blank">hacks.mozilla.org</a>&#xFF0C;&#x6211;&#x8A8D;&#x70BA;&#x5C07;&#x5167;&#x6838;&#x7684;&#x5DE5;&#x4F5C;&#x5448;&#x73FE;&#x7684;&#x6EFF;&#x6E05;&#x695A;&#x7684;&#xFF0C;&#x5305;&#x542B;&#x5F9E;&#x7DB2;&#x8DEF;&#x53D6;&#x5F97;&#x7DB2;&#x9801;&#xFF0C;&#x8207;&#x4F7F;&#x7528;&#x8005;&#x7AEF;&#x4E92;&#x52D5;&#xFF0C;&#x5F15;&#x64CE;&#x9032;&#x884C; js&#x3001;css&#x3001;html &#x89E3;&#x6790;&#xFF0C;&#x4EE5;&#x53CA;&#x6E32;&#x67D3;&#x756B;&#x9762;&#x5230;&#x4F7F;&#x7528;&#x8005;&#x7AEF;&#x3002;<br>
-<img src="https://hacks.mozilla.org/files/2017/05/browser-diagram-full-2.png" alt></p>
-<p>&#x4E00;&#x500B;&#x700F;&#x89BD;&#x5668;&#x7684;&#x5167;&#x6838;&#x662F;&#x7531;&#x597D;&#x591A;&#x6A21;&#x7D44;&#x7D44;&#x6210;&#xFF0C;&#x5176;&#x4E2D;&#x700F;&#x89BD;&#x5668;&#x5F15;&#x64CE;&#x53EA;&#x662F;&#x5176;&#x4E2D;&#x4E00;&#x584A;&#xFF0C;&#x4E26;&#x4E14;&#x53EF;&#x4EE5;&#x4F5C;&#x70BA;&#x7368;&#x7ACB;&#x6A21;&#x7D44;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8AAA;&#x540C;&#x4E00;&#x500B;&#x700F;&#x89BD;&#x5668;&#x5F15;&#x64CE;&#xFF0C;&#x53EF;&#x4EE5;&#x884D;&#x4F38;&#x70BA;&#x597D;&#x591A;&#x500B;&#x700F;&#x89BD;&#x5668;&#x3002;&#x9019;&#x6982;&#x5FF5;&#x8DDF;&#x6C7D;&#x8ECA;&#x5F88;&#x50CF;&#xFF0C;&#x5982;&#x540C;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x6C7D;&#x8ECA;&#x539F;&#x672C;&#x7684;&#x56DB;&#x7F38;&#x5F15;&#x64CE;&#x63DB;&#x6210;&#x6E26;&#x8F2A;&#x5F15;&#x64CE;&#x4E00;&#x6A23;&#x3002;&#x800C;&#x6E26;&#x8F2A;&#x5F15;&#x64CE;&#x4E5F;&#x53EF;&#x4EE5;&#x88DD;&#x5728;&#x5404;&#x7A2E;&#x8ECA;&#x6B3E;&#x7576;&#x4E2D;&#x3002;&#x4E86;&#x89E3;&#x4E86;&#x4E4B;&#x5F8C;&#xFF0C;&#x6211;&#x5011;&#x77E5;&#x9053; Firefox &#x548C; SeaMonkey &#x9019;&#x5169;&#x6B3E;&#x700F;&#x89BD;&#x5668;&#x90FD;&#x662F;&#x4F7F;&#x7528; Gecko &#x5F15;&#x64CE;&#xFF0C;&#x4F46; Chrome &#x5247;&#x4E0D;&#x662F;&#xFF0C;&#x5C31;&#x662F;&#x9019;&#x500B;&#x6982;&#x5FF5;&#xFF01;</p>
-<p>&#x4E00;&#x500B;&#x5B8C;&#x6574;&#x8A2D;&#x8A08;&#x7684;&#x700F;&#x89BD;&#x5668;&#x5F15;&#x64CE;&#x975E;&#x5E38;&#x9F90;&#x5927;&#x8907;&#x96DC;&#xFF0C;Blink&#x3001; Gecko&#x3001; WebKit &#x9019;&#x5E7E;&#x500B;&#x5E02;&#x4F54;&#x7387;&#x6700;&#x9AD8;&#x7684;&#x5927;&#x4F6C;&#xFF0C;&#x54EA;&#x4E00;&#x500B;&#x4E0D;&#x662F;&#x5E7E;&#x767E;&#x842C;&#x884C;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x5373;&#x4FBF;&#x662F;&#x6BD4;&#x8F03;&#x5E74;&#x8F15;&#x3001;&#x7C21;&#x55AE;&#x7684;&#x5F15;&#x64CE;&#xFF0C;&#x50CF;&#x662F; Servo &#x6216;&#x662F; WeasyPrint &#x4E5F;&#x90FD;&#x662F;&#x5E7E;&#x5341;&#x842C;&#x884C;&#x8D77;&#x8DF3;&#x3002;&#x9019;&#x4F7F;&#x5F97;&#x4E00;&#x822C;&#x4EBA;&#x5F88;&#x96E3;&#x4E00;&#x63A2;&#x7A76;&#x7ADF;&#xFF0C;&#x66F4;&#x5225;&#x8AAA;&#x60F3;&#x8981;&#x8CA2;&#x737B;&#x4E86;&#xFF01;&#x5982;&#x679C;&#x80FD;&#x61C2;&#x539F;&#x7406;&#xFF0C;&#x77E5;&#x9053;&#x7C21;&#x5316;&#x7248;&#x7684;&#x5BE6;&#x4F5C;&#x65B9;&#x5F0F;&#xFF0C;&#x5728;&#x771F;&#x6B63;&#x78B0;&#x5230;&#x8907;&#x96DC;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x4E5F;&#x6BD4;&#x8F03;&#x80FD;&#x5F9E;&#x5BB9;&#x61C9;&#x5C0D;&#x3002;</p>
-<p>&#x7576;&#x7136;&#xFF0C;&#x700F;&#x89BD;&#x5668;&#x7684;&#x5167;&#x6838;&#x4E0D;&#x53EA;&#x6709;&#x4E0A;&#x8FF0;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x4E8B;&#x5BE6;&#x4E0A;&#x9664;&#x4E86;&#x4E0A;&#x8FF0;&#x8B1B;&#x7684;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x4E4B;&#x5916;&#xFF0C;&#x700F;&#x89BD;&#x5668;&#x5167;&#x6838;&#x9084;&#x6709;&#x4F7F;&#x7528;&#x8005;&#x64CD;&#x4F5C;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x7684;&#x63A5;&#x53E3;&#x3001;JS&#x5F15;&#x64CE;&#x3001;&#x7DB2;&#x8DEF;&#x8655;&#x7406;&#x7B49;&#x7B49;&#x3002;&#x800C;&#x4E00;&#x822C;&#x4F86;&#x8AAA;&#x700F;&#x89BD;&#x5668;&#x5167;&#x6838;&#x81F3;&#x5C11;&#x8981;&#x8655;&#x7406;&#x4E09;&#x4EF6;&#x4E8B;&#x60C5;&#xFF0C;JS&#x7684;&#x8655;&#x7406;&#x7A0B;&#x5E8F;&#x3001;&#x5716;&#x5F62;&#x6E32;&#x67D3;&#x7A0B;&#x5E8F;&#x3001;&#x700F;&#x89BD;&#x5668;&#x4E8B;&#x4EF6;&#x89F8;&#x767C;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x6B64;&#x5916;&#x9084;&#x6703;&#x6709; HTTP &#x8ACB;&#x6C42;&#x6D41;&#x7A0B;&#x3001;EventLoop&#x3001;&#x8A08;&#x6642;&#x5668;&#x7B49;&#x7B49;&#x6771;&#x897F;&#x8981;&#x8655;&#x7406;&#x3002;</p>
-<p>&#x5176;&#x4E2D; js &#x5F15;&#x64CE;&#x53EF;&#x4EE5;&#x6539;&#x8B8A;&#x7DB2;&#x9801;&#x5143;&#x7D20;&#xFF0C;&#x800C;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x4E5F;&#x662F;&#x8655;&#x7406;&#x5143;&#x7D20;&#xFF0C;&#x7576;&#x7136;&#x5C31;&#x6703;&#x8D77;&#x885D;&#x7A81;&#xFF0C;&#x6240;&#x4EE5;&#x540C;&#x4E00;&#x6642;&#x9593;&#x5169;&#x8005;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x500B;&#x5728;&#x9032;&#x884C;&#x3002;&#x800C;&#x53E6;&#x4E00;&#x500B;&#x5247;&#x6703;&#x88AB;&#x51CD;&#x7D50;&#x3002;js &#x672C;&#x8EAB;&#x70BA;&#x7570;&#x6B65;&#x57F7;&#x884C;&#xFF0C;&#x4F46;&#x662F;&#x9084;&#x662F;&#x6703;&#x6709;&#x500B;&#x4E3B;&#x7A0B;&#x5E8F;&#xFF0C;&#x76F8;&#x5C0D;&#x65BC;&#x4E3B;&#x7A0B;&#x5E8F;&#x5176;&#x4ED6;&#x7A0B;&#x5E8F;&#x6D41;&#x5247;&#x70BA;&#x7570;&#x6B65;&#x3002;&#x5F9E;&#x982D;&#x5230;&#x5C3E;&#x76F4;&#x8B6F;&#x70BA;&#x4E3B;&#x7A0B;&#x5E8F;&#xFF0C;&#x4E2D;&#x9014;&#x53EF;&#x80FD;&#x6703;&#x6709; API &#x547C;&#x53EB;&#x3001;DOM &#x64CD;&#x4F5C;&#x3001;&#x6587;&#x4EF6;&#x8655;&#x7406;&#xFF0C;&#x9019;&#x4E9B;&#x5247;&#x70BA;&#x5176;&#x4ED6;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#xFF0C;&#x6703;&#x88AB;&#x6392;&#x5230;&#x5DE5;&#x4F5C;&#x5E8F;&#x5217;&#x7B49;&#x5F85;&#x57F7;&#x884C;&#x5B8C;&#xFF0C;&#x7136;&#x5F8C;&#x51FD;&#x6578;&#x56DE;&#x8ABF;&#x544A;&#x8A34;&#x4E3B;&#x7A0B;&#x5E8F;&#x57F7;&#x884C;&#x5B8C;&#x6210;&#xFF0C;&#x9019;&#x500B;&#x6B65;&#x9A5F;&#x6703;&#x4E0D;&#x65B7;&#x91CD;&#x8907;&#xFF0C;&#x7A31;&#x70BA;&#x4E8B;&#x4EF6;&#x5FAA;&#x74B0;&#xFF0C;&#x76F4;&#x5230;&#x5DE5;&#x4F5C;&#x5E8F;&#x5217;&#x88E1;&#x9762;&#x6C92;&#x6709;&#x6771;&#x897F;&#xFF0C;&#x624D;&#x7B97;&#x7D50;&#x675F;&#x3002;</p>
-<p>&#x81F3;&#x65BC;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x7684;&#x7D30;&#x7BC0;&#x6211;&#x5011;&#x660E;&#x65E5;&#x518D;&#x8AC7;&#x3002;&#x5927;&#x5BB6;&#x660E;&#x5929;&#x898B;&#xFF01;</p>
-<hr>
-<blockquote>
-<h3><em><strong>&#x95DC;&#x65BC;&#x4F5C;&#x8005;</strong></em></h3>
-<h2>&#x5289;&#x5B89;&#x9F4A;</h2>
-<p>&#x8EDF;&#x9AD4;&#x5DE5;&#x7A0B;&#x5E2B;&#xFF0C;&#x71B1;&#x611B;&#x5BEB;&#x7A0B;&#x5F0F;&#xFF0C;&#x66F4;&#x559C;&#x6B61;&#x63A8;&#x5EE3;&#x7A0B;&#x5F0F;&#x8B93;&#x66F4;&#x591A;&#x4EBA;&#x5B78;&#x6703;</p>
-<ul>
-<li>
-<a href="https://tigercosmos.github.io" target="_blank">&#x500B;&#x4EBA;&#x7DB2;&#x7AD9;</a>
-</li>
-<li>
-<a href="https://github.com/tigercosmos" target="_blank">Github</a>
-</li>
-<li>
-<a href="https://www.facebook.com/CodingNeutrino/" target="_blank">FB&#x7C89;&#x5C08;--&#x5FAE;&#x4E2D;&#x5B50;</a>
-</li>
-</ul>
-</blockquote>
- <br>
-                                                    </div>
-                    </div>
-                
+下面這張圖源自 [hacks.mozilla.org](https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/)，我認為將內核的工作呈現的滿清楚的，包含從網路取得網頁，與使用者端互動，引擎進行 js、css、html 解析，以及渲染畫面到使用者端。
+![](https://hacks.mozilla.org/files/2017/05/browser-diagram-full-2.png)
+
+一個瀏覽器的內核是由好多模組組成，其中瀏覽器引擎只是其中一塊，並且可以作為獨立模組，也就是說同一個瀏覽器引擎，可以衍伸為好多個瀏覽器。這概念跟汽車很像，如同你可以把汽車原本的四缸引擎換成渦輪引擎一樣。而渦輪引擎也可以裝在各種車款當中。了解了之後，我們知道 Firefox 和 SeaMonkey 這兩款瀏覽器都是使用 Gecko 引擎，但 Chrome 則不是，就是這個概念！
+
+一個完整設計的瀏覽器引擎非常龐大複雜，Blink、 Gecko、 WebKit 這幾個市佔率最高的大佬，哪一個不是幾百萬行的程式碼，即便是比較年輕、簡單的引擎，像是 Servo 或是 WeasyPrint 也都是幾十萬行起跳。這使得一般人很難一探究竟，更別說想要貢獻了！如果能懂原理，知道簡化版的實作方式，在真正碰到複雜的程式碼的時候，也比較能從容應對。
+
+當然，瀏覽器的內核不只有上述的部分，事實上除了上述講的渲染引擎之外，瀏覽器內核還有使用者操作渲染引擎的接口、JS引擎、網路處理等等。而一般來說瀏覽器內核至少要處理三件事情，JS的處理程序、圖形渲染程序、瀏覽器事件觸發的程序，此外還會有 HTTP 請求流程、EventLoop、計時器等等東西要處理。
+
+其中 js 引擎可以改變網頁元素，而渲染引擎也是處理元素，當然就會起衝突，所以同一時間兩者只能有一個在進行。而另一個則會被凍結。js 本身為異步執行，但是還是會有個主程序，相對於主程序其他程序流則為異步。從頭到尾直譯為主程序，中途可能會有 API 呼叫、DOM 操作、文件處理，這些則為其他的工作流程，會被排到工作序列等待執行完，然後函數回調告訴主程序執行完成，這個步驟會不斷重複，稱為事件循環，直到工作序列裡面沒有東西，才算結束。
+
+至於渲染引擎的細節我們明日再談。大家明天見！
+
