@@ -3,8 +3,6 @@ title: 《來做個網路瀏覽器吧！》文章列表
 date: 2018-02-27 22:51:23
 tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
 ---
-> 本系列目錄 [《來做個網路瀏覽器吧！》文章列表](/post/2018/02/browser/browser_series_33/)
-
 
 ## 基本介紹
 [做一個瀏覽器之前，先來認識瀏覽器](/post/2017/12/browser/browser_series_0/)
@@ -13,6 +11,7 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
 [瀏覽器平行化 ](/post/2018/01/browser/browser_series_23/)
 [Mozilla / Servo 瀏覽器引擎開發環境架設 ](/post/2017/12/browser/browser_series_8/)
 [談談 Servo 專案 ](/post/2017/12/browser/browser_series_16/)
+[How the Puffin Browser Works](/post/2018/09/puffin/)
 
 ## 簡易實作
 [瀏覽器引擎處理 DOM 的簡易版 ](/post/2017/12/browser/browser_series_3/)
