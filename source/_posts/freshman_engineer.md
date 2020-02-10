@@ -1,7 +1,7 @@
 ---
 title: 菜鳥程式設計師的精進之路
 date: 2019-04-09 01:23:39
-tags: [Chinese Posts,English Posts,Software Engineering,The Clean Coder,Programming,Growing Up,Chinese,]
+tags: [Chinese Posts,English Posts,Software Engineering,The Clean Coder,Programming,Growing Up,Chinese,軟體工程,軟體工程師]
 ---
 
 ### The Clean Coder 心得、摘要與補充
