@@ -4,18 +4,13 @@ date: 2019-04-09 01:23:39
 tags: [Chinese Posts,English Posts,Software Engineering,The Clean Coder,Programming,Growing Up,Chinese,]
 ---
 
-
-## 菜鳥程式設計師的精進之路
-
 ### The Clean Coder 心得、摘要與補充
 
 <img class="dz t u gn ak" src="https://miro.medium.com/max/4122/0*Pvn4y7pOrW5BB_Yc.JPG" role="presentation"><br/>
 
 前陣子把 《<em class="hr">The Clean Coder</em>》(中譯： 無瑕的程式碼 番外篇－專業程式設計師的生存之道) 看完，剛好可以回答一個網路上最常看到的問題之一：
 
-<span style="font-size: 26px; color: #696969; font-style:italic">菜鳥工程師與資深工程師的差別是甚麼？</span>
-
-<em class="id">菜鳥工程師與資深工程師的差別是甚麼？</em>
+<span style="font-size: 16px; color: #696969; font-style:italic">菜鳥工程師與資深工程師的差別是甚麼？</span>
 
 <!-- more --> 
 
@@ -27,9 +22,7 @@ tags: [Chinese Posts,English Posts,Software Engineering,The Clean Coder,Programm
 
 我們都會被交付任務，對象包含主管、PM、同事或客戶，學會正確的說「Yes」和「No」。一個專業人士不該過度承諾，面對做不到的事要說「No」，並給予對方合理的承諾，在自己能力範圍內說 「Yes」。
 
-<span style="font-size: 26px; color: #696969; font-style:italic">能就是能，不能就是不能，不要說試試看</span>
-
-能就是能，不能就是不能，不要說試試看
+<span style="font-size: 16px; color: #696969; font-style:italic">能就是能，不能就是不能，不要說試試看</span>
 
 書中給了幾個例子，說明 Yes 和 No 使用情境，要親自去閱讀才能感受那個情境。我覺得要能正確的說好與不好，需要具備兩個能力，一個是對事情高度掌握，能清楚分析複雜度和執行期限，並且還能說服對方接受你的論述，過程中勢必會需要大量溝通。
 
@@ -45,9 +38,7 @@ tags: [Chinese Posts,English Posts,Software Engineering,The Clean Coder,Programm
 
 大家是同一個團隊，互相幫助是彼此職責。不吝嗇幫助別人，自己也許獲得更多，此外也不要自負不肯找人協助，有時候我們會需要他人幫忙，像是有個很有趣的除錯方法—<a href="https://zh.wikipedia.org/wiki/%E5%B0%8F%E9%BB%84%E9%B8%AD%E8%B0%83%E8%AF%95%E6%B3%95" class="dj by jn jo jp jq" target="_blank" rel="noopener nofollow">小黃鴨除錯法</a>：
 
-<span style="font-size: 26px; color: #696969; font-style:italic">在程式的偵錯、除錯或測試過程中，操作人耐心地向小黃鴨解釋每一行程式的作用，以此來激發靈感與發現矛盾。</span>
-
-在程式的偵錯、除錯或測試過程中，操作人耐心地向小黃鴨解釋每一行程式的作用，以此來激發靈感與發現矛盾。
+<span style="font-size: 16px; color: #696969; font-style:italic">在程式的偵錯、除錯或測試過程中，操作人耐心地向小黃鴨解釋每一行程式的作用，以此來激發靈感與發現矛盾。</span>
 
 <img class="dz t u gn ak" src="https://miro.medium.com/max/1528/0*tFvBXruadSGl0FjN.jpg" role="presentation"><br/>
 
@@ -67,9 +58,7 @@ tags: [Chinese Posts,English Posts,Software Engineering,The Clean Coder,Programm
 
 書中很強調測試驅動開發（Test Driven Development, TDD），我也認為 TDD 是比較好的開發方式，既可以將規格、邏輯制定好，又不會陷入之後很難寫測試的困境。書中很張狂的聲明：
 
-<span style="font-size: 26px; color: #696969; font-style:italic">TDD 的各項優點表明了一件事情，不使用 TDD 就說明你可能還不夠專業 — The Clean Coder</span>
-
-TDD 的各項優點表明了一件事情，不使用 TDD 就說明你可能還不夠專業 — The Clean Coder
+<span style="font-size: 16px; color: #696969; font-style:italic">TDD 的各項優點表明了一件事情，不使用 TDD 就說明你可能還不夠專業 — The Clean Coder</span>
 
 不過你依然要視情況做出最佳選擇，沒有某個法則是鐵則。
 
@@ -81,15 +70,11 @@ TDD 的各項優點表明了一件事情，不使用 TDD 就說明你可能還�
 
 這種牛刀小試其實對維持手感和靈感很有幫助，老實說在寫這邊文章的同時，要我在 15 分鐘內寫出一個不會有 bug 的 Quick Sort 大概也是困難重重，概念還記得但就是生疏了。
 
-<span style="font-size: 26px; color: #696969; font-style:italic">As the saying goes: “Practice makes you better"</span>
-
-<strong class="bf">As the saying goes: “Practice</strong> makes you <strong class="bf">better&quot;</strong>
+<span style="font-size: 16px; color: #696969; font-style:italic">As the saying goes: “Practice makes you better"</span>
 
 此外多寫一些小專案也挺不錯，資工系的學生即便修過 Compiler、OS、Compuer Architecture 都不見得自己寫過一個完整的系統，只懂得原理而沒有親手做過，其實可以等於不會，因為現實是殘酷的，實務總是比較難。
 
-<span style="font-size: 26px; color: #696969; font-style:italic">很多人覺得自己寫程式速度已經夠快，那是因為他們沒有想要更快</span>
-
-很多人覺得自己寫程式速度已經夠快，那是因為他們沒有想要更快
+<span style="font-size: 16px; color: #696969; font-style:italic">很多人覺得自己寫程式速度已經夠快，那是因為他們沒有想要更快</span>
 
 不知道大家有沒有看過 <a href="https://medium.com/u/5879ccb41e31?source=post_page-----5b55f279630c----------------------" class="kg az by" target="_blank" rel="noopener">Jim Huang</a> (jserv) 在演講的時候直接現場打 Code，我認為 Live Coding 真的很困難，畢竟寫程式就是在創作，需要靈感、需要醞釀。但別人做得到寫得快又寫得好，我們加強練習也做得到。
 
@@ -124,11 +109,3 @@ TDD 的各項優點表明了一件事情，不使用 TDD 就說明你可能還�
 本文整理了《<em class="hr">The Clean Coder</em>》一書中的重點，並且我根據自身經驗加了不少詮釋。成長過程中我在不少公司待過，看過不少工程師，見過各種文化，即便我在業界的時間不多，但看這本書也是頗有感觸，希望我的一些見解可以幫助到其他人。
 
 那麼？我是 Junior 工程師嗎？縱橫本文的觀點，是的，我依舊還只是個菜鳥，精進自己的路還很遙遠。
-
----
-
-如果你覺得這篇文章對你有幫助，請幫我拍拍手做為鼓勵！
-
-### About Me
-
-Liu, An-Chi(劉安齊). A software engineer, who loves writing code and promoting CS to people. Welcome to follow me at <a href="https://www.facebook.com/CodingNeutrino/" class="dj by jn jo jp jq" target="_blank" rel="noopener nofollow">Facebook Page</a>. More information on <a href="https://tigercosmos.xyz/" class="dj by jn jo jp jq" target="_blank" rel="noopener nofollow">Personal Site</a> and <a href="https://github.com/tigercosmos" class="dj by jn jo jp jq" target="_blank" rel="noopener nofollow">Github</a>.
