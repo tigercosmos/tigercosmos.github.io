@@ -9,6 +9,12 @@ body
   margin: 0
   -webkit-tap-highlight-color: rgba(0,0,0,0)
 
+  h1, h2, h3, h4, h5, h6
+    .header-anchor
+      display: none;
+    &:hover
+      .header-anchor
+        display: inline-block;
   a
     color: #f78769 !important
     text-decoration: none
