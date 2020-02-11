@@ -1,7 +1,7 @@
 ---
 title: 台大觀察與心得(四)：生機系第一學期－課外活動篇
 date: 2017-01-28 23:57:00
-tags: [大學, 生機, 程式, 想法, ]
+tags: [台大, 大學, 生機, 程式, 想法, ]
 ---
 
 <div class="MsoNormal" style="line-height: 150%;">
