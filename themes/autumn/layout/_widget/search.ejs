@@ -1,0 +1,13 @@
+<% if (theme.widgets.search) { %>
+<h1>Search</h1>
+<input class="search-input" type="text" placeholder="Search on Google">
+<script>
+    const input = document.getElementsByClassName("search-input");
+    input[0].addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            window.open("https://www.google.com/search?&q=site%3Atigercosmos.xyz+" + input.value);
+        }
+    });
+</script>
+<% } %>

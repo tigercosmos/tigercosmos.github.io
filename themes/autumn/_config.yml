@@ -21,6 +21,7 @@ widgets:
   tag: enabled
   about: enabled
   recent: enabled
+  search: enabled
 
 # Set the first image in post to cover
 auto_cover: true
