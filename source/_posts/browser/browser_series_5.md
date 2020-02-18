@@ -5,8 +5,6 @@ tags: [browser, 瀏覽器, 鐵人賽, 來做個網路瀏覽器吧！]
 ---
 > 本系列目錄 [《來做個網路瀏覽器吧！》文章列表](/post/2018/02/browser/browser_series_33/)
 
-
-![CSS](http://youtubehindivideos.com/wp-content/uploads/2017/06/CSS-Tutorial-in-Hindi.jpg)
 今天繼續使用 [robinson](https://github.com/mbrubeck/robinson) 這個「玩具」來進行講解，第二篇文章講到解析，目前我們已經會處理 DOM 和 HTML 了，接下來就是處理 CSS 的部分。在開始之前，不知道你對 CSS 了解多少，平常有在開發網頁的話應該還算是懂吧，不過我想並沒有真正完全去理解它，因為其實只是開發網頁的話，也不需要懂。
 
 但是既然我們現在要處理 CSS 的部分，有完整的了解當然最好，可以參考 [Mozilla 文件](https://developer.mozilla.org/zh-TW/docs/Web/CSS) 或是 [W3C 文件](https://www.w3.org/Style/CSS/specs.en.html)。
