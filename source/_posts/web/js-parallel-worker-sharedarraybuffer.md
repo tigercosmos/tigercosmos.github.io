@@ -292,11 +292,12 @@ worker.postMessage(sab); // `SharedArrayBuffer` 物件傳給 Worker。
 
 const int32 = new Int32Array(sab);
 console.log("master before notify", int32[0]); // 0;
-Atomics.store(int32, 0, 123); // 改變共用元素
-Atomics.notify(int32, 0, true); // (A)
-```
+setTimeout(()=>{
+  Atomics.store(int32, 0, 123); // 改變共用元素
+  Atomics.notify(int32, 0, 1); // (A)
+}, 1000);
 
-`(A)` 這邊用 `Atomics.notify` 去告知 `int32` 的第 `0` 個元素值有變化，故傳 `true` 去通知。
+```
 
 ```js
 // worker.js
@@ -305,12 +306,16 @@ addEventListener('message', function (event) {
   const sharedBuffer = event.data;
   const int32 = new Int32Array(sharedBuffer);
  
-  Atomics.wait(int32, 0, false); // (B)
+  Atomics.wait(int32, 0, 0); // (B)
   console.log("worker after waiting", int32[0]); // 123
 });
 ```
 
-`(B)` 這邊用 `Atomics.wait` 去監聽 `int32` 的第 `0` 個元素值有沒有變化，監聽方式是看 `notify` 傳進來的值有沒有和第三個參數不一樣。因為第三個參數設為 `false`，故當 `notify` 傳 `true` 來時，Worker 的 `Atomics` 知道有變動了，於是繼續執行。
+`(B)` 這邊用 `Atomics.wait` 去檢查 `int32` 的第 `0` 個元素值和 `0` (`Atomics.wait` 第三個參數) 是否一樣，發現一樣，於是先進入睡眠。如果不一樣就不會等待。
+
+一秒鐘後，`(A)` 用 `Atomics.notify` 通知編號到 `1` 的 Worker 起來時 (`Atomics.notify` 第三個參數是計數器，預設到無限大，也就是所有 Worker 都檢查，但可以指定只檢查到第幾個 Worker)，Worker `1` 被喚醒，`Atomics.wait` 結束等待，於是繼續執行。
+
+執行上述範例，會發現 master 先顯示 log，一秒後 worker 被喚醒才顯示 log。
 
 #### 3.2.3 原子操做
 
