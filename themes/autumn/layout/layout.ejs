@@ -13,6 +13,11 @@
             <section class="aside-section">
                 <%- partial('_widget/about') %>
             </section>
+            <% if (page.content){%>
+                <section class="aside-section">
+                    <%- partial('_widget/toc') %>
+                </section>
+            <% } %>
             <section class="aside-section">
                 <%- partial('_widget/recent') %>
             </section>

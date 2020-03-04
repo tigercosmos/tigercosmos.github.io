@@ -22,6 +22,7 @@
     <div class="post-content">
         <%- page.content %>
     </div>
+    <% if (page.tags){%>
     <div class="post-tag">
         tags:&nbsp;
         <% page.tags.each(function (tag) { %>
@@ -30,6 +31,7 @@
             </a>,&nbsp;
         <%  }) %>
     </div>
+    <% } %>
 
 </article>
 <script>
