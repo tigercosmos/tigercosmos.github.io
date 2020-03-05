@@ -4,9 +4,6 @@ date: 2019-06-19 01:23:39
 tags: [Chinese Posts,English Posts,Localization,Rust,Rustlang,English,Rust Taiwan,]
 ---
 
-
-## Localize the Rust Website to Traditional Chinese
-
 ### Record Rust Taiwan community’s work of translating the Rust website
 
 <img class="dz t u gs ak" src="https://miro.medium.com/max/2292/1*Glon_ud1Q-gmHrpQtKi45w.png" role="presentation"><br/>
@@ -17,9 +14,7 @@ tags: [Chinese Posts,English Posts,Localization,Rust,Rustlang,English,Rust Taiwa
 
 <strong class="hj hv"><em class="hw">What is Rust? </em></strong><br>It is a language empowering everyone to build reliable and efficient software, the toast in the software town.
 
-Rust website in traditional Chinese:
-
-### <div class="cd id cj ck ie cm">Rust 程式設計語言</div>
+Rust website in traditional Chinese: [Rust 程式設計語言](https://www.rust-lang.org/zh-TW/)
 
 ---
 
@@ -27,7 +22,7 @@ Rust website in traditional Chinese:
 
 Back to around May, the Rust team made all strings in the Rust website being localizable so that the communities from all over the world can localize the Rust website to different languages.
 
-### <div class="cd id cj ck ie cm">[meta] Add localization strings everywhere · Issue #798 · rust-lang/www.rust-lang.org</div>
+Issue: [[meta] Add localization strings everywhere · rust-lang/www.rust-lang.org](https://github.com/rust-lang/www.rust-lang.org/issues/798)
 
 Now you can see all locale files in the repo <a href="https://github.com/rust-lang/www.rust-lang.org/tree/master/locales" class="dj by kl km kn ko" target="_blank" rel="noopener nofollow">www.rust-lang.org/locales </a>on Github and all translations are in the <code class="gw kp kq kr ks b">.ftl</code> format-type files, and these <code class="gw kp kq kr ks b">.ftl</code> files are synchronized to <a href="https://pontoon.rust-lang.org/" class="dj by kl km kn ko" target="_blank" rel="noopener nofollow">Pontoon</a>.
 
@@ -45,7 +40,7 @@ I first saw the twitter by <a href="https://twitter.com/ManishEarth" class="dj b
 
 At the same time, the community in China had been working on this issue. They formed up a group and started to translate the website. Alex, who is one of the contributors, had recorded the process of the translation for Simplified Chinese in the post below (in Chinese).
 
-### <div class="cd id cj ck ie cm">Rust官网翻译那些事</div>
+> Alex's post: [Rust官网翻译那些事](https://zhuanlan.zhihu.com/p/71899874)
 
 Several weeks later, I became the organizer of the localization of traditional Chinese, leading the Rust Taiwan Community to engage in this work. Since Alex and the simplified Chinese working group already has experience about the localization task, I asked Alex for help and suggestion. Later, I connected to <a href="https://twitter.com/Argorak" class="dj by kl km kn ko" target="_blank" rel="noopener nofollow">Florian Gilcher</a>, and he helped me to create the ZH-TW team in Pontoon, which requires a member in Rust team to doing that.
 
@@ -66,9 +61,3 @@ Cheers! A thousand of champagne bottles uncorked at the same time.
 <pre><span id="4403" class="ld jt em at ks b fn le lf r lg">The list of contributors up to 2019/7/7</span><span id="564d" class="ld jt em at ks b fn lh li lj lk ll lf r lg">(Order by the list of Pontoon above)<br>吳昱緯/Yu-Wei Wu<br>劉安齊/Liu, An-Chi<br>鄭弘昇/Hong-Sheng Zheng<br>楊善詠/Shan-Yung Yang<br>彭勝宇/Sheng-Yu Peng<br>Weihang Lo<br>許世豪/Shih-Hao Hsu<br>孟昭宏/Paul Meng<br>洪慈吟/Ballfish<br>徐永軒/YongB<br>Cybai<br>謝禹沆/Jezrien Hsieh<br>廖家緯/Chia-Wei Liaw</span></pre>
 
 <img class="dz t u gs ak" src="https://miro.medium.com/max/11668/1*dWIXW3yWFTdOoY1gLL9hXg.png" role="presentation"><br/>
-
----
-
-## About Me
-
-Liu, An-Chi(劉安齊). A software engineer, who loves writing code and promoting CS to people. Welcome to follow me at <a href="https://www.facebook.com/CodingNeutrino/?source=post_page---------------------------" class="dj by kl km kn ko" target="_blank" rel="noopener nofollow">Facebook Page</a>. More information on <a href="https://tigercosmos.xyz/?source=post_page---------------------------" class="dj by kl km kn ko" target="_blank" rel="noopener nofollow">Personal Site</a> and <a href="https://github.com/tigercosmos?source=post_page---------------------------" class="dj by kl km kn ko" target="_blank" rel="noopener nofollow">Github</a>.
