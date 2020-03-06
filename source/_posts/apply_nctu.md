@@ -17,7 +17,7 @@ tags: [Chinese Posts,English Posts,研究所,推甄,交大資工所,台大網媒
 
 本來沒有想要念研究所的，直到今年暑假去 CloudMosa 實習的經驗，讓我深深覺得自己程度不足，而且是資訊工程方面上的基礎學問，讓我決心要念研究所，希望能盡量把沒機會學的都學會。關於 CloudMosa 的經歷可以參考一下這篇。
 
-### <div class="cd ip cj ck iq cm">這個暑假我在 CloudMosa 所見所聞</div>
+> [這個暑假我在 CloudMosa 所見所聞](https://tigercosmos.xyz/post/2018/09/summer_cloudmosa/)
 
 一個軟體工程師如果只會寫程式，那就是碼農，說穿了就只是會寫程式的高級勞工罷了。我當然不甘心當個碼農，希望成為有價值的工程師，所以知識學問和研發創新的能力固然少不了。
 
@@ -35,7 +35,7 @@ tags: [Chinese Posts,English Posts,研究所,推甄,交大資工所,台大網媒
 
 以下這篇當初給我滿多參考，我的準備資料大致上也是模仿他。
 
-### <div class="cd ip cj ck iq cm">2017 交大研究所推甄甲、丙組 &amp; 數據心得</div>
+> [2017 交大研究所推甄甲、丙組 &amp; 數據心得](https://medium.com/@g4691821/2017-%E4%BA%A4%E5%A4%A7%E7%A0%94%E7%A9%B6%E6%89%80%E6%8E%A8%E7%94%84%E7%94%B2-%E4%B8%99%E7%B5%84-%E6%95%B8%E6%93%9A%E5%BF%83%E5%BE%97-de49ad2d93c)
 
 這邊就有樣學樣，也貼上我的備審資料吧！
 
@@ -92,11 +92,3 @@ tags: [Chinese Posts,English Posts,研究所,推甄,交大資工所,台大網媒
 一路上受到許多人幫忙與賞賜，讓我不對累績經驗和成長。感謝林博雄教授找我去大氣系寫軟體，開始了資工練等之路。感謝王可言博士給了我第一份實習工作。感謝沈修平博士給我機會實習見識到超強的工程師水準。謝謝洪士灝教授專題指導和協助。謝謝許多工程師與我互相切磋。
 
 希望這篇能幫到未來一樣想申請資工所的人，祝大家在追逐資工夢的路上一路順風！
-
----
-
-如果你覺得這篇文章對你有幫助，請幫我拍拍手做為鼓勵！
-
-### About Me
-
-Liu, An-Chi(劉安齊). A software engineer, who loves writing code and promoting CS to people. Welcome to follow me at <a href="https://www.facebook.com/CodingNeutrino/" class="dj by lc ld le lf" target="_blank" rel="noopener nofollow">Facebook Page</a>. More information on <a href="https://tigercosmos.xyz/" class="dj by lc ld le lf" target="_blank" rel="noopener nofollow">Personal Site</a> and <a href="https://github.com/tigercosmos" class="dj by lc ld le lf" target="_blank" rel="noopener nofollow">Github</a>.
