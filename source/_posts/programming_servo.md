@@ -23,7 +23,7 @@ I assume you are not familiar with software developing, but you have some skills
 
 So when you want to know somethings in the box, you might add some lines, such as:
 
-```undefined
+```rust
 println!("{:?}", SOMETHING);
 ```
 
@@ -57,7 +57,7 @@ Please follow the <a href="https://doc.rust-lang.org/book/second-edition/ch01-03
 
 To create a project:
 
-```undefined
+```rust
 cargo new hello_cargo --bin
 cd hello_cargo
 ```
@@ -66,7 +66,7 @@ Then, let’s start!
 
 In order to show how to use GDB, I have designed a sample code. Please copy the following code to your <code class="gw ir is it iu b">./src/main.rs</code>:
 
-```undefined
+```rust
 fn main() {
     let name = "Tiger";
     let msg = make_hello_string(&name);
@@ -85,13 +85,13 @@ There would be an executable file <code class="gw ir is it iu b">./target/debug/
 
 To run the program with GDB:
 
-```undefined
+```rust
 gdb target/debug/hello_cargo 
 ```
 
 That’s it. You would see the interface in GDB like this:
 
-```undefined
+```rust
 gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git
 Copyright (C) 2018 Free Software Foundation, Inc.
 ...
@@ -112,21 +112,21 @@ Use <code class="gw ir is it iu b">break</code> or <code class="gw ir is it iu b
 
 In the first case, you can break at a function. (You would need to enter the whole path, like <code class="gw ir is it iu b">mod::mod::function</code> in a big project)
 
-```undefined
+```rust
 (gdb) break make_hello_world
 Breakpoint 1 at 0x55555555beca: file src/main.rs, line 8.
 ```
 
 Or, you can add the file path with a line number to define where to stop.
 
-```undefined
+```rust
 (gdb) b src/main.rs:9
 Breakpoint 2 at 0x55555555bf6a: file src/main.rs, line 9.
 ```
 
 let’s see whether we have set successfully.
 
-```undefined
+```rust
 (gdb) info break
 Num     Type           Disp Enb Address            What
 1       breakpoint     keep y   0x000055555555beca in hello_cargo::make_hello_string at src/main.rs:8
@@ -135,7 +135,7 @@ Num     Type           Disp Enb Address            What
 
 But I just want one breakpoint, so I could delete the first one by <code class="gw ir is it iu b">del</code> command.
 
-```undefined
+```rust
 (gdb) del 1
 (gdb) info break
 Num     Type           Disp Enb Address            What
@@ -148,7 +148,7 @@ Now there is just one breakpoint. Let’s run the program and see what happens!
 
 Use <code class="gw ir is it iu b">run</code> to start.
 
-```undefined
+```rust
 (gdb) run
 Starting program: /home/tigercosmos/Desktop/hello_cargo/target/debug/hello_cargo 
 [Thread debugging using libthread_db enabled]
@@ -164,7 +164,11 @@ As you can see, the program has stopped at the position that we want. Then, we c
 
 If you are wondering what the upstream functions has been called before runnning to this breakpoint, you can use command <code class="gw ir is it iu b">backtrace</code> or <code class="gw ir is it iu b">bt</code>.
 
-<a href="https://gist.github.com/5419b1d7f3fc4d5b067cd5688ec92b9f" class="dj by in io ip iq" target="_blank" rel="noopener nofollow">https://gist.github.com/5419b1d7f3fc4d5b067cd5688ec92b9f</a>
+```rust
+(gdb) backtrace
+#0  hello_cargo::make_hello_string (name=...) at src/main.rs:9
+#1  0x000055555555bdd5 in hello_cargo::main () at src/main.rs:3
+```
 
 Now GDB tells you that it is <code class="gw ir is it iu b">main.rs</code> line 3 (#1), which is <code class="gw ir is it iu b">let msg = make_hello_string(&amp;name);</code>, called <code class="gw ir is it iu b">main.rs</code> line 9 (#0), which is belong to <code class="gw ir is it iu b">make_hello_string</code>.
 
@@ -182,7 +186,7 @@ After the previous step, we have already set a breakpoint at <code class="gw ir 
 
 Now I want to check frame <code class="gw ir is it iu b">#1</code>, and see what is the value of <code class="gw ir is it iu b">name</code>, which is at <code class="gw ir is it iu b">src/main.rs:2</code>, in the scope of frame <code class="gw ir is it iu b">#1</code>.
 
-```undefined
+```rust
 #1  0x000055555555bdd5 in hello_cargo::main () at src/main.rs:3
 3	    let msg = make_hello_string(&name);
 (gdb) print name
@@ -193,7 +197,7 @@ So, <code class="gw ir is it iu b">frame</code> let you enter the scope in frame
 
 How about switch to frame <code class="gw ir is it iu b">#0</code>, and see what value is <code class="gw ir is it iu b">hello_str</code>?
 
-```undefined
+```rust
 (gdb) frame 0
 #0  hello_cargo::make_hello_string (name=...) at src/main.rs:9
 9	    hello_str
@@ -205,7 +209,7 @@ $2 = alloc::string::String {vec: alloc::vec::Vec<u8> {buf: alloc::raw_vec::RawVe
 
 After checking some information we want know, we might want the program to continue. Use <code class="gw ir is it iu b">continue</code> or <code class="gw ir is it iu b">c</code> to continue running the code. The program will keep running until it meets another breakpoints or finish the execution.
 
-```undefined
+```rust
 (gdb) c
 Continuing.
 Hi Tiger, how are you?
@@ -231,13 +235,13 @@ Almost there. Let’s go to debug the Servo project. I assume you are able to co
 
 To build in debug mode:
 
-```undefined
+```rust
 $ ./mach build -d
 ```
 
 Once the build is done, and we want to debug Servo:
 
-```undefined
+```rust
 $ ./mach run -d https://google.com --debug
 Reading symbols from /home/tigercosmos/servo/target/debug/servo...done.
 (gbd)
@@ -258,7 +262,3 @@ I’m writing this article for him and all the developers who just become one of
 ### Special thanks
 
 Thanks <a href="https://github.com/ko19951231" class="dj by in io ip iq" target="_blank" rel="noopener nofollow">@SouthRa</a> and <a href="https://github.com/cybai" class="dj by in io ip iq" target="_blank" rel="noopener nofollow">@cybai</a> for helping me review the article.
-
-### <strong class="bf">About Me</strong>
-
-Liu, An-Chi(劉安齊). A software engineer, who loves writing code and promoting CS to people. Welcome to follow me at <a href="https://www.facebook.com/CodingNeutrino/" class="dj by in io ip iq" target="_blank" rel="noopener nofollow">Facebook Page</a>. More information on <a href="https://tigercosmos.xyz/" class="dj by in io ip iq" target="_blank" rel="noopener nofollow">Personal Site</a> and <a href="https://github.com/tigercosmos" class="dj by in io ip iq" target="_blank" rel="noopener nofollow">Github</a>.
