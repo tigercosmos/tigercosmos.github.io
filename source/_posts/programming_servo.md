@@ -1,7 +1,7 @@
 ---
 title: Programming Servo--The Debug Way
 date: 2018-08-26 00:00:00
-tags: [Chinese Posts,English Posts,Servo,Debug,Gdb,Rust,English,]
+tags: [English Posts, servo, debug, gdb, rust, English,]
 ---
 
 
