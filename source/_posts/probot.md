@@ -1,13 +1,10 @@
 ---
 title: 第一次 Probot 開發 Github App 就上手
 date: 2018-06-02 00:00:00
-tags: [Chinese Posts,English Posts,Probot,Github App,Bot,Chinese,]
+tags: [probot,github app,bot]
 ---
 
-
-## <strong class="bf">第一次 Probot 開發 Github App 就上手</strong>
-
-The First Time Developing Github App via Probot
+Developing Github app via Probot on the rail at the first time.
 
 <img class="dz t u gw ak" src="https://miro.medium.com/max/3200/0*UZk2Fw5ruoYQ6qbJ.png" role="presentation"><br/>
 
@@ -174,9 +171,3 @@ robot.on('issue_comment.created', async context => {
 ## 結論
 
 用 Probot 建立 Github App 真的很簡單喔！善用 bot 可以讓專案進行得更有效率，Probot 有一個展示大家 bot 的<a href="https://probot.github.io/apps/" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">廣場</a>，也可以裝幾個玩玩看。最後有問題歡迎問我。
-
----
-
-<span style="font-size: 26px; color: #696969; font-style:italic">關於作者劉安齊 軟體工程師，熱愛寫程式，更喜歡推廣程式讓更多人學會。歡迎追蹤 微中子，我會在上面分享各種新知與最新作品，也可以去逛逛我的 個人網站 或 Github。</span>
-
-<strong class="fx il">關於作者<br><em class="at">劉安齊</em></strong><em class="at"> 軟體工程師，熱愛寫程式，更喜歡推廣程式讓更多人學會。歡迎追蹤 </em><a href="https://www.facebook.com/CodingNeutrino/" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow"><strong class="fx il"><em class="at">微中子</em></strong></a><em class="at">，我會在上面分享各種新知與最新作品，也可以去逛逛我的 </em><a href="https://tigercosmos.xyz/" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow"><strong class="fx il"><em class="at">個人網站</em></strong></a><em class="at"> 或 </em><a href="https://github.com/tigercosmos" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow"><strong class="fx il"><em class="at">Github</em></strong></a><em class="at">。</em>
