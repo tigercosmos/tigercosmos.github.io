@@ -1,5 +1,10 @@
 <% if (theme.widgets.tag) { %>
     <h1>Tags</h1>
 
-    <%- list_tags({show_count: false}) %>
+    <%- list_tags({
+        show_count: false,
+        transform(str) {
+            return str.toLowerCase();
+        }
+      }) %>
 <% } %>
