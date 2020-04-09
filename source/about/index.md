@@ -1,5 +1,6 @@
 ---
 title: About
+layout: blank
 date: 2019-11-19 11:38:12
 ---
 
