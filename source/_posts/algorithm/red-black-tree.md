@@ -4,6 +4,8 @@ date: 2019-11-27 00:00:00
 tags: [algorithm, red black tree]
 ---
 
+## 紅黑樹簡介
+
 紅黑樹是一種特別的資料結構，他具有跟 AVL Tree 一樣可以自動平衡的功能。
 
 一個紅黑樹具有一下特性：
@@ -33,7 +35,9 @@ tags: [algorithm, red black tree]
 
 ## 插入
 
-可以觀看這個：[YouTube: Red Black Tree Insertion](https://www.youtube.com/embed/UaLIHuR1t8Q)
+可以觀看這個：
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UaLIHuR1t8Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - 每次插入必定是紅色
 - uncle 是紅色，那基本上就是要去改變顏色
@@ -41,7 +45,9 @@ tags: [algorithm, red black tree]
 
 ## 刪除
 
-可以觀看這個：[YouTube: Red Black Tree Deletion](https://www.youtube.com/embed/CTvfzU_uNKE)
+可以觀看這個：
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CTvfzU_uNKE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - 刪除中間節點要找最近的繼承者，先把自己取代成繼承者數值，再去處理原本繼承者
   - 如果繼承者 node 是紅帶有兩個 `NIL`，直接刪掉補上就好，基本上所有規則都不會違背。
