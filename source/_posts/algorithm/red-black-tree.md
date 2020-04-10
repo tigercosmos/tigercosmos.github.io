@@ -33,7 +33,7 @@ tags: [algorithm, red black tree]
 
 ## 插入
 
-可以觀看這個：[Red Black Tree Insertion](https://www.youtube.com/embed/UaLIHuR1t8Q)
+可以觀看這個：[YouTube: Red Black Tree Insertion](https://www.youtube.com/embed/UaLIHuR1t8Q)
 
 - 每次插入必定是紅色
 - uncle 是紅色，那基本上就是要去改變顏色
@@ -41,7 +41,7 @@ tags: [algorithm, red black tree]
 
 ## 刪除
 
-可以觀看這個：[Red Black Tree Deletion](https://www.youtube.com/embed/CTvfzU_uNKE)
+可以觀看這個：[YouTube: Red Black Tree Deletion](https://www.youtube.com/embed/CTvfzU_uNKE)
 
 - 刪除中間節點要找最近的繼承者，先把自己取代成繼承者數值，再去處理原本繼承者
   - 如果繼承者 node 是紅帶有兩個 `NIL`，直接刪掉補上就好，基本上所有規則都不會違背。
