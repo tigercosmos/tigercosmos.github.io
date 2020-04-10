@@ -28,17 +28,20 @@ tags: [algorithm, red black tree]
 
 紅黑樹的規則很清楚了，接下來就是如何遵循規則進行插入和刪除。
 這部分真的很複雜，我直接看「Introduce to Algorithm」也看不懂在寫啥。
-不過這個印度人的影片解釋得很清楚，非常建議直接看影片去瞭解：
+
+我找了很久，發現以下推薦的印度人的影片解釋得很清楚，非常建議直接看影片去瞭解：
 
 ## 插入
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UaLIHuR1t8Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+可以觀看這個：[Red Black Tree Insertion](https://www.youtube.com/embed/UaLIHuR1t8Q)
 
 - 每次插入必定是紅色
 - uncle 是紅色，那基本上就是要去改變顏色
 - uncle 是黑，就需要進行左旋或右旋
 
 ## 刪除
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CTvfzU_uNKE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+可以觀看這個：[Red Black Tree Deletion](https://www.youtube.com/embed/CTvfzU_uNKE)
 
 - 刪除中間節點要找最近的繼承者，先把自己取代成繼承者數值，再去處理原本繼承者
   - 如果繼承者 node 是紅帶有兩個 `NIL`，直接刪掉補上就好，基本上所有規則都不會違背。
