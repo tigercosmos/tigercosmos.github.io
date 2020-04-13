@@ -15,7 +15,6 @@ script:
   - hexo clean
   - hexo deploy
   - cp CNAME public
-  - cp ads.txt public
 
 deploy:
   provider: pages
