@@ -1,6 +1,6 @@
 ---
 title: Linux/Unix 用指令設定 DNS 
-date: 2019-04-14 11:01:00
+date: 2020-04-14 11:01:00
 tags: [unix, network, nds, note, squid]
 ---
 
