@@ -24,7 +24,7 @@ $ sudo vim /etc/resolv.conf
 
 然後在裡面內容加上：
 
-```sh
+```py
 # OpenDNS
 nameserver 208.67.222.222
 nameserver 208.67.220.220
