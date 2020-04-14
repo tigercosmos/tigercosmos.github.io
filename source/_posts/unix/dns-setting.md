@@ -5,6 +5,7 @@ tags: [unix, network, nds, note, squid]
 ---
 
 事情是這樣的，從昨天開始我實驗室的主機突然不能上網了，平常我都用那台當作 proxy，因為有時候查論文需要用交大 IP。然後我一開始以為是 Squid 出問題，在那邊弄了老半天設定，才發現問題好像也不是 Squid。接著我很震驚地發現，原來我可以 SSH 進主機，卻不能從他連出去。
+<!-- more -->
 
 輸入以下指令通通沒用：
 
@@ -23,7 +24,7 @@ $ sudo vim /etc/resolv.conf
 
 然後在裡面內容加上：
 
-```conf
+```sh
 # OpenDNS
 nameserver 208.67.222.222
 nameserver 208.67.220.220
