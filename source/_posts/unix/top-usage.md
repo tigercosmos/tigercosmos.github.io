@@ -114,6 +114,8 @@ $ top -h
 top -hv | -bcHisS -d delay -n limit -u|U user | -p pid -w [cols]
 ```
 
+這邊我挑出最重要的介紹，詳細的參數說明請查閱[參考資料](#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99)連結。
+
 舉例來說，這樣會顯示 `acliu` 這個使用者頭 10 個任務：
 
 ```sh
