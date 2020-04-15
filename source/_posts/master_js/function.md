@@ -4,8 +4,6 @@ date: 2018-11-11 00:00:00
 tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
 ---
 
-Gitbook 連結： [https://tigercosmos.github.io/master-js-in-30-days/](https://tigercosmos.github.io/master-js-in-30-days/)
-
 # 函式
 
 我們知道程式碼可以幫我們做很多事情，例如睡不著要數羊的時候，就讓程式跑個迴圈，一下就幾百幾千萬隻羊了。但是目前為止，所以工作都是被放在一起的，並且只能被執行一次。也就是說，假設我有三件工作，寫成程式碼可能會長這樣：

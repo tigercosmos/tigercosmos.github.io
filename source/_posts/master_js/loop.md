@@ -4,8 +4,6 @@ date: 2018-11-11 00:00:00
 tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
 ---
 
-Gitbook 連結： [https://tigercosmos.github.io/master-js-in-30-days/](https://tigercosmos.github.io/master-js-in-30-days/)
-
 # 迴圈
 
 在生活中，我們常常會有有做一樣的事情的時候，例如一張一張比對發票、一行一行檢查有沒有錯字。這個要重複做的動作，在程式語言中就可以用迴圈（loop）辦到。

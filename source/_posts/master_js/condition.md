@@ -4,8 +4,6 @@ date: 2018-11-11 00:00:00
 tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
 ---
 
-Gitbook 連結： [https://tigercosmos.github.io/master-js-in-30-days/](https://tigercosmos.github.io/master-js-in-30-days/)
-
 # 條件判斷
 
 接下來介紹控制程式的方式之一，也就是條件判斷。

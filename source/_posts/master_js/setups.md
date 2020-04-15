@@ -4,8 +4,6 @@ date: 2018-11-11 00:00:00
 tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
 ---
 
-Gitbook 連結： [https://tigercosmos.github.io/master-js-in-30-days/](https://tigercosmos.github.io/master-js-in-30-days/)
-
 # 環境建設與執行第一個程式
 
 JS 可以當作獨立的程式直接運行，也可以跑在網頁上。本篇先介紹如何直接運行 JS 就好，因為要跑在網頁上，我們必須寫一份網頁出來，其中概念不只 JS，還必須懂 HTML，但這邊我們先了解 JS 就好，所以跑在網站上的方式待晚點再作介紹。

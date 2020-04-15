@@ -4,8 +4,6 @@ date: 2018-11-11 00:00:00
 tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
 ---
 
-Gitbook 連結： [https://tigercosmos.github.io/master-js-in-30-days/](https://tigercosmos.github.io/master-js-in-30-days/)
-
 # 檔案讀寫
 
 電腦科學中資料讀寫包含存取（input, I）和輸出（output, O），這也是為什麼常常看到 I/O 這個術語的原因。在電腦科學術語中中，廣義的 I/O 包含直接對檔案（file）、緩存（Buffer）以及數據流（stream）做操作。檔案就是已經存放在儲存裝置中的文件，緩存是還在記憶體中的資料，數據流則是一串序列化的抽象資料，這再晚點會深入介紹。

@@ -4,8 +4,6 @@ date: 2018-11-11 00:00:00
 tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
 ---
 
-Gitbook 連結： [https://tigercosmos.github.io/master-js-in-30-days/](https://tigercosmos.github.io/master-js-in-30-days/)
-
 # 物件
 
 這個世界由各種不同的東西(Things)組成，我們身處的宇宙、太陽系、每天繞地球的月球，山海與花花草草。
