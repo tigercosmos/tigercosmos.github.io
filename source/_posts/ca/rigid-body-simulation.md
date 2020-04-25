@@ -80,11 +80,11 @@ if (is_hit)
 
     if (penetration == overlap_x)
     {
-        normal.x = pos2.x - pos1.x > 0 ? 1.0 : -1.0;
+        normal.x = B->pos.x - A->pos.x > 0 ? 1.0 : -1.0;
     }
     else
     {
-        normal.y = pos2.y - pos1.y > 0 ? 1.0 : -1.0;
+        normal.y = B->pos.y - A->pos.y > 0 ? 1.0 : -1.0;
     }
 }
 ```
