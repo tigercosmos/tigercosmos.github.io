@@ -65,33 +65,18 @@ float2 normal(0.0f, 0.0f);
 float penetration = 0.0f;
 bool is_hit = false;
 
-auto pos1 = A->pos;
-auto half_extent1 = A->extent / 2;
-
-auto xmin1 = pos1.x - half_extent1.x;
-auto xmax1 = pos1.x + half_extent1.x;
-auto ymin1 = pos1.y - half_extent1.y;
-auto ymax1 = pos1.y + half_extent1.y;
-
-auto pos2 = B->pos;
-auto half_extent2 = B->extent / 2;
-
-auto xmin2 = pos2.x - half_extent2.x;
-auto xmax2 = pos2.x + half_extent2.x;
-auto ymin2 = pos2.y - half_extent2.y;
-auto ymax2 = pos2.y + half_extent2.y;
-
-if (xmax1 > xmin2 && xmax2 > xmin1 && ymax1 > ymin2 && ymax2 > ymin1)
+if (A_x_max > B_x_min && B_x_max > A_x_min &&
+    B_y_max > B_y_min && B_y_max > B_y_min)
 {
     is_hit = true;
 }
 
 if (is_hit)
 {
-    auto overlap_x = std::min(xmax1 - xmin2, xmax2 - xmin1);
-    auto overlap_y = std::min(ymax1 - ymin2, ymax2 - ymin1);
+    auto overlap_x = min(A_x_max - B_x_min, B_x_max - A_x_min);
+    auto overlap_y = min(B_y_max - B_y_min, B_y_max - B_y_min);
 
-    penetration = std::min(overlap_x, overlap_y);
+    penetration = min(overlap_x, overlap_y);
 
     if (penetration == overlap_x)
     {
@@ -121,8 +106,6 @@ $$ \mathbf {Normal}_{BA} = \mathbf C_{BA}/ Distance(C_A, C_B) $$
 虛擬碼：
 
 ```cpp
-typedef linalg::aliases::float2 float2;
-
 float2 normal(0.0f, 0.0f);
 float penetration = 0.0f;
 bool is_hit = false;
@@ -132,7 +115,7 @@ auto r1 = A->radius;
 auto pos2 = B->pos;
 auto r2 = B->radius;
 
-float dis = std::sqrt(
+float dis = sqrt(
     (pos2.x - pos1.x) * (pos2.x - pos1.x) +
     (pos2.y - pos1.y) * (pos2.y - pos1.y));
 penetration = r1 + r2 - dis;
@@ -184,10 +167,10 @@ float2 closest_p(0, 0);
 if (c_pos.x > x_max && c_pos.x < x_min &&
       c_pos.y > y_max && c_pos.y < y_min)
 {
-    closest_p.x = std::clamp(c_pos.x, x_min, x_max);
-    closest_p.y = std::clamp(c_pos.y, y_min, y_max);
+    closest_p.x = clamp(c_pos.x, x_min, x_max);
+    closest_p.y = clamp(c_pos.y, y_min, y_max);
 
-    float dis = std::sqrt(
+    float dis = sqrt(
         (c_pos.x - closest_p.x) * (c_pos.x - closest_p.x) +
         (closest_p.y - c_pos.y) * (closest_p.y - c_pos.y));
 
@@ -213,7 +196,7 @@ if (c_pos.x > x_max && c_pos.x < x_min &&
 $$ \mathbf N_{BA} = \mathbf V_{PA_{center}} - \mathbf V_{B_{center}A_{center}} $$
 $$ penestration = B_{radius} + Distance(B_{center}, P)$$
 
-虛擬碼承接 [2.1.3.2](#2132)：
+虛擬碼承接 [2.1.3.2](#2-1-3-2-圓心在-AABB-之內)：
 
 ```cpp
 // inside
@@ -248,7 +231,7 @@ else
         closest_p.y = y_max;
     }
 
-    float dis = std::sqrt(
+    float dis = sqrt(
         (c_pos.x - closest_p.x) * (c_pos.x - closest_p.x) +
         (closest_p.y - c_pos.y) * (closest_p.y - c_pos.y));
         
@@ -276,7 +259,7 @@ void correct_position(A, B)
 {
   const float percent = 0.2 // 60 fps 下通常 20% 到 80%
   const float slop = 0.01 // 超過一定量才做修正，避免一直跳動，通常 0.01 to 0.1
-  float2 correction = std::max(penetration - slop, 0.0f) / (A.inv_mass + B.inv_mass)) * percent * normal
+  float2 correction = max(penetration - slop, 0.0f) / (A.inv_mass + B.inv_mass)) * percent * normal
   A.position -= A.inv_mass * correction
   B.position += B.inv_mass * correction
 }
@@ -312,7 +295,7 @@ void Resolve(body0, body1) {
         }
 
         // restitution
-        float e = std::min(body0->restitution, body1->restitution);
+        float e = min(body0->restitution, body1->restitution);
 
         // impluse
         float jr = -(1 + e) * vel_n;
@@ -373,7 +356,7 @@ float mu = sqrt(
     pow(body0->StaticFriction, 2) + pow(body1->StaticFriction, 2));
     
 // 靜摩擦
-if (std::abs(jt) < jr * mu)
+if (abs(jt) < jr * mu)
 {
     friction_impulse = jt * tan;
 }
