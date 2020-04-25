@@ -56,6 +56,8 @@ $$
 
 虛擬碼：
 
+>  *注意到之後虛擬碼中的 `float2` 都是 `vec<float,2>`*
+
 ```cpp
 typedef linalg::aliases::float2 float2;
 
