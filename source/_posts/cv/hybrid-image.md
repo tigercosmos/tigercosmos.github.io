@@ -1,5 +1,5 @@
 ---
-title: 混疊圖像 (Hybrid Image) 實作
+title: 混疊圖像 (Hybrid Image) 原理與實作
 date: 2020-04-26 20:00:00
 tags: [hybrid image, computer vision, python, image processing]
 ---
