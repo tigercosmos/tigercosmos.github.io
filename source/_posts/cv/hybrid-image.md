@@ -56,11 +56,11 @@ $$g(i,j) = EXP({ -{ {(x-i)^2+(y-j)^2} \over{ 2 \sigma ^2}} })$$
 
 其中 $\sigma$ 為範圍大小，$(i, j)$ 是圖片的像素點位置，而 $(x, y)$ 是中心點。
 
-### 2.3 高斯函數
+### 2.3 濾鏡
 
-選擇高斯函數理由可以參考[這篇](https://dsp.stackexchange.com/questions/3002/why-are-gaussian-filters-used-as-low-pass-filters-in-image-processing)，簡單來說有幾點優點，一來是他不會產生負的值，再來是他過濾後的圖片跟自然界的物理現象比較接近。
+濾鏡選擇高斯函數理由可以參考[這篇](https://dsp.stackexchange.com/questions/3002/why-are-gaussian-filters-used-as-low-pass-filters-in-image-processing)，簡單來說有幾點優點，一來是他不會產生負的值，再來是他過濾後的圖片跟自然界的物理現象比較接近。
 
-以理想透鏡和高斯濾鏡來比較的話，先看看這兩種濾鏡示意圖。下圖為低通情況，因為圖片在經過傅立葉變換之後，若只保留中心部分 (白色)，則代表此濾鏡僅留下低頻訊號。
+以理想濾鏡  (Ideal Filter) 和高斯濾鏡來比較的話，理想濾鏡是一個邊界分明的濾鏡，高斯濾鏡則是套用高斯函數的濾鏡。下圖為低通情況這兩種濾鏡示意圖，圖片在經過傅立葉變換之後，若只保留中心部分 (白色)，則代表此圖片經過濾鏡後僅留下低頻訊號。
 
 ![image](https://user-images.githubusercontent.com/18013815/80313634-a9f4a380-881e-11ea-9de2-1526ac3b1692.png)
 
