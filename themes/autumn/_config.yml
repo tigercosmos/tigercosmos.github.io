@@ -1,8 +1,7 @@
 # Nav
 social:
   About: /about
-  Github: https://github.com/tigercosmos
-  LinkedIn: https://www.linkedin.com/in/liuanchi/
+  Navigation: /navigation
   RSS: /atom.xml
   Donation: /donation
 
