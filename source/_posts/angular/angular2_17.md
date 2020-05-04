@@ -1,7 +1,7 @@
 ---
 title: Angular 2 組件繼承 ( Component Inheritance )
 date: 2017-01-02 23:39:11
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x524D;&#x8A00;</h2>
 <p>Angular 2.3 &#x6700;&#x8FD1;&#x767C;&#x5E03;&#xFF0C;&#x800C;&#x6700;&#x6709;&#x7279;&#x8272;&#x7684;&#x90E8;&#x5206;&#x83AB;&#x904E;&#x65BC;&#x7D44;&#x4EF6;&#x7E7C;&#x627F; (Component Inheritance) &#x7684;&#x90E8;&#x5206;&#x4E86;&#x3002;&#x5982;&#x540C;&#x985E;&#x5225;&#x53EF;&#x4EE5;&#x7E7C;&#x627F;&#x4E00;&#x822C;&#xFF0C;&#x7D44;&#x4EF6;&#x7E7C;&#x627F;&#x53EF;&#x4EE5;&#x8B93;&#x7A0B;&#x5F0F;&#x78BC;&#x8B8A;&#x5F97;&#x66F4;&#x52A0;&#x5F37;&#x5927;&#x4E14;&#x66F4;&#x6709;&#x91CD;&#x8907;&#x4F7F;&#x7528;&#x6027;&#x3002;<br>

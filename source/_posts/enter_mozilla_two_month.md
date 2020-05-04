@@ -1,7 +1,7 @@
 ---
 title: 踏入 Mozilla Servo 兩個月的心得
 date: 2017-10-17 00:00:00
-tags: [Chinese Posts,English Posts,Mozilla,Mozilla Taiwan,Servo,Open Source,Chinese,]
+tags: [mozilla,mozilla taiwan,servo,open source,開源]
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Angular 2 製作 tab 元件
 date: 2017-01-12 23:42:15
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x524D;&#x8A00;</h2>
 <p>tab &#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x5206;&#x9801;&#x7684;&#x6A19;&#x7C64;<br>

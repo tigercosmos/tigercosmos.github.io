@@ -1,7 +1,7 @@
 ---
 title: Angular 2 + Ionic = Mobile App ( 3 ) 實作 Todo List
 date: 2017-01-07 23:39:58
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x5EFA;&#x7ACB;&#x5C08;&#x6848;</h2>
 <p>&#x4E0A;&#x56DE;&#x6211;&#x5011;&#x5DF2;&#x7D93;&#x8AAA;&#x660E;&#x5982;&#x4F55;&#x5EFA;&#x7ACB;&#x4E00;&#x500B;&#x5C08;&#x6848;&#xFF0C;&#x800C;&#x9019;&#x6B21;&#x6211;&#x5011;&#x7528;&#x7D93;&#x5178;&#x7684; Todo List (&#x5099;&#x5FD8;&#x9304;) &#x4F86;&#x505A;&#x8AAA;&#x660E;</p>

@@ -1,7 +1,7 @@
 ---
 title: Revision Control
 date: 2019-01-18 11:01:00
-tags: [How Things Work, English,git, software engineering, revision control]
+tags: [how things work, english,git, software engineering, revision control]
 ---
 
 It's a late night, and the man is still at the office, being in deep water over the crashed program. Everything goes wrong. He doesn't even know why the code cannot run as usual. Unfortunately, he has forgotten what he had changed, regardless of the changes, which must be of paramount importance to the incident.

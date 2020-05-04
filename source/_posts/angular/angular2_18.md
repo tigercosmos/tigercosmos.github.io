@@ -1,7 +1,7 @@
 ---
 title: Angular 2 Input(s) & Output(s) 傻傻分不清
 date: 2017-01-03 23:46:42
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x524D;&#x8A00;</h2>
 <p>Angular 2 &#x4E2D; Components &#x4E4B;&#x9593;&#x7684;&#x95DC;&#x4FC2;&#x793A;&#x610F;&#x5C64;&#x4E00;&#x5C64;&#x7684;&#xFF0C;&#x5C31;&#x9577;&#x5F97;&#x5411;&#x4E0B;&#x9762;&#x9019;&#x5F35;&#x5716;&#x3002;<br>

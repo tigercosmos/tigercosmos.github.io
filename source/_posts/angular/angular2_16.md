@@ -1,7 +1,7 @@
 ---
 title: Angular 2 替 Component 加上 CSS 的所有招數
 date: 2017-01-01 23:46:04
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x984C;&#x5916;&#x8A71;</h2>
 <p>&#x770B;&#x5230;&#x4E00;&#x6BB5;&#x6211;&#x5F88;&#x8A8D;&#x540C;&#x7684;&#x8A71;&#xFF1A;</p>

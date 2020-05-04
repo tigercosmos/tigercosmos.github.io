@@ -1,7 +1,7 @@
 ---
 title: 你的第一份大型開源專案--Servo 瀏覽器
 date: 2018-01-29 00:00:00
-tags: [Chinese Posts,English Posts,Browsers,Servo,Open Source,Software Development,Chinese,]
+tags: [瀏覽器, browser, browsers, 開源, open source, servo]
 ---
 
 
@@ -263,9 +263,3 @@ Reviewer 會針對你的 PR 給建議，然後你會需要改進你的程式碼�
 <ul>
 <li id="95e0" class="fv fw em at fx b fy ht ga hu gc hv ge hw gg hx gi je ir is"><a href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">How Browser work</a></li><li id="9498" class="fv fw em at fx b fy it ga iu gc iv ge iw gg ix gi je ir is"><a href="https://ithelp.ithome.com.tw/articles/10197966" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">來做個網路瀏覽器吧！</a></li><li id="12b4" class="fv fw em at fx b fy it ga iu gc iv ge iw gg ix gi je ir is"><a class="dj by hy hz ia ib" target="_blank" rel="noopener" href="/@aboodman/c479ba623a1b">How Chromium Works</a></li><li id="e897" class="fv fw em at fx b fy it ga iu gc iv ge iw gg ix gi je ir is"><a href="https://shinglyu.github.io/web/2018/05/12/how-to-contribute-to-open-source.html" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">如何貢獻開源專案？</a></li><li id="76ca" class="fv fw em at fx b fy it ga iu gc iv ge iw gg ix gi je ir is"><a class="dj by hy hz ia ib" target="_blank" rel="noopener" href="/@tigercosmos/67da54c02e01">How I &amp; how a newbie to become a member of open source community?</a></li><li id="594d" class="fv fw em at fx b fy it ga iu gc iv ge iw gg ix gi je ir is"><a class="dj by hy hz ia ib" target="_blank" rel="noopener" href="/@tigercosmos/9eaf41e021f9">踏入 Mozilla Servo 兩個月的心得</a></li><li id="4db9" class="fv fw em at fx b fy it ga iu gc iv ge iw gg ix gi je ir is"><a href="https://ithelp.ithome.com.tw/articles/10192277" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">Mozilla / Servo 瀏覽器引擎開發環境架設</a></li><li id="5b63" class="fv fw em at fx b fy it ga iu gc iv ge iw gg ix gi je ir is"><a href="https://www.slideshare.net/AnChiLiu/ss-97986413" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">瀏覽器開發與開源經驗</a></li>
 </ul>
-
----
-
-<span style="font-size: 26px; color: #696969; font-style:italic">關於作者 劉安齊 軟體工程師，熱愛寫程式，更喜歡推廣程式讓更多人學會。歡迎追蹤 微中子，我會在上面分享各種新知與最新作品，也可以去逛逛我的 個人網站 或 Github。</span>
-
-<strong class="fx jt">關於作者</strong><em class="at"> </em><strong class="fx jt"><em class="at">劉安齊</em></strong><em class="at"> 軟體工程師，熱愛寫程式，更喜歡推廣程式讓更多人學會。歡迎追蹤 </em><a href="https://www.facebook.com/CodingNeutrino/" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow"><strong class="fx jt"><em class="at">微中子</em></strong></a><em class="at">，我會在上面分享各種新知與最新作品，也可以去逛逛我的 </em><a href="https://tigercosmos.xyz/" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow"><strong class="fx jt"><em class="at">個人網站</em></strong></a><em class="at"> 或 </em><a href="https://github.com/tigercosmos" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow"><strong class="fx jt"><em class="at">Github</em></strong></a><em class="at">。</em>

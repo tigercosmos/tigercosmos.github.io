@@ -1,7 +1,7 @@
 ---
 title: Localize the Rust Website to Traditional Chinese
 date: 2019-06-19 01:23:39
-tags: [English Posts,localization,rust,English,rust taiwan,]
+tags: [rust,english,rust taiwan, traditional chinese, localization]
 ---
 
 Record Rust Taiwan community’s work of translating the Rust website

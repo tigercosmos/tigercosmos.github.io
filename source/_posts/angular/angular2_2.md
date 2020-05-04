@@ -1,7 +1,7 @@
 ---
 title: 當個好的建築師之 Angular 2 架構
 date: 2016-12-18 23:51:18
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>Angular 2 &#x67B6;&#x69CB;</h2>
 <p>Angular 2 &#x4E3B;&#x8981;&#x7684;&#x5143;&#x7D20;&#x662F; Components&#x3002; Angular 2 &#x7684;&#x4E3B;&#x8981;&#x67B6;&#x69CB;&#x5C31;&#x662F;&#x4E00;&#x5806;&#x7684; Components&#x3002;&#x4E0D;&#x904E;&#x7576;&#x7136;&#xFF0C;&#x7D44;&#x6210; Angular&#x7684;&#x6771;&#x897F;&#x9084;&#x5305;&#x542B; Module&#x3001;Template&#x3001;Metadata&#x3001;Data Binding&#x3001;Service&#x3001;Directive&#x3001;Dependency Injection&#xFF0C;&#x5F9E;&#x4E0B;&#x9762;&#x9019;&#x5F35;&#x5716;&#x53EF;&#x4EE5;&#x6E05;&#x695A;&#x770B;&#x5230;&#x5F7C;&#x6B64;&#x7684;&#x95DC;&#x4FC2;&#x3002;<br>

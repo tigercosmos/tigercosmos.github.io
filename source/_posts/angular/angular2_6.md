@@ -1,7 +1,7 @@
 ---
 title: Angular 2 PIPES(通道)
 date: 2016-12-22 23:26:11
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x524D;&#x8A00;</h2>
 <p>&#x6BCF;&#x4E00;&#x500B;&#x61C9;&#x7528;&#x7A0B;&#x5F0F;&#x90FD;&#x662F;&#x4E00;&#x4E9B;&#x975E;&#x5E38;&#x7C21;&#x55AE;&#x7684;&#x4EFB;&#x52D9;&#x958B;&#x59CB;&#xFF1A;&#x7372;&#x53D6;&#x6578;&#x64DA;&#x3001;&#x8F49;&#x63DB;&#x6578;&#x64DA;&#xFF0C;&#x4E26;&#x628A;&#x5B83;&#x5011;&#x986F;&#x793A;&#x7D66;&#x7528;&#x6236;&#x3002;</p>

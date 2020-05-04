@@ -1,7 +1,7 @@
 ---
 title: 軟體工程師必修的三門課
 date: 2018-12-29 00:00:00
-tags: [Chinese Posts,English Posts,軟體工程師,資訊工程,必修課,Chinese,]
+tags: [軟體工程師,資訊工程,必修課, software engineering, software engineer, computer science]
 ---
 
 ### 何謂工程師？為什麼所有軟體工程師都該學資料結構與演算法、計算機架構、作業系統？
