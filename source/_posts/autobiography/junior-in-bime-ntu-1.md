@@ -1,7 +1,7 @@
 ---
 title: 台大觀察與心得(六)：大三上
 date: 2018-01-12 00:57:00
-tags: [台大, 大學, 工作, 公司, 生機, 想法, ]
+tags: [台大, 大學, 工作, 公司, 生機, 想法, 台大觀察與心得]
 ---
 
 <div class="MsoNormal" style="line-height: 200%; margin-bottom: .0001pt; margin-bottom: 0cm;">
