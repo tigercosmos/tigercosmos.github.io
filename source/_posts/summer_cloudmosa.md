@@ -1,7 +1,7 @@
 ---
 title: 這個暑假我在 CloudMosa 所見所聞
 date: 2018-09-08 00:00:00
-tags: [Chinese Posts,English Posts,Cloudmosa,Intern,Puffin Browser,Chinese,]
+tags: [cloudmosa,intern,puffin browser,]
 ---
 
 ### What I saw and heard at CloudMosa in this summer.

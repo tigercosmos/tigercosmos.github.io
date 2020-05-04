@@ -1,7 +1,7 @@
 ---
 title: Angular 2 + Ionic = Mobile App ( 1 ) 介紹
 date: 2017-01-05 23:52:38
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x524D;&#x8A00;</h2>
 <p>&#x6211;&#x662F;&#x4E00;&#x500B;&#x524D;&#x7AEF; (&#x4E5F;&#x8A31;&#x5168;&#x7AEF;) &#x5DE5;&#x7A0B;&#x5E2B;&#xFF0C;&#x597D;&#x4E0D;&#x5BB9;&#x6613;&#x5B78;&#x6703;&#x5BEB; Angular 2 &#x4E86;&#x8036;&#xFF0C;&#x4F46;&#x96E3;&#x9053;&#x6211;&#x5C31;&#x4E00;&#x8F29;&#x5B50;&#x53EA;&#x80FD;&#x5BEB;&#x7DB2;&#x7AD9;&#x55CE;&#xFF1F;QQ &#x5982;&#x679C;&#x60F3;&#x8981;&#x5BEB;&#x624B;&#x6A5F;&#x7684; App&#xFF0C;&#x9084;&#x8981;&#x518D;&#x53BB;&#x5B78; Java &#x5BEB; Android App&#xFF0C;&#x53BB;&#x5B78; Swift &#x4F86;&#x5BEB; IOS App&#xFF0C;&#x9019;&#x6A23;&#x96D6;&#x7136;&#x4E5F;&#x4E0D;&#x662F;&#x4E0D;&#x53EF;&#x4EE5;&#xFF0C;&#x4F46;&#x662F;&#x6BCF;&#x5B78;&#x4E00;&#x500B;&#x6280;&#x8853;&#x5C31;&#x8981;&#x7D93;&#x6B77;&#x4E00;&#x500B;&#x5B78;&#x7FD2;&#x66F2;&#x7DDA;&#xFF0C;&#x591A;&#x75DB;&#x82E6;&#x554A;&#xFF01;&#xFF01;</p>

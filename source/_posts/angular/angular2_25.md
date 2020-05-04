@@ -1,7 +1,7 @@
 ---
 title: Angular 2 裝飾器 @ContentChild
 date: 2017-01-10 22:34:53
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x524D;&#x8A00;</h2>
 <p>&#x4E4B;&#x524D;&#x5728;<a href="https://ithelp.ithome.com.tw/articles/10187991" target="_blank">&#x9019;&#x7BC7;</a>&#x4ECB;&#x7D39;&#x904E; <code>&lt;ng-content&gt;</code> &#x53EF;&#x4EE5;&#x9054;&#x6210;&#x5D4C;&#x5165;&#x5F0F;&#x8A2D;&#x8A08;&#xFF0C;&#x4F46;&#x662F;&#x900F;&#x904E;&#x9019;&#x7A2E;&#x65B9;&#x6CD5;&#x53EA;&#x80FD;&#x505A;&#x5230;&#x6A21;&#x677F;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5728; A &#x6A21;&#x677F;&#x4E2D;&#x5D4C;&#x5165; B &#x6A21;&#x677F;&#xFF0C;&#x8981;&#x662F;&#x60F3;&#x5728; A &#x4E2D;&#x9806;&#x4FBF;&#x5D4C;&#x5165; B &#x7684;&#x7D44;&#x4EF6;&#x5167;&#x5BB9;&#x5462;&#xFF1F;</p>

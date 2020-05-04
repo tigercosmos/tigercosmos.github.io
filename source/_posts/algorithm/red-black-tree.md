@@ -1,7 +1,7 @@
 ---
 title:  紅黑樹（Red Black Tree）介紹
 date: 2019-11-27 00:00:00
-tags: [algorithm, red black tree]
+tags: [algorithm, red black tree, 演算法, 紅黑樹]
 ---
 
 ## 紅黑樹簡介

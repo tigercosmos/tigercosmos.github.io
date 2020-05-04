@@ -1,7 +1,7 @@
 ---
 title: TypeScript -- Angular 2 的寫作靈魂
 date: 2016-12-17 23:47:29
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <p><img src="https://miro.medium.com/max/622/1*grk7btEn0OJEQRKgG2Qs2A.png" alt></p>
 <h2>&#x524D;&#x8A00;</h2>

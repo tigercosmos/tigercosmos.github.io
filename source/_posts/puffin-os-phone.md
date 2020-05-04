@@ -1,7 +1,7 @@
 ---
 title: 深度分析 Puffin OS Phone—搶攻第三世界的智慧手機
 date: 2020-01-29 00:00:00
-tags: [Puffin Browser , Browsers, Puffin OS Phone, Cloudmosa,]
+tags: [puffin browser , browsers, browser, puffin oS phone, cloudmosa,]
 ---
 
 

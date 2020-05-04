@@ -1,7 +1,7 @@
 ---
 title: Browsing Websites
 date: 2019-01-21 11:01:00
-tags: [How Things Work, English, browser, software engineering]
+tags: [how things work, english, browser, software engineering]
 ---
 
 # Browsing Websites

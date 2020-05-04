@@ -1,7 +1,7 @@
 ---
 title: 來寫個氣象機器人吧！
 date: 2018-05-21 00:00:00
-tags: [Chinese Posts,English Posts,Weather Bot,氣象機器人,Bottender,Line Bot,Chinese,]
+tags: [weather bot,氣象機器人,bottender,line bot,]
 ---
 
 
@@ -381,10 +381,4 @@ var PATTERN = new RegExp(
 
 <em class="at">你可以在這邊查看</em><strong class="ht iv"><em class="at">氣象喵</em></strong><em class="at">的 Github Repo</em>
 
-### <div class="cd ko cj ck kp cm">weather-bot/WxKitty</div>
-
----
-
-<span style="font-size: 26px; color: #696969; font-style:italic">關於作者 劉安齊 軟體工程師，熱愛寫程式，更喜歡推廣程式讓更多人學會。歡迎追蹤 微中子，我會在上面分享各種新知與最新作品，也可以去逛逛我的 個人網站 或 Github。</span>
-
-<strong class="ht iv">關於作者</strong><em class="at"> <br></em><strong class="ht iv"><em class="at">劉安齊</em></strong><em class="at"> 軟體工程師，熱愛寫程式，更喜歡推廣程式讓更多人學會。歡迎追蹤 </em><a href="https://www.facebook.com/CodingNeutrino/" class="dj by im in io ip" target="_blank" rel="noopener nofollow"><strong class="ht iv"><em class="at">微中子</em></strong></a><em class="at">，我會在上面分享各種新知與最新作品，也可以去逛逛我的 </em><a href="https://tigercosmos.xyz" class="dj by im in io ip" target="_blank" rel="noopener nofollow"><strong class="ht iv"><em class="at">個人網站</em></strong></a><em class="at"> 或 </em><a href="https://github.com/tigercosmos" class="dj by im in io ip" target="_blank" rel="noopener nofollow"><strong class="ht iv"><em class="at">Github</em></strong></a><em class="at">。</em>
+> [weather-bot/WxKitty](https://github.com/weather-bot/WxKitty)

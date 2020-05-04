@@ -1,7 +1,7 @@
 ---
 title: How I & how a newbie to become a member of open source community?
 date: 2017-09-24 00:00:00
-tags: [Chinese Posts,English Posts,Open Source,Software,Mozilla,English,]
+tags: [open source,software,mozilla,english,]
 ---
 
 

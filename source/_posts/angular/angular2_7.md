@@ -1,7 +1,7 @@
 ---
 title: Angular 2 Lazy Loading 別讓載入速度拖垮你！
 date: 2016-12-23 23:49:56
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x524D;&#x8A00;</h2>
 <blockquote>

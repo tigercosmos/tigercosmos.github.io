@@ -1,7 +1,7 @@
 ---
 title: 我在臺灣金融科技公司的那些日子
 date: 2017-05-27 01:31:00
-tags: [工作, 公司, 程式, 想法, ]
+tags: [工作, 公司, 程式, 想法, 臺灣金融科技公司]
 ---
 
 <div class="MsoNormal" style="line-height: 150%;">

@@ -1,7 +1,7 @@
 ---
 title: Angular 2 @Directive
 date: 2017-01-13 23:24:36
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x524D;&#x8A00;</h2>
 <p>Directive (&#x6307;&#x4EE4;) &#x5728; Angular &#x53EF;&#x4EE5;&#x6307;&#x5F88;&#x591A;&#x7A2E;&#x60C5;&#x5F62;&#xFF0C;&#x9019;&#x908A;&#x6211;&#x5C08;&#x9580;&#x8A0E;&#x8AD6; <code>@Directive</code>&#x3002;<code>@Directive</code> &#x901A;&#x5E38;&#x7528;&#x5728;&#x5C6C;&#x6027;&#x6307;&#x4EE4;&#x7684;&#x7D81;&#x5B9A;&#x4E0A;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5728; selector &#x4E0A;&#x9762;&#x52A0;&#x4E0A;&#x5C6C;&#x6027;&#xFF0C;&#x5DEE;&#x6240;&#x63A7;&#x5236;&#x7684;&#x985E;&#x5225;&#x6703;&#x5BE6;&#x9AD4;&#x5316;&#x6211;&#x5011;&#x6240;&#x8A2D;&#x8A08;&#x7684;&#x884C;&#x70BA;&#x6307;&#x4EE4;&#x3002;</p>

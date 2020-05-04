@@ -1,7 +1,7 @@
 ---
 title: Angular 2 + <ng-content> 嵌入式設計靈活組織 HTML
 date: 2016-12-29 23:49:13
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x524D;&#x8A00;</h2>
 <p>&#x5D4C;&#x5165;&#x5F0F;&#x8A2D;&#x8A08;&#x5C31;&#x662F;&#x5C07; B &#x7684;&#x5167;&#x5BB9;&#x5D4C;&#x5165;&#x9032;&#x53BB; A &#xFF0C;A &#x6587;&#x4EF6;&#x4E2D;&#x9810;&#x7559;&#x4E00;&#x500B;&#x7A7A;&#x9593;&#x5C31;&#x662F;&#x7559;&#x7D66; B &#x653E;&#x6771;&#x897F;&#x7528;&#x7684;&#x3002;&#x5927;&#x6982;&#x5C31;&#x9577;&#x9019;&#x6A23;&#xFF1A;<br>

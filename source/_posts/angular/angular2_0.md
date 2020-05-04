@@ -1,7 +1,7 @@
 ---
 title: Angular 2 簡介
 date: 2016-12-16 23:53:12
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <p><img src="https://udemy-images.udemy.com/course/750x422/500628_a962.jpg" alt></p>
 <h2>&#x524D;&#x8A00;</h2>

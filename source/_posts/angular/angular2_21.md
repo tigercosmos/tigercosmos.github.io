@@ -1,7 +1,7 @@
 ---
 title: Angular 2 + Ionic = Mobile App ( 2 ) 建構
 date: 2017-01-06 23:16:47
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <p><a href="https://ithelp.ithome.com.tw/articles/10188464" target="_blank">&#x4E0A;&#x4E00;&#x7BC7;</a>&#x5DF2;&#x7D93;&#x4ECB;&#x7D39; Ionic &#x642D;&#x914D; Angular 2 &#x662F;&#x751A;&#x9EBC;&#x4E86;&#xFF0C;&#x63A5;&#x4E0B;&#x4F86;&#x5C31;&#x4F86;&#x4ECB;&#x7D39;&#x5982;&#x4F55;&#x5EFA;&#x69CB;&#x4E00;&#x500B; App&#x3002;</p>
 <h2>&#x5B89;&#x88DD;</h2>

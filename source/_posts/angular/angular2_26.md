@@ -1,7 +1,7 @@
 ---
 title: Angular 2 裝飾器 @ViewChild
 date: 2017-01-11 23:09:38
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x524D;&#x8A00;</h2>
 <p>&#x9023;&#x7E8C;&#x767C;&#x4E86; 20 &#x5E7E;&#x5929;&#x7684;&#x6587;&#xFF0C;&#x80FD;&#x8B1B;&#x7684;&#x4E5F;&#x90FD;&#x8B1B;&#x4E86;&#xFF0C;&#x9081;&#x5411;&#x795E;&#x4E4E;&#x5176;&#x6280;&#x4E4B;&#x8DEF;&#x53EA;&#x5269;&#x4E0B;&#x638C;&#x63E1;&#x5C0F;&#x5730;&#x65B9;&#x4E86;&#x5427;&#xFF01;<br>

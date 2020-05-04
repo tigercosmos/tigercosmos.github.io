@@ -1,7 +1,7 @@
 ---
 title: Chaos
 date: 2019-01-24 11:01:00
-tags: [How Things Work, English,physics, science, chaos]
+tags: [how things work, english,physics, science, chaos]
 ---
 
 Chaos implies a disorder or complex non-linear system. It manifests any little changes could probably result in a massive transformation of the system, such as a butterfly flapping in Brazil could cause a hurricane in Texas, which is well known as the butterfly effect. The traits of chaos are in many fields, including math, physics, atmospheric science, fluid dynamics, ect., which leads Chaos to a vital research topic.

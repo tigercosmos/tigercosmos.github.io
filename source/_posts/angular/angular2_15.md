@@ -1,7 +1,7 @@
 ---
 title: Angular 2 Module ( 2 )
 date: 2016-12-31 23:49:38
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <p>&#x63A5;&#x7E8C; <a href="https://ithelp.ithome.com.tw/articles/10188095" target="_blank">Angular 2 Module ( 1 )</a></p>
 <h2>Feature Module</h2>

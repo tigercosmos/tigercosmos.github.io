@@ -1,7 +1,7 @@
 ---
 title: Angular 2 表單
 date: 2016-12-21 23:46:52
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <p>Angular &#x6846;&#x67B6;&#x4EF0;&#x8CF4;&#x8457; HTML 5 &#x5F37;&#x5927;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x672C;&#x8EAB;&#x5DF2;&#x7D93;&#x5305;&#x62EC;&#x96D9;&#x5411;&#x7D81;&#x5B9A;&#x3001;&#x8B8A;&#x5316;&#x8DDF;&#x8E2A;&#x3001;&#x9A57;&#x8B49;&#x3001;&#x932F;&#x8AA4;&#x8655;&#x7406;&#x7B49;&#x529F;&#x80FD;&#x3002;<br>
 &#x53EF;&#x4EE5;&#x8655;&#x7406;&#xFF1A;</p>

@@ -1,7 +1,7 @@
 ---
 title: Angular 2 組件相關的路徑
 date: 2017-01-04 23:49:31
-tags: [Angular2, Angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
+tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之路]
 ---
 <h2>&#x7D44;&#x4EF6;&#x88E1;&#x7684; URLs</h2>
 <h3>&#x7D55;&#x5C0D;&#x8DEF;&#x5F91;</h3>

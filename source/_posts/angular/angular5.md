@@ -1,7 +1,7 @@
 ---
 title: Angular 5 是啥玩意？
 date: 2017-10-24 00:00:00
-tags: [Chinese Posts,English Posts,Angular,Angular 5,Front End Development,Chinese,]
+tags: [angular,angular 5,front end development,web]
 ---
 
 

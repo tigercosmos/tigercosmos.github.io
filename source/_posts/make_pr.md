@@ -1,7 +1,7 @@
 ---
 title: 我都怎麼發 PR？
 date: 2017-11-11 00:00:00
-tags: [Chinese Posts,English Posts,Open Source,開源,Servo,Chinese,]
+tags: [open source,開源,servo,pull request,]
 ---
 
 
