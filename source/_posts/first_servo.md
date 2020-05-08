@@ -4,12 +4,9 @@ date: 2018-01-29 00:00:00
 tags: [瀏覽器, browser, browsers, 開源, open source, servo]
 ---
 
-
-## 你的第一份大型開源專案: Servo 瀏覽器
+<img class="dz t u gw ak" src="https://miro.medium.com/max/2400/0*pEiDFJWNkrT9c5md.jpg" role="presentation"><br/>
 
 Your First Big OSS Project: Servo Browser
-
-<img class="dz t u gw ak" src="https://miro.medium.com/max/2400/0*pEiDFJWNkrT9c5md.jpg" role="presentation"><br/>
 
 ## 前言
 
@@ -67,7 +64,7 @@ Servo 專案是 Mozilla 的實驗性質瀏覽器引擎，目的是加強安全�
 
 接著要把源碼從自己的複製的版本下載下來：
 
-```undefined
+```
 git clone https://github.com/你的Github帳號/servo.git
 ```
 
@@ -75,7 +72,7 @@ git clone https://github.com/你的Github帳號/servo.git
 
 這邊假設你是使用 Ubuntu，那流程就會是：
 
-```undefined
+```
 # rustup 是 rust 語言的工具，為 Servo 專案必備
 curl https://sh.rustup.rs -sSf | sh
 
@@ -96,7 +93,7 @@ sudo apt install libssl-dev
 
 接著就可以試著編譯看看了，先進入專案，然後我們會用到 <code class="ha if ig ih ii b">mach</code> 工具，這是 Servo 專案的入口程式，用來執行各種指令。
 
-```undefined
+```
 cd servo
 # 編譯
 ./mach build -d
