@@ -52,7 +52,7 @@ Servo 專案是 Mozilla 的實驗性質瀏覽器引擎，目的是加強安全�
 
 ## 瀏覽器原理
 
-知道瀏覽器是怎麼一回事對我們開始開發瀏覽器會很有幫助，<a href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">How Browser work</a> 是一篇很好的起手文，他宏觀的解釋瀏覽器在幹嘛，也就是你打開 Chrome、Safari 這些軟體是怎麼去讓網頁變成看得見的網頁。比較深入可以看我寫的<a href="https://ithelp.ithome.com.tw/articles/10197966" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">《來做個網路瀏覽器吧！》</a>系列文章，此系列文章可以邊研究 Servo 專案邊看，應該會讓你更快上手！
+知道瀏覽器是怎麼一回事對我們開始開發瀏覽器會很有幫助，<a href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">How Browser work</a> 是一篇很好的起手文，他宏觀的解釋瀏覽器在幹嘛，也就是你打開 Chrome、Safari 這些軟體是怎麼去讓網頁變成看得見的網頁。比較深入可以看我寫的[《來做個網路瀏覽器吧！》](/post/2018/02/browser/browser_series_33/)系列文章，此系列文章可以邊研究 Servo 專案邊看，應該會讓你更快上手！
 
 ## 取得源碼、編譯 Servo
 
