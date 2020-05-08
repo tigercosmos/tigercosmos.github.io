@@ -3,13 +3,9 @@ title: 來寫個氣象機器人吧！
 date: 2018-05-21 00:00:00
 tags: [weather bot,氣象機器人,bottender,line bot,]
 ---
-
-
-## 來寫個氣象機器人吧！
-
-### Let’s build a weather bot!
-
 <img class="dz t u go ak" src="https://miro.medium.com/max/1156/1*FxN3aWN-o00AWTTi-ezajg.png" role="presentation"><br/>
+
+Let’s build a weather bot!
 
 ## 簡介
 
@@ -62,8 +58,6 @@ Messenger Bot 相較於 Line Bot 來說更加強大，因為他有更多 API 可
 如同先前提到，這是個百家爭鳴的時代，我們的力氣不足以應付各種標準，於是乎就誕生了框架。框架幫我們把最底層的麻煩事都打理好了，並且替我們考量到跨平台的議題。比方說就傳送訊息來說，每個平台需要呼叫的 API 不盡相同，原本你可能需要個別設定，但是在使用 Bottender 這類框架之後，一些參數設定好之後（token、secret 之類的），一律只需要呼叫 <code class="gt iw ix iy iz b">context.sendText</code> 函數，你什麼都別管，他就幫你搞定了！即使你只使用單一平台，框架幫你處理底層的 API 設定也非常方便，不一定要跨平台才能使用。
 
 稍微介紹一下，這邊引用 <a href="https://blog.yoctol.com/yoctol-2017-review-1-6e876ad4de11" class="dj by im in io ip" target="_blank" rel="noopener nofollow">Bottender 團隊寫的文章</a>：
-
-<span style="font-size: 26px; color: #696969; font-style:italic">優拓投入近半年心力的產品 — 多平台 Chatbot 框架「Bottender」終於公開並在 GitHub 開源。Bottender 是我們分析多套既有開發框架 (Framework) 後，綜合了 Chatbot 開發上的實務經驗，以「Learn Once, Write Anywhere」為核心理念，所打造出的一款開源 Framework，具備靈活、模組化、多平台等優勢。</span>
 
 <em class="at">優拓投入近半年心力的產品 — 多平台 Chatbot 框架「Bottender」終於公開並在 </em><a href="https://github.com/Yoctol/Bottender" class="dj by im in io ip" target="_blank" rel="noopener nofollow"><em class="at">GitHub 開源</em></a><em class="at">。Bottender 是我們分析多套既有開發框架 (Framework) 後，綜合了 Chatbot 開發上的實務經驗，以「Learn Once, Write Anywhere」為核心理念，所打造出的一款開源 Framework，具備靈活、模組化、多平台等優勢。</em>
 
@@ -218,13 +212,13 @@ async function platformReplyImage(context, url) {
 <li id="f3b7" class="hr hs em at ht b hu if hw ig hy ih ia ii ic ij ie ja jb jc">爬蟲</li><li id="9a03" class="hr hs em at ht b hu jw hw jx hy jy ia jz ic ka ie ja jb jc">公開 API</li><li id="93ae" class="hr hs em at ht b hu jw hw jx hy jy ia jz ic ka ie ja jb jc">隱藏版 API</li>
 </ul>
 
-## 爬蟲
+### 爬蟲
 
 所謂爬蟲就是去開網頁，找出網頁原始碼中的資料，並擷取出來，例如我可以去找氣象局網站中的氣溫數字，在原始碼中就會長這樣：
 
 <img class="dz t u go ak" src="https://miro.medium.com/max/3968/0*wz4rOUNlCxj2ANPX.png" role="presentation"><br/>
 
-## 公開 API
+### 公開 API
 
 公開 API 就是一些開放平台，或是商業機構，提供正式的 API 服務，可以藉由這些 API 取得你要的資料。例如：
 
@@ -234,7 +228,7 @@ async function platformReplyImage(context, url) {
 
 還有很多，就不多列舉了。
 
-## 隱藏版 API
+### 隱藏版 API
 
 這個技巧通常初學者都不知道，特別介紹一下。剛剛提到說，爬蟲是去抓 HTML 的欄位資料，但是很多時候 HTML 是透過 JS 事後補上去的。是的，這就是 MVC 框架下的網站架構。網站會先渲染版面，然後再由 HTTP Request 呼叫他自己的 API 取得剩下的資料，並用 JS 把資料補到渲染畫面上。
 
@@ -248,7 +242,7 @@ async function platformReplyImage(context, url) {
 
 ## 資料處理
 
-## 資料庫
+### 資料庫
 
 我有兩台伺服器分別處理不同聊天平台，但資料庫應該要共用，所以把資料部分獨立出來。資料庫部分我使用 Firebase，因為 Firebase 不需要去管伺服器的問題，比起我自己在弄一台專門的資料庫伺服器方便。
 
@@ -258,11 +252,11 @@ async function platformReplyImage(context, url) {
 
 一般做法都是把所有可能會調用的資料都用固定排成先跑好，像是爬蟲、調用 API、圖片處理等等都每隔一段時間自動執行並儲存，只是我覺得使用量還沒那麼大所以沒這樣做。
 
-## 圖片
+### 圖片
 
 氣象機器人可以直接下關鍵字得到天氣圖、衛星圖、預報圖等，甚至我連地震圖都支援。但是 Line 規定圖片來源要是 HTTPS，很遺憾中央氣象局只有 HTTP，所以我必須先把圖片傳給第三方圖片服務商，這邊我是用 Imgur。然後再把上傳 Imgur 的圖片傳到 Line 上。因為圖片轉介很花時間，而且同一張圖片其實可以再利用，所以最後傳到 Imgur 的圖片都會用 Firebase 記錄起來。
 
-## 氣象資料
+### 氣象資料
 
 原始氣象資料可能會需要處理，例如:
 
@@ -274,7 +268,7 @@ async function platformReplyImage(context, url) {
 
 ## 關鍵字的處理
 
-## 時間
+### 時間
 
 要能辨識句子的時間，才能知道要給哪個時間的資料，所以機器人要能辨識「明天晚上」、「今天 20:00」、「明天 6:30pm」這類的時間語句。
 
@@ -345,7 +339,7 @@ var PATTERN = new RegExp(
 
 <code class="gt iw ix iy iz b">node --icu-data-dir=./node_modules/full-icu index.js</code>
 
-## 地點
+### 地點
 
 要判斷句子中的地點真的很難，世界的地名五花八門，連「<a href="https://chimei.jitenon.jp/data/kanji.php?kanji=%E5%A4%AA%E9%99%BD&amp;search=id" class="dj by im in io ip" target="_blank" rel="noopener nofollow">太陽</a>」都可以是地名。我的處理辦法是分台灣地區和國外地區。
 
@@ -361,7 +355,7 @@ var PATTERN = new RegExp(
 
 值得一提的是，台灣的氣象測站真的很密，台灣的氣象測站大約有四百個，但是如果換在國外的話，一個台灣大小的區域，可能只有一個測站。所以國外服務商的氣象資訊常常都是使用內插外插來取得近似值，換言之就是很不精確啦！但台灣因為太密了，直接找最近的測站的數據就好，而且很準！
 
-## 地名處理
+### 地名處理
 
 由於中文字整串黏在一起的特性，要能準確判斷他是不是地名，不能直接用這樣判斷：
 
@@ -376,8 +370,6 @@ var PATTERN = new RegExp(
 我大致上已經將我如何實作氣象機器人的技術都介紹了，未來我會持續讓他越來越好，目前樣板式模型最大缺點就是會有無法辨識的情況，這時候我會回應讓使用者直接查看使用說明，但真正好的服務是不需要使用說明的，一個好的聊天機器人應該跟人一樣聰明對吧？
 
 很高興不知不覺就有超過一千名使用者，隨者使用者變多，未來架構可能也還會需要調整，如同所有規模逐漸成長的公司的後端架構一樣，A/B 測試、紅藍部署等等技術都是隨著規模擴大而將慢慢導入。
-
-<span style="font-size: 26px; color: #696969; font-style:italic">你可以在這邊查看氣象喵的 Github Repo</span>
 
 <em class="at">你可以在這邊查看</em><strong class="ht iv"><em class="at">氣象喵</em></strong><em class="at">的 Github Repo</em>
 
