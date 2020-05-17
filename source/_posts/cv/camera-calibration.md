@@ -1,7 +1,7 @@
 ---
 title: 二維模式相機校正 (2D Pattern Camera Calibration)
 date: 2020-04-06 00:00:00
-tags: [camera calibration, computer vision, 2D pattern, python]
+tags: [電腦視覺, camera calibration, computer vision, 2D pattern, python]
 ---
 
 ## 1. 簡介

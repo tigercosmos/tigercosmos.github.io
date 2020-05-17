@@ -1,7 +1,7 @@
 ---
 title: 剛體物理模擬—碰撞偵測、動量衝量、連結限制、數值方法
 date: 2020-04-25 00:00:00
-tags: [computer animation, physics, simulation, 模擬, 物理, collision detection, impulse, joint constraint, rigid body]
+tags: [電腦動畫, computer animation, physics, simulation, 模擬, 物理, collision detection, impulse, joint constraint, rigid body]
 ---
 
 ## 1. 簡介
