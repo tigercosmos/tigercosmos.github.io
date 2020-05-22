@@ -1,6 +1,6 @@
 ---
 title: 電腦動畫中的正向動力法 (Forward Kinematics) 和時間扭曲法 (Time Warping)
-date: 2020-05-18 00:00:00
+date: 2020-05-23 00:00:00
 tags: [computer animation, 電腦動畫, 正向動力法, 時間扭曲法, forward kinematics, time warping]
 ---
 
