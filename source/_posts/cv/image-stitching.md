@@ -348,6 +348,8 @@ plt.imshow(stitch_img(left_rgb, right_rgb, H))
 ![output_17_4](https://user-images.githubusercontent.com/18013815/82591037-4701ec80-9bd1-11ea-85ff-68247d8cfde4.png)
 
 
+完整的 Notebook 檔案可以在[這邊](https://gist.github.com/tigercosmos/90a5664a3b698dc9a4c72bc0fcbd21f4)找到。
+
 ## 4. 討論
 
 ### 4.1 SIFT 只能處理灰階
