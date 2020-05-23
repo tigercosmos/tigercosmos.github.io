@@ -51,9 +51,7 @@ $$ \mathbf w \mathbf P' = \mathbf H \mathbf P $$
     
 其中 $\mathbf w$ 是 $\mathbf H$ 的任意係數。
 
-因為我們會有很多對 (Pairs)，但不需要這麼多點就可以算出 Homography，使用[八點演算法 (8-points algorithm)](https://en.wikipedia.org/wiki/Eight-point_algorithm) 或 7-points algorithm 就可以求出，以下介紹八點法。
-
-為了去計算 Homographies，將上式拆解成：
+我們目前已經有很多對 (Pairs) 特徵點，接著我們要用這些點來算 Homography。為了去計算 Homography，將上式拆解成：
 
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"> <mrow> <mo>[</mo> <mtable rowspacing="4pt" columnspacing="1em"> <mtr> <mtd> <mi>w</mi> <msubsup> <mi>x</mi> <mi>i</mi> <mo>&#x2032;</mo> </msubsup> </mtd> </mtr> <mtr> <mtd> <mi>w</mi> <msubsup> <mi>y</mi> <mi>i</mi> <mo>&#x2032;</mo> </msubsup> </mtd> </mtr> <mtr> <mtd> <mi>w</mi> </mtd> </mtr> </mtable> <mo>]</mo> </mrow> <mo>=</mo> <mrow> <mo>[</mo> <mtable rowspacing="4pt" columnspacing="1em"> <mtr> <mtd> <msub> <mi>h</mi> <mrow class="MJX-TeXAtom-ORD"> <mn>00</mn> </mrow> </msub> </mtd> <mtd> <msub> <mi>h</mi> <mrow class="MJX-TeXAtom-ORD"> <mn>01</mn> </mrow> </msub> </mtd> <mtd> <msub> <mi>h</mi> <mrow class="MJX-TeXAtom-ORD"> <mn>02</mn> </mrow> </msub> </mtd> </mtr> <mtr> <mtd> <msub> <mi>h</mi> <mrow class="MJX-TeXAtom-ORD"> <mn>10</mn> </mrow> </msub> </mtd> <mtd> <msub> <mi>h</mi> <mrow class="MJX-TeXAtom-ORD"> <mn>11</mn> </mrow> </msub> </mtd> <mtd> <msub> <mi>h</mi> <mrow class="MJX-TeXAtom-ORD"> <mn>12</mn> </mrow> </msub> </mtd> </mtr> <mtr> <mtd> <msub> <mi>h</mi> <mrow class="MJX-TeXAtom-ORD"> <mn>20</mn> </mrow> </msub> </mtd> <mtd> <msub> <mi>h</mi> <mrow class="MJX-TeXAtom-ORD"> <mn>21</mn> </mrow> </msub> </mtd> <mtd> <msub> <mi>h</mi> <mrow class="MJX-TeXAtom-ORD"> <mn>22</mn> </mrow> </msub> </mtd> </mtr> </mtable> <mo>]</mo> </mrow> <mrow> <mo>[</mo> <mtable rowspacing="4pt" columnspacing="1em"> <mtr> <mtd> <msub> <mi>x</mi> <mi>i</mi> </msub> </mtd> </mtr> <mtr> <mtd> <msub> <mi>y</mi> <mi>i</mi> </msub> </mtd> </mtr> <mtr> <mtd> <mn>1</mn> </mtd> </mtr> </mtable> <mo>]</mo> </mrow> </math> 
     
@@ -65,9 +63,9 @@ $$ \mathbf w \mathbf P' = \mathbf H \mathbf P $$
 
 $$ \mathbf A = \mathbf h \mathbf 0 $$
 
-每一對會有 $2\times9$ 的矩陣，因為我們會有很多對，所以會有  $2n\times9$ matrix $\mathbf A$ 的矩陣。$\mathbf h$ 的解是「the eigenvector of  $\mathbf A^T \mathbf A$ associated with the smallest eigenvalue」。要得出解最少只需要 4 對特徵點，也就是共八點。實作上我們不會把所有點都一次丟進矩陣算，但這樣矩陣會很難解，所以才使用八點法。
+每一對會有 $2\times9$ 的矩陣，因為我們會有很多對，所以會有  $2n\times9$ matrix $\mathbf A$ 的矩陣。$\mathbf h$ 的解是「the eigenvector of  $\mathbf A^T \mathbf A$ associated with the smallest eigenvalue」。要得出解最少只需要 4 對特徵點。實作上我們不會把所有點都一次丟進矩陣算，因為這樣矩陣會很難解。
 
-因為我們只需要四對特徵點就可以求得 Homography $\mathbf H$，所以我們可以得到很多的 $\mathbf H$s。這時我們可以採用 [RANSAC (Random sample Consensus)](https://en.wikipedia.org/wiki/Random_sample_consensus) 演算法來找出兩張圖片對應的最佳 Homography。
+因為我們只需要 4 對特徵點就可以求得 Homography $\mathbf H$，所以我們可以得到很多的 $\mathbf H$s。這時我們可以採用 [RANSAC (Random sample Consensus)](https://en.wikipedia.org/wiki/Random_sample_consensus) 演算法來找出兩張圖片對應的最佳 Homography。
 
 RANSAC 演算法的步驟：
 1. 隨機挑出要計算出 Homography $\mathbf H$ 所需的最少個的點。
@@ -76,6 +74,13 @@ RANSAC 演算法的步驟：
 4. 接著用這個 $\mathbf H$ 去算誤差 $\Vert \mathbf P'_估 - \mathbf P'_真 \Vert $ ，如果誤差比規定的門檻還小，我們可以相信這次結果是可靠的。若為可靠，那麼統計這次 Inliers 數量有沒有比最佳次數還多，有的話我們就更新最佳 $\mathbf H$ 和最佳 Inliers 數量。
 5. 反覆進行步驟 1 到 4 反覆 N 次，並取得最佳 $\mathbf H$。
 
+順帶一題，使用 RANSAC 的可靠度：
+
+1. 假設所有特徵對中 Inliers 比例為 G (good)
+2. 至少需要 P 對特徵點 (解 Homography 用)，我們的模型 $P=4$
+3. 取得 Inlier 機率為 $G^P$
+4. N 次迭代後沒取得 Inlier 集合的機率為 $(1-G^P)^N$
+5. 假設 $G=0.5$、$N=1000$，所以沒得到 Inliers 的機率為 $(1-(0.5)^4)^{1000} = 9.36 \times 10^{-29}$
 
 ## 3. 實作
 
