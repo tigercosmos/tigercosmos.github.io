@@ -1,7 +1,7 @@
 ---
 title: 30 天 Javascript 從入門到進階：函式
 date: 2018-11-11 00:00:00
-tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
+tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階, 函式]
 ---
 
 # 函式
