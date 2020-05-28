@@ -130,3 +130,7 @@ markdown:
     case: 0
     # Replace space with a character
     separator: '-'
+
+robotstxt:
+  useragent: "*"
+  sitemap: /sitemap.xml
