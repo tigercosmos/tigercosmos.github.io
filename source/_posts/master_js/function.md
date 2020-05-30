@@ -7,7 +7,9 @@ tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階, 函式]
 # 函式
 
 我們知道程式碼可以幫我們做很多事情，例如睡不著要數羊的時候，就讓程式跑個迴圈，一下就幾百幾千萬隻羊了。但是目前為止，所以工作都是被放在一起的，並且只能被執行一次。也就是說，假設我有三件工作，寫成程式碼可能會長這樣：
+
 <!-- more --> 
+
 ```js
 console.log("程式開始");
 
@@ -42,6 +44,8 @@ console.log("結束程式");
 這邊就會有個問題了！所有工作擠在一起很難閱讀。再來假設我想讓工作 2 之後還再被執行，例如在工作 9 結束之後需要執行一次，我辦不到，除非我把工作 2 的程式碼通通複製到之後要用的地方。
 
 有沒有好的解決辦法嗎？那就是函式(或叫函數，function)了！
+
+> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/tags/30-天-javascript-從入門到進階/)」
 
 ## 函式概念
 
@@ -183,7 +187,7 @@ node ex2.js
 
 結果都會是
 
-```txt
+```py
 工作 1
 工作 2
 ```
@@ -313,7 +317,7 @@ test(1, 2, 3, 4);
 
 結果會是：
 
-```txt
+```py
 1
 2
 undefined
@@ -483,6 +487,6 @@ Hi, Jenny
 
 ## 參考
 
-[^1]: [MDN：箭頭函數](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions)。
-[^2]: [MDN：Function](https://developer.mozilla.org/en-US/docs/Glossary/Function)。
-[^3]: [MDN: Hoisting](https://developer.mozilla.org/zh-TW/docs/Glossary/Hoisting)。
+1. [MDN：箭頭函數](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+2. [MDN：Function](https://developer.mozilla.org/en-US/docs/Glossary/Function)
+3. [MDN: Hoisting](https://developer.mozilla.org/zh-TW/docs/Glossary/Hoisting)

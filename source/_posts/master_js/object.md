@@ -12,6 +12,8 @@ tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階, 物件]
 
 在 JS 的世界中，萬物的理論就是 `object` 這個物件型別，這個物件型別包含各種形形色色的玩意，讓我娓娓道來。
 <!-- more --> 
+> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/tags/30-天-javascript-從入門到進階/)」
+
 ## 物件定義
 
 程式語言中的物件(object)通常會包含：
@@ -43,7 +45,7 @@ const obj = new Obj();
 
 假設我今天想要描述一個人（一個物件），我可能會這樣形容：
 
-```txt
+```py
 這個人：
     - 姓：劉
     - 名：安齊
@@ -94,7 +96,7 @@ console.log(person.age)
 
 執行 `ex1.js`：
 
-```log
+```py
 $ node ex1.js
 object
 { firstName: 'Liu', lastName: 'An Chi', age: 22, sex: 'male' }
@@ -109,7 +111,7 @@ object
 
 我們可以這樣描述：
 
-```txt
+```py
 某個人：
     屬性：
         - 名字：Jenny
@@ -150,7 +152,7 @@ girl.sayHello("Tiger"); // 執行物件的方法
 
 執行 `ex2.js`：
 
-```log
+```py
 $ node ex2.js
 Jenny
 true
@@ -333,7 +335,7 @@ console.log(timeJson);
 
 執行上面程式會跑出：
 
-```txt
+```py
 string
 {"year":2018,"month":"July","day":29,"hour":23,"minute":34,"second":53}
 ```
@@ -356,7 +358,7 @@ console.log(time); // 已經是物件了，只是印出來其實就等於 JSON
 
 就會得到
 
-```log
+```py
 object
 { year: 2018,
   month: 'July',
@@ -389,7 +391,7 @@ for(const key in time) {
 
 就會跑出
 
-```log
+```py
 year 2018
 month July
 day 29
@@ -408,5 +410,5 @@ second 53
 
 ## 參考與延伸
 
-[^1]: [Wiki: 序列化](https://zh.wikipedia.org/wiki/%E5%BA%8F%E5%88%97%E5%8C%96)
-[^2]: [Wiki: JSON](https://zh.wikipedia.org/wiki/JSON)
+1. [Wiki: 序列化](https://zh.wikipedia.org/wiki/%E5%BA%8F%E5%88%97%E5%8C%96)
+2. [Wiki: JSON](https://zh.wikipedia.org/wiki/JSON)

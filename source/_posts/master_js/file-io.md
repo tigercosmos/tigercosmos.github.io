@@ -12,6 +12,8 @@ tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階, 檔案讀寫]
 
 本篇會將 NodeJS 上會用到數據型態作介紹，當作先備知識。接著只會著重在檔案讀寫講解範例，其餘像是數據流的操作、緩存的處理，待日後的進階文章才會詳細介紹。
 <!-- more --> 
+> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/tags/30-天-javascript-從入門到進階/)」
+
 ## 數據型態
 
 在談寫程式之前，先來瞭解一下電腦科學中的三種數據概念吧！
@@ -178,7 +180,7 @@ const stats = fs.stat("./"); // 異步執行
 console.log(`這個目錄擁有者的 UID 是 ${stats.uid}`); // `fs.stat` 和這行並行
 ```
 
-```log
+```py
 $ node ex2-error.js
 
 ./ex2-error.js.js:4
@@ -215,7 +217,7 @@ const stat = util.promisify(fs.stat); // 轉換 fs.state 變成 promise 型態
 
 你可以複製 `ex3.js` 程式碼用 NodeJS 跑跑看：
 
-```log
+```py
 $ node ex3.js
 這個目錄擁有者的 UID 是 501
 ```
@@ -319,7 +321,7 @@ fs.writeFileSync("./data.txt", output);
 
 你可以在你的工作目錄將 `data.csv` 和 `ex4.js` 複製一份，跑出來的結果會長的像以下（依序是「每一行的陣列」、「t 陣列」、「x 陣列」、「y 陣列」和「最後輸出」）：
 
-```log
+```py
 $ node ex4.js
 [ 't,x,Y',
   '0,0,0',
@@ -362,7 +364,7 @@ $ node ex4.js
 
 我們有將資料寫到新的文件 `data.txt` 中，你可以直接用編輯器打開來看，或是在終端機下指令來查看：
 
-```log
+```py
 $ cat ./data.txt
 總位移： 4.5
 平均速度： 0.45
@@ -382,10 +384,10 @@ $ cat ./data.txt
 
 ## 延伸參考
 
-[^1]: [Wiki: I/O bound](https://en.wikipedia.org/wiki/I/O_bound)
-[^2]: [JS Buffers matter! Sometimes.](https://medium.com/front-end-weekly/js-buffers-matter-sometimes-56150a35417f)
-[^3]: [NodeJS official doc](https://nodejs.org/api/)
-[^4]: [Wiki: Asynchrony](https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)
-[^5]: [Wiki: Concurrency](https://en.wikipedia.org/wiki/Concurrency_(computer_science)
+[^1]: [Wiki: I/O bound](https://en.wikipedia.org/wiki/I/O_bound )
+[^2]: [JS Buffers matter! Sometimes.](https://medium.com/front-end-weekly/js-buffers-matter-sometimes-56150a35417f )
+[^3]: [NodeJS official doc](https://nodejs.org/api/ )
+[^4]: [Wiki: Asynchrony](https://en.wikipedia.org/wiki/Asynchrony_\(computer_programming\))
+[^5]: [Wiki: Concurrency](https://en.wikipedia.org/wiki/Concurrency_\(computer_science\))
 [^6]: [JavaScript: What the heck is a Callback?](https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced)
-[^7]: [Wiki: Pipeline](https://en.wikipedia.org/wiki/Pipeline_(computing)
+[^7]: [Wiki: Pipeline](https://en.wikipedia.org/wiki/Pipeline_(computing))
