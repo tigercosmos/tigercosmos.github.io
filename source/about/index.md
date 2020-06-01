@@ -4,15 +4,15 @@ layout: blank
 date: 2019-11-19 11:38:12
 ---
 
-## Introduction
+## Who is Liu, An-Chi
 
-Hello, my name is Liu, An-Chi 劉安齊.
+Hello, this website is authored by Liu, An-Chi. His Chinese name is 劉安齊 (pronounce: 劉/liú/ 安/ān/ 齊/chí/). Liu is a software engineer, and he is well known as the ID @tigercosmos in open source communities.
 
-I am a software engineer. I love open sources, and participate many projects with ID @tigercosmos.
-Now I am studying for master degree of computer science in NCTU Taiwan. I focus on doing research and developing on system software.
-I like to teach other coding and like to write articles about software development. I believe sharing makes the world a better place.
+Liu was born in Taipei, Taiwan. He is currently studying for an M.S. degree in Computer Science at National Chiao Tung University (NCTU), Taiwan. He holds a B.S. degree in Bio-Industrial Mechatronics Engineering from National Taiwan University (NTU) in 2019.
 
-## Social Media
+Liu’s research interests mainly focus on system software and high-performance programming. Liu loves sharing. He teaches coding, writes articles, and gives talks. He participates in many open source projects. He believes sharing makes the world a better place.
+
+## Liu's Social Media
 
 - Github: [@tigercosmos](https://github.com/tigercosmos)
 - LinkedIn: [@liuanchi](https://www.linkedin.com/in/liuanchi/)
@@ -22,10 +22,7 @@ I like to teach other coding and like to write articles about software developme
 
 ---
 
-<script async="" defer="" src="https://platform.linkedin.com/badges/js/profile.js" type="text/javascript"></script>
-<div class="LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="horizontal"
-  data-vanity="liuanchi" data-version="v1"><a class="LI-simple-link"
-    href="https://nl.linkedin.com/in/liuanchi/en?trk=profile-badge">An-Chi Liu</a></div><br /><iframe
+<iframe
   allowtransparency="true" frameborder="0" height="500" scrolling="no"
   src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCodingNeutrino%2F&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId=577288832614270"
   style="border: none; overflow: hidden;" width="340"></iframe>
