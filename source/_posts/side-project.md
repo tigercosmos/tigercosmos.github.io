@@ -1,6 +1,6 @@
 ---
 title: Side Project—做自己想用的東西
-date: 2020-06-05 11:07:00
+date: 2020-06-06 08:07:00
 tags: [side project, chatbot, 想法, 氣象喵, Vocabulary Titan, 安琪兒, 專案]
 des: "Side Project 是指用業餘時間開發的專案，通常是想要解決某個問題或是滿足自己興趣。滿常看到社群討論要做什麼 Side Project，以及有些人會分享他們的作品。本文分享我對 Side Project 的看法，順便介紹我之前做的幾個 Side Project。"
 ---
