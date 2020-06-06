@@ -8,6 +8,7 @@ des: "Side Project 是指用業餘時間開發的專案，通常是想要解決�
 ## 什麼是 Side Project
 
 Side Project 是指用業餘時間開發的專案，通常是想要解決某個問題或是滿足自己興趣。滿常看到社群討論要做什麼 Side Project，以及有些人會分享他們的作品。本文分享我對 Side Project 的看法，順便介紹我之前做的幾個 Side Project。
+<!-- more --> 
 
 Side Project 可以是寫程式、寫書、寫文章、做公益、演講或藝術創作也都算，不過以軟體工程師角度來說，通常 Side Project 就是寫程式開發，可能是瀏覽器外掛、手機 App、Chatbot、網站、桌面軟體等。
 
@@ -16,8 +17,6 @@ Side Project 可以是寫程式、寫書、寫文章、做公益、演講或藝�
 我目前為止的「程式類型」的 Side Project，分別是[氣象喵](https://github.com/weather-bot/WxKitty)、[Vocabulary Titan](https://github.com/tigercosmos/vocabulary-titan)、[安琪兒](https://github.com/tigercosmos/angel)，這三個剛好都是 Chatbot，本文後面會詳細介紹。
 
 其他人做的 Side Project 服務很多我覺得也很不錯，像是有人做了自動幫 YouTube 標記時間的外掛、幫蝦皮果園自動澆水的網站、口罩地圖等等，大家都是投入閒暇時間做了便利大眾的服務。
-
-<!-- more --> 
 
 ## Side Project 定位
 
