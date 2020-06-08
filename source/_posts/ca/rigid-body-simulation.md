@@ -2,6 +2,7 @@
 title: 剛體物理模擬—碰撞偵測、動量衝量、連結限制、數值方法
 date: 2020-04-25 00:00:00
 tags: [電腦動畫, computer animation, physics, simulation, 模擬, 物理, collision detection, impulse, joint constraint, rigid body]
+des: "電腦動畫或電腦遊戲中常常都會需要做物理模擬，常見的物理模擬有粒子系統、流體模擬、剛體運動等等。本文主要介紹剛體 (Rigid Body) 運動中的碰撞偵測、動量衝量、連結限制 (Joint Constraint) 以及數值方法。"
 ---
 
 ## 1. 簡介
