@@ -2,13 +2,14 @@
 title: Windows 平台打造極致の程式開發工作環境 
 date: 2020-06-14 00:00:00
 tags: [windows, 工作環境]
+des: "每次看別人的 Windows 覺得很訝異。天啊！好用的工具怎麼在你電腦上都沒有？或是你竟然不知道可以這樣用？為此來介紹一下我的 Windows 工作環境長怎樣。"
 ---
 
 ## 前言
 
 老實說，過去我曾經是 Linux 和 Mac 的忠實用戶，覺得 Unix 才是工程師最舒服的工作環境。但隨著 Windows 近年來的進步，加上我頻繁切換使用 Windows、Mac、Linux，對我來說作業系統其實沒啥差別，就像同時會講好多種語言一樣，視情況和環境使用而已。
 
-我覺得王垠「[谈 Linux，Windows 和 Mac」(https://www.yinwang.org/blog-cn/2013/03/07/linux-windows-mac)>的論點跟我想法很像，說到底就是使用者體驗好不好的問題，過去 Windows 開發體驗真的很差，但現在我覺得用起來挺方便的，程式開發已經滿足我需求，加上平常還需要用 Unity、Adobe、Visual Studio、打 LOL 這些都是僅限 Windows 的程式，所以主要時間都在 Windows 上了。
+我覺得王垠「[谈 Linux，Windows 和 Mac](https://www.yinwang.org/blog-cn/2013/03/07/linux-windows-mac)」的論點跟我想法很像，說到底就是使用者體驗好不好的問題，過去 Windows 開發體驗真的很差，但現在我覺得用起來挺方便的，程式開發已經滿足我需求，加上平常還需要用 Unity、Adobe、Visual Studio、打 LOL 這些都是僅限 Windows 的程式，所以主要時間都在 Windows 上了。
 
 但我覺得許多同學的 Windows 都沒有調校到最好用的狀態，我常常幫同學看問題時，用他們的 Windows 覺得很訝異，天啊！好用的工具怎麼在你電腦上都沒有？或是你竟然不知道可以這樣用？
 
@@ -60,7 +61,7 @@ $ jupyter notebook # 開啟
 
 ## 終端機
 
-傳統的 CMD 很好用，新版的 PowerShell 也不錯。不過最近微軟開發了新的 [Terminal](https://aka.ms/terminal)，可以開新分頁，每個分頁還可以決定背後要用哪一個 Shell (CMD, PowerShell, Linux)。
+傳統的 CMD 很好用，新版的 PowerShell 也不錯。不過最近微軟開發了新的 [Terminal](https://aka.ms/terminal)，可以開新分頁和切割畫面，每個分頁還可以決定背後要用哪一個 Shell (CMD, PowerShell, Linux)。
 
 ![Terminal](https://i.imgur.com/jUtCktp.png)
 
@@ -72,9 +73,9 @@ $ jupyter notebook # 開啟
 
 好像很多人不知道其實 Windows 本身就有好用的小工具。
 
-附屬應用程式底下的擷取工具 (Snipping Tool) 可以讓你輕鬆截圖。
+附屬應用程式底下的擷取工具 (Snipping Tool) 可以讓你輕鬆截圖，我都會把他加到「開始」選單當中方便呼叫。或是也可以直接用快捷鍵 `Win + Shift + S` 開啟截圖工具。
 
-想要截圖的時候，如果來不及開擷取工具，可以按住 PrintScreen 鍵，然後開啟小畫家，`Ctrl + v` 把截圖貼在小畫家上再做修改。
+想要截圖的時候，如果來不及開擷取工具，可以按住 `PrtSrc` 鍵，然後開啟小畫家，`Ctrl + v` 把截圖貼在小畫家上再做修改。也可以用 `Win + PrtSrc` 快速將畫面存起來。
 
 在設定中開啟 Windows 的遊戲模式之後，在你想錄影的程式視窗底下，可以用 `Win + G` 開啟錄影工具，錄製當前程式畫面的操作。
 
