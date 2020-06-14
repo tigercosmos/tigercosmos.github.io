@@ -34,7 +34,7 @@ WSL 有啥好處呢？
 
 ## 文字編輯器 & IDE
 
-拜託不要再用 Notepad++ 了 (用記事本的...)，那真的不適合寫程式，只能拿來寫 Hello World。
+拜託不要再用 Notepad++ 了 (用記事本的...😨)，那真的不適合寫程式，只能拿來寫 Hello World。
 
 我最推薦用 [VSCode](https://code.visualstudio.com/) 做一般程式開發，基本上他是文字編輯器但也可以當作是半個 IDE，整合查詢、版本控制、可擴充外掛，讓 VSCode 輕量下又非常強大。
 
