@@ -60,11 +60,11 @@ $ jupyter notebook # 開啟
 
 ## 終端機
 
-傳統的 CMD 很好用，新版的 Power Shell 也不錯。不過最近微軟開發了新的 [Terminal](https://aka.ms/terminal)，可以開新分頁，每個分頁還可以決定背後要用哪一個 Shell (CMD, Power Shell, Linux)。
+傳統的 CMD 很好用，新版的 PowerShell 也不錯。不過最近微軟開發了新的 [Terminal](https://aka.ms/terminal)，可以開新分頁，每個分頁還可以決定背後要用哪一個 Shell (CMD, PowerShell, Linux)。
 
 ![Terminal](https://i.imgur.com/jUtCktp.png)
 
-當然也有很多其他好用的 Terminal 可以用，像是 [Cmder](https://cmder.net/) 這款終端機我也覺得很好用。總之如果只是用原生的 CMD 或 Power Shell 那就少了許多方便好用的功能囉。
+當然也有很多其他好用的 Terminal 可以用，像是 [Cmder](https://cmder.net/) 這款終端機我也覺得很好用。總之如果只是用原生的 CMD 或 PowerShell 那就少了許多方便好用的功能囉。
 
 此外，你知道按住 `Shift` 點右鍵，可以直接在當前目錄叫出終端機嗎？
 
