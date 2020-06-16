@@ -23,9 +23,9 @@ SPEC CPU 是 The Standard Performance Evaluation Corporation (SPEC) 組織建立
 
 ## 原始碼處理
 
-SPEC CPU 2006 原本是燒在光碟中的，所以官方教學是掛載 `iso` 檔處理。
+SPEC CPU 2006 原本是燒在光碟中的，檔名是 `SPEC_CPU2006_v1.1.iso`，所以官方教學是掛載 `iso` 檔處理。
 
-不過我拿到的時候就是 `iso`，我就直接解壓縮使用。
+不過因為我用 Docker 沒法做掛載，我就直接解壓縮使用。
 
 ```shell
 $ sudo apt-get install p7zip-full p7zip-rar
@@ -158,7 +158,10 @@ $ source ./shrc
 舉例來說要跑 `mcf` 這支測試，我的設定檔是 `Example-linux-ia64-gcc.cfg`，可以執行以下：
 
 ```shell
-$  runspec --iterations 1 --size ref --action onlyrun --config Example-linux-ia64-gcc.cfg --noreportable mcf
+$  runspec --iterations 1 --size ref \
+           --action onlyrun \
+           --config Example-linux-ia64-gcc.cfg \
+           --noreportable mcf
 ```
 
 跑出來的結果：
