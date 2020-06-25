@@ -110,8 +110,8 @@ Web Worker 是 API，跟 JavaScript 引擎無關，屬於 Runtime 自己要處�
 
 測試碼如下：
 
+main.js
 ```js
-// main.js
 const {
     Worker
   } = require('worker_threads');
@@ -142,6 +142,7 @@ for (let i = 0; i < thread; i++) { // (B)
 }
 ```
 
+worker.js
 ```js
 const { parentPort } = require('worker_threads')
 
