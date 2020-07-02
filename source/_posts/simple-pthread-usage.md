@@ -168,7 +168,7 @@ Pi =  3.1415926536
 
 ## 效能分析
 
-以下做個小實驗，使用 AMD Ryzen 7 2700X Eight-Core Processor 在 WSL Ubuntu 20 下測試單緒版本和多緒版本時間差異。
+以下做個小實驗，使用 AMD Ryzen 7 2700X Eight-Core Processor 在 VM Ubuntu 20 下測試單緒版本和多緒版本時間差異。
 
 測試碼使用上面的 `pi_single_thread.c` 和 `pi_multi_thread.c`。
 
