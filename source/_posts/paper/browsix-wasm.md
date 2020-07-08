@@ -1,7 +1,7 @@
 ---
 title: "[論文] 好像沒有那麼快：WebAssembly vs. Native Code 程式碼效能分析"
 date: 2019-12-18 00:00:00
-tags: [paper, WebAssembly, browser, CPU SPEC]
+tags: [paper, WebAssembly, browser, CPU SPEC, 效能分析, 平行化]
 ---
 **Paper**: Not So Fast: Analyzing the Performance of WebAssembly vs. Native Code
 **Author**: Abhinav Jangda, Bobby Powers, Emery D. Berger, and Arjun Guha, University of Massachusetts Amherst

@@ -1,7 +1,7 @@
 ---
 title: Evaluation of Web Worker for Parallel Programming with Browsers, NodeJS and Deno
 date: 2020-06-26 00:00:00
-tags: [JavaScript, web worker, nodejs, deno, parallel programming, browser, browsers]
+tags: [JavaScript, web worker, nodejs, deno, parallel programming, browser, browsers, 效能分析, 平行化]
 des: "本篇簡單評估各家瀏覽器、NodeJS 和 Deno 對 Web Worker 在開發平行程式上支援程度和使用差異。實驗結果來看，顯然 Chromium 為底的瀏覽器都支援不錯，但對 Firefox 不支援感到可惜，至於 JavaScript 中的 Runtime，NodeJS 身為元老自然支援，Deno 為新起之秀在支援上還要再等等。"
 ---
 
