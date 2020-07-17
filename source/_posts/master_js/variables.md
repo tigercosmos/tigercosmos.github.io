@@ -128,10 +128,10 @@ let result = name + " is " + age + " years old." // "Tiger is 22 years old."
 ```
 
 ```js
-const hieght = 4;
+const height = 4;
 const width = 6;
 
-const area = hieght * width; // 24
+const area = height * width; // 24
 ```
 
 注意 JS 中，數字跟字串作相加時，數字會自動被轉型成為字串。

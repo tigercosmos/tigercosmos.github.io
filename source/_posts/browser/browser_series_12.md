@@ -31,7 +31,7 @@ LayoutBox 算出 layout 的初始函數，針對自己是那種型別來開始�
 
 簡單來說解釋：
 ```
-<A hieght = 100>
+<A height = 100>
     <a heught = 200>
 </A>
 ```
