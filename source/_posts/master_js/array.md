@@ -12,7 +12,7 @@ tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階, 陣列]
 
 事實上可以存一堆物品的容器可以是其他東西，但我們晚點再介紹。這個章節中我們要介紹何謂陣列。
 <!-- more --> 
-> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/tags/30-天-javascript-從入門到進階/)」
+> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/post/2018/11/master_js/table/)」
 
 ## 定義
 

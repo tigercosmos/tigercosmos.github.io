@@ -99,11 +99,3 @@ tags: [angular2, angular, 鐵人賽, Angular 2 之 30 天邁向神乎其技之�
 <p>&#x672C;&#x7CFB;&#x5217;&#x4E5F;&#x544A;&#x4E00;&#x6BB5;&#x843D;&#xFF0C;&#x4E0D;&#x80FD;&#x8AAA;&#x5B8C;&#x7F8E;&#xFF0C;&#x4F46;&#x81F3;&#x5C11;&#x4E5F;&#x6EFF;&#x5B8C;&#x6574;&#xFF0C;&#x5E0C;&#x671B;&#x5C0D;&#x6240;&#x6709;&#x50CF;&#x6211;&#x4E00;&#x6A23;&#x521D;&#x5B78; Angular 2 &#x7684;&#x5DE5;&#x7A0B;&#x5E2B;&#x6709;&#x6240;&#x5E6B;&#x52A9;&#xFF0C;&#x6709;&#x4EFB;&#x4F55;&#x554F;&#x984C;&#x4E5F;&#x6B61;&#x8FCE;&#x4F86;&#x4FE1;&#xFF0C;&#x6211;&#x5011;&#x672A;&#x4F86;&#x518D;&#x898B;&#xFF01;</p>
 <hr>
 <blockquote>
-<p><em><strong>&#x95DC;&#x65BC;&#x4F5C;&#x8005;</strong></em><br>
-<strong>&#x5289;&#x5B89;&#x9F4A;</strong><br>
-&#x8EDF;&#x9AD4;&#x5DE5;&#x7A0B;&#x5E2B;&#xFF0C;&#x71B1;&#x611B;&#x5BEB;&#x7A0B;&#x5F0F;&#xFF0C;&#x66F4;&#x559C;&#x6B61;&#x63A8;&#x5EE3;&#x7A0B;&#x5F0F;&#x8B93;&#x66F4;&#x591A;&#x4EBA;&#x5B78;&#x6703;&#x3002;&#x6B61;&#x8FCE;&#x8FFD;&#x8E64; <a href="https://www.facebook.com/CodingNeutrino/" target="_blank">&#x5FAE;&#x4E2D;&#x5B50;</a>&#xFF0C;&#x6211;&#x6703;&#x5728;&#x4E0A;&#x9762;&#x5206;&#x4EAB;&#x5404;&#x7A2E;&#x65B0;&#x77E5;&#x8207;&#x6700;&#x65B0;&#x4F5C;&#x54C1;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x53BB;&#x901B;&#x901B;&#x6211;&#x7684; <a href="https://tigercosmos.xyz/" target="_blank">&#x500B;&#x4EBA;&#x7DB2;&#x7AD9;</a> &#x6216; <a href="https://github.com/tigercosmos/" target="_blank">Github</a>&#x3002;</p>
-</blockquote>
- <br>
-                                                    </div>
-                    </div>
-                

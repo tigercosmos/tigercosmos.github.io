@@ -45,7 +45,7 @@ console.log("結束程式");
 
 有沒有好的解決辦法嗎？那就是函式(或叫函數，function)了！
 
-> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/tags/30-天-javascript-從入門到進階/)」
+> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/post/2018/11/master_js/table/)」
 
 ## 函式概念
 

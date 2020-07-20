@@ -12,7 +12,7 @@ tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階, 物件]
 
 在 JS 的世界中，萬物的理論就是 `object` 這個物件型別，這個物件型別包含各種形形色色的玩意，讓我娓娓道來。
 <!-- more --> 
-> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/tags/30-天-javascript-從入門到進階/)」
+> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/post/2018/11/master_js/table/)」
 
 ## 物件定義
 

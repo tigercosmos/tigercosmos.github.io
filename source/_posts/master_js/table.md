@@ -1,0 +1,54 @@
+---
+title: 30 天 Javascript 從入門到進階：目錄
+date: 2018-11-11 00:00:00
+tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
+---
+
+- [自序](/post/2018/11/master_js/preface/)
+- 第一部：基本概念
+  - 簡易電腦概論
+  - 程式語言與 Javascript 簡介
+  - [環境建設與執行第一個程式](/post/2018/11/master_js/setups/)
+  - [變數、資料型態以及算術運算式](/post/2018/11/master_js/variables/)
+  - [條件判斷](/post/2018/11/master_js/condition/)
+  - [迴圈](/post/2018/11/master_js/loop/)
+  - [陣列](/post/2018/11/master_js/array/)
+  - [函式](/post/2018/11/master_js/function/)
+  - [物件](/post/2018/11/master_js/object/)
+  - [檔案讀寫](/post/2018/11/master_js/file-io/)
+  - 遞迴
+  - 位元運算
+  - 除錯技巧
+  - 物件導向概念
+  - 模組化與套件
+  - 同步與異步
+  - Javascript 語法進階
+- 第二部：進階觀念
+  - 資料結構
+  - 演算法
+  - 程式編寫風格
+  - 版本紀錄
+  - 單元測試
+- 第三部：實戰開發
+  - JavaScript 平行程式：
+    - [JavaScript 平行化使用 Web Worker、SharedArrayBuffer、Atomics](/post/2020/02/web/js-parallel-worker-sharedarraybuffer/)
+    - [Evaluation of Web Worker for Parallel Programming with Browsers, NodeJS and Deno](/post/2020/06/js/web-worker-evaluation/)
+    - [使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析](/post/2020/07/js/emscripten-pthread-to-js/)
+  - NodeJS 開發聊天機器人
+    - [來寫個氣象機器人吧！](/post/2018/05/weather_bot/)
+    - [專案範例：氣象喵](https://github.com/weather-bot/WxKitty)
+    - [專案範例：Vocabulary Titan](https://github.com/tigercosmos/vocabulary-titan)
+    - [專案範例：安琪兒](https://github.com/tigercosmos/angel)
+  - 現代前端網頁框架
+    - [Angular 2 給初學者的學習指南](/post/2017/01/angular/angular2_30/)
+    - React
+    - Vue
+  - D3.js
+    - [範例：馬可夫鍊模擬](/post/2016/03/markov-chain-simulation/)
+    - [範例：生命遊戲](https://ithelp.ithome.com.tw/articles/10189054)
+    - [範例：貪食蛇](https://ithelp.ithome.com.tw/articles/10189054)
+  - 網路爬蟲
+  - 後端伺服器
+  - Electron 開發桌面 GUI 軟體
+    - [專案範例：Messenger Desktop Mac App](https://github.com/tigercosmos/messenger_desktop)
+    - [專案範例：Google Translate Desktop Mac App](https://github.com/tigercosmos/google_translate_desktop)

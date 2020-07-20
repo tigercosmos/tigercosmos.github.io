@@ -7,7 +7,7 @@ tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
 
 # 變數、資料型態以及算術運算式
 
-> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/tags/30-天-javascript-從入門到進階/)」
+> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/post/2018/11/master_js/table/)」
 
 
 ## 變數

@@ -23,7 +23,7 @@ date: 2020-04-30 00:00:00
     完整介紹網頁瀏覽器的原理
 2. **[Let's build a DBMS: StellarSQL](/tags/stellarsql/)**
     介紹如何自幹一個資料庫管理系統，寫的比較陽春
-3. **[30 天 Javascript 從入門到進階](/tags/30-天-javascript-從入門到進階/)**
+3. **[30 天 Javascript 從入門到進階](/post/2018/11/master_js/table/)**
     給初學者的 Javascript 入門教學
 4. **[Angular 2 之 30 天邁向神乎其技之路](/tags/angular-2-之-30-天邁向神乎其技之路/)**
     給初學者的 Angular 入門教學，寫的時候是 Angular 2，可能有些東西已經變了

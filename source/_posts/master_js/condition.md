@@ -14,7 +14,7 @@ tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階, 條件判斷]
 
 現實生活中我們都在做各種判斷，而我們當然可以把這種判斷的工作交給電腦來做，接著讓我們來了解電腦怎樣做判斷的。
 <!-- more --> 
-> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/tags/30-天-javascript-從入門到進階/)」
+> 傳送門：此系列文章「[30 天 Javascript 從入門到進階](/post/2018/11/master_js/table/)」
 
 ## if 判斷
 
