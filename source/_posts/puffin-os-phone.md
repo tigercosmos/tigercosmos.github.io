@@ -2,8 +2,8 @@
 title: 深度分析 Puffin OS Phone—搶攻第三世界的智慧手機
 date: 2020-01-29 00:00:00
 tags: [puffin browser , browsers, browser, puffin oS phone, cloudmosa,]
+des: "Puffin OS Phone 是台灣軟體開發商 CloudMosa 所研發，搭載其自家作業系統 Puffin OS 的低階智慧手機，CloudMosa 團隊開發的智慧手機將主打第三世界市場，以極低價的成本，藉由其在後端渲染瀏覽器 Puffin Browser 的成熟技術，讓即便網速很低且硬體不強的情況下，仍有市面中階手機在穩定網路環境的使用體驗。本文將深入討論 Puffin OS Phone 的各種面向。"
 ---
-
 
 ![puffin os phone photo](https://user-images.githubusercontent.com/18013815/73357418-4a4a3300-42d7-11ea-9456-7344680463ba.jpg)
 
@@ -34,7 +34,7 @@ Puffin OS Phone 想要解決的問題便是針對上述問題而生，POP 希望
 
 開箱過程可以看劉胖胖拍開箱影片，裡面介紹 POP 包裝、手機介面、使用體驗、軟體安裝等等，所以我就不多作介紹。
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/z1HfsgXsFxg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+影片：[Puffin OS Phone開箱！台灣團隊自製作業系統，以KaiOS為目標的智慧型手機](https://www.youtube.com/watch?v=z1HfsgXsFxg)
 
 ## Puffin OS Phone 技術原理
 
