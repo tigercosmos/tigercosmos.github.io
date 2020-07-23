@@ -330,18 +330,18 @@ console.log(names);
 
 ```js
 const origin = [1, 2, 3, 4, 5, 6, 7];
-         // 編號 0  1  2  3  4  5  6  7
+         // 編號 0  1  2  3  4  5  6
 
 const part1 = origin.slice(0, 4); // 擷取 origin 編號 0 到 4 間的元素
                                   // 1, 2, 3, 4 (不包含編號 4，所以沒 5)
 
 const part2 = origin.slice(5, 6); // 擷取 origin 編號 5 到 6 間的元素
-                                  // 6, 7
+                                  // 6
 
 const newArr = [...part1, 44, 55, ...part2];
 
 console.log(newArr);
-// [ 1, 2, 3, 4, 44, 55, 6, 7]
+// [ 1, 2, 3, 4, 44, 55, 6]
 ```
 
 ## 警告
