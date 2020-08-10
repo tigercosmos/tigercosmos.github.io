@@ -131,8 +131,7 @@ int main()
 
 	// 建立 4 個 threads 
 	for (int i = 0; i < THREAD_MAX; i++) 
-		pthread_create(&threads[i], NULL, merge_sort, 
-										(void*)NULL); 
+		pthread_create(&threads[i], NULL, merge_sort, (void*)NULL); 
 
 	// Join 4 個 Thread 
 	for (int i = 0; i < 4; i++) 
@@ -147,9 +146,9 @@ int main()
 
 	// 列印結果，註解掉防止 I/O 造成負擔
 	/* 
-    cout << "Sorted array: "; 
-	for (int i = 0; i < MAX; i++) 
-		cout << arr[i] << " "; 
+        cout << "Sorted array: "; 
+        for (int i = 0; i < MAX; i++) 
+            cout << arr[i] << " "; 
     */
 
 	// 列印執行時間
