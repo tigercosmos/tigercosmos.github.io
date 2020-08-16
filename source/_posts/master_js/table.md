@@ -30,8 +30,11 @@ tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
   - 版本紀錄
   - 單元測試
 - 第三部：實戰開發
+  - WebAssembly：
+    - [完整介紹 WebAssembly 使用方式](/post/2020/08/js/webassembly-intro/)
   - JavaScript 平行程式：
     - [JavaScript 平行化使用 Web Worker、SharedArrayBuffer、Atomics](/post/2020/02/web/js-parallel-worker-sharedarraybuffer/)
+    - [使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析 (2) — Merge Sort](/post/2020/08/js/emscripten-pthread-to-js-2/)
     - [Evaluation of Web Worker for Parallel Programming with Browsers, NodeJS and Deno](/post/2020/06/js/web-worker-evaluation/)
     - [使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析](/post/2020/07/js/emscripten-pthread-to-js/)
   - NodeJS 開發聊天機器人
