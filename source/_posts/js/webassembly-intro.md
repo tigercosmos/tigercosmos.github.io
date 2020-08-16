@@ -26,11 +26,11 @@ WebAssembly 主要物件有：
 2. **建立 WebAssembly 的記憶體緩衝 (Memory Buffer)/紀錄表 (Table)：**`WebAssembly.Memory()`/`WebAssembly.Table()` 建構子。
 3. **處理 WebAssembly 錯誤：** `WebAssembly.CompileError()`/`WebAssembly.LinkError()`/`WebAssembly.RuntimeError()` 建構子。
 
-### 2.1 編譯 WASM
+### 2.1 JS 編譯 WASM
 
-WASM 是一個編譯好的 Binary 檔案，會從 C++ 或 Rust 編譯過來，怎麼生成 WASM 後面會說明，這邊我們先假設已經有一個編譯好的 WASM 檔案，我們現在要在瀏覽器中編譯他和初始化。
+WASM 是一個編譯好的 Binary 檔案，會從 C++ 或 Rust 編譯過來，怎麼生成 WASM 後面會說明。這邊我們先假設已經有一個編譯好的 WASM 檔案 `*.wasm`。
 
-首先我們要編譯，WASM 雖然已經是編譯過的 Binary，但其實他算是一種 IR (白話就是編譯到一半的產物)，所以拿到 WASM 後還是要編譯成機械碼。
+首先我們先在瀏覽器下載 `*.wasm` 原始檔，然後在瀏覽器上「再次」編譯這個 WASM 檔，WASM 雖然已經是編譯過的 Binary，但其實他算是一種 IR (白話就是編譯到一半的產物)，所以拿到 WASM 原始檔後還是要把它編譯成最後產物。
 
 編譯 WASM 我們有以下幾種選擇：
 
@@ -38,7 +38,7 @@ WASM 是一個編譯好的 Binary 檔案，會從 C++ 或 Rust 編譯過來，�
 - 用 `WebAssembly.compileStreaming()`
 - 用 `WebAssembly.Module` 的建構子
 
-差別在於 `compile()` 和 `compileStreaming()` 為異步 (async)，其中 `compilerStreaming()` 顧名思義是將 Stream 進行編譯 (邊下載邊編譯)；`Module` 建構子則為同步 (sync)，但編譯完後會產生 `WebAssembly.Module` 物件。
+差別在於 `compile()` 和 `compileStreaming()` 為異步 (async)，其中 `compilerStreaming()` 顧名思義是將 Stream 進行編譯 (邊下載邊編譯)；`Module` 建構子則為同步 (sync)，。三種編譯完都會產生 `WebAssembly.Module` 物件。
 
 `WebAssembly.Module` 物件代表瀏覽器已經編譯處理好，接下來可以將物件傳給 Web Worker 使用或是重複初始化。
 
