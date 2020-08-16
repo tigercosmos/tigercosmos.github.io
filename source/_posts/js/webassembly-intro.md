@@ -17,6 +17,7 @@ des: "本文完整介紹 WebAssembly 所有的 JavaScript API 的操作方式，
 
 接下來本文將會介紹如何使用 JS 搭配 WASM 進行開發。
 
+<!-- more -->
 ## 2. WebAssembly API 介紹
 
 WebAssembly 主要物件有：
