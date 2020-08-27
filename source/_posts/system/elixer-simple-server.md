@@ -9,7 +9,7 @@ des: "本文介紹如何用 Elixir 建立一個簡單的 HTTP Server，藉此來
 
 [Elixir](https://elixir-lang.org/) 是一個動態 Functional Programming 語言，專門用來打造可擴展且易維護的系統。
 
-Elixir 基於 Erlang VM 所建，適合用在需要低延遲、分散式、錯誤容忍（fault-tolerant）的系統上，同時也可以用在網頁開發、嵌入式軟體、資料處理、多媒體處理等用途上。
+Elixir 基於 Erlang VM 所建，適合用在需要低延遲、分散式、錯誤容忍（fault-tolerant）的系統上，同時也可以用在網頁開發、嵌入式軟體、資料處理、多媒體處理等用途上。這篇文章「[Game of Phones: History of Erlang and Elixir](https://serokell.io/blog/history-of-erlang-and-elixir)」介紹了 Elixir 來龍去脈，值得一看。
 
 Elixir 寫起來滿有趣的，寫了之後才意識到原來 JS 和 Rust 從 Functional Programming 借鏡了不少概念，所以在從頭學 Elixir 的過程，一些 FP 的特色，像是 Pattern Matching、Enumerable 都已經在先前接觸過。
 
