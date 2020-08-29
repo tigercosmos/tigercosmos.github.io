@@ -106,7 +106,7 @@ $ sudo cp perf /usr/bin
 $ perf
 ```
 
-你可能會需要設定權限，預設應該是權限不足：
+安裝完 perf 後，你可能會需要設定系統權限，預設應該會使 perf 權限不足：
 
 ```shell
 $ sudo su # As Root
