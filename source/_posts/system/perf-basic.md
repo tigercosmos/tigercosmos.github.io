@@ -218,7 +218,7 @@ sum = 94479480000
        0.000000000 seconds sys
 ```
 
-`perf stat` 可以直接看到統計資料，如果有很高的 Content Switch、Page Fault、Branch Miss 都代表程式本身效能有待優化。
+`perf stat` 可以直接看到統計資料，如果有很高的 Context Switch、Page Fault、Branch Miss 都代表程式本身效能有待優化。
 
 以 `unsort` 為例可以看到 Branch Miss 特別高 (排序版本會幾乎是 0)，這時我們就可以去看原本的程式哪邊有條件判斷，然後根據 Annotate 的時間比例，就可以快速找到問題點。另外從 Cycle 上我們也可以發現兩個版本差了三倍之多。
 
