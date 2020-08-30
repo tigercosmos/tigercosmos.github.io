@@ -222,7 +222,7 @@ sum = 94479480000
 
 以 `unsort` 為例可以看到 Branch Miss 特別高 (排序版本會幾乎是 0)，這時我們就可以去看原本的程式哪邊有條件判斷，然後根據 Annotate 的時間比例，就可以快速找到問題點。另外從 Cycle 上我們也可以發現兩個版本差了三倍之多。
 
-> 更多 perf 的用法可以參考 Brendan Gregg 的「[perf Examples](http://www.brendangregg.com/perf.html)」。
+> 更多 perf 的用法可以參考 Brendan Gregg 的「[perf Examples](http://www.brendangregg.com/perf.html)」。另外這個 HackMD 的[筆記](https://hackmd.io/@1IzBzEXXRsmj6-nLXZ9opw/HkBl5kCSU)也挺不錯的。
 
 ## 結論
 
