@@ -28,6 +28,10 @@ date: 2020-04-30 00:00:00
 4. **[Angular 2 之 30 天邁向神乎其技之路](/tags/angular-2-之-30-天邁向神乎其技之路/)**
     給初學者的 Angular 入門教學，寫的時候是 Angular 2，可能有些東西已經變了
 
+## 影片教學
+
+1. [拯救資工系學生的基本素養](https://www.youtube.com/watch?v=IaHcesCpuA4&list=PLCOCSTovXmudP_dZi1T9lNHLOtqpK9e2P)
+
 ## 標籤分類
 
 - [Unix/Linux](/tags/unix/)
