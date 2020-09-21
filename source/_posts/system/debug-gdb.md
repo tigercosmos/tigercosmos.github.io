@@ -224,7 +224,7 @@ Since there is just one breakpoint in this example, the program will run to the 
 
 Once you stop at a breakpoint, you could use `step` command to run code line by line.
 
-Once you stop at a breakpoint, you could use `up` and `down` to switch frames instead of using `frame &lt;number&gt;` directly.
+Once you stop at a breakpoint, you could use `up` and `down` to switch frames instead of using `frame <number>` directly.
 
 If the program is running(you have commanded `run` already), and you can enter `Ctrl+C` to interrupt GDB, then the program will break right now. The process will paused at where it just run to. And the point where it stopped by the interrupt is a manual breakpoint for just once. You can add some other commands here, and once you have done, you can enter `c` to continue the process.
 
