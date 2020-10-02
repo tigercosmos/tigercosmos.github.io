@@ -2,6 +2,7 @@
 title: 簡明 Shell 原理與實作
 date: 2020-01-18 15:01:00
 tags: [unix, shell, fork, dup2, pipe]
+des: "本篇介紹 Shell 的原理，以及如何寫一個簡單的 Shell 程式。"
 ---
 
 ## Shell 介紹
