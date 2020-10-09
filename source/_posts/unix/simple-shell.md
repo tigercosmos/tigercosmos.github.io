@@ -2,6 +2,7 @@
 title: 簡明 Shell 原理與實作
 date: 2020-01-18 15:01:00
 tags: [unix, shell, fork, dup2, pipe]
+des: "本篇介紹 Shell 的原理，以及如何寫一個簡單的 Shell 程式。"
 ---
 
 ## Shell 介紹
@@ -42,14 +43,16 @@ Shell 有很多功能，包含以下：
 
 Shell（`pid 0`）接到指令，比方說 `ls` 好了，他就會先 `fork()` 出一個新 process（`pid 1`），然後新的 `pid 1` 使用 `exec` 指令將 forked 的 Shell 取代成 `ls` 並執行。此時 Shell（`pid 0`）會用 `waitpid()` 等 `ls`（`pid 1`）執行完印出輸出，才繼續執行 Shell。
 
-<pre><code class="shell">Shell:
+Shell:
+
+```shell
 $            # pid 0
 -----------------------------------------------------
 $ ls         # pid 0 fork() 出 pid 1
 A B C D      # pid 1 執行 ls
 -----------------------------------------------------
 $            # pid 0 用 waitpid() 等 pid 1 結束才繼續
-</pre></code>
+```
 
 接下去，我們需要知道 `pipe()` 這個 System Call，他是一種讓程序之間可以溝通的方式之一，在實作 Shell 時，我們會需要用 `pipe()` 和 `dup2()` 來搞定 `A | B`。請大家先看「[pipe() System call](https://www.geeksforgeeks.org/pipe-system-call/)」、「[C program to demonstrate fork() and pipe()](https://www.geeksforgeeks.org/c-program-demonstrate-fork-and-pipe/)」和「[dup() and dup2() Linux system call](https://www.geeksforgeeks.org/dup-dup2-linux-system-call/)」這三篇文章，再接下去看我下面的範例。
 
