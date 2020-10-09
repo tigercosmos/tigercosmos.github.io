@@ -30,7 +30,7 @@ date: 2020-04-30 00:00:00
 
 ## 影片教學
 
-1. [拯救資工系學生的基本素養](https://www.youtube.com/watch?v=IaHcesCpuA4&list=PLCOCSTovXmudP_dZi1T9lNHLOtqpK9e2P)
+1. 「[拯救資工系學生的基本素養](https://www.youtube.com/playlist?list=PLCOCSTovXmudP_dZi1T9lNHLOtqpK9e2P)」系列
 
 ## 標籤分類
 
