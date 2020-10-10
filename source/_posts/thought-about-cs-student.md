@@ -22,6 +22,8 @@ tags: [大學,研究所,資工,資訊工程,想法,基本素養, computer scienc
 - 程式開發的協作與流程
 - 關於電腦的一切基本知識
 
+> 除本文外，同時可以參考我的教學影片「[拯救資工系學生的基本素養](https://www.youtube.com/playlist?list=PLCOCSTovXmudP_dZi1T9lNHLOtqpK9e2P)」系列
+
 ## 程式開發與除錯技巧
 
 程式開發我想不用多說，寫程式大家都會，但是要寫得好卻很困難，我覺得既然身為資工系學生，就要把寫程式的能力練好，C++、Python、JavaScipt 等語言盡量熟悉其特性，閒有餘力多參考一些進階的書，像是《C++ Primer》、《Effecitve C++》、《Effective Python》等書，搜尋一下就會有很多大神分享他們獨門書單了。不僅僅如此，程式寫得好還要有各種知識的結合，包含善用標準函式庫 (STD)、資料結構演算法、設計模式 (Design Pattern) 等。
