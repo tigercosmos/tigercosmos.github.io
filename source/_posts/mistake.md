@@ -4,7 +4,6 @@ date: 2019-01-25 01:23:39
 tags: [全球集思論壇,大學生活,省思,]
 ---
 
-
 ## 我在大學期間犯下最畢生難忘的錯
 
 ### 錯誤不可恥，可恥的是再犯同樣的錯
@@ -20,8 +19,6 @@ tags: [全球集思論壇,大學生活,省思,]
 大一的時候我有參加全台大數一數二的大型組織－－<a href="https://www.gis-taiwan-chinese.com/" class="dj by ix iy iz ja" target="_blank" rel="noopener nofollow">全球集思論壇</a>，這是一個每年有數百萬預算的團體，收納來自不同背景的菁英。每年暑假會辦為期五天的會議，參加者來自世界各國，同時會邀請與當年年度主題符合，在世界中活耀或極具影響力的人物來當講者。
 
 當時我是組織中學術部的小幹員，當年其中一個子主題(議程的軌)是新興農業，亦即探討世界關於廣義農業的最新趨勢，我邀請到瑞典公司 Plantagon 的 CTO <a href="https://www.facebook.com/joakim.rytterborn" class="dj by ix iy iz ja" target="_blank" rel="noopener nofollow">Joakim Rytterborn</a>，這是一家建造垂直農場的科技公司。垂直農場是將植物工廠的概念延伸，使整棟大樓都可以自動化生產高經濟價值作物。同時，我也邀請到中華民國魚菜共生協會理事長 陳登陽先生，魚菜共生顧名思義將養殖漁業與農業結合，屬於比較另類的創興農業。總之，身為一個小小幹員，邀請到二十分之二的講者已經算合格了。你絕對想不到，當初在決定子主題，以及子主題要邀請誰，部門內部就爭論了老半天，加上邀請講者本身就不是你希望對方來對方就會來，整個過程其實拖了很久，隨著論壇舉辦時間逼近，大家壓力也都不小。
-
-
 
 國外講者最難邀請，畢竟人家也會看 CP 值，要考慮時間、旅途成本，還有最根本的來這邊到底有沒有意義。我們頂著台大光環，還有台灣政經法展在亞洲也算是有點名聲，以及集思過去有邀請到不少名人，通常能有點說服力讓對方動心。萬事起頭難，其實當你先邀請到第一個重量級人物之後，後面邀請的講者通常會比較願意來，畢竟來交交朋友也不錯，那問題就來了，第一個誰找？還好我同部門的幹員很罩，當年竟然找到阿富汗現今副總統 <a href="https://en.wikipedia.org/wiki/Fawzia_Koofi" class="dj by ix iy iz ja" target="_blank" rel="noopener nofollow">Fawzia Koofi</a>，還有一堆名聲聽起來響亮亮的講者，讓整個活動很有檯面。此外像是去年邀請到乙太坊創始人 <a href="https://en.wikipedia.org/wiki/Vitalik_Buterin" class="dj by ix iy iz ja" target="_blank" rel="noopener nofollow">Vitalik Buterin</a>，所以每年的講者都是屌炸天，這也是集思一貫的風格。
 
@@ -46,11 +43,3 @@ tags: [全球集思論壇,大學生活,省思,]
 在任何一個微不足道的地方，只要你妥協了，就會是悲劇的開始。不要輕易為細節妥協，因為你該為任何小細節負責。我總是這樣叮嚀自己，也期許自己未來不要再犯同樣的錯。最重要的是，如果不幸地事情都已經錯了，這時絕不能逃避，更要負責到底！
 
 <img class="dz t u hc ak" src="https://miro.medium.com/max/2400/0*B_Y9Rj0HopnnO2Ji.jpg" role="presentation"><br/>
-
----
-
-如果你覺得這篇文章對你有幫助，請幫我拍拍手做為鼓勵！
-
-### About Me
-
-Liu, An-Chi(劉安齊). A software engineer, who loves writing code and promoting CS to people. Welcome to follow me at <a href="https://www.facebook.com/CodingNeutrino/" class="dj by ix iy iz ja" target="_blank" rel="noopener nofollow">Facebook Page</a>. More information on <a href="https://tigercosmos.xyz/" class="dj by ix iy iz ja" target="_blank" rel="noopener nofollow">Personal Site</a> and <a href="https://github.com/tigercosmos" class="dj by ix iy iz ja" target="_blank" rel="noopener nofollow">Github</a>.
