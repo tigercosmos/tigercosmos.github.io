@@ -226,7 +226,7 @@ async function platformReplyImage(context, url) {
 <li id="2032" class="hr hs em at ht b hu if hw ig hy ih ia ii ic ij ie ja jb jc"><a href="https://opendata.cwb.gov.tw/index" class="dj by im in io ip" target="_blank" rel="noopener nofollow">氣象資料開放平臺</a>：氣象局的公開資料</li><li id="c2ee" class="hr hs em at ht b hu jw hw jx hy jy ia jz ic ka ie ja jb jc"><a href="https://openweathermap.org/api" class="dj by im in io ip" target="_blank" rel="noopener nofollow">Open Weather Map</a>：國外的氣象資料服務商</li>
 </ul>
 
-還有很多，就不多列舉了。
+還有很多，也可以參考[這篇文章](https://www.climacell.co/blog/top-8-weather-apis-for-2020/)，就不多列舉了。
 
 ### 隱藏版 API
 
