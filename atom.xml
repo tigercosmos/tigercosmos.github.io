@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Neutrino&#39;s Blog</title>
+  <icon>https://tigercosmos.xyz/icon.png</icon>
+  <subtitle>Code makes the world a better place</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://tigercosmos.xyz/"/>
+  <updated>2020-10-21T16:31:09.293Z</updated>
+  <id>https://tigercosmos.xyz/</id>
+  
+  <author>
+    <name>Liu, An-Chi 劉安齊</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[Paper Review] Deep Learning Hardware: Past, Present, and Future</title>
+    <link href="https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/"/>
+    <id>https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/</id>
+    <published>2020-10-21T15:46:00.000Z</published>
+    <updated>2020-10-21T16:31:09.293Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Paper-Information&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#Paper-Information&quot;&gt;¶ &lt;/a&gt;Paper Information&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Paper&lt;/strong&gt;: Deep
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ai" scheme="https://tigercosmos.xyz/tags/ai/"/>
+    
+      <category term="paper" scheme="https://tigercosmos.xyz/tags/paper/"/>
+    
+      <category term="machine learning" scheme="https://tigercosmos.xyz/tags/machine-learning/"/>
+    
+      <category term="deep learning hardware" scheme="https://tigercosmos.xyz/tags/deep-learning-hardware/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Paper Review] Deep learning</title>
+    <link href="https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/"/>
+    <id>https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/</id>
+    <published>2020-10-21T15:34:00.000Z</published>
+    <updated>2020-10-21T16:31:09.293Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Paper-Information&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#Paper-Information&quot;&gt;¶ &lt;/a&gt;Paper Information&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Paper&lt;/strong&gt;: Deep
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ai" scheme="https://tigercosmos.xyz/tags/ai/"/>
+    
+      <category term="paper" scheme="https://tigercosmos.xyz/tags/paper/"/>
+    
+      <category term="machine learning" scheme="https://tigercosmos.xyz/tags/machine-learning/"/>
+    
+      <category term="deep learning" scheme="https://tigercosmos.xyz/tags/deep-learning/"/>
+    
+      <category term="inference" scheme="https://tigercosmos.xyz/tags/inference/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Paper Review] Machine Learning at Facebook: Understanding Inference at the Edge</title>
+    <link href="https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/"/>
+    <id>https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/</id>
+    <published>2020-10-21T15:25:00.000Z</published>
+    <updated>2020-10-21T16:31:09.293Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Paper-Information&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#Paper-Information&quot;&gt;¶ &lt;/a&gt;Paper Information&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Paper&lt;/strong&gt;:
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ai" scheme="https://tigercosmos.xyz/tags/ai/"/>
+    
+      <category term="paper" scheme="https://tigercosmos.xyz/tags/paper/"/>
+    
+      <category term="machine learning" scheme="https://tigercosmos.xyz/tags/machine-learning/"/>
+    
+      <category term="inference" scheme="https://tigercosmos.xyz/tags/inference/"/>
+    
+      <category term="mobile device" scheme="https://tigercosmos.xyz/tags/mobile-device/"/>
+    
+      <category term="Facebook" scheme="https://tigercosmos.xyz/tags/facebook/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How to debug Rust via GDB</title>
+    <link href="https://tigercosmos.xyz/post/2020/09/system/debug-gdb/"/>
+    <id>https://tigercosmos.xyz/post/2020/09/system/debug-gdb/</id>
+    <published>2020-09-21T09:17:00.000Z</published>
+    <updated>2020-10-21T16:31:09.297Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#Introduction&quot;&gt;¶ &lt;/a&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Big open source projects are huge, such as the Servo browser in Rust. I have counted the lines of code for you. There are almost a hundred thousand lines of code in the Servo project. To develop such a big project, knowing how to debug in a right way is very important, since you would like to find the bottleneck in a fast and efficient way.&lt;/p&gt;
+&lt;p&gt;In this article, I will teach you some tips to use GDB developing and debugging your Rust code and the Servo project. The debug method can be also applied to C/C++ as well.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="english" scheme="https://tigercosmos.xyz/tags/english/"/>
+    
+      <category term="servo" scheme="https://tigercosmos.xyz/tags/servo/"/>
+    
+      <category term="rust" scheme="https://tigercosmos.xyz/tags/rust/"/>
+    
+      <category term="debug" scheme="https://tigercosmos.xyz/tags/debug/"/>
+    
+      <category term="gdb" scheme="https://tigercosmos.xyz/tags/gdb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我們與誤差的距離——論系統軟體實驗測量誤差</title>
+    <link href="https://tigercosmos.xyz/post/2020/08/system/measurement-bias/"/>
+    <id>https://tigercosmos.xyz/post/2020/08/system/measurement-bias/</id>
+    <published>2020-08-30T10:30:00.000Z</published>
+    <updated>2020-10-21T16:31:09.297Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-簡介&quot;&gt;¶ &lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="system software" scheme="https://tigercosmos.xyz/tags/system-software/"/>
+    
+      <category term="measurement" scheme="https://tigercosmos.xyz/tags/measurement/"/>
+    
+      <category term="bias" scheme="https://tigercosmos.xyz/tags/bias/"/>
+    
+      <category term="spec cpu" scheme="https://tigercosmos.xyz/tags/spec-cpu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Linux 上使用 Perf 做效能分析(入門篇)</title>
+    <link href="https://tigercosmos.xyz/post/2020/08/system/perf-basic/"/>
+    <id>https://tigercosmos.xyz/post/2020/08/system/perf-basic/</id>
+    <published>2020-08-28T16:20:08.000Z</published>
+    <updated>2020-10-21T16:31:09.297Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#簡介&quot;&gt;¶ &lt;/a&gt;簡介&lt;/h2&gt;
+&lt;p&gt;透過效能分析工具 (Profiler)，我們可以得知更多關於軟體的運行資訊，像是花了多少記憶體、多少 CPU Cycles、多少 Cache Misses、I/O 處理時間等等，這些資訊對我們去找到程式效能瓶頸很有幫助。想辦法找到那裡讓程式變慢，進而最大化效能，便是我們做效能分析的最大目的。&lt;/p&gt;
+&lt;p&gt;本文將介紹 Linux 上的 &lt;a href=&quot;http://www.brendangregg.com/perf.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;perf&lt;/a&gt; 效能分析工具，藉由一個簡單的程式範例，示範如何使用 perf 去分析一隻程式，我們將會發現使用分析工具時能更輕易的發現問題根源。本文參考 Gabriel Krisman Bertaz 寫的 &lt;a href=&quot;https://www.collabora.com/news-and-blog/blog/2017/03/21/performance-analysis-in-linux/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Performance analysis in Linux&lt;/a&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="效能分析" scheme="https://tigercosmos.xyz/tags/%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90/"/>
+    
+      <category term="linux" scheme="https://tigercosmos.xyz/tags/linux/"/>
+    
+      <category term="perf" scheme="https://tigercosmos.xyz/tags/perf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Elixir 建立簡易 HTTP Server</title>
+    <link href="https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/"/>
+    <id>https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/</id>
+    <published>2020-08-23T16:09:00.000Z</published>
+    <updated>2020-10-21T16:31:09.297Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#簡介&quot;&gt;¶ &lt;/a&gt;簡介&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://elixir-lang.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Elixir&lt;/a&gt; 是一個動態 Functional Programming 語言，專門用來打造可擴展且易維護的系統。&lt;/p&gt;
+&lt;p&gt;Elixir 基於 Erlang VM 所建，適合用在需要低延遲、分散式、錯誤容忍（fault-tolerant）的系統上，同時也可以用在網頁開發、嵌入式軟體、資料處理、多媒體處理等用途上。這篇文章「&lt;a href=&quot;https://serokell.io/blog/history-of-erlang-and-elixir&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Game of Phones: History of Erlang and Elixir&lt;/a&gt;」介紹了 Elixir 來龍去脈，值得一看。&lt;/p&gt;
+&lt;p&gt;Elixir 寫起來滿有趣的，寫了之後才意識到原來 JS 和 Rust 從 Functional Programming 借鏡了不少概念，所以在從頭學 Elixir 的過程，一些 FP 的特色，像是 Pattern Matching、Enumerable 都已經在先前接觸過。&lt;/p&gt;
+&lt;p&gt;看完&lt;a href=&quot;https://elixir-lang.org/getting-started/introduction.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方的語言教學&lt;/a&gt;後，覺得需要藉由寫小專案更熟悉，所以就研究如何用 Elixir 建造一個簡單的 HTTP Server。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="http server" scheme="https://tigercosmos.xyz/tags/http-server/"/>
+    
+      <category term="elixir" scheme="https://tigercosmos.xyz/tags/elixir/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>交大觀察與心得(三)：碩一下課美術社&amp;研究篇</title>
+    <link href="https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/"/>
+    <id>https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/</id>
+    <published>2020-08-19T04:00:00.000Z</published>
+    <updated>2020-10-21T16:31:09.289Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#前言&quot;&gt;¶ &lt;/a&gt;前言&lt;/h2&gt;
+&lt;p&gt;接續&lt;a href=&quot;/post/2020/07/autobiography/nctu-2/&quot;&gt;上篇&lt;/a&gt;介紹碩一下的修課，接下來談談課外活動和研究。課外活動只有去美術社畫畫，相較於大學時到處實習、參加開源專案和參與社群，就顯得比較單調。由於我比較晚才下定決心好好念碩士，在探索領域和找題目上已經比較晚，但我依然在這學期發現自己有興趣研究的領域，並且也找到題目，暑假也開始進行研究了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="想法" scheme="https://tigercosmos.xyz/tags/%E6%83%B3%E6%B3%95/"/>
+    
+      <category term="研究所" scheme="https://tigercosmos.xyz/tags/%E7%A0%94%E7%A9%B6%E6%89%80/"/>
+    
+      <category term="交大資工所" scheme="https://tigercosmos.xyz/tags/%E4%BA%A4%E5%A4%A7%E8%B3%87%E5%B7%A5%E6%89%80/"/>
+    
+      <category term="碩士" scheme="https://tigercosmos.xyz/tags/%E7%A2%A9%E5%A3%AB/"/>
+    
+      <category term="交大觀察與心得" scheme="https://tigercosmos.xyz/tags/%E4%BA%A4%E5%A4%A7%E8%A7%80%E5%AF%9F%E8%88%87%E5%BF%83%E5%BE%97/"/>
+    
+      <category term="美術社" scheme="https://tigercosmos.xyz/tags/%E7%BE%8E%E8%A1%93%E7%A4%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>完整介紹 WebAssembly 使用方式</title>
+    <link href="https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/"/>
+    <id>https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/</id>
+    <published>2020-08-16T16:05:30.000Z</published>
+    <updated>2020-10-21T16:31:09.293Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-簡介&quot;&gt;¶ &lt;/a&gt;1. 簡介&lt;/h2&gt;
+&lt;p&gt;先來說說 WebAssembly 是甚麼，為甚麼我們需要這玩意？&lt;/p&gt;
+&lt;p&gt;如今網頁技術已經無所不在，人們上網時間佔一天好幾個小時，人們透過網路享受各種服務，各種應用服務也漸漸都轉移到網頁上，桌面程式或手機程式也越來越多採用網頁程式 (Web App) 或混合式程式 (Hybrid App)，可以說網頁技術已經主宰了世界。&lt;/p&gt;
+&lt;p&gt;網頁是採用 JavaScript (JS) 語言，隨著瀏覽器進步、JS 引擎發展，我們似乎已經達到優化效能的瓶頸，JS 不管怎樣快，由於是直譯式語言，會一行一行讀程式碼同時進行編譯，這種模式鐵定會比編譯式語言像是 C++ 還要慢。那你會問，為啥網頁不用 C++ 這種編譯式語言？這是因為不管是事先編好，編譯出來的執行檔會很大，這樣傳給瀏覽器反而會造成網路傳輸花太多時間，或是瀏覽器拿到檔案才開始編譯，那要等他全部編完才能跑也會花太多時間。所以直譯式語言的 JS 先傳給瀏覽器，由於是原始檔檔案不會很大傳輸時間就還行，然後拿到檔案後一行一行編譯，先編譯好的部分可以先跑，也不會讓速度過慢。&lt;/p&gt;
+&lt;p&gt;不管如何，JS 效能已經到上限了，人們開始想要怎樣讓網頁可以在瀏覽器上跑得更快，於是就有 WebAssembly (WASM) 的誕生了，WASM 是一個低階類似組合語言的語言，其效能可以接近原生 (Native) 的程式，像是 C++ 或 Rust 跑出來的效能。開發網頁時，JS 和 WASM 會搭配使用，概念簡單來說是一般程式邏輯一樣給 JS 跑，但把部分負擔很重的程式碼改成事先編譯的 WASM，這樣就可以讓效能更加進化。同時享有 JS 可以快速啟動的好處，也享有 WASM 在運算複雜的程式碼上有高效能的表現。&lt;/p&gt;
+&lt;p&gt;接下來本文將會介紹如何使用 JS 搭配 WASM 進行開發。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="browsers" scheme="https://tigercosmos.xyz/tags/browsers/"/>
+    
+      <category term="JavaScript" scheme="https://tigercosmos.xyz/tags/javascript/"/>
+    
+      <category term="WebAssembly" scheme="https://tigercosmos.xyz/tags/webassembly/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Run SPEC ACCEL OpenCL benchmarks on AMD MI50</title>
+    <link href="https://tigercosmos.xyz/post/2020/08/system/spec-accel-opencl-amd-mi50/"/>
+    <id>https://tigercosmos.xyz/post/2020/08/system/spec-accel-opencl-amd-mi50/</id>
+    <published>2020-08-13T16:08:00.000Z</published>
+    <updated>2020-10-21T16:31:09.297Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#簡介&quot;&gt;¶ &lt;/a&gt;簡介&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.spec.org/accel/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SPEC
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="spec accel" scheme="https://tigercosmos.xyz/tags/spec-accel/"/>
+    
+      <category term="note" scheme="https://tigercosmos.xyz/tags/note/"/>
+    
+      <category term="amd mi50" scheme="https://tigercosmos.xyz/tags/amd-mi50/"/>
+    
+      <category term="opencl" scheme="https://tigercosmos.xyz/tags/opencl/"/>
+    
+      <category term="benchmark" scheme="https://tigercosmos.xyz/tags/benchmark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「玉山培育傑出人才」獎學金申請心得</title>
+    <link href="https://tigercosmos.xyz/post/2020/08/esun-scholarships/"/>
+    <id>https://tigercosmos.xyz/post/2020/08/esun-scholarships/</id>
+    <published>2020-08-12T00:00:00.000Z</published>
+    <updated>2020-10-21T16:31:09.293Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#簡介&quot;&gt;¶ &lt;/a&gt;簡介&lt;/h2&gt;
+&lt;p&gt;去年 (2019) 我申請了「&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="想法" scheme="https://tigercosmos.xyz/tags/%E6%83%B3%E6%B3%95/"/>
+    
+      <category term="玉山文教" scheme="https://tigercosmos.xyz/tags/%E7%8E%89%E5%B1%B1%E6%96%87%E6%95%99/"/>
+    
+      <category term="獎學金" scheme="https://tigercosmos.xyz/tags/%E7%8D%8E%E5%AD%B8%E9%87%91/"/>
+    
+      <category term="玉山培育傑出人才獎學金" scheme="https://tigercosmos.xyz/tags/%E7%8E%89%E5%B1%B1%E5%9F%B9%E8%82%B2%E5%82%91%E5%87%BA%E4%BA%BA%E6%89%8D%E7%8D%8E%E5%AD%B8%E9%87%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析 (2) — Merge Sort</title>
+    <link href="https://tigercosmos.xyz/post/2020/08/js/emscripten-pthread-to-js-2/"/>
+    <id>https://tigercosmos.xyz/post/2020/08/js/emscripten-pthread-to-js-2/</id>
+    <published>2020-08-10T00:00:00.000Z</published>
+    <updated>2020-10-21T16:31:09.293Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-簡介&quot;&gt;¶ &lt;/a&gt;1. 簡介&lt;/h2&gt;
+&lt;p&gt;本文接續前篇「&lt;a href=&quot;/post/2020/07/js/emscripten-pthread-to-js/&quot;&gt;使用
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="browser" scheme="https://tigercosmos.xyz/tags/browser/"/>
+    
+      <category term="browsers" scheme="https://tigercosmos.xyz/tags/browsers/"/>
+    
+      <category term="c" scheme="https://tigercosmos.xyz/tags/c/"/>
+    
+      <category term="pthread" scheme="https://tigercosmos.xyz/tags/pthread/"/>
+    
+      <category term="parallel programming" scheme="https://tigercosmos.xyz/tags/parallel-programming/"/>
+    
+      <category term="效能分析" scheme="https://tigercosmos.xyz/tags/%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90/"/>
+    
+      <category term="平行化" scheme="https://tigercosmos.xyz/tags/%E5%B9%B3%E8%A1%8C%E5%8C%96/"/>
+    
+      <category term="algorithm" scheme="https://tigercosmos.xyz/tags/algorithm/"/>
+    
+      <category term="演算法" scheme="https://tigercosmos.xyz/tags/%E6%BC%94%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="https://tigercosmos.xyz/tags/javascript/"/>
+    
+      <category term="web worker" scheme="https://tigercosmos.xyz/tags/web-worker/"/>
+    
+      <category term="nodejs" scheme="https://tigercosmos.xyz/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>為甚麼大學志願不該填資工系？</title>
+    <link href="https://tigercosmos.xyz/post/2020/07/why-dont-choose-cs/"/>
+    <id>https://tigercosmos.xyz/post/2020/07/why-dont-choose-cs/</id>
+    <published>2020-07-22T23:00:00.000Z</published>
+    <updated>2020-10-21T16:31:09.297Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#簡介&quot;&gt;¶
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="想法" scheme="https://tigercosmos.xyz/tags/%E6%83%B3%E6%B3%95/"/>
+    
+      <category term="computer science" scheme="https://tigercosmos.xyz/tags/computer-science/"/>
+    
+      <category term="資工" scheme="https://tigercosmos.xyz/tags/%E8%B3%87%E5%B7%A5/"/>
+    
+      <category term="校系選擇" scheme="https://tigercosmos.xyz/tags/%E6%A0%A1%E7%B3%BB%E9%81%B8%E6%93%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>交大觀察與心得(二)：碩一下修課篇</title>
+    <link href="https://tigercosmos.xyz/post/2020/07/autobiography/nctu-2/"/>
+    <id>https://tigercosmos.xyz/post/2020/07/autobiography/nctu-2/</id>
+    <published>2020-07-13T04:00:00.000Z</published>
+    <updated>2020-10-21T16:31:09.289Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#前言&quot;&gt;¶ &lt;/a&gt;前言&lt;/h2&gt;
+&lt;p&gt;我感覺這學期是這兩三年來過的最快樂的學期了。過得很充實，修了四門課，依舊參加美術社，寫了不少文章，找到研究方向和題目。念資工果真是一件很開心的事情。大致上，碩一下分為三個方面，分別介紹修課方面、美術社和研究方面，本篇先介紹修課方面。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="想法" scheme="https://tigercosmos.xyz/tags/%E6%83%B3%E6%B3%95/"/>
+    
+      <category term="研究所" scheme="https://tigercosmos.xyz/tags/%E7%A0%94%E7%A9%B6%E6%89%80/"/>
+    
+      <category term="交大資工所" scheme="https://tigercosmos.xyz/tags/%E4%BA%A4%E5%A4%A7%E8%B3%87%E5%B7%A5%E6%89%80/"/>
+    
+      <category term="資工" scheme="https://tigercosmos.xyz/tags/%E8%B3%87%E5%B7%A5/"/>
+    
+      <category term="碩士" scheme="https://tigercosmos.xyz/tags/%E7%A2%A9%E5%A3%AB/"/>
+    
+      <category term="交大觀察與心得" scheme="https://tigercosmos.xyz/tags/%E4%BA%A4%E5%A4%A7%E8%A7%80%E5%AF%9F%E8%88%87%E5%BF%83%E5%BE%97/"/>
+    
+      <category term="交大課程" scheme="https://tigercosmos.xyz/tags/%E4%BA%A4%E5%A4%A7%E8%AA%B2%E7%A8%8B/"/>
+    
+      <category term="XR 專題" scheme="https://tigercosmos.xyz/tags/xr-%E5%B0%88%E9%A1%8C/"/>
+    
+      <category term="電腦視覺" scheme="https://tigercosmos.xyz/tags/%E9%9B%BB%E8%85%A6%E8%A6%96%E8%A6%BA/"/>
+    
+      <category term="自然語言處理" scheme="https://tigercosmos.xyz/tags/%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/"/>
+    
+      <category term="nlp" scheme="https://tigercosmos.xyz/tags/nlp/"/>
+    
+      <category term="電腦動畫與特效" scheme="https://tigercosmos.xyz/tags/%E9%9B%BB%E8%85%A6%E5%8B%95%E7%95%AB%E8%88%87%E7%89%B9%E6%95%88/"/>
+    
+      <category term="電腦動畫" scheme="https://tigercosmos.xyz/tags/%E9%9B%BB%E8%85%A6%E5%8B%95%E7%95%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析</title>
+    <link href="https://tigercosmos.xyz/post/2020/07/js/emscripten-pthread-to-js/"/>
+    <id>https://tigercosmos.xyz/post/2020/07/js/emscripten-pthread-to-js/</id>
+    <published>2020-07-07T10:00:00.000Z</published>
+    <updated>2020-10-21T16:31:09.293Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#簡介&quot;&gt;¶ &lt;/a&gt;簡介&lt;/h2&gt;
+&lt;p&gt;Emscripten 是可以將 C/C++ 轉換成 WebAssembly 的工具，背後是透過 LLVM 轉換，支援轉換 Pthread，會轉成 JavaScript 的 Web Worker 加 WebAssembly，甚至可以將 OpenGL 轉成 WebGL，讓程式在網頁上跑還能有接近原生程式的效能。&lt;/p&gt;
+&lt;p&gt;其中 Pthread 轉成 Web Worker 加 WebAssembly 的部分，就是本文要介紹的重點。我會拿一個範例程式來實際轉換看看，不過要找一個好的測試程式不容易，所以我寫一支 Pthread 計算 PI 的平行程式，用來做轉換測試。&lt;/p&gt;
+&lt;p&gt;本文先介紹如何使用 Emscripten 將 Pthread 轉 JS，照著官網教學做的過程採到一些坑，順便也記錄下來，免得大家又落坑了。隨後會分析 (1)原生 C Code (2)Emscripten 轉換的 JS (3)直接用 JS 寫的 Web Worker，三種情境下的效能差異。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="browser" scheme="https://tigercosmos.xyz/tags/browser/"/>
+    
+      <category term="browsers" scheme="https://tigercosmos.xyz/tags/browsers/"/>
+    
+      <category term="c" scheme="https://tigercosmos.xyz/tags/c/"/>
+    
+      <category term="pthread" scheme="https://tigercosmos.xyz/tags/pthread/"/>
+    
+      <category term="parallel programming" scheme="https://tigercosmos.xyz/tags/parallel-programming/"/>
+    
+      <category term="效能分析" scheme="https://tigercosmos.xyz/tags/%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90/"/>
+    
+      <category term="平行化" scheme="https://tigercosmos.xyz/tags/%E5%B9%B3%E8%A1%8C%E5%8C%96/"/>
+    
+      <category term="JavaScript" scheme="https://tigercosmos.xyz/tags/javascript/"/>
+    
+      <category term="web worker" scheme="https://tigercosmos.xyz/tags/web-worker/"/>
+    
+      <category term="nodejs" scheme="https://tigercosmos.xyz/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>簡易 Pthreads 平行化範例與效能分析</title>
+    <link href="https://tigercosmos.xyz/post/2020/07/simple-pthread-usage/"/>
+    <id>https://tigercosmos.xyz/post/2020/07/simple-pthread-usage/</id>
+    <published>2020-07-02T15:00:00.000Z</published>
+    <updated>2020-10-21T16:31:09.297Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#簡介&quot;&gt;¶ &lt;/a&gt;簡介&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/zh-tw/POSIX%E7%BA%BF%E7%A8%8B&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="c" scheme="https://tigercosmos.xyz/tags/c/"/>
+    
+      <category term="pthread" scheme="https://tigercosmos.xyz/tags/pthread/"/>
+    
+      <category term="parallel programming" scheme="https://tigercosmos.xyz/tags/parallel-programming/"/>
+    
+      <category term="效能分析" scheme="https://tigercosmos.xyz/tags/%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90/"/>
+    
+      <category term="平行化" scheme="https://tigercosmos.xyz/tags/%E5%B9%B3%E8%A1%8C%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Evaluation of Web Worker for Parallel Programming with Browsers, NodeJS and Deno</title>
+    <link href="https://tigercosmos.xyz/post/2020/06/js/web-worker-evaluation/"/>
+    <id>https://tigercosmos.xyz/post/2020/06/js/web-worker-evaluation/</id>
+    <published>2020-06-25T16:00:00.000Z</published>
+    <updated>2020-10-21T16:31:09.293Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#簡介&quot;&gt;¶ &lt;/a&gt;簡介&lt;/h2&gt;
+&lt;p&gt;本篇簡單評估各家瀏覽器、NodeJS 和 Deno 對 Web Worker 在開發平行程式上支援程度和使用差異。&lt;/p&gt;
+&lt;p&gt;關於 Web
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="browser" scheme="https://tigercosmos.xyz/tags/browser/"/>
+    
+      <category term="browsers" scheme="https://tigercosmos.xyz/tags/browsers/"/>
+    
+      <category term="parallel programming" scheme="https://tigercosmos.xyz/tags/parallel-programming/"/>
+    
+      <category term="效能分析" scheme="https://tigercosmos.xyz/tags/%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90/"/>
+    
+      <category term="平行化" scheme="https://tigercosmos.xyz/tags/%E5%B9%B3%E8%A1%8C%E5%8C%96/"/>
+    
+      <category term="JavaScript" scheme="https://tigercosmos.xyz/tags/javascript/"/>
+    
+      <category term="web worker" scheme="https://tigercosmos.xyz/tags/web-worker/"/>
+    
+      <category term="nodejs" scheme="https://tigercosmos.xyz/tags/nodejs/"/>
+    
+      <category term="deno" scheme="https://tigercosmos.xyz/tags/deno/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Bag of Visual Words 做圖片分類</title>
+    <link href="https://tigercosmos.xyz/post/2020/06/cv/bag-of-visual-words/"/>
+    <id>https://tigercosmos.xyz/post/2020/06/cv/bag-of-visual-words/</id>
+    <published>2020-06-20T06:00:00.000Z</published>
+    <updated>2020-10-21T16:31:09.289Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-簡介&quot;&gt;¶ &lt;/a&gt;1. 簡介&lt;/h2&gt;
+&lt;p&gt;Bag of Visual Words (BoVW) 模型源自於 Bag of Words (BoW,
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="python" scheme="https://tigercosmos.xyz/tags/python/"/>
+    
+      <category term="電腦視覺" scheme="https://tigercosmos.xyz/tags/%E9%9B%BB%E8%85%A6%E8%A6%96%E8%A6%BA/"/>
+    
+      <category term="computer vision" scheme="https://tigercosmos.xyz/tags/computer-vision/"/>
+    
+      <category term="bag of words" scheme="https://tigercosmos.xyz/tags/bag-of-words/"/>
+    
+      <category term="bag of visual words" scheme="https://tigercosmos.xyz/tags/bag-of-visual-words/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SPEC CPU 2006 安裝執行</title>
+    <link href="https://tigercosmos.xyz/post/2020/06/system/spec-cpu-note/"/>
+    <id>https://tigercosmos.xyz/post/2020/06/system/spec-cpu-note/</id>
+    <published>2020-06-15T16:00:00.000Z</published>
+    <updated>2020-10-21T16:31:09.297Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#前言&quot;&gt;¶ &lt;/a&gt;前言&lt;/h2&gt;
+&lt;p&gt;SPEC CPU 是 The Standard Performance Evaluation Corporation (SPEC) 組織建立的 CPU 效能測試指標 (Benchmark)。最近的指標有 SPEC CPU 2006 和 SPEC CPU 2017，因為具有極大公信力，許多研究都會以這套指標當作評量測試。&lt;/p&gt;
+&lt;p&gt;如果想要弄到這套指標，網路上是找不到的，是需要跟這機構購買，而且要價不斐，要用的話就是想辦法靠關係弄一套來。我最近要重現一篇論文，裡面有用到 SPEC CPU 2006/2017，實驗室剛好有 2006 年版，但在使用過程中滿多坑的，為此紀錄。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="spec cpu" scheme="https://tigercosmos.xyz/tags/spec-cpu/"/>
+    
+      <category term="note" scheme="https://tigercosmos.xyz/tags/note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows 平台打造極致の程式開發工作環境</title>
+    <link href="https://tigercosmos.xyz/post/2020/06/windows-working-env/"/>
+    <id>https://tigercosmos.xyz/post/2020/06/windows-working-env/</id>
+    <published>2020-06-13T16:00:00.000Z</published>
+    <updated>2020-10-21T16:31:09.297Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#前言&quot;&gt;¶ &lt;/a&gt;前言&lt;/h2&gt;
+&lt;p&gt;老實說，過去我曾經是 Linux 和 Mac 的忠實用戶，覺得 Unix 才是工程師最舒服的工作環境。但隨著 Windows
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="windows" scheme="https://tigercosmos.xyz/tags/windows/"/>
+    
+      <category term="工作環境" scheme="https://tigercosmos.xyz/tags/%E5%B7%A5%E4%BD%9C%E7%92%B0%E5%A2%83/"/>
+    
+  </entry>
+  
+</feed>
