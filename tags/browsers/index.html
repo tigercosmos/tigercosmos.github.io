@@ -20,7 +20,7 @@
 
     <script>
         infiniteScroll({
-            showNum: 10,
+            showNum: 6,
         });
 
         window.addEventListener('DOMContentLoaded', function () {
@@ -160,23 +160,23 @@
             
 <section class="posts">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/08/js/webassembly-intro/">
-                            完整介紹 WebAssembly 使用方式
-                        </a>
-                    </h1>
+    <article class="post">
+        
+        <h1 class="post-title">
+            <a href="/post/2020/08/js/webassembly-intro/">
+                完整介紹 WebAssembly 使用方式
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            August 17, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                August 17, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <h2 id="1-簡介"><a class="header-anchor" href="#1-簡介">¶ </a>1. 簡介</h2>
 <p>先來說說 WebAssembly 是甚麼，為甚麼我們需要這玩意？</p>
@@ -184,172 +184,181 @@
 <p>網頁是採用 JavaScript (JS) 語言，隨著瀏覽器進步、JS 引擎發展，我們似乎已經達到優化效能的瓶頸，JS 不管怎樣快，由於是直譯式語言，會一行一行讀程式碼同時進行編譯，這種模式鐵定會比編譯式語言像是 C++ 還要慢。那你會問，為啥網頁不用 C++ 這種編譯式語言？這是因為不管是事先編好，編譯出來的執行檔會很大，這樣傳給瀏覽器反而會造成網路傳輸花太多時間，或是瀏覽器拿到檔案才開始編譯，那要等他全部編完才能跑也會花太多時間。所以直譯式語言的 JS 先傳給瀏覽器，由於是原始檔檔案不會很大傳輸時間就還行，然後拿到檔案後一行一行編譯，先編譯好的部分可以先跑，也不會讓速度過慢。</p>
 <p>不管如何，JS 效能已經到上限了，人們開始想要怎樣讓網頁可以在瀏覽器上跑得更快，於是就有 WebAssembly (WASM) 的誕生了，WASM 是一個低階類似組合語言的語言，其效能可以接近原生 (Native) 的程式，像是 C++ 或 Rust 跑出來的效能。開發網頁時，JS 和 WASM 會搭配使用，概念簡單來說是一般程式邏輯一樣給 JS 跑，但把部分負擔很重的程式碼改成事先編譯的 WASM，這樣就可以讓效能更加進化。同時享有 JS 可以快速啟動的好處，也享有 WASM 在運算複雜的程式碼上有高效能的表現。</p>
 <p>接下來本文將會介紹如何使用 JS 搭配 WASM 進行開發。</p>
-                            <a href="/post/2020/08/js/webassembly-intro/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/08/js/webassembly-intro/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/08/js/emscripten-pthread-to-js-2/">
-                            使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析 (2) — Merge Sort
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2020/08/js/emscripten-pthread-to-js-2/">
+                使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析 (2) — Merge Sort
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            August 10, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/89744481-eacbac00-dadf-11ea-9513-825905cba9d4.png">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                August 10, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/89744481-eacbac00-dadf-11ea-9513-825905cba9d4.png">
+        </div>
+        
                     <div class="post-content ">
                         
-                            <a href="/post/2020/08/js/emscripten-pthread-to-js-2/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/08/js/emscripten-pthread-to-js-2/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/07/js/emscripten-pthread-to-js/">
-                            使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2020/07/js/emscripten-pthread-to-js/">
+                使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            July 7, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                July 7, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
 <p>Emscripten 是可以將 C/C++ 轉換成 WebAssembly 的工具，背後是透過 LLVM 轉換，支援轉換 Pthread，會轉成 JavaScript 的 Web Worker 加 WebAssembly，甚至可以將 OpenGL 轉成 WebGL，讓程式在網頁上跑還能有接近原生程式的效能。</p>
 <p>其中 Pthread 轉成 Web Worker 加 WebAssembly 的部分，就是本文要介紹的重點。我會拿一個範例程式來實際轉換看看，不過要找一個好的測試程式不容易，所以我寫一支 Pthread 計算 PI 的平行程式，用來做轉換測試。</p>
 <p>本文先介紹如何使用 Emscripten 將 Pthread 轉 JS，照著官網教學做的過程採到一些坑，順便也記錄下來，免得大家又落坑了。隨後會分析 (1)原生 C Code (2)Emscripten 轉換的 JS (3)直接用 JS 寫的 Web Worker，三種情境下的效能差異。</p>
-                            <a href="/post/2020/07/js/emscripten-pthread-to-js/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/07/js/emscripten-pthread-to-js/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/06/js/web-worker-evaluation/">
-                            Evaluation of Web Worker for Parallel Programming with Browsers, NodeJS and Deno
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2020/06/js/web-worker-evaluation/">
+                Evaluation of Web Worker for Parallel Programming with Browsers, NodeJS and Deno
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            June 26, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/85740272-12cf9d80-b734-11ea-9da9-4f95adc32700.png">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                June 26, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/85740272-12cf9d80-b734-11ea-9da9-4f95adc32700.png">
+        </div>
+        
                     <div class="post-content ">
                         
-                            <a href="/post/2020/06/js/web-worker-evaluation/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/06/js/web-worker-evaluation/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/01/puffin-os-phone/">
-                            深度分析 Puffin OS Phone—搶攻第三世界的智慧手機
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2020/01/puffin-os-phone/">
+                深度分析 Puffin OS Phone—搶攻第三世界的智慧手機
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            January 29, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/73357418-4a4a3300-42d7-11ea-9456-7344680463ba.jpg">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                January 29, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/73357418-4a4a3300-42d7-11ea-9456-7344680463ba.jpg">
+        </div>
+        
                     <div class="post-content ">
                         
-                            <a href="/post/2020/01/puffin-os-phone/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/01/puffin-os-phone/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2018/09/puffin/">
-                            How the Puffin Browser Works
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2018/09/puffin/">
+                How the Puffin Browser Works
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            September 8, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                September 8, 2018
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <h3 id="Puffin-is-wicked-fast-Let’s-dig-deeper-into-it"><a class="header-anchor" href="#Puffin-is-wicked-fast-Let’s-dig-deeper-into-it">¶ </a>Puffin is wicked fast. Let’s dig deeper into it.</h3>
 <p><img class="dz t u gs ak" src="https://miro.medium.com/max/2238/0*dWo9qcDgSr-F1adr.png" role="presentation"><br/></p>
 <p>This summer, I have been a software engineering intern at <a href="https://www.cloudmosa.com/" class="dj by hq hr hs ht" target="_blank" rel="noopener nofollow">CloudMosa, Inc.</a>, a company which develops <a href="https://www.puffinbrowser.com/" class="dj by hq hr hs ht" target="_blank" rel="noopener nofollow">Puffin Browser</a>.</p>
 <p>During two months of the summer, I have participated in some features development and fixed some bugs. Meanwhile, I have a look at the whole picture of Puffin Browser.</p>
-                            <a href="/post/2018/09/puffin/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2018/09/puffin/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2018/01/first_servo/">
-                            你的第一份大型開源專案--Servo 瀏覽器
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2018/01/first_servo/">
+                你的第一份大型開源專案--Servo 瀏覽器
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            January 29, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                January 29, 2018
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <p><img class="dz t u gw ak" src="https://miro.medium.com/max/2400/0*pEiDFJWNkrT9c5md.jpg" role="presentation"><br/></p>
 <p>Your First Big OSS Project: Servo Browser</p>
 <h2 id="前言"><a class="header-anchor" href="#前言">¶ </a>前言</h2>
 <p>開放原始碼軟體，又稱開源軟體（Open Source Software），顧名思義是將軟體的原始碼公開。詳細介紹可以看<a href="https://zh.wikipedia.org/zh-tw/%E9%96%8B%E6%BA%90%E8%BB%9F%E9%AB%94" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">維基百科</a>介紹以及<a href="https://buzzorange.com/techorange/2014/12/19/what-is-open-source/" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">什麼是開源</a>一文。</p>
 <p>身為軟體開發者，我們常常會需要很多工具來幫助我們更簡單完成工作，而且我們都知道沒事不要自己造輪子，這時候就會看看網路上有沒有現成的工具。例如想要開發機器學習可能就會用 Tensorflow，想要開發網頁前端可能會使用 Angular，想要開發 Android App 可能會用 Kotlin，平常用的 gcc 或 clang，甚至 Linux 作業系統通通都是開源軟體。</p>
-                            <a href="/post/2018/01/first_servo/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
+        <a href="/post/2018/01/first_servo/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
 
+    <div class="pagination-bar" align=center>
+        <ul class="pagination">
+            
+            <li class="pagination-number">
+                Page 1 of 1</li>
+            
+
+        </ul>
+    </div>
+</section>
         </main>
         <aside class="aside">
             <div class="close"></div>

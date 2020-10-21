@@ -20,7 +20,7 @@
 
     <script>
         infiniteScroll({
-            showNum: 10,
+            showNum: 6,
         });
 
         window.addEventListener('DOMContentLoaded', function () {
@@ -160,37 +160,46 @@
             
 <section class="posts">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/08/system/perf-basic/">
-                            在 Linux 上使用 Perf 做效能分析(入門篇)
-                        </a>
-                    </h1>
+    <article class="post">
+        
+        <h1 class="post-title">
+            <a href="/post/2020/08/system/perf-basic/">
+                在 Linux 上使用 Perf 做效能分析(入門篇)
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            August 29, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/91632981-533ee680-ea17-11ea-90f8-06676583ea52.png">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                August 29, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/91632981-533ee680-ea17-11ea-90f8-06676583ea52.png">
+        </div>
+        
                     <div class="post-content ">
                         <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
 <p>透過效能分析工具 (Profiler)，我們可以得知更多關於軟體的運行資訊，像是花了多少記憶體、多少 CPU Cycles、多少 Cache Misses、I/O 處理時間等等，這些資訊對我們去找到程式效能瓶頸很有幫助。想辦法找到那裡讓程式變慢，進而最大化效能，便是我們做效能分析的最大目的。</p>
 <p>本文將介紹 Linux 上的 <a href="http://www.brendangregg.com/perf.html" target="_blank" rel="noopener">perf</a> 效能分析工具，藉由一個簡單的程式範例，示範如何使用 perf 去分析一隻程式，我們將會發現使用分析工具時能更輕易的發現問題根源。本文參考 Gabriel Krisman Bertaz 寫的 <a href="https://www.collabora.com/news-and-blog/blog/2017/03/21/performance-analysis-in-linux/" target="_blank" rel="noopener">Performance analysis in Linux</a>。</p>
-                            <a href="/post/2020/08/system/perf-basic/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
+        <a href="/post/2020/08/system/perf-basic/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
 
+    <div class="pagination-bar" align=center>
+        <ul class="pagination">
+            
+            <li class="pagination-number">
+                Page 1 of 1</li>
+            
+
+        </ul>
+    </div>
+</section>
         </main>
         <aside class="aside">
             <div class="close"></div>

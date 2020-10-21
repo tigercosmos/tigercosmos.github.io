@@ -20,7 +20,7 @@
 
     <script>
         infiniteScroll({
-            showNum: 10,
+            showNum: 6,
         });
 
         window.addEventListener('DOMContentLoaded', function () {
@@ -160,111 +160,120 @@
             
 <section class="posts">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/08/js/emscripten-pthread-to-js-2/">
-                            使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析 (2) — Merge Sort
-                        </a>
-                    </h1>
+    <article class="post">
+        
+        <h1 class="post-title">
+            <a href="/post/2020/08/js/emscripten-pthread-to-js-2/">
+                使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析 (2) — Merge Sort
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            August 10, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/89744481-eacbac00-dadf-11ea-9513-825905cba9d4.png">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                August 10, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/89744481-eacbac00-dadf-11ea-9513-825905cba9d4.png">
+        </div>
+        
                     <div class="post-content ">
                         
-                            <a href="/post/2020/08/js/emscripten-pthread-to-js-2/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/08/js/emscripten-pthread-to-js-2/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/07/js/emscripten-pthread-to-js/">
-                            使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2020/07/js/emscripten-pthread-to-js/">
+                使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            July 7, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                July 7, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
 <p>Emscripten 是可以將 C/C++ 轉換成 WebAssembly 的工具，背後是透過 LLVM 轉換，支援轉換 Pthread，會轉成 JavaScript 的 Web Worker 加 WebAssembly，甚至可以將 OpenGL 轉成 WebGL，讓程式在網頁上跑還能有接近原生程式的效能。</p>
 <p>其中 Pthread 轉成 Web Worker 加 WebAssembly 的部分，就是本文要介紹的重點。我會拿一個範例程式來實際轉換看看，不過要找一個好的測試程式不容易，所以我寫一支 Pthread 計算 PI 的平行程式，用來做轉換測試。</p>
 <p>本文先介紹如何使用 Emscripten 將 Pthread 轉 JS，照著官網教學做的過程採到一些坑，順便也記錄下來，免得大家又落坑了。隨後會分析 (1)原生 C Code (2)Emscripten 轉換的 JS (3)直接用 JS 寫的 Web Worker，三種情境下的效能差異。</p>
-                            <a href="/post/2020/07/js/emscripten-pthread-to-js/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/07/js/emscripten-pthread-to-js/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/06/js/web-worker-evaluation/">
-                            Evaluation of Web Worker for Parallel Programming with Browsers, NodeJS and Deno
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2020/06/js/web-worker-evaluation/">
+                Evaluation of Web Worker for Parallel Programming with Browsers, NodeJS and Deno
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            June 26, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/85740272-12cf9d80-b734-11ea-9da9-4f95adc32700.png">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                June 26, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/85740272-12cf9d80-b734-11ea-9da9-4f95adc32700.png">
+        </div>
+        
                     <div class="post-content ">
                         
-                            <a href="/post/2020/06/js/web-worker-evaluation/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/06/js/web-worker-evaluation/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/02/web/js-parallel-worker-sharedarraybuffer/">
-                            JavaScript 平行化使用 Web Worker、SharedArrayBuffer、Atomics
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2020/02/web/js-parallel-worker-sharedarraybuffer/">
+                JavaScript 平行化使用 Web Worker、SharedArrayBuffer、Atomics
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            February 7, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                February 7, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <p>JavaScript 是執行時只會用單執行緒，即便 JavaScript 大量使用並行（Concurrency）機制，像是各種 Event Handler，依舊還是只有一個執行緒，於是這樣大大限制計算的效能。解套辦法是在 JavaScript 上撰寫平行程式，使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener">Web Worker</a>、 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer" target="_blank" rel="noopener">SharedArrayBuffer</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics" target="_blank" rel="noopener">Atomics</a>。</p>
-                            <a href="/post/2020/02/web/js-parallel-worker-sharedarraybuffer/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
+        <a href="/post/2020/02/web/js-parallel-worker-sharedarraybuffer/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
 
+    <div class="pagination-bar" align=center>
+        <ul class="pagination">
+            
+            <li class="pagination-number">
+                Page 1 of 1</li>
+            
+
+        </ul>
+    </div>
+</section>
         </main>
         <aside class="aside">
             <div class="close"></div>

@@ -20,7 +20,7 @@
 
     <script>
         infiniteScroll({
-            showNum: 10,
+            showNum: 6,
         });
 
         window.addEventListener('DOMContentLoaded', function () {
@@ -160,23 +160,23 @@
             
 <section class="posts">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/08/js/webassembly-intro/">
-                            完整介紹 WebAssembly 使用方式
-                        </a>
-                    </h1>
+    <article class="post">
+        
+        <h1 class="post-title">
+            <a href="/post/2020/08/js/webassembly-intro/">
+                完整介紹 WebAssembly 使用方式
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            August 17, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                August 17, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <h2 id="1-簡介"><a class="header-anchor" href="#1-簡介">¶ </a>1. 簡介</h2>
 <p>先來說說 WebAssembly 是甚麼，為甚麼我們需要這玩意？</p>
@@ -184,378 +184,266 @@
 <p>網頁是採用 JavaScript (JS) 語言，隨著瀏覽器進步、JS 引擎發展，我們似乎已經達到優化效能的瓶頸，JS 不管怎樣快，由於是直譯式語言，會一行一行讀程式碼同時進行編譯，這種模式鐵定會比編譯式語言像是 C++ 還要慢。那你會問，為啥網頁不用 C++ 這種編譯式語言？這是因為不管是事先編好，編譯出來的執行檔會很大，這樣傳給瀏覽器反而會造成網路傳輸花太多時間，或是瀏覽器拿到檔案才開始編譯，那要等他全部編完才能跑也會花太多時間。所以直譯式語言的 JS 先傳給瀏覽器，由於是原始檔檔案不會很大傳輸時間就還行，然後拿到檔案後一行一行編譯，先編譯好的部分可以先跑，也不會讓速度過慢。</p>
 <p>不管如何，JS 效能已經到上限了，人們開始想要怎樣讓網頁可以在瀏覽器上跑得更快，於是就有 WebAssembly (WASM) 的誕生了，WASM 是一個低階類似組合語言的語言，其效能可以接近原生 (Native) 的程式，像是 C++ 或 Rust 跑出來的效能。開發網頁時，JS 和 WASM 會搭配使用，概念簡單來說是一般程式邏輯一樣給 JS 跑，但把部分負擔很重的程式碼改成事先編譯的 WASM，這樣就可以讓效能更加進化。同時享有 JS 可以快速啟動的好處，也享有 WASM 在運算複雜的程式碼上有高效能的表現。</p>
 <p>接下來本文將會介紹如何使用 JS 搭配 WASM 進行開發。</p>
-                            <a href="/post/2020/08/js/webassembly-intro/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/08/js/webassembly-intro/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/08/js/emscripten-pthread-to-js-2/">
-                            使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析 (2) — Merge Sort
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2020/08/js/emscripten-pthread-to-js-2/">
+                使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析 (2) — Merge Sort
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            August 10, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/89744481-eacbac00-dadf-11ea-9513-825905cba9d4.png">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                August 10, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/89744481-eacbac00-dadf-11ea-9513-825905cba9d4.png">
+        </div>
+        
                     <div class="post-content ">
                         
-                            <a href="/post/2020/08/js/emscripten-pthread-to-js-2/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/08/js/emscripten-pthread-to-js-2/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/07/js/emscripten-pthread-to-js/">
-                            使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2020/07/js/emscripten-pthread-to-js/">
+                使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            July 7, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                July 7, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
 <p>Emscripten 是可以將 C/C++ 轉換成 WebAssembly 的工具，背後是透過 LLVM 轉換，支援轉換 Pthread，會轉成 JavaScript 的 Web Worker 加 WebAssembly，甚至可以將 OpenGL 轉成 WebGL，讓程式在網頁上跑還能有接近原生程式的效能。</p>
 <p>其中 Pthread 轉成 Web Worker 加 WebAssembly 的部分，就是本文要介紹的重點。我會拿一個範例程式來實際轉換看看，不過要找一個好的測試程式不容易，所以我寫一支 Pthread 計算 PI 的平行程式，用來做轉換測試。</p>
 <p>本文先介紹如何使用 Emscripten 將 Pthread 轉 JS，照著官網教學做的過程採到一些坑，順便也記錄下來，免得大家又落坑了。隨後會分析 (1)原生 C Code (2)Emscripten 轉換的 JS (3)直接用 JS 寫的 Web Worker，三種情境下的效能差異。</p>
-                            <a href="/post/2020/07/js/emscripten-pthread-to-js/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/07/js/emscripten-pthread-to-js/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/06/js/web-worker-evaluation/">
-                            Evaluation of Web Worker for Parallel Programming with Browsers, NodeJS and Deno
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2020/06/js/web-worker-evaluation/">
+                Evaluation of Web Worker for Parallel Programming with Browsers, NodeJS and Deno
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            June 26, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/85740272-12cf9d80-b734-11ea-9da9-4f95adc32700.png">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                June 26, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/85740272-12cf9d80-b734-11ea-9da9-4f95adc32700.png">
+        </div>
+        
                     <div class="post-content ">
                         
-                            <a href="/post/2020/06/js/web-worker-evaluation/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/06/js/web-worker-evaluation/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/02/web/js-parallel-worker-sharedarraybuffer/">
-                            JavaScript 平行化使用 Web Worker、SharedArrayBuffer、Atomics
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2020/02/web/js-parallel-worker-sharedarraybuffer/">
+                JavaScript 平行化使用 Web Worker、SharedArrayBuffer、Atomics
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            February 7, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                February 7, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <p>JavaScript 是執行時只會用單執行緒，即便 JavaScript 大量使用並行（Concurrency）機制，像是各種 Event Handler，依舊還是只有一個執行緒，於是這樣大大限制計算的效能。解套辦法是在 JavaScript 上撰寫平行程式，使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener">Web Worker</a>、 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer" target="_blank" rel="noopener">SharedArrayBuffer</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics" target="_blank" rel="noopener">Atomics</a>。</p>
-                            <a href="/post/2020/02/web/js-parallel-worker-sharedarraybuffer/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2020/02/web/js-parallel-worker-sharedarraybuffer/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2018/11/master_js/array/">
-                            30 天 Javascript 從入門到進階：陣列
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2018/11/master_js/array/">
+                30 天 Javascript 從入門到進階：陣列
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            November 11, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="/img/candy_box.jpeg">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                November 11, 2018
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="/img/candy_box.jpeg">
+        </div>
+        
                     <div class="post-content ">
                         <h1>陣列</h1>
 <p>前一張在介紹迴圈時，提到一些例子，例如我有一百件褲子，要一件一件檢查。或是老師巡邏學校有好幾個班級。我們知道可以用迴圈的方式，一個一個把「東西」數過一遍，也就是遍歷一次，但迴圈是「方法」，我們必須準備好東西，才能使用方法。</p>
 <p>這邊的東西就是指一百件褲子或是 20 個班級。我們需要用一個容器來儲存這些東西，在 JS 中，這個容器可以是陣列（Array），我們可以把一百件褲子放入陣列，那他就會叫做褲子陣列。</p>
 <p>事實上可以存一堆物品的容器可以是其他東西，但我們晚點再介紹。這個章節中我們要介紹何謂陣列。</p>
-                            <a href="/post/2018/11/master_js/array/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2018/11/master_js/array/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2018/11/master_js/condition/">
-                            30 天 Javascript 從入門到進階：條件判斷
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2018/11/master_js/condition/">
+                30 天 Javascript 從入門到進階：條件判斷
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            November 11, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                November 11, 2018
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <h1>條件判斷</h1>
 <p>接下來介紹控制程式的方式之一，也就是條件判斷。</p>
 <p>條件判斷顧名思義就是針對不同的條件來判斷要做出怎樣的結果。舉例來說，現在要採收水果，但我們只要取下已經成熟的水果，還沒熟的我們要讓他繼續成熟。</p>
 <p>或是我們有更多條件，例如大於 500 公克的蘋果放到 A 籃子，介於 200 到 500 公克的蘋果放到 B 籃子，小於 200 公克的蘋果不要摘下來。</p>
 <p>現實生活中我們都在做各種判斷，而我們當然可以把這種判斷的工作交給電腦來做，接著讓我們來了解電腦怎樣做判斷的。</p>
-                            <a href="/post/2018/11/master_js/condition/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2018/11/master_js/condition/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2018/11/master_js/file-io/">
-                            30 天 Javascript 從入門到進階：檔案讀寫
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2018/11/master_js/file-io/">
+                30 天 Javascript 從入門到進階：檔案讀寫
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            November 11, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="/img/data_stream.jpeg">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                November 11, 2018
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="/img/data_stream.jpeg">
+        </div>
+        
                     <div class="post-content ">
                         <h1>檔案讀寫</h1>
 <p>電腦科學中資料讀寫包含存取（input, I）和輸出（output, O），這也是為什麼常常看到 I/O 這個術語的原因。在電腦科學術語中中，廣義的 I/O 包含直接對檔案（file）、緩存（Buffer）以及數據流（stream）做操作。檔案就是已經存放在儲存裝置中的文件，緩存是還在記憶體中的資料，數據流則是一串序列化的抽象資料，這再晚點會深入介紹。</p>
 <p>資料傳輸在寫程式的時候，不管是你想要從文件中讀取資料，或是資料從網路上傳輸，亦或是資料在程式與程式之間傳送，都常常會用到。事實上我們寫程式通常也就是為了處理資料，如果沒有資料的話，還真的不曉得程式能做什麼事情！（有啦，算算質數之類的 XD）</p>
 <p>本篇會將 NodeJS 上會用到數據型態作介紹，當作先備知識。接著只會著重在檔案讀寫講解範例，其餘像是數據流的操作、緩存的處理，待日後的進階文章才會詳細介紹。</p>
-                            <a href="/post/2018/11/master_js/file-io/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2018/11/master_js/file-io/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2018/11/master_js/function/">
-                            30 天 Javascript 從入門到進階：函式
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2018/11/master_js/function/">
+                30 天 Javascript 從入門到進階：函式
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            November 11, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                November 11, 2018
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <h1>函式</h1>
 <p>我們知道程式碼可以幫我們做很多事情，例如睡不著要數羊的時候，就讓程式跑個迴圈，一下就幾百幾千萬隻羊了。但是目前為止，所以工作都是被放在一起的，並且只能被執行一次。也就是說，假設我有三件工作，寫成程式碼可能會長這樣：</p>
-                            <a href="/post/2018/11/master_js/function/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2018/11/master_js/function/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2018/11/master_js/loop/">
-                            30 天 Javascript 從入門到進階：迴圈
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2018/11/master_js/loop/">
+                30 天 Javascript 從入門到進階：迴圈
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            November 11, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                November 11, 2018
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <h1>迴圈</h1>
 <p>在生活中，我們常常會有有做一樣的事情的時候，例如一張一張比對發票、一行一行檢查有沒有錯字。這個要重複做的動作，在程式語言中就可以用迴圈（loop）辦到。</p>
-                            <a href="/post/2018/11/master_js/loop/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2018/11/master_js/object/">
-                            30 天 Javascript 從入門到進階：物件
-                        </a>
-                    </h1>
+        <a href="/post/2018/11/master_js/loop/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
 
-                    <ul class="post-date">
-                        <li>
-                            November 11, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        <h1>物件</h1>
-<p>這個世界由各種不同的東西(Things)組成，我們身處的宇宙、太陽系、每天繞地球的月球，山海與花花草草。</p>
-<p>有一部電影〈The Theory of Everything〉描述一位已逝的偉大物理學家——霍金，年輕時候的愛情故事。霍金一生為追求宇宙的真理而努力，物理學家堅信世界應該是由一個可以統合並解釋所有物理現象的理論所支配，亦即萬物的理論。</p>
-<p>在 JS 的世界中，萬物的理論就是 <code>object</code> 這個物件型別，這個物件型別包含各種形形色色的玩意，讓我娓娓道來。</p>
-                            <a href="/post/2018/11/master_js/object/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
+    <div class="pagination-bar" align=center>
+        <ul class="pagination">
             
-                    <h1 class="post-title">
-                        <a href="/post/2018/11/master_js/preface/">
-                            30 天 Javascript 從入門到進階：自序
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            November 11, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/post/2018/11/master_js/preface/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
+            <li class="pagination-number">
+                Page 1 of 2</li>
             
-                    <h1 class="post-title">
-                        <a href="/post/2018/11/master_js/setups/">
-                            30 天 Javascript 從入門到進階：環境建設與執行第一個程式
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            November 11, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="/img/powershell.JPG">
-                        </div>
-                    
-                    <div class="post-content ">
-                        <h1>環境建設與執行第一個程式</h1>
-<p>JS 可以當作獨立的程式直接運行，也可以跑在網頁上。本篇先介紹如何直接運行 JS 就好，因為要跑在網頁上，我們必須寫一份網頁出來，其中概念不只 JS，還必須懂 HTML，但這邊我們先了解 JS 就好，所以跑在網站上的方式待晚點再作介紹。</p>
-                            <a href="/post/2018/11/master_js/setups/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
+            <li class="pagination-next">
+                <a href="/tags/javascript/page/2/">
+                    <span>Next Page</span>
+                    <i class="fa fa-angle-right text-base icon-ml"></i>
+                </a>
+            </li>
             
-                    <h1 class="post-title">
-                        <a href="/post/2018/11/master_js/table/">
-                            30 天 Javascript 從入門到進階：目錄
-                        </a>
-                    </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            November 11, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/post/2018/11/master_js/table/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2018/11/master_js/variables/">
-                            30 天 Javascript 從入門到進階：變數、資料型態以及算術運算式
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            November 11, 2018
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        <h1>變數、資料型態以及算術運算式</h1>
-<blockquote>
-<p>傳送門：此系列文章「<a href="/post/2018/11/master_js/table/">30 天 Javascript 從入門到進階</a>」</p>
-</blockquote>
-<h2 id="變數"><a class="header-anchor" href="#變數">¶ </a>變數</h2>
-<p>我們已經了解一個最簡單的程式是如何建立，以及知道電腦跑程式背後的原理了。為了正式開始學習怎麼寫一個程式，我們首先要了解變數（Variables）是怎麼一回事？</p>
-                            <a href="/post/2018/11/master_js/variables/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
+        </ul>
+    </div>
 </section>
-
         </main>
         <aside class="aside">
             <div class="close"></div>

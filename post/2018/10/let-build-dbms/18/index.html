@@ -20,7 +20,7 @@
 
     <script>
         infiniteScroll({
-            showNum: 10,
+            showNum: 6,
         });
 
         window.addEventListener('DOMContentLoaded', function () {
@@ -173,7 +173,7 @@
         </li>
     </ul>
     <div class="post-content">
-        <p>Working on the parser. When I write the following function <code>Parser::new</code>, I encounter lifetime issue. No matter how I add lifetime syntax <code>'a</code>, ’<code>b</code> in the function. I cannot pass the compiler.</p>
+        <p>Working on the parser. When I write the following function <code>Parser::new</code>, I encounter lifetime issue. No matter how I add lifetime syntax <code>'a</code>, '<code>b</code> in the function. I cannot pass the compiler.</p>
 <p>!FILENAME sql/parser.rs</p>
 <pre><code>// The old version
 struct Parser&lt;'a&gt; {

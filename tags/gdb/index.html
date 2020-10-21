@@ -20,7 +20,7 @@
 
     <script>
         infiniteScroll({
-            showNum: 10,
+            showNum: 6,
         });
 
         window.addEventListener('DOMContentLoaded', function () {
@@ -160,33 +160,42 @@
             
 <section class="posts">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2020/09/system/debug-gdb/">
-                            How to debug Rust via GDB
-                        </a>
-                    </h1>
+    <article class="post">
+        
+        <h1 class="post-title">
+            <a href="/post/2020/09/system/debug-gdb/">
+                How to debug Rust via GDB
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            September 21, 2020
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                September 21, 2020
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <h2 id="Introduction"><a class="header-anchor" href="#Introduction">¶ </a>Introduction</h2>
 <p>Big open source projects are huge, such as the Servo browser in Rust. I have counted the lines of code for you. There are almost a hundred thousand lines of code in the Servo project. To develop such a big project, knowing how to debug in a right way is very important, since you would like to find the bottleneck in a fast and efficient way.</p>
 <p>In this article, I will teach you some tips to use GDB developing and debugging your Rust code and the Servo project. The debug method can be also applied to C/C++ as well.</p>
-                            <a href="/post/2020/09/system/debug-gdb/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
+        <a href="/post/2020/09/system/debug-gdb/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
 
+    <div class="pagination-bar" align=center>
+        <ul class="pagination">
+            
+            <li class="pagination-number">
+                Page 1 of 1</li>
+            
+
+        </ul>
+    </div>
+</section>
         </main>
         <aside class="aside">
             <div class="close"></div>

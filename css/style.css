@@ -513,7 +513,36 @@ body code {
     padding: 1.75em;
   }
 }
-.header .links ul li::after {
+.pagination-bar ul li::after {
   content: "\00B7";
   margin: 0 0.75em;
+}
+.pagination-bar {
+  height: 40px;
+  margin: 2.25em auto 4.5em;
+  font: 700 13px Lato-Bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.pagination-bar ul {
+  text-decoration: none;
+  padding: 0;
+}
+.pagination-bar ul li {
+  color: #777;
+  display: inline-block;
+}
+.pagination-bar ul li::after {
+  content: "\00B7";
+  margin: 0 0.75em;
+}
+.pagination-bar ul li:last-child::after {
+  content: '';
+}
+.pagination-bar ul li a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+.pagination-bar ul li a:hover {
+  color: #f78769;
 }

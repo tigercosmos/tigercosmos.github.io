@@ -20,7 +20,7 @@
 
     <script>
         infiniteScroll({
-            showNum: 10,
+            showNum: 6,
         });
 
         window.addEventListener('DOMContentLoaded', function () {
@@ -160,27 +160,27 @@
             
 <section class="posts">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/12/paper/browsix-wasm/">
-                            [論文] 好像沒有那麼快：WebAssembly vs. Native Code 程式碼效能分析
-                        </a>
-                    </h1>
+    <article class="post">
+        
+        <h1 class="post-title">
+            <a href="/post/2019/12/paper/browsix-wasm/">
+                [論文] 好像沒有那麼快：WebAssembly vs. Native Code 程式碼效能分析
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            December 18, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/71056747-606fba00-2195-11ea-852e-8252067f801b.png">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                December 18, 2019
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/71056747-606fba00-2195-11ea-852e-8252067f801b.png">
+        </div>
+        
                     <div class="post-content ">
                         <p><strong>Paper</strong>: Not So Fast: Analyzing the Performance of WebAssembly vs. Native Code<br>
 <strong>Author</strong>: Abhinav Jangda, Bobby Powers, Emery D. Berger, and Arjun Guha, University of Massachusetts Amherst<br>
@@ -189,58 +189,58 @@
 <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
 <p>作者們先前開發了 <a href="https://github.com/plasma-umass/browsix" target="_blank" rel="noopener">BROWSIX</a>，可以讓 Unix 程式直接轉成 JavaScript 並跑在瀏覽器。BROWSIX 基本上就是把程式碼轉成 JavaScript 並且用 Browser API 來模擬 Unix System Call。此篇作者更進一步，開發 BROWSIX-WASM（fork 自 <a href="https://github.com/emscripten-core/emscripten" target="_blank" rel="noopener">Emscripten</a>）將程式碼轉成 WebAssembly，一來解決原本 JavaScript 效能不佳問題，同時也能可以拿來和 Native Code 在 SPEC CPU suite of Benchmark 上做效能比較。實驗結果 WebAssembly 在現代瀏覽器（Chrome &amp; Firefox）上慢 Native Code 大約 50%，並深入探討為什麼會這樣。</p>
 <p>整體來說我覺得是很有趣的一篇論文，整理了重點並加入一些我個人的見解。</p>
-                            <a href="/post/2019/12/paper/browsix-wasm/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2019/12/paper/browsix-wasm/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/12/cs-to-me/">
-                            我對資工的興趣產生
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2019/12/cs-to-me/">
+                我對資工的興趣產生
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            December 2, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/69930803-ca366580-14ff-11ea-91c0-7d1e6c76c010.png">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                December 2, 2019
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/69930803-ca366580-14ff-11ea-91c0-7d1e6c76c010.png">
+        </div>
+        
                     <div class="post-content ">
                         <p>我正在念交大資工所，我決定要走資工是一個漫長的過程，這篇故事想從最早開始講起，描述過往我對資工的興趣如何慢慢建立。每個人的故事都是獨一無二，但我的故事希望可以給別人一些靈感和借鏡。</p>
-                            <a href="/post/2019/12/cs-to-me/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2019/12/cs-to-me/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/11/algorithm/red-black-tree/">
-                            紅黑樹（Red Black Tree）介紹
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2019/11/algorithm/red-black-tree/">
+                紅黑樹（Red Black Tree）介紹
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            November 27, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/69704764-131ca180-112f-11ea-9897-ea561e87fc35.png">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                November 27, 2019
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/69704764-131ca180-112f-11ea-9897-ea561e87fc35.png">
+        </div>
+        
                     <div class="post-content ">
                         <h2 id="紅黑樹簡介"><a class="header-anchor" href="#紅黑樹簡介">¶ </a>紅黑樹簡介</h2>
 <p>紅黑樹是一種特別的資料結構，他具有跟 AVL Tree 一樣可以自動平衡的功能。</p>
@@ -254,104 +254,104 @@
 </ul>
 <p>遵循這樣的規則，可以確保在增加和刪除節點時，保持著樹的平衡狀態。紅黑數保證當 node 數量是 <code>n</code> 時，他的高度最多不會超過 <code>2log(n+1)</code>。</p>
 <p>在現實生活中，常常用來實作 set 和 dictionary，C++ 中的 <code>std::set</code> 和 <code>std::map</code> 背後正是紅黑樹。</p>
-                            <a href="/post/2019/11/algorithm/red-black-tree/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2019/11/algorithm/red-black-tree/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/11/unix/sigaction/">
-                            Example of Signals by `sigaction` in Unix
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2019/11/unix/sigaction/">
+                Example of Signals by `sigaction` in Unix
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            November 24, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                November 24, 2019
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <p>Unix 中 processes 之間溝通有很多種，本篇介紹 signal 的簡易使用。可以先閱讀 <a href="http://beej.us/guide/bgipc/html/single/bgipc.html#signals" target="_blank" rel="noopener">Beej 的介紹</a>。顧名思義，signal 就是程序發送和接受訊號，例如我們在使用 Shell 的時候，之所以 <code>Ctrl-C</code> 可以中斷程式執行，就是因為 Shell 捕捉到 <code>Ctrl-C</code> 發送的 <code>SIGINT</code> 訊號，知道有一個 interrupt signal，所以將程式中斷。</p>
 <p>發送 signal 可以用 <a href="http://man7.org/linux/man-pages/man2/sigaction.2.html" target="_blank" rel="noopener"><code>sigaction()</code></a> 或 <a href="http://man7.org/linux/man-pages/man7/signal.7.html" target="_blank" rel="noopener"><code>signal()</code></a>，不過建議使用 <code>sigaction</code> 因為比較新，詳細差別可以看 Stack Overflow 這篇 「<a href="https://stackoverflow.com/questions/231912/what-is-the-difference-between-sigaction-and-signal" target="_blank" rel="noopener">What is the difference between sigaction and signal?</a>」。</p>
 <p>如果想觸發 signal，可以用 <a href="http://man7.org/linux/man-pages/man2/kill.2.html" target="_blank" rel="noopener"><code>kill()</code></a> 或 <a href="http://man7.org/linux/man-pages/man3/sigqueue.3.html" target="_blank" rel="noopener"><code>sigqueue()</code></a>，差別在於後者僅限 Linux，但後者可以藉由傳送 <code>siginfo</code> 加一些資訊在 signal 中。此外一些 system call 本身也會觸發 signal，例如如果嘗試 <code>send()</code> 到不存在的 <code>socket</code>，就會觸發 <code>SIGPIPE</code>。</p>
-                            <a href="/post/2019/11/unix/sigaction/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2019/11/unix/sigaction/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/11/unix/mmap/">
-                            Use `mmap` to create shared objects
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2019/11/unix/mmap/">
+                Use `mmap` to create shared objects
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            November 20, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                November 20, 2019
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <p>當我們有很多 processes 時，並想用實現 shared memory 處理共用資料時，就可以使用 shared memory，來實作。建立 shared memory 可以使用 <code>mmap</code> 或是 System V <code>shmget</code>，但根據 Stack Overflow 「<a href="https://stackoverflow.com/questions/5656530/how-to-use-shared-memory-with-linux-in-c" target="_blank" rel="noopener">How to use shared memory with Linux in C</a>」回答，<code>shmget</code> 已經有點過時，<code>mmap</code> 則比較新和彈性。</p>
 <p>Shared memory 讓我們可以建立一塊共用的記憶體空間，<code>mmap</code> 會回傳一塊記憶體空間的指標，型別是 <code>void *</code>，如果我們想要放資料進去，可以用 <code>memcpy</code> 將物件、字串或任何東西拷貝進去。我們也可以直接將 <code>void *</code> 轉型成物件指標，這樣就建立 shared object，不同 process 可以直接對 process 存取物件。</p>
-                            <a href="/post/2019/11/unix/mmap/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2019/11/unix/mmap/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/08/rust2019/">
-                            Review of “Everything in Rust” of COSCUP 2019
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2019/08/rust2019/">
+                Review of “Everything in Rust” of COSCUP 2019
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            August 26, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                August 26, 2019
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <h2 id="My-experience-with-Rust-Taiwan-community-in-COSCUP-2019"><a class="header-anchor" href="#My-experience-with-Rust-Taiwan-community-in-COSCUP-2019">¶ </a>My experience with Rust Taiwan community in COSCUP 2019</h2>
 <p>Sunshine, blue sky, and sprinkles of rain — such diverse weather on August 16th-17th echoed the lively atmosphere at NTUST in Taipei, where the <a href="https://coscup.org/2019/en/" class="dj by gt gu gv gw" target="_blank" rel="noopener nofollow">COSCUP</a> was held. Participating in the conference, <a href="https://www.facebook.com/rust.tw" class="dj by gt gu gv gw" target="_blank" rel="noopener nofollow">Rust Taiwan</a> community hosted the “Everything in Rust” track with 11 talks, which were relevant to Rust. Speakers came from all over the world, including India, Netherlands, China, Hong Kong, and Taiwan, representing for some of the top influencers in the global Rust community. With more than one thousand attendees in COSCUP, it was the first time for these hundreds of people encountered the efflorescence of the Rust programming language.</p>
-                            <a href="/post/2019/08/rust2019/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2019/08/rust2019/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/06/autobiography/ntu-9/">
-                            台大觀察與心得(九)：大四下＆登出
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2019/06/autobiography/ntu-9/">
+                台大觀察與心得(九)：大四下＆登出
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            June 26, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/72450353-2d9cfe00-37f5-11ea-9bdb-b110eed418f1.png">
-                        </div>
-                    
+        <ul class="post-date">
+            <li>
+                June 26, 2019
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
+        <div class="post-cover">
+            <img src="https://user-images.githubusercontent.com/18013815/72450353-2d9cfe00-37f5-11ea-9bdb-b110eed418f1.png">
+        </div>
+        
                     <div class="post-content ">
                         <style type="text/css">
 p.p1 {margin: 5px 0.0px 0.0px 0.0px; line-height: 38.0px; font: 16.0px 'PingFang TC'; color: #000000; -webkit-text-stroke: #000000}
@@ -370,53 +370,53 @@ span.s4 {font: 16.0px Arial; text-decoration: underline ; font-kerning: none; co
 <span class="s1"></span><br></div>
 <div class="p1">
 <span class="s1">&#x6574;&#x9AD4;&#x800C;&#x8A00;&#x5927;&#x56DB;&#x4E0B;&#x5C0D;&#x6211;&#x4F86;&#x8AAA;&#x6EFF;&#x8352;&#x8A95;&#x7684;&#xFF0C;&#x597D;&#x50CF;&#x4EC0;&#x9EBC;&#x4E8B;&#x60C5;&#x90FD;&#x6C92;&#x505A;&#x597D;&#xFF0C;&#x6C92;&#x4EC0;&#x9EBC;&#x503C;&#x5F97;&#x9A55;&#x50B2;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x6709;&#x5E7E;&#x4EF6;&#x503C;&#x5F97;&#x958B;&#x5FC3;&#x7684;&#x4E8B;&#xFF0C;&#x9084;&#x6709;&#x5E7E;&#x4EF6;&#x6BD4;&#x8F03;&#x6709;&#x5370;&#x8C61;&#x7684;&#x632B;&#x6298;&#x3002;</span><br>
-                            <a href="/post/2019/06/autobiography/ntu-9/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2019/06/autobiography/ntu-9/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/06/localize_rust/">
-                            Localize the Rust Website to Traditional Chinese
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2019/06/localize_rust/">
+                Localize the Rust Website to Traditional Chinese
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            June 19, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                June 19, 2019
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <p>Record Rust Taiwan community’s work of translating the Rust website<br>
 紀錄 Rust 台灣社群將 Rust 官網翻譯成正體中文的過程</p>
 <p><img class="dz t u gs ak" src="https://miro.medium.com/max/2292/1*Glon_ud1Q-gmHrpQtKi45w.png" role="presentation"><br/></p>
 <p><strong class="hj hv"><em class="hw">TL;DR</em></strong> <br>I am glad to announce that the Traditional Chinese (正體中文) version of the Rust official website has been launched. Thanks to all contributors in the community. This article records our experience to achieve the work.</p>
-                            <a href="/post/2019/06/localize_rust/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2019/06/localize_rust/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/05/Chang-Dai-Chien/">
-                            巨匠的剪影——張大千特展之心得
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2019/05/Chang-Dai-Chien/">
+                巨匠的剪影——張大千特展之心得
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            May 29, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                May 29, 2019
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <div style="line-height: 200%; margin-bottom: .0001pt; margin: 0cm;">
 <span style="color: black; font-family: &quot;microsoft jhenghei&quot; , sans-serif; font-size: 11.0pt; line-height: 200%;">2019 <span lang="ZH-TW">&#x5E74;&#xFF0C;&#x9069;&#x9022;&#x6211;&#x570B;&#x4E0A;&#x500B;&#x4E16;&#x7D00;&#x5049;&#x5927;&#x570B;&#x756B;&#x5BB6;&#x5F35;&#x5927;&#x5343;&#x5148;&#x751F;</span> (1899-1983) <span lang="ZH-TW">&#x4E00;&#x767E;&#x4E8C;&#x5341;&#x6B72;&#x8A95;&#x8FB0;&#xFF0C;&#x53F0;&#x5317;&#x6545;&#x5BAE;&#x535A;&#x7269;&#x9662;&#x7279;&#x5225;&#x958B;&#x8A2D;&#x300C;&#x5DE8;&#x5320;&#x7684;&#x526A;&#x5F71;&#x2014;&#x2014;&#x5F35;&#x5927;&#x5343;&#x7279;&#x5C55;&#x300D;&#x3002;&#x5F35;&#x5927;&#x5343;&#x4E00;&#x751F;&#x5145;&#x6EFF;&#x50B3;&#x5947;&#xFF0C;&#x751F;&#x5E73;&#x8D70;&#x8A2A;&#x4E16;&#x754C;&#x5404;&#x5730;&#xFF0C;&#x5404;&#x7A2E;&#x66F8;&#x756B;&#x7A2E;&#x985E;&#x7121;&#x4E00;&#x4E0D;&#x81FB;&#x5999;&#x5883;&#x3002;</span></span></div>
@@ -428,189 +428,51 @@ span.s4 {font: 16.0px Arial; text-decoration: underline ; font-kerning: none; co
 <span style="white-space: pre-wrap;"><span style="color: black; font-family: &quot;microsoft jhenghei&quot; , sans-serif; font-size: 11.0pt; line-height: 200%;">&lt;<span lang="ZH-TW">&#x58A8;&#x8377;&#x56DB;&#x806F;&#x5C4F;</span>&gt;</span></span></div>
 <div style="line-height: 200%; margin-bottom: .0001pt; margin: 0cm;">
 <span style="white-space: pre-wrap;"><span style="color: black; font-family: &quot;microsoft jhenghei&quot; , sans-serif; font-size: 11.0pt; line-height: 200%;"></span></span></div>
-                            <a href="/post/2019/05/Chang-Dai-Chien/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <a href="/post/2019/05/Chang-Dai-Chien/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
+    <article class="post">
         
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/05/the-wind-rises/">
-                            動畫＜風起＞心得隨筆
-                        </a>
-                    </h1>
+        <h1 class="post-title">
+            <a href="/post/2019/05/the-wind-rises/">
+                動畫＜風起＞心得隨筆
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            May 12, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                May 12, 2019
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <p>＜風起＞是日本知名動畫導演宮崎駿生平最後一部作品，內容以零式艦上戰鬥機設計者堀越二郎的生平作為主軸，穿插小說家堀辰雄的兩篇小說作品《風吹了》和《菜穗子》的劇情。
-                            <a href="/post/2019/05/the-wind-rises/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/04/freshman_engineer/">
-                            菜鳥程式設計師的精進之路
-                        </a>
-                    </h1>
+        <a href="/post/2019/05/the-wind-rises/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
 
-                    <ul class="post-date">
-                        <li>
-                            April 9, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        <h3 id="The-Clean-Coder-心得、摘要與補充"><a class="header-anchor" href="#The-Clean-Coder-心得、摘要與補充">¶ </a>The Clean Coder 心得、摘要與補充</h3>
-<p><img class="dz t u gn ak" src="https://miro.medium.com/max/4122/0*Pvn4y7pOrW5BB_Yc.JPG" role="presentation"><br/></p>
-<p>前陣子把 《<em class="hr">The Clean Coder</em>》(中譯： 無瑕的程式碼 番外篇－專業程式設計師的生存之道) 看完，剛好可以回答一個網路上最常看到的問題之一：</p>
-<p><span style="font-size: 16px; color: #696969; font-style:italic">菜鳥工程師與資深工程師的差別是甚麼？</span></p>
-                            <a href="/post/2019/04/freshman_engineer/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
+    <div class="pagination-bar" align=center>
+        <ul class="pagination">
             
-                    <h1 class="post-title">
-                        <a href="/post/2019/01/mistake/">
-                            我在大學期間犯下最畢生難忘的錯
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            January 25, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        <h2 id="我在大學期間犯下最畢生難忘的錯"><a class="header-anchor" href="#我在大學期間犯下最畢生難忘的錯">¶ </a>我在大學期間犯下最畢生難忘的錯</h2>
-<h3 id="錯誤不可恥，可恥的是再犯同樣的錯"><a class="header-anchor" href="#錯誤不可恥，可恥的是再犯同樣的錯">¶ </a>錯誤不可恥，可恥的是再犯同樣的錯</h3>
-<p><img class="dz t u hc ak" src="https://miro.medium.com/max/4096/0*l9lCHEhVUOwvNgZe" role="presentation"><br/></p>
-<p>其實我認為我大學期間，除了課業失敗的一蹋糊塗之外，其他方面還算優秀。不得不稱讚台大是一個很棒的舞台，讓我的立足點更高，使我有機會跟各式各樣的人接觸，參加各種有趣的活動，到不同的地方工作。在這環境下，我覺得過得還算是順遂。即便如此，仍有些事件是難以忘懷的失敗，給我很大的教訓和反省，但其中一個最難忘的故事莫過於我接下來要說的。</p>
-                            <a href="/post/2019/01/mistake/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
+            <li class="pagination-number">
+                Page 1 of 2</li>
             
-                    <h1 class="post-title">
-                        <a href="/post/2019/01/chaos/">
-                            Chaos
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            January 24, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/51618379-2be58500-1f69-11e9-8537-143fdb8be785.png">
-                        </div>
-                    
-                    <div class="post-content ">
-                        <p>Chaos implies a disorder or complex non-linear system. It manifests any little changes could probably result in a massive transformation of the system, such as a butterfly flapping in Brazil could cause a hurricane in Texas, which is well known as the butterfly effect. The traits of chaos are in many fields, including math, physics, atmospheric science, fluid dynamics, ect., which leads Chaos to a vital research topic.</p>
-                            <a href="/post/2019/01/chaos/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
+            <li class="pagination-next">
+                <a href="/archives/2019/page/2/">
+                    <span>Next Page</span>
+                    <i class="fa fa-angle-right text-base icon-ml"></i>
+                </a>
+            </li>
             
-                    <h1 class="post-title">
-                        <a href="/post/2019/01/browsing-websites/">
-                            Browsing Websites
-                        </a>
-                    </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            January 21, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                        <div class="post-cover">
-                            <img src="https://user-images.githubusercontent.com/18013815/51441514-72d73e80-1d0d-11e9-876d-42dd6a6a7b0d.jpg">
-                        </div>
-                    
-                    <div class="post-content ">
-                        <h1>Browsing Websites</h1>
-<p>The technology around us affects us profoundly - emotionally, behaviorally, and cognitively. We could easily spend an enormous span not only to watch videos online but also browse websites on the internet every day. However, have you ever thought about how the sites work and what the mechanism is inside the box?</p>
-                            <a href="/post/2019/01/browsing-websites/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/01/revision-control/">
-                            Revision Control
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            January 18, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        <p>It’s a late night, and the man is still at the office, being in deep water over the crashed program. Everything goes wrong. He doesn’t even know why the code cannot run as usual. Unfortunately, he has forgotten what he had changed, regardless of the changes, which must be of paramount importance to the incident.</p>
-                            <a href="/post/2019/01/revision-control/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/01/autobiography/ntu-life-8/">
-                            台大觀察與心得(八)：大四上
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            January 14, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        <div class="MsoNormal" style="line-height: 200%;">
-<span lang="ZH-TW" style="font-family: &quot;microsoft jhenghei&quot; , sans-serif;">&#x5728;&#x53F0;&#x5927;&#x7684;&#x65E5;&#x5B50;&#x5DF2;&#x7D93;&#x9032;&#x5165;&#x7B2C;&#x56DB;&#x5E74;&#xFF0C;&#x4E0D;&#x77E5;&#x4E0D;&#x89BA;&#x7559;&#x5728;&#x6821;&#x5712;&#x7684;&#x65E5;&#x5B50;&#x53EA;&#x5269;&#x4E00;&#x5E74;&#xFF0C;&#x8B93;&#x4EBA;&#x5341;&#x5206;&#x7684;&#x4E0D;&#x6368;&#x3002;&#x5F9E;&#x9AD8;&#x4E2D;&#x9032;&#x5165;&#x53F0;&#x5927;&#xFF0C;&#x5230;&#x5FEB;&#x8981;&#x5F9E;&#x53F0;&#x5927;&#x7562;&#x696D;&#xFF0C;&#x9019;&#x6BB5;&#x65E5;&#x5B50;&#x6211;&#x7684;&#x8B8A;&#x5316;&#x5F88;&#x5927;&#xFF0C;&#x50CF;&#x662F;&#x5F9E;&#x4E00;&#x500B;&#x7269;&#x7406;&#x5B78;&#x5BB6;&#x8B8A;&#x6210;&#x8EDF;&#x9AD4;&#x5DE5;&#x7A0B;&#x5E2B;&#xFF0C;&#x559C;&#x6B61;&#x7684;&#x904B;&#x52D5;&#x5F9E;&#x6E38;&#x6CF3;&#x8B8A;&#x6253;&#x7DB2;&#x7403;&#x3002;&#x7D93;&#x6B77;&#x4E86;&#x5F88;&#x591A;&#x4E8B;&#x60C5;&#xFF0C;&#x591A;&#x5230;&#x6211;&#x81EA;&#x5DF1;&#x90FD;&#x5E38;&#x5E38;&#x5FD8;&#x8A18;&#x539F;&#x4F86;&#x6211;&#x66FE;&#x7D93;&#x6B77;&#x904E;&#xFF0C;&#x50CF;&#x662F;&#x96C6;&#x601D;&#x8AD6;&#x58C7;&#x3001;&#x7DA0;&#x9818;&#x8FB2;&#x5B78;&#x5E02;&#x96C6;&#x3001;&#x597D;&#x5E7E;&#x5BB6;&#x516C;&#x53F8;&#x5BE6;&#x7FD2;&#x3001;&#x53C3;&#x52A0;&#x7684;&#x5404;&#x7A2E;&#x6F14;&#x8B1B;&#x7B49;&#x7B49;&#x3002;</span><br>
-                            <a href="/post/2019/01/autobiography/ntu-life-8/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
+        </ul>
+    </div>
 </section>
-
         </main>
         <aside class="aside">
             <div class="close"></div>

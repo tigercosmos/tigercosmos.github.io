@@ -20,7 +20,7 @@
 
     <script>
         infiniteScroll({
-            showNum: 10,
+            showNum: 6,
         });
 
         window.addEventListener('DOMContentLoaded', function () {
@@ -160,33 +160,42 @@
             
 <section class="posts">
     
-        <article class="post">
-            
-                    <h1 class="post-title">
-                        <a href="/post/2019/11/unix/sigaction/">
-                            Example of Signals by `sigaction` in Unix
-                        </a>
-                    </h1>
+    <article class="post">
+        
+        <h1 class="post-title">
+            <a href="/post/2019/11/unix/sigaction/">
+                Example of Signals by `sigaction` in Unix
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            November 24, 2019
-                        </li>
-                        <li>
-                            Liu, An-Chi 劉安齊
-                        </li>
-                    </ul>
-                    
+        <ul class="post-date">
+            <li>
+                November 24, 2019
+            </li>
+            <li>
+                Liu, An-Chi 劉安齊
+            </li>
+        </ul>
+        
                     <div class="post-content ">
                         <p>Unix 中 processes 之間溝通有很多種，本篇介紹 signal 的簡易使用。可以先閱讀 <a href="http://beej.us/guide/bgipc/html/single/bgipc.html#signals" target="_blank" rel="noopener">Beej 的介紹</a>。顧名思義，signal 就是程序發送和接受訊號，例如我們在使用 Shell 的時候，之所以 <code>Ctrl-C</code> 可以中斷程式執行，就是因為 Shell 捕捉到 <code>Ctrl-C</code> 發送的 <code>SIGINT</code> 訊號，知道有一個 interrupt signal，所以將程式中斷。</p>
 <p>發送 signal 可以用 <a href="http://man7.org/linux/man-pages/man2/sigaction.2.html" target="_blank" rel="noopener"><code>sigaction()</code></a> 或 <a href="http://man7.org/linux/man-pages/man7/signal.7.html" target="_blank" rel="noopener"><code>signal()</code></a>，不過建議使用 <code>sigaction</code> 因為比較新，詳細差別可以看 Stack Overflow 這篇 「<a href="https://stackoverflow.com/questions/231912/what-is-the-difference-between-sigaction-and-signal" target="_blank" rel="noopener">What is the difference between sigaction and signal?</a>」。</p>
 <p>如果想觸發 signal，可以用 <a href="http://man7.org/linux/man-pages/man2/kill.2.html" target="_blank" rel="noopener"><code>kill()</code></a> 或 <a href="http://man7.org/linux/man-pages/man3/sigqueue.3.html" target="_blank" rel="noopener"><code>sigqueue()</code></a>，差別在於後者僅限 Linux，但後者可以藉由傳送 <code>siginfo</code> 加一些資訊在 signal 中。此外一些 system call 本身也會觸發 signal，例如如果嘗試 <code>send()</code> 到不存在的 <code>socket</code>，就會觸發 <code>SIGPIPE</code>。</p>
-                            <a href="/post/2019/11/unix/sigaction/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
+        <a href="/post/2019/11/unix/sigaction/" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    
 
+    <div class="pagination-bar" align=center>
+        <ul class="pagination">
+            
+            <li class="pagination-number">
+                Page 1 of 1</li>
+            
+
+        </ul>
+    </div>
+</section>
         </main>
         <aside class="aside">
             <div class="close"></div>
