@@ -14,11 +14,7 @@ jobs:
           fetch-depth: 1
 
       - name: Build
-        run: 
-          - npm install
-          - hexo clean
-          - hexo deploy
-          - cp CNAME public
+        run: bash deploy.sh
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
