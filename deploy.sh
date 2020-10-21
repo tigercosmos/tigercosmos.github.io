@@ -1,4 +1,4 @@
 npm install
-hexo clean
-hexo deploy
+npm run clean
+npm run deploy
 cp CNAME public
