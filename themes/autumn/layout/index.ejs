@@ -11,37 +11,64 @@
 %>
 <section class="posts">
     <% page.posts.each(function (post) { %>
-        <article class="post">
-            <% post.categories.each(function (cat) { %>
-                <h4 class="post-cat">
-                    <a href="<%- url_for(cat.path) %>">
-                        <%= cat.name %>
-                    </a>
-                </h4>
-                <%  }) %>
-                    <h1 class="post-title">
-                        <a href="<%- url_for(post.path) %>">
-                            <%= post.title %>
-                        </a>
-                    </h1>
+    <article class="post">
+        <% post.categories.each(function (cat) { %>
+        <h4 class="post-cat">
+            <a href="<%- url_for(cat.path) %>">
+                <%= cat.name %>
+            </a>
+        </h4>
+        <%  }) %>
+        <h1 class="post-title">
+            <a href="<%- url_for(post.path) %>">
+                <%= post.title %>
+            </a>
+        </h1>
 
-                    <ul class="post-date">
-                        <li>
-                            <%- date(post.date, 'LL') %>
-                        </li>
-                        <li>
-                            <%= config.author %>
-                        </li>
-                    </ul>
-                    <% if (theme.auto_cover && getPostCover(post)){%>
-                        <div class="post-cover">
-                            <img src="<%- getPostCover(post) %>">
-                        </div>
-                    <%}%>
+        <ul class="post-date">
+            <li>
+                <%- date(post.date, 'LL') %>
+            </li>
+            <li>
+                <%= config.author %>
+            </li>
+        </ul>
+        <% if (theme.auto_cover && getPostCover(post)){%>
+        <div class="post-cover">
+            <img src="<%- getPostCover(post) %>">
+        </div>
+        <%}%>
                     <div class="post-content ">
                         <%- post.excerpt %>
-                            <a href="<%- url_for(post.path) %>" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        <% }) %>
+        <a href="<%- url_for(post.path) %>" class="more-link">Continue reading</a>
+        </div>
+    </article>
+    <% }) %>
+
+    <div class="pagination-bar" align=center>
+        <ul class="pagination">
+            <% if (page.prev) { %>
+            <li class="pagination-prev">
+                <% if (page.prev === 1) { %>
+                <a href="<%- url_for('/') %>">
+                    <% } else { %>
+                    <a href="<%- url_for(page.prev_link) %>">
+                        <% } %>
+                        <span>Previous Page </span>
+                    </a>
+            </li>
+            <% } %>
+            <li class="pagination-number">
+                Page <%=page.current%> of <%=page.total%></li>
+            <% if (page.next) { %>
+            <li class="pagination-next">
+                <a href="<%- url_for(page.next_link) %>">
+                    <span>Next Page</span>
+                    <i class="fa fa-angle-right text-base icon-ml"></i>
+                </a>
+            </li>
+            <% } %>
+
+        </ul>
+    </div>
 </section>
