@@ -1,7 +1,7 @@
 ---
 title: "[Paper Review] Machine Learning at Facebook: Understanding Inference at the Edge"
 date: 2020-10-21 23:25:00
-tags: [paper, machine learning, mobile device, inference, Facebook]
+tags: [paper, machine learning, mobile device, inference, Facebook, ai]
 des: "A short review of the paper machine learning at Facebook."
 ---
 
