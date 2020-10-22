@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tigercosmos.xyz/"/>
-  <updated>2020-10-22T05:31:07.075Z</updated>
+  <updated>2020-10-22T23:16:54.074Z</updated>
   <id>https://tigercosmos.xyz/</id>
   
   <author>
@@ -17,11 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>GoogleNet 簡介與小實驗</title>
+    <link href="https://tigercosmos.xyz/post/2020/10/ai/googlenet/"/>
+    <id>https://tigercosmos.xyz/post/2020/10/ai/googlenet/</id>
+    <published>2020-10-22T23:15:00.000Z</published>
+    <updated>2020-10-22T23:16:54.074Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;介紹&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#介紹&quot;&gt;¶ &lt;/a&gt;介紹&lt;/h2&gt;
+&lt;p&gt;GoogLeNet 最早是發表在 Google 的 Paper：&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="python" scheme="https://tigercosmos.xyz/tags/python/"/>
+    
+      <category term="ai" scheme="https://tigercosmos.xyz/tags/ai/"/>
+    
+      <category term="deep learning" scheme="https://tigercosmos.xyz/tags/deep-learning/"/>
+    
+      <category term="googlenet" scheme="https://tigercosmos.xyz/tags/googlenet/"/>
+    
+      <category term="pytorch" scheme="https://tigercosmos.xyz/tags/pytorch/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[Paper Review] Deep Learning Hardware: Past, Present, and Future</title>
     <link href="https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/</id>
     <published>2020-10-21T15:46:00.000Z</published>
-    <updated>2020-10-22T05:31:07.075Z</updated>
+    <updated>2020-10-22T23:16:54.086Z</updated>
     
     <summary type="html">
     
@@ -53,7 +87,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/</id>
     <published>2020-10-21T15:34:00.000Z</published>
-    <updated>2020-10-22T05:31:07.075Z</updated>
+    <updated>2020-10-22T23:16:54.086Z</updated>
     
     <summary type="html">
     
@@ -72,11 +106,11 @@
     
       <category term="ai" scheme="https://tigercosmos.xyz/tags/ai/"/>
     
+      <category term="deep learning" scheme="https://tigercosmos.xyz/tags/deep-learning/"/>
+    
       <category term="paper" scheme="https://tigercosmos.xyz/tags/paper/"/>
     
       <category term="machine learning" scheme="https://tigercosmos.xyz/tags/machine-learning/"/>
-    
-      <category term="deep learning" scheme="https://tigercosmos.xyz/tags/deep-learning/"/>
     
       <category term="inference" scheme="https://tigercosmos.xyz/tags/inference/"/>
     
@@ -87,7 +121,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/</id>
     <published>2020-10-21T15:25:00.000Z</published>
-    <updated>2020-10-22T05:31:07.075Z</updated>
+    <updated>2020-10-22T23:16:54.086Z</updated>
     
     <summary type="html">
     
@@ -123,7 +157,7 @@
     <link href="https://tigercosmos.xyz/post/2020/09/system/debug-gdb/"/>
     <id>https://tigercosmos.xyz/post/2020/09/system/debug-gdb/</id>
     <published>2020-09-21T09:17:00.000Z</published>
-    <updated>2020-10-22T05:31:07.075Z</updated>
+    <updated>2020-10-22T23:16:54.086Z</updated>
     
     <summary type="html">
     
@@ -152,7 +186,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/measurement-bias/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/measurement-bias/</id>
     <published>2020-08-30T10:30:00.000Z</published>
-    <updated>2020-10-22T05:31:07.075Z</updated>
+    <updated>2020-10-22T23:16:54.086Z</updated>
     
     <summary type="html">
     
@@ -183,7 +217,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/perf-basic/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/perf-basic/</id>
     <published>2020-08-28T16:20:08.000Z</published>
-    <updated>2020-10-22T05:31:07.075Z</updated>
+    <updated>2020-10-22T23:16:54.086Z</updated>
     
     <summary type="html">
     
@@ -208,7 +242,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/</id>
     <published>2020-08-23T16:09:00.000Z</published>
-    <updated>2020-10-22T05:31:07.075Z</updated>
+    <updated>2020-10-22T23:16:54.086Z</updated>
     
     <summary type="html">
     
@@ -233,7 +267,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/"/>
     <id>https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/</id>
     <published>2020-08-19T04:00:00.000Z</published>
-    <updated>2020-10-22T05:31:07.067Z</updated>
+    <updated>2020-10-22T23:16:54.078Z</updated>
     
     <summary type="html">
     
@@ -263,7 +297,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/"/>
     <id>https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/</id>
     <published>2020-08-16T16:05:30.000Z</published>
-    <updated>2020-10-22T05:31:07.071Z</updated>
+    <updated>2020-10-22T23:16:54.082Z</updated>
     
     <summary type="html">
     
@@ -291,7 +325,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/spec-accel-opencl-amd-mi50/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/spec-accel-opencl-amd-mi50/</id>
     <published>2020-08-13T16:08:00.000Z</published>
-    <updated>2020-10-22T05:31:07.075Z</updated>
+    <updated>2020-10-22T23:16:54.086Z</updated>
     
     <summary type="html">
     
@@ -325,7 +359,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/esun-scholarships/"/>
     <id>https://tigercosmos.xyz/post/2020/08/esun-scholarships/</id>
     <published>2020-08-12T00:00:00.000Z</published>
-    <updated>2020-10-22T05:31:07.071Z</updated>
+    <updated>2020-10-22T23:16:54.082Z</updated>
     
     <summary type="html">
     
@@ -357,7 +391,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/js/emscripten-pthread-to-js-2/"/>
     <id>https://tigercosmos.xyz/post/2020/08/js/emscripten-pthread-to-js-2/</id>
     <published>2020-08-10T00:00:00.000Z</published>
-    <updated>2020-10-22T05:31:07.071Z</updated>
+    <updated>2020-10-22T23:16:54.082Z</updated>
     
     <summary type="html">
     
@@ -405,7 +439,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/why-dont-choose-cs/"/>
     <id>https://tigercosmos.xyz/post/2020/07/why-dont-choose-cs/</id>
     <published>2020-07-22T23:00:00.000Z</published>
-    <updated>2020-10-22T05:31:07.079Z</updated>
+    <updated>2020-10-22T23:16:54.090Z</updated>
     
     <summary type="html">
     
@@ -436,7 +470,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/autobiography/nctu-2/"/>
     <id>https://tigercosmos.xyz/post/2020/07/autobiography/nctu-2/</id>
     <published>2020-07-13T04:00:00.000Z</published>
-    <updated>2020-10-22T05:31:07.067Z</updated>
+    <updated>2020-10-22T23:16:54.078Z</updated>
     
     <summary type="html">
     
@@ -480,7 +514,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/js/emscripten-pthread-to-js/"/>
     <id>https://tigercosmos.xyz/post/2020/07/js/emscripten-pthread-to-js/</id>
     <published>2020-07-07T10:00:00.000Z</published>
-    <updated>2020-10-22T05:31:07.071Z</updated>
+    <updated>2020-10-22T23:16:54.082Z</updated>
     
     <summary type="html">
     
@@ -520,7 +554,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/simple-pthread-usage/"/>
     <id>https://tigercosmos.xyz/post/2020/07/simple-pthread-usage/</id>
     <published>2020-07-02T15:00:00.000Z</published>
-    <updated>2020-10-22T05:31:07.075Z</updated>
+    <updated>2020-10-22T23:16:54.086Z</updated>
     
     <summary type="html">
     
@@ -554,7 +588,7 @@
     <link href="https://tigercosmos.xyz/post/2020/06/js/web-worker-evaluation/"/>
     <id>https://tigercosmos.xyz/post/2020/06/js/web-worker-evaluation/</id>
     <published>2020-06-25T16:00:00.000Z</published>
-    <updated>2020-10-22T05:31:07.071Z</updated>
+    <updated>2020-10-22T23:16:54.082Z</updated>
     
     <summary type="html">
     
@@ -597,7 +631,7 @@
     <link href="https://tigercosmos.xyz/post/2020/06/cv/bag-of-visual-words/"/>
     <id>https://tigercosmos.xyz/post/2020/06/cv/bag-of-visual-words/</id>
     <published>2020-06-20T06:00:00.000Z</published>
-    <updated>2020-10-22T05:31:07.071Z</updated>
+    <updated>2020-10-22T23:16:54.082Z</updated>
     
     <summary type="html">
     
@@ -631,7 +665,7 @@
     <link href="https://tigercosmos.xyz/post/2020/06/system/spec-cpu-note/"/>
     <id>https://tigercosmos.xyz/post/2020/06/system/spec-cpu-note/</id>
     <published>2020-06-15T16:00:00.000Z</published>
-    <updated>2020-10-22T05:31:07.075Z</updated>
+    <updated>2020-10-22T23:16:54.086Z</updated>
     
     <summary type="html">
     
@@ -646,34 +680,6 @@
       <category term="spec cpu" scheme="https://tigercosmos.xyz/tags/spec-cpu/"/>
     
       <category term="note" scheme="https://tigercosmos.xyz/tags/note/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows 平台打造極致の程式開發工作環境</title>
-    <link href="https://tigercosmos.xyz/post/2020/06/windows-working-env/"/>
-    <id>https://tigercosmos.xyz/post/2020/06/windows-working-env/</id>
-    <published>2020-06-13T16:00:00.000Z</published>
-    <updated>2020-10-22T05:31:07.079Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#前言&quot;&gt;¶ &lt;/a&gt;前言&lt;/h2&gt;
-&lt;p&gt;老實說，過去我曾經是 Linux 和 Mac 的忠實用戶，覺得 Unix 才是工程師最舒服的工作環境。但隨著 Windows
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="windows" scheme="https://tigercosmos.xyz/tags/windows/"/>
-    
-      <category term="工作環境" scheme="https://tigercosmos.xyz/tags/%E5%B7%A5%E4%BD%9C%E7%92%B0%E5%A2%83/"/>
     
   </entry>
   
