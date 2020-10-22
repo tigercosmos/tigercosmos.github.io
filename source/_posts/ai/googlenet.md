@@ -296,7 +296,7 @@ if __name__ == '__main__':
 
 ## GoogLeNet 的小實驗
 
-接著我跑了一些實驗來看 GoogLeNet 的表現，首先包含有 Bottleneck 的 GoogLeNet，以及沒有的 Naive GoogLeNet。除此之外我將原本 GoogLeNet 隨意加了兩層 Inception 稱為 GoogLeNet Long，並且隨意減少 Inception Layer 稱作 GoogLeNet Short，被我刪減最多的是 GoogLeNet Short4，裡面只剩下兩層 Inception。
+接著我跑了一些實驗來看 GoogLeNet 的表現，首先包含有 Bottleneck 的 GoogLeNet，以及沒有的 Naïve GoogLeNet。除此之外我將原本 GoogLeNet 隨意加了兩層 Inception 稱為 GoogLeNet Long，並且隨意減少 Inception Layer 稱作 GoogLeNet Short，被我刪減最多的是 GoogLeNet Short4，裡面只剩下兩層 Inception。幾本上可以從 Parameters 數量去大概了解模型大小。
 
 我使用這幾個模型去跑 CIFAR100 和 CIFAR10 資料集，並記錄 Top1 Error, Top5 Error, Parameters, Time。
 
@@ -313,7 +313,7 @@ if __name__ == '__main__':
 |     GoogleNet Short3    |     0.36              |     0.11           |     1985220       |     9m3s              |
 |     GoogleNet Short4    |     0.44              |     0.15           |     1650084       |     8m56s             |
 
-**GoogLeNet 執行 CIFAR100**：
+**GoogLeNet 執行 CIFAR10**：
 
 |                         |     Top   1 Error     |     Top 5 Error    |     Parameters    |     Time(14 epoch)    |
 |-------------------------|-----------------------|--------------------|-------------------|-----------------------|
