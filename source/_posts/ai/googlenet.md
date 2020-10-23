@@ -1,5 +1,5 @@
 ---
-title: GoogleNet 簡介與小實驗
+title: GoogLeNet 簡介與小實驗
 date: 2020-10-23 07:15:00
 tags: [ai, deep learning, googlenet, pytorch, python]
 des: "本文簡單介紹 GoogLeNet，並分享我亂改造 GoogLeNet 模型的實驗結果。"
