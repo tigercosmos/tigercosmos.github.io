@@ -8,7 +8,7 @@ des: "A short review of the paper machine learning at Facebook."
 ## Paper Information
 
 **Paper**: Machine Learning at Facebook: Understanding Inference at the Edge
-**Author**: Carole-Jean Wu, el.
+**Author**: Carole-Jean Wu, et al.
 **Source**: [2019 IEEE International Symposium on High Performance Computer Architecture (HPCA)](https://ieeexplore-ieee-org.ezproxy.lib.nctu.edu.tw/document/8675201)
 
 
