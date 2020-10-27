@@ -71,7 +71,7 @@ int main() {
 
 執行時間：
 
-```log
+```shell
 $ gcc test.c; time ./a.out
 sum = 10000000
 
