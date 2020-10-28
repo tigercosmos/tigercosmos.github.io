@@ -8,7 +8,7 @@ des: "A short review of the paper, Deep Learning Hardware: Past, Present, and Fu
 ## Paper Information
 
 **Paper**: Deep Learning Hardware: Past, Present, and Future
-**Author**: Yann LeCun, et al.
+**Author**: Yann LeCun et al.
 **Source**: [2019 IEEE International Solid- State Circuits Conference (ISSCC)](https://ieeexplore-ieee-org.ezproxy.lib.nctu.edu.tw/document/8662396)
 
 
