@@ -322,7 +322,7 @@ $$</p>
 $$</p>
 <p>其中 $\lambda$ 是比例係數 (與之前的 $\lambda$ 不一樣)，其值為 $ λ = 1/ \Vert \mathbf A^{−1} \mathbf h_1 \Vert = 1/ \Vert \mathbf A^{−1} \mathbf h_2 \Vert$。</p>
 <p>到這邊我們就已經把 intrinsic parameters 和 extrinsic parameters 都求出來了。</p>
-<h2 id="OpenCV-的-calibrateCamera-函數"><a class="header-anchor" href="#OpenCV-的-calibrateCamera-函數">¶ </a>OpenCV 的 <code>calibrateCamera</code> 函數</h2>
+<h2 id="OpenCV-的-calibrateCamera-函數"><a class="header-anchor" href="#OpenCV-的-calibrateCamera-函數">¶ </a>OpenCV 的 calibrateCamera 函數</h2>
 <p>經由上面算法，我們可以實現跟 <code>cv2.calibrateCamera</code> 一樣功能的函數，這邊對照 OpenCV 實現的 <code>cv2.calibrateCamera</code> 函數定義：</p>
 <pre><code class="language-py">ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img_size,None,None)
 </code></pre>
