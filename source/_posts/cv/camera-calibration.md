@@ -219,7 +219,7 @@ $$
 
 到這邊我們就已經把 intrinsic parameters 和 extrinsic parameters 都求出來了。
 
-## OpenCV 的 `calibrateCamera` 函數
+## OpenCV 的 calibrateCamera 函數
 
 經由上面算法，我們可以實現跟 `cv2.calibrateCamera` 一樣功能的函數，這邊對照 OpenCV 實現的 `cv2.calibrateCamera` 函數定義：
 
