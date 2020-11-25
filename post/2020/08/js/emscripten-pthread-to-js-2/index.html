@@ -500,11 +500,44 @@ $ ./a.out
 </code></pre>
 <h2 id="3-效能分析"><a class="header-anchor" href="#3-效能分析">¶ </a>3. 效能分析</h2>
 <p>效能實驗分別測試 (1) Pthread 用 Emscripten Proxy 模式 O3 轉 JS + WASM  (2) Pthread 用Emscripten 一般模式 O3 轉 JS + WASM (3) Pthread g++ O3 (4) Pthread g++ O2 (5) Chrome 跑純 JavaScript 版本，這幾種情況下效能差異。實驗環境為 AMD Ryzen 7 2700X 3.7 GHz 八核處理器 (只開 4 執行緒)，emcc v1.39、g++ v7.5、Chrome 84。</p>
-<p>| Array Length  | Em Proxy | Em No Proxy | C++ O3 | C++ O2 | JS |<br>
-|—|—|—|—|—|—|—|<br>
-|  100000 | 0.056s  | 0.062s | 0.027s | 0.032s | 0.214s |<br>
-|  10000 | 0.031s  | 0.009s | 0.002s | 0.003s | 0.052s |<br>
-|  1000 |  0.029s | 0.002s | 0.001s | 0.001s | 0.023s |</p>
+<table>
+<thead>
+<tr>
+<th>Array Length</th>
+<th>Em Proxy</th>
+<th>Em No Proxy</th>
+<th>C++ O3</th>
+<th>C++ O2</th>
+<th>JS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100000</td>
+<td>0.056s</td>
+<td>0.062s</td>
+<td>0.027s</td>
+<td>0.032s</td>
+<td>0.214s</td>
+</tr>
+<tr>
+<td>10000</td>
+<td>0.031s</td>
+<td>0.009s</td>
+<td>0.002s</td>
+<td>0.003s</td>
+<td>0.052s</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>0.029s</td>
+<td>0.002s</td>
+<td>0.001s</td>
+<td>0.001s</td>
+<td>0.023s</td>
+</tr>
+</tbody>
+</table>
 <p>將上表時間取 log 並反轉可以得到下圖。同個長度下，不同方法之間越高代表越快。不同長度，同個方法下，越高代表越快。</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/89744481-eacbac00-dadf-11ea-9513-825905cba9d4.png" alt="result graph"></p>
 <p>Pthread 不意外是最快的，不過 O3 和 O2 相差沒很多，這個結果跟前篇文章 PI 的結果大相逕庭。</p>
