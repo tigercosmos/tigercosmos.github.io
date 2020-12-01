@@ -210,7 +210,7 @@
 <p>Basically I think this simple framework is really straightforward. The most complicated part is implementing operands. It is easy to make bugs while writing the operations like convolution. I spend a lot of time to debug for the operations implementation. There are also many opportunities to optimize the framework, such as how to deal with the data or what algorithm should be used. The pure C++ runs really slow, so I added OpenMP for it, which makes it a little faster.</p>
 <p>I am satisfied with this simple framework. Currently it only support inference, but I think it is not quite hard to add features for it, no matter adding training part, or extending with more operations, layers or activation functions.</p>
 <p>The framework also does some benchmarks. The following is how it looks like:</p>
-<pre><code class="language-log">The VGG16 Net
+<pre><code>The VGG16 Net
 -----------------------------
 NAME:   MEM     PARAM   MAC
 -----------------------------
@@ -243,7 +243,7 @@ Total:  110Mb,  133M,   11308M
 <p>I use CUDA to implement the VGG16 net as the second version. You can check it on Github: <a href="https://github.com/tigercosmos/simple-vgg16-cu" target="_blank" rel="noopener">simple-vgg16-cu</a>. Just like the previous C++ one, it is a work for proof-of-concept. The convolution layers are implemented by cudnn, and the fully-connected layer is implemented in cublas.</p>
 <p>By using API like <code>cudnnConvolutionBiasActivationForward</code>, <code>cudnnPoolingForward</code>, <code>cublasSgemm</code>, it is easy to use these neural network (NN) APIs to implement models using CUDA to run on GPU. The CUDA series libraries really improve the efficiency of developing NN models with a considerable inference/training speedup, so it is always encouraged to use these kind of libraries.</p>
 <p>GPU run only seconds while the CPU runs about minutes. The following is the running time for each layers.</p>
-<pre><code class="language-log">CONV 224x224x64 84 ms
+<pre><code>CONV 224x224x64 84 ms
 CONV 224x224x64 115 ms
 POOLMAX 112x112x64 108 ms
 CONV 112x112x128 114 ms
