@@ -56,7 +56,7 @@ I am satisfied with this simple framework. Currently it only support inference, 
 
 The framework also does some benchmarks. The following is how it looks like:
 
-```log
+```
 The VGG16 Net
 -----------------------------
 NAME:   MEM     PARAM   MAC
@@ -97,7 +97,7 @@ By using API like `cudnnConvolutionBiasActivationForward`, `cudnnPoolingForward`
 
 GPU run only seconds while the CPU runs about minutes. The following is the running time for each layers. 
 
-```log
+```
 CONV 224x224x64 84 ms
 CONV 224x224x64 115 ms
 POOLMAX 112x112x64 108 ms
