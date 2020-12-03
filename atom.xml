@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tigercosmos.xyz/"/>
-  <updated>2020-12-01T21:43:48.747Z</updated>
+  <updated>2020-12-03T16:09:03.606Z</updated>
   <id>https://tigercosmos.xyz/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[Paper Review] In-Datacenter Performance Analysis of a Tensor Processing Unit</title>
+    <link href="https://tigercosmos.xyz/post/2020/12/paper/datacenter-analysis-tpu/"/>
+    <id>https://tigercosmos.xyz/post/2020/12/paper/datacenter-analysis-tpu/</id>
+    <published>2020-12-03T15:46:00.000Z</published>
+    <updated>2020-12-03T16:09:03.606Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Paper-Information&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#Paper-Information&quot;&gt;¶ &lt;/a&gt;Paper Information&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Paper&lt;/strong&gt;:
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ai" scheme="https://tigercosmos.xyz/tags/ai/"/>
+    
+      <category term="deep learning" scheme="https://tigercosmos.xyz/tags/deep-learning/"/>
+    
+      <category term="paper" scheme="https://tigercosmos.xyz/tags/paper/"/>
+    
+      <category term="machine learning" scheme="https://tigercosmos.xyz/tags/machine-learning/"/>
+    
+      <category term="tpu" scheme="https://tigercosmos.xyz/tags/tpu/"/>
+    
+      <category term="performance analysis" scheme="https://tigercosmos.xyz/tags/performance-analysis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>VGG16 net from scratch in two ways: C++ on CPU and CUDA on GPU</title>
     <link href="https://tigercosmos.xyz/post/2020/12/ai/vgg16-from-scratch/"/>
     <id>https://tigercosmos.xyz/post/2020/12/ai/vgg16-from-scratch/</id>
     <published>2020-12-01T21:30:00.000Z</published>
-    <updated>2020-12-01T21:43:48.747Z</updated>
+    <updated>2020-12-03T16:09:03.586Z</updated>
     
     <summary type="html">
     
@@ -59,7 +95,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/system/cas-lock-free/"/>
     <id>https://tigercosmos.xyz/post/2020/10/system/cas-lock-free/</id>
     <published>2020-10-27T18:25:00.000Z</published>
-    <updated>2020-12-01T21:43:48.763Z</updated>
+    <updated>2020-12-03T16:09:03.610Z</updated>
     
     <summary type="html">
     
@@ -91,7 +127,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/ai/googlenet/"/>
     <id>https://tigercosmos.xyz/post/2020/10/ai/googlenet/</id>
     <published>2020-10-22T23:15:00.000Z</published>
-    <updated>2020-12-01T21:43:48.747Z</updated>
+    <updated>2020-12-03T16:09:03.586Z</updated>
     
     <summary type="html">
     
@@ -125,7 +161,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/</id>
     <published>2020-10-21T15:46:00.000Z</published>
-    <updated>2020-12-01T21:43:48.763Z</updated>
+    <updated>2020-12-03T16:09:03.606Z</updated>
     
     <summary type="html">
     
@@ -157,7 +193,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/</id>
     <published>2020-10-21T15:34:00.000Z</published>
-    <updated>2020-12-01T21:43:48.763Z</updated>
+    <updated>2020-12-03T16:09:03.606Z</updated>
     
     <summary type="html">
     
@@ -191,7 +227,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/</id>
     <published>2020-10-21T15:25:00.000Z</published>
-    <updated>2020-12-01T21:43:48.763Z</updated>
+    <updated>2020-12-03T16:09:03.606Z</updated>
     
     <summary type="html">
     
@@ -227,7 +263,7 @@
     <link href="https://tigercosmos.xyz/post/2020/09/system/debug-gdb/"/>
     <id>https://tigercosmos.xyz/post/2020/09/system/debug-gdb/</id>
     <published>2020-09-21T09:17:00.000Z</published>
-    <updated>2020-12-01T21:43:48.763Z</updated>
+    <updated>2020-12-03T16:09:03.610Z</updated>
     
     <summary type="html">
     
@@ -256,7 +292,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/measurement-bias/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/measurement-bias/</id>
     <published>2020-08-30T10:30:00.000Z</published>
-    <updated>2020-12-01T21:43:48.763Z</updated>
+    <updated>2020-12-03T16:09:03.610Z</updated>
     
     <summary type="html">
     
@@ -287,7 +323,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/perf-basic/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/perf-basic/</id>
     <published>2020-08-28T16:20:08.000Z</published>
-    <updated>2020-12-01T21:43:48.763Z</updated>
+    <updated>2020-12-03T16:09:03.610Z</updated>
     
     <summary type="html">
     
@@ -312,7 +348,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/</id>
     <published>2020-08-23T16:09:00.000Z</published>
-    <updated>2020-12-01T21:43:48.763Z</updated>
+    <updated>2020-12-03T16:09:03.610Z</updated>
     
     <summary type="html">
     
@@ -337,7 +373,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/"/>
     <id>https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/</id>
     <published>2020-08-19T04:00:00.000Z</published>
-    <updated>2020-12-01T21:43:48.751Z</updated>
+    <updated>2020-12-03T16:09:03.598Z</updated>
     
     <summary type="html">
     
@@ -367,7 +403,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/"/>
     <id>https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/</id>
     <published>2020-08-16T16:05:30.000Z</published>
-    <updated>2020-12-01T21:43:48.759Z</updated>
+    <updated>2020-12-03T16:09:03.606Z</updated>
     
     <summary type="html">
     
@@ -395,7 +431,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/spec-accel-opencl-amd-mi50/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/spec-accel-opencl-amd-mi50/</id>
     <published>2020-08-13T16:08:00.000Z</published>
-    <updated>2020-12-01T21:43:48.763Z</updated>
+    <updated>2020-12-03T16:09:03.610Z</updated>
     
     <summary type="html">
     
@@ -429,7 +465,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/esun-scholarships/"/>
     <id>https://tigercosmos.xyz/post/2020/08/esun-scholarships/</id>
     <published>2020-08-12T00:00:00.000Z</published>
-    <updated>2020-12-01T21:43:48.755Z</updated>
+    <updated>2020-12-03T16:09:03.602Z</updated>
     
     <summary type="html">
     
@@ -461,7 +497,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/js/emscripten-pthread-to-js-2/"/>
     <id>https://tigercosmos.xyz/post/2020/08/js/emscripten-pthread-to-js-2/</id>
     <published>2020-08-10T00:00:00.000Z</published>
-    <updated>2020-12-01T21:43:48.759Z</updated>
+    <updated>2020-12-03T16:09:03.606Z</updated>
     
     <summary type="html">
     
@@ -509,7 +545,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/why-dont-choose-cs/"/>
     <id>https://tigercosmos.xyz/post/2020/07/why-dont-choose-cs/</id>
     <published>2020-07-22T23:00:00.000Z</published>
-    <updated>2020-12-01T21:43:48.767Z</updated>
+    <updated>2020-12-03T16:09:03.610Z</updated>
     
     <summary type="html">
     
@@ -540,7 +576,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/autobiography/nctu-2/"/>
     <id>https://tigercosmos.xyz/post/2020/07/autobiography/nctu-2/</id>
     <published>2020-07-13T04:00:00.000Z</published>
-    <updated>2020-12-01T21:43:48.751Z</updated>
+    <updated>2020-12-03T16:09:03.598Z</updated>
     
     <summary type="html">
     
@@ -584,7 +620,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/js/emscripten-pthread-to-js/"/>
     <id>https://tigercosmos.xyz/post/2020/07/js/emscripten-pthread-to-js/</id>
     <published>2020-07-07T10:00:00.000Z</published>
-    <updated>2020-12-01T21:43:48.759Z</updated>
+    <updated>2020-12-03T16:09:03.606Z</updated>
     
     <summary type="html">
     
@@ -624,7 +660,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/simple-pthread-usage/"/>
     <id>https://tigercosmos.xyz/post/2020/07/simple-pthread-usage/</id>
     <published>2020-07-02T15:00:00.000Z</published>
-    <updated>2020-12-01T21:43:48.763Z</updated>
+    <updated>2020-12-03T16:09:03.610Z</updated>
     
     <summary type="html">
     
@@ -650,49 +686,6 @@
       <category term="效能分析" scheme="https://tigercosmos.xyz/tags/%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90/"/>
     
       <category term="平行化" scheme="https://tigercosmos.xyz/tags/%E5%B9%B3%E8%A1%8C%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Evaluation of Web Worker for Parallel Programming with Browsers, NodeJS and Deno</title>
-    <link href="https://tigercosmos.xyz/post/2020/06/js/web-worker-evaluation/"/>
-    <id>https://tigercosmos.xyz/post/2020/06/js/web-worker-evaluation/</id>
-    <published>2020-06-25T16:00:00.000Z</published>
-    <updated>2020-12-01T21:43:48.759Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#簡介&quot;&gt;¶ &lt;/a&gt;簡介&lt;/h2&gt;
-&lt;p&gt;本篇簡單評估各家瀏覽器、NodeJS 和 Deno 對 Web Worker 在開發平行程式上支援程度和使用差異。&lt;/p&gt;
-&lt;p&gt;關於 Web
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="browser" scheme="https://tigercosmos.xyz/tags/browser/"/>
-    
-      <category term="browsers" scheme="https://tigercosmos.xyz/tags/browsers/"/>
-    
-      <category term="parallel programming" scheme="https://tigercosmos.xyz/tags/parallel-programming/"/>
-    
-      <category term="效能分析" scheme="https://tigercosmos.xyz/tags/%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90/"/>
-    
-      <category term="平行化" scheme="https://tigercosmos.xyz/tags/%E5%B9%B3%E8%A1%8C%E5%8C%96/"/>
-    
-      <category term="JavaScript" scheme="https://tigercosmos.xyz/tags/javascript/"/>
-    
-      <category term="web worker" scheme="https://tigercosmos.xyz/tags/web-worker/"/>
-    
-      <category term="nodejs" scheme="https://tigercosmos.xyz/tags/nodejs/"/>
-    
-      <category term="deno" scheme="https://tigercosmos.xyz/tags/deno/"/>
     
   </entry>
   
