@@ -14,12 +14,12 @@ des: "A short review of the paper, In-Datacenter Performance Analysis of a Tenso
 
 ## Review
 
-TPU (Tensor Processing Unit) is the state-of-art neural network accelerator designed by Google, which arms with a 65536 8-bit MAC (multiplier–accumulator) unit that offers a peak throughput of 92 TeraOps/second (TOPS) and a large (28 MiB) software-managed on-chip memory. In this paper, the authors from Google want to gain a deeper understanding of the performance of TPU that running in the datacenters for common deep learning usage, where they analyzed the data collected from their datacenters that running TPUs. 
+TPU (Tensor Processing Unit) is the state-of-art neural network accelerator designed by Google, which arms with a 65536 8-bit MAC (multiplier–accumulator) unit that offers a peak throughput of 92 TeraOps/second (TOPS) and a large (28 MiB) software-managed on-chip memory. In this paper, the authors from Google want to gain a deeper understanding of the performance of in-datacenter TPU for common deep learning usage by analyzing the data collected from their datacenters.
 
 The first interesting thing is about 95% of the TPU workload is about MLP (Multi-Layer Perceptrons) and LSTM. It is surprising because CNN is usually considered as the common layer in neural networks.
 ![table 1](https://user-images.githubusercontent.com/18013815/101040675-29b5ce00-35b7-11eb-8d25-7a9145ab4137.png)
 
-The following three figures are the TPU's design. The most important parts are the **matrix multiply unit** and the **large unified buffer**, which affects the operations of the neural network the most since most models are memory-bound and many layers execute matrix multiplication. TPU was designed to be a coprocessor on the PCIe I/O bus, and it doesn't fetch instructions to run, in contrast, the host server sends TPU instructions for it to execute. Since the PCIe bus is relatively slow, TPU instructions follow the **CISC** tradition. The CISC `MatrixMultiply` instruction is 12 bytes, and the philosophy of the TPU is to keep the matrix unit as busy as possible. A four-stage pipeline is used by TPU.
+The following three figures are the TPU's design. The most important parts are the **matrix multiply unit** and the **large unified buffer**, which affect the operations of the neural network the most since most models are memory-bound and many layers execute matrix multiplication. TPU was designed to be a coprocessor on the PCIe I/O bus, and it doesn't fetch instructions to run, in contrast, the host server sends TPU instructions for it to execute. Since the PCIe bus is relatively slow, TPU instructions follow the **CISC** tradition. The CISC `MatrixMultiply` instruction is 12 bytes, and the philosophy of the TPU is to keep the matrix unit as busy as possible. A four-stage pipeline is used by TPU.
 
 <div align='center' style="width: 60%">
 
