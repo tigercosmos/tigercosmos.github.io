@@ -1,13 +1,13 @@
 ---
 title: CPU 與 GPU 計算浮點數的差異
 date: 2020-12-05 00:06:40
-tags: [cpu, gpu, floating point number, ‎IEEE 754]
-des: "CPU 與 GPU 在計算浮點數 (floating point number) 時會有差異，本文實際舉例並解釋原因。"
+tags: [cpu, gpu, floating-point number, ‎IEEE 754]
+des: "CPU 與 GPU 在計算浮點數 (floating -oint number) 時會有差異，本文實際舉例並解釋原因。"
 ---
 
 ## 簡介
 
-CPU 與 GPU 在計算浮點數 (floating point number) 時會有差異。
+CPU 與 GPU 在計算浮點數 (floating-point number) 時會有差異。
 
 雖然之前就略有耳聞，但一直沒體會過，近日我在設計[交大平行程式](https://nctu-sslab.github.io/PP-f20/)課程的作業的時候，就被深深教訓了一番，果然還是要踩過雷才會真的懂。
 
