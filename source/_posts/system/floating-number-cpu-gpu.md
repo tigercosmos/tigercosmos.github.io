@@ -11,7 +11,7 @@ CPU 與 GPU 在計算浮點數 (floating-point number) 時會有差異。
 
 雖然之前就略有耳聞，但一直沒體會過，近日我在設計[交大平行程式](https://nctu-sslab.github.io/PP-f20/)課程的作業的時候，就被深深教訓了一番，果然還是要踩過雷才會真的懂。
 
-問題是這樣的，我打算讓學生用 CUDA 去算 [Mandelbrot set](https://zh.wikipedia.org/wiki/%E6%9B%BC%E5%BE%B7%E5%8D%9A%E9%9B%86%E5%90%88)(曼德博集合)。這是一種在複數平面上組成碎形的點的集，可以透過不斷迭代來取得平面座標的數值。
+問題是這樣的，我打算讓學生用 CUDA 去算 [Mandelbrot set](https://zh.wikipedia.org/wiki/%E6%9B%BC%E5%BE%B7%E5%8D%9A%E9%9B%86%E5%90%88) (曼德博集合)。這是一種在複數平面上組成碎形的點的集，可以透過不斷迭代來取得平面座標的數值。
 
 ![Mandelbrot set](https://user-images.githubusercontent.com/18013815/101222730-6112a080-36c5-11eb-8c17-631e7c03d62e.png)
 
@@ -99,10 +99,10 @@ __device__ int diverge_gpu(float c_re, float c_im, int max)
 
 __global__ void kernel(int *c, int n)
 {
-  // Get our global thread ID
+  // 取得 global ID
   int id = blockIdx.x * blockDim.x + threadIdx.x;
 
-  // Make sure we do not go out of bounds
+  // 通通設一樣的值
   c[id] = diverge_gpu(INPUT_X, INPUT_Y, 256);
 }
 
