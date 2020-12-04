@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tigercosmos.xyz/"/>
-  <updated>2020-12-04T22:49:07.522Z</updated>
+  <updated>2020-12-04T22:54:01.948Z</updated>
   <id>https://tigercosmos.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/system/floating-number-cpu-gpu/"/>
     <id>https://tigercosmos.xyz/post/2020/12/system/floating-number-cpu-gpu/</id>
     <published>2020-12-04T16:06:40.000Z</published>
-    <updated>2020-12-04T22:49:07.522Z</updated>
+    <updated>2020-12-04T22:54:01.948Z</updated>
     
     <summary type="html">
     
@@ -53,7 +53,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/paper/datacenter-analysis-tpu/"/>
     <id>https://tigercosmos.xyz/post/2020/12/paper/datacenter-analysis-tpu/</id>
     <published>2020-12-03T15:46:00.000Z</published>
-    <updated>2020-12-04T22:49:07.522Z</updated>
+    <updated>2020-12-04T22:54:01.948Z</updated>
     
     <summary type="html">
     
@@ -89,7 +89,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/ai/vgg16-from-scratch/"/>
     <id>https://tigercosmos.xyz/post/2020/12/ai/vgg16-from-scratch/</id>
     <published>2020-12-01T21:30:00.000Z</published>
-    <updated>2020-12-04T22:49:07.510Z</updated>
+    <updated>2020-12-04T22:54:01.932Z</updated>
     
     <summary type="html">
     
@@ -127,7 +127,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/system/cas-lock-free/"/>
     <id>https://tigercosmos.xyz/post/2020/10/system/cas-lock-free/</id>
     <published>2020-10-27T18:25:00.000Z</published>
-    <updated>2020-12-04T22:49:07.522Z</updated>
+    <updated>2020-12-04T22:54:01.948Z</updated>
     
     <summary type="html">
     
@@ -159,7 +159,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/ai/googlenet/"/>
     <id>https://tigercosmos.xyz/post/2020/10/ai/googlenet/</id>
     <published>2020-10-22T23:15:00.000Z</published>
-    <updated>2020-12-04T22:49:07.510Z</updated>
+    <updated>2020-12-04T22:54:01.932Z</updated>
     
     <summary type="html">
     
@@ -193,7 +193,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/</id>
     <published>2020-10-21T15:46:00.000Z</published>
-    <updated>2020-12-04T22:49:07.518Z</updated>
+    <updated>2020-12-04T22:54:01.948Z</updated>
     
     <summary type="html">
     
@@ -225,7 +225,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/</id>
     <published>2020-10-21T15:34:00.000Z</published>
-    <updated>2020-12-04T22:49:07.522Z</updated>
+    <updated>2020-12-04T22:54:01.948Z</updated>
     
     <summary type="html">
     
@@ -259,7 +259,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/</id>
     <published>2020-10-21T15:25:00.000Z</published>
-    <updated>2020-12-04T22:49:07.522Z</updated>
+    <updated>2020-12-04T22:54:01.948Z</updated>
     
     <summary type="html">
     
@@ -295,7 +295,7 @@
     <link href="https://tigercosmos.xyz/post/2020/09/system/debug-gdb/"/>
     <id>https://tigercosmos.xyz/post/2020/09/system/debug-gdb/</id>
     <published>2020-09-21T09:17:00.000Z</published>
-    <updated>2020-12-04T22:49:07.522Z</updated>
+    <updated>2020-12-04T22:54:01.948Z</updated>
     
     <summary type="html">
     
@@ -324,7 +324,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/measurement-bias/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/measurement-bias/</id>
     <published>2020-08-30T10:30:00.000Z</published>
-    <updated>2020-12-04T22:49:07.522Z</updated>
+    <updated>2020-12-04T22:54:01.948Z</updated>
     
     <summary type="html">
     
@@ -355,7 +355,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/perf-basic/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/perf-basic/</id>
     <published>2020-08-28T16:20:08.000Z</published>
-    <updated>2020-12-04T22:49:07.522Z</updated>
+    <updated>2020-12-04T22:54:01.948Z</updated>
     
     <summary type="html">
     
@@ -380,7 +380,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/</id>
     <published>2020-08-23T16:09:00.000Z</published>
-    <updated>2020-12-04T22:49:07.522Z</updated>
+    <updated>2020-12-04T22:54:01.948Z</updated>
     
     <summary type="html">
     
@@ -405,7 +405,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/"/>
     <id>https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/</id>
     <published>2020-08-19T04:00:00.000Z</published>
-    <updated>2020-12-04T22:49:07.514Z</updated>
+    <updated>2020-12-04T22:54:01.936Z</updated>
     
     <summary type="html">
     
@@ -435,7 +435,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/"/>
     <id>https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/</id>
     <published>2020-08-16T16:05:30.000Z</published>
-    <updated>2020-12-04T22:49:07.518Z</updated>
+    <updated>2020-12-04T22:54:01.944Z</updated>
     
     <summary type="html">
     
@@ -463,7 +463,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/spec-accel-opencl-amd-mi50/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/spec-accel-opencl-amd-mi50/</id>
     <published>2020-08-13T16:08:00.000Z</published>
-    <updated>2020-12-04T22:49:07.522Z</updated>
+    <updated>2020-12-04T22:54:01.948Z</updated>
     
     <summary type="html">
     
@@ -497,7 +497,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/esun-scholarships/"/>
     <id>https://tigercosmos.xyz/post/2020/08/esun-scholarships/</id>
     <published>2020-08-12T00:00:00.000Z</published>
-    <updated>2020-12-04T22:49:07.518Z</updated>
+    <updated>2020-12-04T22:54:01.944Z</updated>
     
     <summary type="html">
     
@@ -529,7 +529,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/js/emscripten-pthread-to-js-2/"/>
     <id>https://tigercosmos.xyz/post/2020/08/js/emscripten-pthread-to-js-2/</id>
     <published>2020-08-10T00:00:00.000Z</published>
-    <updated>2020-12-04T22:49:07.518Z</updated>
+    <updated>2020-12-04T22:54:01.944Z</updated>
     
     <summary type="html">
     
@@ -577,7 +577,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/why-dont-choose-cs/"/>
     <id>https://tigercosmos.xyz/post/2020/07/why-dont-choose-cs/</id>
     <published>2020-07-22T23:00:00.000Z</published>
-    <updated>2020-12-04T22:49:07.522Z</updated>
+    <updated>2020-12-04T22:54:01.952Z</updated>
     
     <summary type="html">
     
@@ -608,7 +608,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/autobiography/nctu-2/"/>
     <id>https://tigercosmos.xyz/post/2020/07/autobiography/nctu-2/</id>
     <published>2020-07-13T04:00:00.000Z</published>
-    <updated>2020-12-04T22:49:07.514Z</updated>
+    <updated>2020-12-04T22:54:01.936Z</updated>
     
     <summary type="html">
     
@@ -652,7 +652,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/js/emscripten-pthread-to-js/"/>
     <id>https://tigercosmos.xyz/post/2020/07/js/emscripten-pthread-to-js/</id>
     <published>2020-07-07T10:00:00.000Z</published>
-    <updated>2020-12-04T22:49:07.518Z</updated>
+    <updated>2020-12-04T22:54:01.944Z</updated>
     
     <summary type="html">
     
