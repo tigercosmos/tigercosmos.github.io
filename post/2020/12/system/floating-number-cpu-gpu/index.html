@@ -304,7 +304,10 @@ z = (x - y) + y ; // 不等於 z = x;
 z = x + x * y; // 不等於 z = x * (1.0 + y);
 y = x / 5.0; // 不等於 y = x * 0.2;
 </code></pre>
-<p>我的猜測是 GPU 硬體或編譯器在 Round-off 的處理上有不一樣，並且是在符合規範的情況下，進而導致上面的小程式會有差異。</p>
+<p>我的猜測是 GPU 硬體或編譯器在 Round-off 的處理上有不一樣，並且是在符合規範的情況下，進而導致上面的小程式會有差異。事實上 <a href="https://docs.nvidia.com/cuda/floating-point/index.html#cuda-and-floating-point" target="_blank" rel="noopener">Nvidai 官方文件</a>也有提到：</p>
+<blockquote>
+<p>The consequence is that different math libraries cannot be expected to compute exactly the same result for a given input. This applies to GPU programming as well. Functions compiled for the GPU will use the NVIDIA CUDA math library implementation while functions compiled for the CPU will use the host compiler math library implementation (e.g., glibc on Linux). Because these implementations are independent and neither is guaranteed to be correctly rounded, the results will often differ slightly.</p>
+</blockquote>
 <p>所以 GPU 和 CPU 的答案都可以說是對的，只是結果仍然有差，沒辦法誰叫我們的電腦只能用有限位元來表示數字呢。此外這邊有個很有幫助的<a href="https://github.com/HPCE/hpce-2016-cw5/issues/10" target="_blank" rel="noopener">討論串</a>非常值得參考。</p>
 <h2 id="結論"><a class="header-anchor" href="#結論">¶ </a>結論</h2>
 <p>CPU 與 GPU 在計算浮點數時會有差異。這代表我們在處理 CPU 與 GPU 相互資料的時候要特別小心，像是異質運算 kernel 同時會在 CPU 跑和在 GPU 跑時，數據跑出來的結果就有機會不一樣。</p>
