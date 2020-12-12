@@ -167,7 +167,9 @@ z = x + x * y; // 不等於 z = x * (1.0 + y);
 y = x / 5.0; // 不等於 y = x * 0.2;
 ```
 
-我的猜測是 GPU 硬體或編譯器在 Round-off 的處理上有不一樣，並且是在符合規範的情況下，進而導致上面的小程式會有差異。
+我的猜測是 GPU 硬體或編譯器在 Round-off 的處理上有不一樣，並且是在符合規範的情況下，進而導致上面的小程式會有差異。事實上 [Nvidai 官方文件](https://docs.nvidia.com/cuda/floating-point/index.html#cuda-and-floating-point)也有提到：
+
+> The consequence is that different math libraries cannot be expected to compute exactly the same result for a given input. This applies to GPU programming as well. Functions compiled for the GPU will use the NVIDIA CUDA math library implementation while functions compiled for the CPU will use the host compiler math library implementation (e.g., glibc on Linux). Because these implementations are independent and neither is guaranteed to be correctly rounded, the results will often differ slightly.
 
 所以 GPU 和 CPU 的答案都可以說是對的，只是結果仍然有差，沒辦法誰叫我們的電腦只能用有限位元來表示數字呢。此外這邊有個很有幫助的[討論串](https://github.com/HPCE/hpce-2016-cw5/issues/10)非常值得參考。
 
