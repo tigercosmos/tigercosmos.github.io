@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tigercosmos.xyz/"/>
-  <updated>2020-12-12T05:42:33.614Z</updated>
+  <updated>2021-01-04T18:21:14.198Z</updated>
   <id>https://tigercosmos.xyz/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021 新年新希望—落實刻意練習演算法</title>
+    <link href="https://tigercosmos.xyz/post/2021/01/2021-new-year-resolution/"/>
+    <id>https://tigercosmos.xyz/post/2021/01/2021-new-year-resolution/</id>
+    <published>2021-01-04T18:00:00.000Z</published>
+    <updated>2021-01-04T18:21:14.198Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/18013815/103565542-73b60a80-4efb-11eb-9f1d-1a56062deb43.png&quot; alt=&quot;2021
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="new year resolution" scheme="https://tigercosmos.xyz/tags/new-year-resolution/"/>
+    
+      <category term="想法" scheme="https://tigercosmos.xyz/tags/%E6%83%B3%E6%B3%95/"/>
+    
+      <category term="新年新希望" scheme="https://tigercosmos.xyz/tags/%E6%96%B0%E5%B9%B4%E6%96%B0%E5%B8%8C%E6%9C%9B/"/>
+    
+      <category term="2021" scheme="https://tigercosmos.xyz/tags/2021/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CUDA 開發環境設定與簡易程式範例</title>
     <link href="https://tigercosmos.xyz/post/2020/12/system/cuda-basic/"/>
     <id>https://tigercosmos.xyz/post/2020/12/system/cuda-basic/</id>
     <published>2020-12-09T23:00:00.000Z</published>
-    <updated>2020-12-12T05:42:33.614Z</updated>
+    <updated>2021-01-04T18:21:14.214Z</updated>
     
     <summary type="html">
     
@@ -51,7 +82,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/system/floating-number-cpu-gpu/"/>
     <id>https://tigercosmos.xyz/post/2020/12/system/floating-number-cpu-gpu/</id>
     <published>2020-12-04T16:06:40.000Z</published>
-    <updated>2020-12-12T05:42:33.614Z</updated>
+    <updated>2021-01-04T18:21:14.218Z</updated>
     
     <summary type="html">
     
@@ -83,7 +114,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/paper/datacenter-analysis-tpu/"/>
     <id>https://tigercosmos.xyz/post/2020/12/paper/datacenter-analysis-tpu/</id>
     <published>2020-12-03T15:46:00.000Z</published>
-    <updated>2020-12-12T05:42:33.610Z</updated>
+    <updated>2021-01-04T18:21:14.214Z</updated>
     
     <summary type="html">
     
@@ -119,7 +150,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/ai/vgg16-from-scratch/"/>
     <id>https://tigercosmos.xyz/post/2020/12/ai/vgg16-from-scratch/</id>
     <published>2020-12-01T21:30:00.000Z</published>
-    <updated>2020-12-12T05:42:33.590Z</updated>
+    <updated>2021-01-04T18:21:14.198Z</updated>
     
     <summary type="html">
     
@@ -157,7 +188,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/system/cas-lock-free/"/>
     <id>https://tigercosmos.xyz/post/2020/10/system/cas-lock-free/</id>
     <published>2020-10-27T18:25:00.000Z</published>
-    <updated>2020-12-12T05:42:33.614Z</updated>
+    <updated>2021-01-04T18:21:14.214Z</updated>
     
     <summary type="html">
     
@@ -189,7 +220,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/ai/googlenet/"/>
     <id>https://tigercosmos.xyz/post/2020/10/ai/googlenet/</id>
     <published>2020-10-22T23:15:00.000Z</published>
-    <updated>2020-12-12T05:42:33.590Z</updated>
+    <updated>2021-01-04T18:21:14.198Z</updated>
     
     <summary type="html">
     
@@ -223,7 +254,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/</id>
     <published>2020-10-21T15:46:00.000Z</published>
-    <updated>2020-12-12T05:42:33.610Z</updated>
+    <updated>2021-01-04T18:21:14.214Z</updated>
     
     <summary type="html">
     
@@ -255,7 +286,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/</id>
     <published>2020-10-21T15:34:00.000Z</published>
-    <updated>2020-12-12T05:42:33.610Z</updated>
+    <updated>2021-01-04T18:21:14.214Z</updated>
     
     <summary type="html">
     
@@ -289,7 +320,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/</id>
     <published>2020-10-21T15:25:00.000Z</published>
-    <updated>2020-12-12T05:42:33.610Z</updated>
+    <updated>2021-01-04T18:21:14.214Z</updated>
     
     <summary type="html">
     
@@ -325,7 +356,7 @@
     <link href="https://tigercosmos.xyz/post/2020/09/system/debug-gdb/"/>
     <id>https://tigercosmos.xyz/post/2020/09/system/debug-gdb/</id>
     <published>2020-09-21T09:17:00.000Z</published>
-    <updated>2020-12-12T05:42:33.614Z</updated>
+    <updated>2021-01-04T18:21:14.214Z</updated>
     
     <summary type="html">
     
@@ -354,7 +385,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/measurement-bias/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/measurement-bias/</id>
     <published>2020-08-30T10:30:00.000Z</published>
-    <updated>2020-12-12T05:42:33.614Z</updated>
+    <updated>2021-01-04T18:21:14.218Z</updated>
     
     <summary type="html">
     
@@ -385,7 +416,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/perf-basic/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/perf-basic/</id>
     <published>2020-08-28T16:20:08.000Z</published>
-    <updated>2020-12-12T05:42:33.614Z</updated>
+    <updated>2021-01-04T18:21:14.218Z</updated>
     
     <summary type="html">
     
@@ -410,7 +441,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/</id>
     <published>2020-08-23T16:09:00.000Z</published>
-    <updated>2020-12-12T05:42:33.614Z</updated>
+    <updated>2021-01-04T18:21:14.214Z</updated>
     
     <summary type="html">
     
@@ -435,7 +466,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/"/>
     <id>https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/</id>
     <published>2020-08-19T04:00:00.000Z</published>
-    <updated>2020-12-12T05:42:33.598Z</updated>
+    <updated>2021-01-04T18:21:14.206Z</updated>
     
     <summary type="html">
     
@@ -465,7 +496,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/"/>
     <id>https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/</id>
     <published>2020-08-16T16:05:30.000Z</published>
-    <updated>2020-12-12T05:42:33.606Z</updated>
+    <updated>2021-01-04T18:21:14.210Z</updated>
     
     <summary type="html">
     
@@ -493,7 +524,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/spec-accel-opencl-amd-mi50/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/spec-accel-opencl-amd-mi50/</id>
     <published>2020-08-13T16:08:00.000Z</published>
-    <updated>2020-12-12T05:42:33.614Z</updated>
+    <updated>2021-01-04T18:21:14.218Z</updated>
     
     <summary type="html">
     
@@ -527,7 +558,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/esun-scholarships/"/>
     <id>https://tigercosmos.xyz/post/2020/08/esun-scholarships/</id>
     <published>2020-08-12T00:00:00.000Z</published>
-    <updated>2020-12-12T05:42:33.606Z</updated>
+    <updated>2021-01-04T18:21:14.210Z</updated>
     
     <summary type="html">
     
@@ -559,7 +590,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/js/emscripten-pthread-to-js-2/"/>
     <id>https://tigercosmos.xyz/post/2020/08/js/emscripten-pthread-to-js-2/</id>
     <published>2020-08-10T00:00:00.000Z</published>
-    <updated>2020-12-12T05:42:33.606Z</updated>
+    <updated>2021-01-04T18:21:14.210Z</updated>
     
     <summary type="html">
     
@@ -607,7 +638,7 @@
     <link href="https://tigercosmos.xyz/post/2020/07/why-dont-choose-cs/"/>
     <id>https://tigercosmos.xyz/post/2020/07/why-dont-choose-cs/</id>
     <published>2020-07-22T23:00:00.000Z</published>
-    <updated>2020-12-12T05:42:33.618Z</updated>
+    <updated>2021-01-04T18:21:14.218Z</updated>
     
     <summary type="html">
     
@@ -630,50 +661,6 @@
       <category term="資工" scheme="https://tigercosmos.xyz/tags/%E8%B3%87%E5%B7%A5/"/>
     
       <category term="校系選擇" scheme="https://tigercosmos.xyz/tags/%E6%A0%A1%E7%B3%BB%E9%81%B8%E6%93%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>交大觀察與心得(二)：碩一下修課篇</title>
-    <link href="https://tigercosmos.xyz/post/2020/07/autobiography/nctu-2/"/>
-    <id>https://tigercosmos.xyz/post/2020/07/autobiography/nctu-2/</id>
-    <published>2020-07-13T04:00:00.000Z</published>
-    <updated>2020-12-12T05:42:33.598Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#前言&quot;&gt;¶ &lt;/a&gt;前言&lt;/h2&gt;
-&lt;p&gt;我感覺這學期是這兩三年來過的最快樂的學期了。過得很充實，修了四門課，依舊參加美術社，寫了不少文章，找到研究方向和題目。念資工果真是一件很開心的事情。大致上，碩一下分為三個方面，分別介紹修課方面、美術社和研究方面，本篇先介紹修課方面。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="想法" scheme="https://tigercosmos.xyz/tags/%E6%83%B3%E6%B3%95/"/>
-    
-      <category term="研究所" scheme="https://tigercosmos.xyz/tags/%E7%A0%94%E7%A9%B6%E6%89%80/"/>
-    
-      <category term="交大資工所" scheme="https://tigercosmos.xyz/tags/%E4%BA%A4%E5%A4%A7%E8%B3%87%E5%B7%A5%E6%89%80/"/>
-    
-      <category term="資工" scheme="https://tigercosmos.xyz/tags/%E8%B3%87%E5%B7%A5/"/>
-    
-      <category term="碩士" scheme="https://tigercosmos.xyz/tags/%E7%A2%A9%E5%A3%AB/"/>
-    
-      <category term="交大觀察與心得" scheme="https://tigercosmos.xyz/tags/%E4%BA%A4%E5%A4%A7%E8%A7%80%E5%AF%9F%E8%88%87%E5%BF%83%E5%BE%97/"/>
-    
-      <category term="交大課程" scheme="https://tigercosmos.xyz/tags/%E4%BA%A4%E5%A4%A7%E8%AA%B2%E7%A8%8B/"/>
-    
-      <category term="XR 專題" scheme="https://tigercosmos.xyz/tags/xr-%E5%B0%88%E9%A1%8C/"/>
-    
-      <category term="電腦視覺" scheme="https://tigercosmos.xyz/tags/%E9%9B%BB%E8%85%A6%E8%A6%96%E8%A6%BA/"/>
-    
-      <category term="自然語言處理" scheme="https://tigercosmos.xyz/tags/%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/"/>
-    
-      <category term="nlp" scheme="https://tigercosmos.xyz/tags/nlp/"/>
-    
-      <category term="電腦動畫與特效" scheme="https://tigercosmos.xyz/tags/%E9%9B%BB%E8%85%A6%E5%8B%95%E7%95%AB%E8%88%87%E7%89%B9%E6%95%88/"/>
-    
-      <category term="電腦動畫" scheme="https://tigercosmos.xyz/tags/%E9%9B%BB%E8%85%A6%E5%8B%95%E7%95%AB/"/>
     
   </entry>
   
