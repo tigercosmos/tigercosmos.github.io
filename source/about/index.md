@@ -16,11 +16,18 @@ I am seeking for an opportunity to work overseas. Please check [my resume](https
 
 ## Liu's Social Media
 
-- Github: [@tigercosmos](https://github.com/tigercosmos)
-- LinkedIn: [@liuanchi](https://www.linkedin.com/in/liuanchi/)
-- Facebook Page: [微中子 @tigercosmos](https://www.facebook.com/CodingNeutrino/)
-- Twitter: [@tigercosmos](https://twitter.com/tigercosmos)
-- YouTube Channel: [Coding Neutrino—微中子的程式教學](https://www.youtube.com/channel/UCe_3sYrCsZyo9WAGd0s6vRQ)
+- Github: [@tigercosmos](https://github.com/tigercosmos).
+  There are plenty of code.
+- LinkedIn: [@liuanchi](https://www.linkedin.com/in/liuanchi/).
+  This is for head hunters.
+- Facebook Page: [微中子 @tigercosmos](https://www.facebook.com/CodingNeutrino/).
+  I share information, news, article about technology and computer science on Facebook.
+- Twitter: [@tigercosmos](https://twitter.com/tigercosmos).
+  Usually just reply others tweets.
+- Instagram: [@liu_an_chi](https://www.instagram.com/liu_an_chi/).
+  I share photos in daily life.
+- YouTube Channel: [Coding Neutrino—微中子的程式教學](https://www.youtube.com/channel/UCe_3sYrCsZyo9WAGd0s6vRQ).
+  I teach computer science and programming.
 - Email: phy.tiger@gmail.com, acliu@cs.nctu.edu.tw
 
 ---
