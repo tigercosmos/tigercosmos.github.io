@@ -20,6 +20,8 @@ tags: [cloudmosa,intern,puffin browser,]
 
 CloudMosa 覺得光是有人喜歡瀏覽器就很難得了，也不管我實力怎樣，就給我機會，讓我進去公司體驗看看，所以這個暑假的兩個月我就在 CloudMosa 當 RD intern。
 
+> 我朋友 Reggie Hsu 有寫了另一個英文版本的心得，大家也可以參考 <[Cloudmosa RD Internship 2020](https://reggiehsu111.medium.com/cloudmosa-rd-internship-2020-aaa184a6bf84)>
+
 ---
 
 ## 公司環境
