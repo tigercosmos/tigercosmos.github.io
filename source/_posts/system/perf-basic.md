@@ -12,6 +12,10 @@ des: "本文將介紹 Linux 上的 perf 效能分析工具，藉由一個簡單�
 本文將介紹 Linux 上的 [perf](http://www.brendangregg.com/perf.html) 效能分析工具，藉由一個簡單的程式範例，示範如何使用 perf 去分析一隻程式，我們將會發現使用分析工具時能更輕易的發現問題根源。本文參考 Gabriel Krisman Bertaz 寫的 [Performance analysis in Linux](https://www.collabora.com/news-and-blog/blog/2017/03/21/performance-analysis-in-linux/)。
 <!-- more -->
 
+本文可以搭配我的教學影片：
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Mba2ONCA0kI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## 一個 Branch Prediction 的範例
 
 Stack Overflow 上有一個很火的問題「[Why is processing a sorted array faster than processing an unsorted array?](https://stackoverflow.com/questions/11227809/)」。
