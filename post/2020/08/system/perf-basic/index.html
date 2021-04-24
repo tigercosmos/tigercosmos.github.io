@@ -175,6 +175,8 @@
 <p>透過效能分析工具 (Profiler)，我們可以得知更多關於軟體的運行資訊，像是花了多少記憶體、多少 CPU Cycles、多少 Cache Misses、I/O 處理時間等等，這些資訊對我們去找到程式效能瓶頸很有幫助。想辦法找到那裡讓程式變慢，進而最大化效能，便是我們做效能分析的最大目的。</p>
 <p>本文將介紹 Linux 上的 <a href="http://www.brendangregg.com/perf.html" target="_blank" rel="noopener">perf</a> 效能分析工具，藉由一個簡單的程式範例，示範如何使用 perf 去分析一隻程式，我們將會發現使用分析工具時能更輕易的發現問題根源。本文參考 Gabriel Krisman Bertaz 寫的 <a href="https://www.collabora.com/news-and-blog/blog/2017/03/21/performance-analysis-in-linux/" target="_blank" rel="noopener">Performance analysis in Linux</a>。</p>
 <a id="more"></a>
+<p>本文可以搭配我的教學影片：</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Mba2ONCA0kI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 id="一個-Branch-Prediction-的範例"><a class="header-anchor" href="#一個-Branch-Prediction-的範例">¶ </a>一個 Branch Prediction 的範例</h2>
 <p>Stack Overflow 上有一個很火的問題「<a href="https://stackoverflow.com/questions/11227809/" target="_blank" rel="noopener">Why is processing a sorted array faster than processing an unsorted array?</a>」。</p>
 <p>問題的 Code 如下：</p>
