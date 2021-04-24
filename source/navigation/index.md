@@ -34,7 +34,7 @@ date: 2020-04-30 00:00:00
 
 1. 「[拯救資工系學生的基本素養](https://www.youtube.com/playlist?list=PLCOCSTovXmudP_dZi1T9lNHLOtqpK9e2P)」系列
 2. 「[跟著微中子學 C++](https://www.youtube.com/playlist?list=PLCOCSTovXmufcloNkBXm8P4FgxbvMZF4_)」系列
-3. 「[資工雜談](https://www.youtube.com/playlist?list=PLCOCSTovXmudUDsPzejAKFVVnja44i2uN)」
+3. 「[資工雜談](https://www.youtube.com/playlist?list=PLCOCSTovXmudUDsPzejAKFVVnja44i2uN)」系列
 
 ## 標籤分類
 
