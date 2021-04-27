@@ -298,6 +298,13 @@ blockquote {
   margin-left: 0;
   border-left: 10px solid #ccc;
 }
+.post-comments {
+  text-align: left;
+  padding: 0px 20px;
+  color: #bbb;
+  font: 1.4rem Lato;
+  font-style: italic;
+}
 .aside {
   overflow: hidden;
   width: 25%;

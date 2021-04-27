@@ -98,6 +98,7 @@
             }
         });
     </script>
+    <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
@@ -294,6 +295,19 @@
      data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p class="post-comments">Login Github to leave comments.</p>
+<div id="comments"></div>
+<script src="https://unpkg.com/octomments/build/ocs.min.js"></script>
+<script>
+  Octomments({
+    github: {
+      owner: 'tigercosmos',
+      repo: 'blog',
+    },
+    issueNumber: 6,
+    renderer: [OctommentsRenderer, '#comments']
+  }).init();
 </script>
         </main>
         <aside class="aside">
