@@ -178,7 +178,7 @@
 <p><img src="https://user-images.githubusercontent.com/18013815/116913305-e2be2880-ac7b-11eb-9e81-d6315e0e47ef.png" alt="Cover Picture"></p>
 <h2 id="2-如何準備一門課"><a class="header-anchor" href="#2-如何準備一門課">¶ </a>2.如何準備一門課</h2>
 <h3 id="2-1-學習階段"><a class="header-anchor" href="#2-1-學習階段">¶ </a>2.1 學習階段</h3>
-<p>助教來源有很多種，老師從系上找來的、自己實驗室的、修課過的學生等等，一般來說由於資工所或資工系的課大多由碩士生來擔任，而碩士生可能原本不是念資工系或是本來不是這間學校，甚至就是直升但就剛好沒修過這門課，所以在這情況下要怎樣去承擔助教的任務呢？</p>
+<p>助教來源有很多種，老師從系上找來的、自己實驗室的、修課過的學生等等，一般來說由於資工所或資工系的課大多由碩士生來擔任，而碩士生可能原本不是念資工系，或是本來不是來自這間學校，又或是直升但就剛好沒修過這門課，所以在這情況下要怎樣去承擔助教的任務呢？</p>
 <p>當然如果你已經預期之後會接助教的話，先去修過該堂課是最直接的方式，很多實驗室是碩一修課，碩二接助教，但也有情況是碩一進實驗室就被拉去當助教了。以我當助教的所有經驗來說，平行程式、數值軟體開發、編譯器通通都沒修過，所以這邊介紹我自己的另一種方式。</p>
 <p>另一種方式就是自學，身為資工系/所學生怎麼可以不會自學呢？以我們實驗室—<a href="http://sslab.cs.nctu.edu.tw/" target="_blank" rel="noopener">陽明交大系統軟體實驗室</a>來說，我在接平行程式助教時，所有該會的東西都是這過程中自學來的，而我們的另一門課編譯器，實驗室負責的同儕當初也都是靠自學把基礎知識學起來。</p>
 <p>怎麼自學感覺不是本文重點，不過我快速帶過。以「平行程式」來說，你可以直接搜尋國外一流大學，例如 MIT、CMU、Stanford 之類的，看看他們有沒有公開的課程 (OCW)，抑或是看看 MOOC 平台上有沒有類似的課程，基本上都可以查到不少。一般來說，資工系開的課程幾乎可以保證其他學校一定也有會比較好找，研究所的課可能依老師專長背景會有所特製，但應該都可以找到性質類似的。</p>
@@ -197,18 +197,18 @@
 <ul>
 <li>建立 NIS 系統，會由其中一台 server $S0$ 當作主控，負責管理所有機器的帳號密碼，這樣就只需要設定帳密一次，所有機器通通可以用。主控叫做 NIS Server，其餘的叫做 NIS Client。詳細教學可以看<a href="https://www.server-world.info/en/note?os=Ubuntu_18.04&amp;p=nis&amp;f=1" target="_blank" rel="noopener">這篇文章</a>。</li>
 <li>建立 NFS 系統，一樣透過 $S0$ 當作主控，建立一個大家共享的網路虛擬的儲存空間，當其他機器存取這個虛擬空間時，其實都是將檔案寫入到 $S0$ 上，因此可以保持所有機器中檔案同步。有了 NFS 就不會同學登入 $S1$ 存了資料，下次登入 $S2$ 發現裡面沒東西。教學可以看<a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-ubuntu-18-04" target="_blank" rel="noopener">這篇</a>。</li>
-<li>批次建立所有學生帳號在 $S0$，設定好檔案系統權限。</li>
+<li>批次建立所有學生帳號在 $S0$ (NIS Server)，設定好檔案系統權限 (包含 NFS Server、每台機器個別檔案系統)。</li>
 <li>你可以使用 parallel-ssh 之類的工具，一次連線到所有機器，批次安裝所有軟體，包含 g++、clang++、OpenMP、OpenMPI、CUDA、OpenCL，這邊其實滿瑣碎的，每個軟體安裝時都有一堆坑，我就不一一介紹了，讓大家親自去踩坑(笑)，提醒一下所有機器版本都要裝一模一樣比較不會出事。</li>
 </ul>
-<p>可以發現其實弄個環境是滿麻煩的，我後來發現，學習平行程式這件事情的本質，了解怎樣把環境弄出來也很重要，所以我其實鼓勵其他要設計平行程式的學校，可以考慮讓學生自己使用 AWS 去把整套環境弄出來，畢竟等學生真的有實際需求要用到平行程式的時候，他也是必須自己把整套系統搞定。</p>
+<p>可以發現其實弄個環境是滿麻煩的，但我後來發現學習平行程式的過程中，了解怎樣把環境弄出來也很重要，所以我其實鼓勵其他要設計平行程式的學校，可以考慮讓學生自己使用 AWS 去把整套環境弄出來，畢竟等學生真的有實際需求要用到平行程式的時候，他也是必須自己把整套系統搞定。</p>
 <p>我覺得有好有壞吧，幫學生架好好處是可以讓學生專注在新技術上，缺點是學生完全不知道從零設定環境的過程。</p>
 <h3 id="2-4-教材與作業設計"><a class="header-anchor" href="#2-4-教材與作業設計">¶ </a>2.4 教材與作業設計</h3>
 <p>有些老師會包辦教材和作業，但也有些都交給學生。一般來說教材比較可能還是老師自己弄，畢竟自己弄才知道怎樣教，但作業就比較大機率是給學生處理。像我們老師游逸平教授習慣就是教材是他自己的，但作業都交給助教設計，我實驗室同屆的所有人腦袋想不開，我把平行程式設計的作業全部換掉，我同儕也把編譯器的作業全部更新，而更新真的是超級繁重的工作。</p>
 <p>上課教材我沒經驗，所以就不介紹了，等以後我有機會當教授再分享。</p>
-<p>作業通常是要公布之前設計好就可以，當然如果再開課前全部設計好是最好的。因為我把平行程式的做有作業都換新，所以我其實過著被作業追殺的日子，每兩個禮拜要出一份新作業，通常第一個禮拜要改上次作業，第二禮拜要出新作業，如此循環，跟大學時期中考無限轟炸到期末的感覺一模一樣。</p>
+<p>作業通常是要公布之前設計好就可以，當然如果在開課前全部設計好是最好的。因為我把平行程式的做有作業都換新，所以我其實過著被作業追殺的日子，每兩個禮拜要出一份新作業，通常第一個禮拜要改上次作業，第二禮拜要出新作業，如此循環，跟大學時期中考無限轟炸到期末的感覺一模一樣。</p>
 <p>之所以把作業全部換新，是因為我覺得原本的作業難度不夠強，畢竟平行程式是研究所等級的課，原本比較像大學部的選修。但我怕很多人可能聽學長姊說以為很涼，所以期初還有特別寫勸退信，告訴學生這學期換我當助教，課程難度和質感絕對不一樣。(雖然最後期末成績，大家幾乎還是跟以前一樣高)</p>
 <p>教材方面可以參考 <a href="https://nctu-sslab.github.io/PP-f20/" target="_blank" rel="noopener">2020 秋季班</a>課程網頁，因為秋季班是碩士班的課我的作業難度是原始的，<a href="https://nctu-sslab.github.io/PP-s21/" target="_blank" rel="noopener">2021 春季班</a>是在職專班，考量學生可能無法花大量時間寫作業，因此難度有調低。</p>
-<p>作業有些是從 CMU、Stanford 那邊抄來的，有些是根據以前的作業改良的，有些則是我原創的。不論是哪種，我都要花大量時間去思考作業要怎樣設計，如何可以真的讓同學練習到平行程式的精隨，同時我也花大量時間修改作業的模板或架構。</p>
+<p>作業有些是從 CMU、Stanford 那邊抄來的，有些是根據以前的作業改良的，有些則是我原創的。不論是哪種，我都要花大量時間去思考作業要怎樣設計，如何能夠真的讓同學練習到平行程式的精隨，同時我也花大量時間修改作業的模板或架構。</p>
 <p>舉例來說，我覺得平行程式在系統優化方面十分重要，所以我要求同學都要用 HackMD 寫分析報告，並且設計比賽機制讓大家去競速。或是在 MPI 這個單元，我選擇先出一個教學型的作業，讓學生一步一步照著做感受不同 MPI 演算法的好處，接著才要他們使用 MPI 想辦法最大化加速矩陣運算。</p>
 <p>我認為資工系的課能不能讓學生真的學會，最重要的往往是程式碼的實作，有時候上課沒聽懂，回去把作業做出來就會了解原來是這麼一回事，這也是我很看重作業設計的原因。我花了非常多心力在設計作業，我覺得幾乎是整門課最有價值的部分了。</p>
 <h3 id="2-5-作業批改"><a class="header-anchor" href="#2-5-作業批改">¶ </a>2.5 作業批改</h3>
@@ -222,15 +222,15 @@
 <p>此外有些可能有校外教學，有演講邀約，有企業參訪，要去採購設備等等，這些大概就是見招拆招吧。</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/116913747-7263d700-ac7c-11eb-8739-8a8e95873db4.png" alt="學生報告"><br>
 (學生期末報告)</p>
-<h2 id="3-與學生溝同渠道"><a class="header-anchor" href="#3-與學生溝同渠道">¶ </a>3. 與學生溝同渠道</h2>
+<h2 id="3-與學生溝通渠道"><a class="header-anchor" href="#3-與學生溝通渠道">¶ </a>3. 與學生溝通渠道</h2>
 <p>一門好的課，助教協助學生的部分是少不了，還記得你還是學生時滿滿的問題嗎，徬徨的你是否急著找助教討論呢？</p>
 <h3 id="3-1-學校課程系統"><a class="header-anchor" href="#3-1-學校課程系統">¶ </a>3.1 學校課程系統</h3>
-<p>通常學校會有自己的課程系統，裡面內建公告、作業、討論區等等，是情況採用，但我自己認為學校平台學生通常不太會打開，互動率會太低，所以我只用它來發公告、出作業、繳交作業。</p>
+<p>通常學校會有自己的課程系統，裡面內建公告、作業、討論區等等，視情況採用，但我自己認為學校平台學生通常不太會打開，互動率會太低，所以我只用它來發公告、出作業、繳交作業。</p>
 <h3 id="3-2-臉書社團討論區"><a class="header-anchor" href="#3-2-臉書社團討論區">¶ </a>3.2 臉書社團討論區</h3>
-<p>開一個臉書社團是根據我在台大修張智星資料結構與演算法，以及看成大 jserv 經營系統軟體系列討論區，覺得臉書的效果確實不錯。因為學生平常不看書，但都很會滑臉書，把一些公告、作業、補充資料放在臉書上觸及率都滿高的，此外臉書提供一個大家發問討論的地方，同學有問題可以在臉書上提出，別的同學如果會的話也可以幫忙回答，這樣的互相幫助可以讓學生彼此增長，此外也猛種程度上紓解我每天要回答一堆問題的工作量。</p>
+<p>開一個臉書社團是根據我在台大修張智星資料結構與演算法，以及看成大 jserv 經營系統軟體系列討論區，覺得臉書的效果確實不錯。因為學生平常不看書，但都很會滑臉書，把一些公告、作業、補充資料放在臉書上觸及率都滿高的，此外臉書提供一個大家發問討論的地方，同學有問題可以在臉書上提出，別的同學如果會的話也可以幫忙回答，這樣的互相幫助可以讓學生彼此增長，此外也某種程度上紓解我每天要回答一堆問題的工作量。</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/116907572-565c3780-ac74-11eb-89b8-11a73631f2e8.png" alt="Facebook Group"></p>
 <h3 id="3-3-Email"><a class="header-anchor" href="#3-3-Email">¶ </a>3.3 Email</h3>
-<p>Email 是我接受學生私下訊息的唯一方式，雖然因為我有很多社群帳號，所以很多地方可以找到我，但我認為助教本身是一項工作，工作的事情就用 Email 聯絡，不然我跟臉書朋友聊天還會跳出回答同學問題訊息，會讓我覺得很焦慮。很多同學真的會鬼打牆，我學期初都會聲明，但仍不斷想私訊我。</p>
+<p>Email 是我接受學生私下訊息的唯一方式。由於我有很多社群帳號，很多地方可以找到我，但我認為助教本身是一項工作，工作的事情就用 Email 聯絡，不然我跟臉書朋友聊天還會跳出回答同學問題訊息，會讓我覺得很焦慮。很多同學真的會鬼打牆，我學期初都會聲明，但仍不斷想私訊我。</p>
 <h2 id="4-結論"><a class="header-anchor" href="#4-結論">¶ </a>4. 結論</h2>
 <p>我在本文中分享我在陽明交大擔任平行程式課程助教的經驗與心得，希望這些內容能幫助大家去當一個更好的助教。我覺得一堂課的好壞，老師與助教都功不可沒，可惜很多課程的助教往往沒有盡該有的義務。</p>
 <p>但也不得不抱怨，照學校給我的卑微薪水，實際上大概只夠付我架設網站的薪水吧，我花大量心血出作業、回答同學、處理雜務，基本上都是因為我對教學本身帶有熱情，才能支撐我這麼用心地做完。</p>
@@ -332,7 +332,7 @@
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-前言"><span class="toc-text">1.前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-如何準備一門課"><span class="toc-text">2.如何準備一門課</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-學習階段"><span class="toc-text">2.1 學習階段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-課程網站"><span class="toc-text">2.2 課程網站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-架設工作站"><span class="toc-text">2.3 架設工作站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-教材與作業設計"><span class="toc-text">2.4 教材與作業設計</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-作業批改"><span class="toc-text">2.5 作業批改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-其他"><span class="toc-text">2.6 其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-與學生溝同渠道"><span class="toc-text">3. 與學生溝同渠道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-學校課程系統"><span class="toc-text">3.1 學校課程系統</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-臉書社團討論區"><span class="toc-text">3.2 臉書社團討論區</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Email"><span class="toc-text">3.3 Email</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-結論"><span class="toc-text">4. 結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-前言"><span class="toc-text">1.前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-如何準備一門課"><span class="toc-text">2.如何準備一門課</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-學習階段"><span class="toc-text">2.1 學習階段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-課程網站"><span class="toc-text">2.2 課程網站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-架設工作站"><span class="toc-text">2.3 架設工作站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-教材與作業設計"><span class="toc-text">2.4 教材與作業設計</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-作業批改"><span class="toc-text">2.5 作業批改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-其他"><span class="toc-text">2.6 其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-與學生溝通渠道"><span class="toc-text">3. 與學生溝通渠道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-學校課程系統"><span class="toc-text">3.1 學校課程系統</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-臉書社團討論區"><span class="toc-text">3.2 臉書社團討論區</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Email"><span class="toc-text">3.3 Email</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-結論"><span class="toc-text">4. 結論</span></a></li></ol>
 </div>
                 </section>
             
