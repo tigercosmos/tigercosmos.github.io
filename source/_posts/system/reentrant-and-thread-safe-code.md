@@ -182,9 +182,9 @@ Thread-safe：
 
 Reentrant 與 Thread-Safe 函式庫在我們寫平行程式或開發異步程式的時候很重要。
 
-在 GNU C 函示庫中，有分以下安全等級：MT-Safe (Multi-Thread-Safe)、AS-Safe (Async-Signal-Safe)、AC-Safe (Async-Cancel-Safe) 以及各種不安全的等級。
+在 GNU C 函式庫中，有分以下安全等級：MT-Safe (Multi-Thread-Safe)、AS-Safe (Async-Signal-Safe)、AC-Safe (Async-Cancel-Safe) 以及各種不安全的等級。
 
-一些 C 標準函式庫的函示，像是 `ctime` 和 `strtok` 就不是 Reentrant。但通常他們會有一個對應的 Reentrant 版本，名稱通常會是 `_r` 後綴，例如 `strtok_r` 或 `rand_r`。
+一些 C 標準函式庫的函式，像是 `ctime` 和 `strtok` 就不是 Reentrant。但通常他們會有一個對應的 Reentrant 版本，名稱通常會是 `_r` 後綴，例如 `strtok_r` 或 `rand_r`。
 
 事實上我們也可以透過 `man` 指令來確認，例如在 Ubuntu 16 上我查 `man rand_r`，得到以下結果 (片段)：
 
