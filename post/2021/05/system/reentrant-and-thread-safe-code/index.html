@@ -341,8 +341,8 @@ void my_func() {
 </ul>
 <h2 id="6-Reentrant-與-Thread-Safe-函式庫"><a class="header-anchor" href="#6-Reentrant-與-Thread-Safe-函式庫">¶ </a>6. Reentrant 與 Thread-Safe 函式庫</h2>
 <p>Reentrant 與 Thread-Safe 函式庫在我們寫平行程式或開發異步程式的時候很重要。</p>
-<p>在 GNU C 函示庫中，有分以下安全等級：MT-Safe (Multi-Thread-Safe)、AS-Safe (Async-Signal-Safe)、AC-Safe (Async-Cancel-Safe) 以及各種不安全的等級。</p>
-<p>一些 C 標準函式庫的函示，像是 <code>ctime</code> 和 <code>strtok</code> 就不是 Reentrant。但通常他們會有一個對應的 Reentrant 版本，名稱通常會是 <code>_r</code> 後綴，例如 <code>strtok_r</code> 或 <code>rand_r</code>。</p>
+<p>在 GNU C 函式庫中，有分以下安全等級：MT-Safe (Multi-Thread-Safe)、AS-Safe (Async-Signal-Safe)、AC-Safe (Async-Cancel-Safe) 以及各種不安全的等級。</p>
+<p>一些 C 標準函式庫的函式，像是 <code>ctime</code> 和 <code>strtok</code> 就不是 Reentrant。但通常他們會有一個對應的 Reentrant 版本，名稱通常會是 <code>_r</code> 後綴，例如 <code>strtok_r</code> 或 <code>rand_r</code>。</p>
 <p>事實上我們也可以透過 <code>man</code> 指令來確認，例如在 Ubuntu 16 上我查 <code>man rand_r</code>，得到以下結果 (片段)：</p>
 <pre><code>ATTRIBUTES
        For an explanation of the terms used in this section, see attributes(7).
