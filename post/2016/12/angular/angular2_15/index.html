@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -193,12 +193,12 @@
 <p>&#x73FE;&#x5728;&#x6709;&#x5169;&#x500B;&#x8CC7;&#x6599;&#x593E;&#x88DD;&#x6709; module &#x4E86;&#xFF1A;<code>app.module.ts</code> &#x548C; <code>credit-card.module.ts</code></p>
 <p>&#x5148;&#x770B;&#x770B;&#x5F8C;&#x8005;</p>
 <pre><code>//credit-card/credit-card.module.ts
-<p>import { NgModule } from '@angular/core';<br>
-import { CommonModule } from '@angular/common';</p>
-<p>import { CreditCardMaskPipe } from './credit-card-mask.pipe';<br>
-import { CreditCardService } from './credit-card.service';<br>
-import { CreditCardComponent } from './credit-card.component';</p>
-<p>@NgModule({<br>
+<p>import &#123; NgModule &#125; from '@angular/core';<br>
+import &#123; CommonModule &#125; from '@angular/common';</p>
+<p>import &#123; CreditCardMaskPipe &#125; from './credit-card-mask.pipe';<br>
+import &#123; CreditCardService &#125; from './credit-card.service';<br>
+import &#123; CreditCardComponent &#125; from './credit-card.component';</p>
+<p>@NgModule(&#123;<br>
 imports: [CommonModule],<br>
 declarations: [<br>
 CreditCardMaskPipe,<br>
@@ -206,8 +206,8 @@ CreditCardComponent<br>
 ],<br>
 providers: [CreditCardService],<br>
 exports: [CreditCardComponent]<br>
-})<br>
-export class CreditCardModule {}<br>
+&#125;)<br>
+export class CreditCardModule &#123;&#125;<br>
 </code></pre></p>
 <p>&#x6211;&#x5011;&#x5DF2;&#x7D93;&#x77E5;&#x9053;&#x9019;&#x500B;&#x662F;&#x4E00;&#x500B; feature module&#xFF0C;&#x4F46;&#x770B;&#x4E00;&#x4E0B;&#x5167;&#x5BB9;&#x5176;&#x5BE6;&#x8DDF; root module &#x9577;&#x5F97;&#x5F88;&#x50CF;&#xFF0C;&#x4F46;&#x4ECD;&#x7136;&#x6709;&#x5E7E;&#x9EDE;&#x4E0D;&#x540C;&#xFF1A;</p>
 <ul>
@@ -218,25 +218,25 @@ export class CreditCardModule {}<br>
 </ul>
 <p>&#x63A5;&#x8457;&#x4F86;&#x770B;&#x770B; <code>AppModule</code> &#x5982;&#x4F55;&#x4F7F;&#x7528;  <code>CreditCardModule</code></p>
 <pre><code>app/app.module.ts
-import { NgModule } from &apos;@angular/core&apos;;
-import { BrowserModule } from &apos;@angular/platform-browser&apos;;
-<p>import { CreditCardModule } from '…/credit-card/credit-card.module';<br>
-import { AppComponent } from './app.component';</p>
-<p>@NgModule({<br>
+import &#123; NgModule &#125; from &apos;@angular/core&apos;;
+import &#123; BrowserModule &#125; from &apos;@angular/platform-browser&apos;;
+<p>import &#123; CreditCardModule &#125; from '…/credit-card/credit-card.module';<br>
+import &#123; AppComponent &#125; from './app.component';</p>
+<p>@NgModule(&#123;<br>
 imports: [<br>
 BrowserModule,<br>
 CreditCardModule<br>
 ],<br>
 declarations: [AppComponent],<br>
 bootstrap: [AppComponent]<br>
-})<br>
-export class AppModule { }<br>
+&#125;)<br>
+export class AppModule &#123; &#125;<br>
 </code></pre></p>
 <p><code>imports</code> &#x4E2D;&#x5F15;&#x5165;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x5176;&#x4ED6;&#x6A21;&#x7D44;</p>
 <p>&#x525B;&#x525B;&#x5DF2;&#x7D93;&#x8AAA; <code>CeditCardComponent</code> &#x88AB;&#x6A21;&#x7D44;&#x516C;&#x958B;&#x4E86;&#xFF0C;&#x6240;&#x4EE5; <code>AppComponent</code> &#x9019;&#x908A;&#x5C31;&#x53EF;&#x4EE5;&#x62FF;&#x4F86;&#x4F7F;&#x7528;&#x56C9;</p>
 <pre><code>//app/app.component.ts
 <p>…<br>
-@Component({<br>
+@Component(&#123;<br>
 …<br>
 template: <code>    ...     &amp;lt;app-credit-card&amp;gt;&amp;lt;/app-credit-card&amp;gt;  </code><br>
 })<br>
@@ -247,34 +247,34 @@ export class AppComponent {}<br>
 <p>&#x73FE;&#x5728;&#x5047;&#x8A2D;&#x6709;&#x5169;&#x500B;&#x6307;&#x4EE4;&#xFF0C;&#x91DD;&#x5C0D;&#x540C;&#x4E00;&#x500B;&#x5143;&#x4EF6;&#x4F5C;&#x7528;&#x3002;</p>
 <p>&#x4F7F;&#x80CC;&#x666F;&#x8B8A;&#x85CD;&#xFF0C;&#x5B57;&#x8B8A;&#x7070;</p>
 <pre><code>//blue-highlight.directive.ts
-import { Directive, ElementRef, Renderer } from &apos;@angular/core&apos;;
-<p>@Directive({<br>
+import &#123; Directive, ElementRef, Renderer &#125; from &apos;@angular/core&apos;;
+<p>@Directive(&#123;<br>
 selector: '[appHighlight]'<br>
-})<br>
-export class BlueHighlightDirective {<br>
-constructor(renderer: Renderer, el: ElementRef) {<br>
+&#125;)<br>
+export class BlueHighlightDirective &#123;<br>
+constructor(renderer: Renderer, el: ElementRef) &#123;<br>
 renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'blue');<br>
 renderer.setElementStyle(el.nativeElement, 'color', 'gray');<br>
-}<br>
-}<br>
+&#125;<br>
+&#125;<br>
 </code></pre></p>
 <p>&#x80CC;&#x666F;&#x8B8A;&#x9EC3;</p>
 <pre><code>//yellow-highlight.directive.ts
-import { Directive, ElementRef, Renderer } from &apos;@angular/core&apos;;
-<p>@Directive({<br>
+import &#123; Directive, ElementRef, Renderer &#125; from &apos;@angular/core&apos;;
+<p>@Directive(&#123;<br>
 selector: '[appHighlight]'<br>
-})<br>
-export class YellowHighlightDirective {<br>
-constructor(renderer: Renderer, el: ElementRef) {<br>
+&#125;)<br>
+export class YellowHighlightDirective &#123;<br>
+constructor(renderer: Renderer, el: ElementRef) &#123;<br>
 renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'yellow');<br>
-}<br>
-}<br>
+&#125;<br>
+&#125;<br>
 </code></pre></p>
 <p>&#x4E00;&#x500B;&#x8981;&#x8B93;&#x80CC;&#x666F;&#x8B8A;&#x9EC3;&#xFF0C;&#x4E00;&#x500B;&#x8981;&#x8B93;&#x80CC;&#x666F;&#x8B8A;&#x85CD;&#xFF0C;&#x9019;&#x6642;&#x5019;&#x6703;&#x600E;&#x6A23;&#xFF1F;</p>
 <p><code>AppModule</code> &#x9019;&#x6A23;&#x5B9A;&#x7FA9;</p>
 <pre><code>//app.module.ts
 <p>// Imports</p>
-<p>@NgModule({<br>
+<p>@NgModule(&#123;<br>
 imports: [BrowserModule],<br>
 declarations: [<br>
 AppComponent,<br>
@@ -282,17 +282,17 @@ BlueHighlightDirective,<br>
 YellowHighlightDirective<br>
 ],<br>
 bootstrap: [AppComponent]<br>
-})<br>
-export class AppModule { }<br>
+&#125;)<br>
+export class AppModule &#123; &#125;<br>
 </code></pre></p>
 <p>&#x6211;&#x5011;&#x7684;&#x7D44;&#x4EF6;&#x9577;&#x9019;&#x6A23;&#xFF0C;&#x5176;&#x4E2D;&#x7684; <code>appHighlight</code> &#x5C31;&#x662F;&#x88AB;&#x5169;&#x500B;&#x6307;&#x4EE4;&#x540C;&#x6642;&#x4F5C;&#x7528;&#x7684;&#x6771;&#x897F;&#x3002;</p>
 <pre><code>//app.component.ts
-<p>import { Component } from '@angular/core';</p>
-<p>@Component({<br>
+<p>import &#123; Component &#125; from '@angular/core';</p>
+<p>@Component(&#123;<br>
 selector: 'app-root',<br>
 template: '&lt;h1 appHighlight&gt;My Angular 2 App&lt;/h1&gt;'<br>
-})<br>
-export class AppComponent {}<br>
+&#125;)<br>
+export class AppComponent &#123;&#125;<br>
 </code></pre></p>
 <p>&#x6240;&#x4EE5;&#x6700;&#x5F8C;&#x7D50;&#x8AD6;&#x662F;&#x5982;&#x4F55;&#xFF1F;</p>
 <p>&#x7B54;&#x6848;&#x662F;&#x5B57;&#x662F;&#x7070;&#x8272;&#xFF0C;&#x80CC;&#x666F;&#x662F;&#x9EC3;&#x8272; (<a href="https://plnkr.co/edit/yY3RRPDxf6urDfsMVNik?p=preview" target="_blank">Plurk</a>)</p>
@@ -395,7 +395,7 @@ export class AppComponent {}<br>
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">Feature Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x6307;&amp;#x4EE4;&amp;#x885D;&amp;#x7A81;</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Feature Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">指令衝突</span></a></li></ol>
 </div>
                 </section>
             

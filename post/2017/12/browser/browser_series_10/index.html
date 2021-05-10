@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器引擎處理版面佈局的簡易版（一）" />
     <title>Neutrino&#39;s Blog: 瀏覽器引擎處理版面佈局的簡易版（一） </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,7 +177,7 @@
         <blockquote>
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a></p>
 </blockquote>
-<p>經過幾天身心調養後，我們再回來討論 robinson 這個「玩具」專案。接著我們來看 <a href="https://github.com/mbrubeck/robinson/blob/master/src/layout.rs" target="_blank" rel="noopener">robinson/src/layout.rs</a> 這個模組。如果你還沒看過本系列的前面部分，建議你先看一下。如果是系列的新讀者，建議你從第一篇開始讀。</p>
+<p>經過幾天身心調養後，我們再回來討論 robinson 這個「玩具」專案。接著我們來看 <a target="_blank" rel="noopener" href="https://github.com/mbrubeck/robinson/blob/master/src/layout.rs">robinson/src/layout.rs</a> 這個模組。如果你還沒看過本系列的前面部分，建議你先看一下。如果是系列的新讀者，建議你從第一篇開始讀。</p>
 <p>還記得瀏覽器的簡易步驟嗎？</p>
 <pre><code class="language-sh">DOM tree \
            --&gt; style tree --&gt; layout --&gt; painting
@@ -191,8 +191,8 @@ CSS tree /
 <img src="https://i.imgur.com/crDJAoT.png" alt="box"><br>
 沒錯，就是你按 F12，在開發者工具中看到的畫面！</p>
 <p>box 的周圍也可能會有 padding、borders、margins 等屬性。就像上面兩張圖所顯示的。<br>
-<a href="https://www.w3.org/TR/CSS2/box.html" target="_blank" rel="noopener">W3C</a>也有完整的文件定義。</p>
-<p>這邊需要大家對 <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/padding" target="_blank" rel="noopener">padding</a>、<a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/margin" target="_blank" rel="noopener">margin</a> 有更多了解。雖然我們在實作簡單版的 layout 時不會去處理這些性質，但在真實的瀏覽器中確是至關重要，真正的瀏覽器一點偏差都不能有，能不能將所有 box 處理好，影響最終的結果。</p>
+<a target="_blank" rel="noopener" href="https://www.w3.org/TR/CSS2/box.html">W3C</a>也有完整的文件定義。</p>
+<p>這邊需要大家對 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/padding">padding</a>、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/margin">margin</a> 有更多了解。雖然我們在實作簡單版的 layout 時不會去處理這些性質，但在真實的瀏覽器中確是至關重要，真正的瀏覽器一點偏差都不能有，能不能將所有 box 處理好，影響最終的結果。</p>
 <p>此外像是 scroll、client 等等的功能都會需要好的 box。不然就會發生畫面捲動的位子就會是錯的，瀏覽器本身的視窗大小也不是對的。</p>
 <p>以上的幾個連結希望大家能點進去更近一步了解，明天我們來看如何實作。</p>
 <p>大家明天見！</p>
@@ -206,12 +206,12 @@ CSS tree /
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

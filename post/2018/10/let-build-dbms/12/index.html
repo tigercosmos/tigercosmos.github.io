@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -175,8 +175,8 @@
     </ul>
     <div class="post-content">
         <p>I found it becomes more and more difficult to programing some and record the process on this series. The reason is that it costs huge time for studying and thinking about the next steps. I expected I could write some code every day, but it seems that I would take two or three days for studying on a topic and then implementing functions.</p>
-<p>So, let’s talked about my studying today. I spend some time studying the implementation of <a href="https://github.com/pingcap/tidb" target="_blank" rel="noopener">TiDB</a> that I talked about yesterday. I have some reflection on its methods.</p>
-<p>It uses “trie” to identify tokens. <a href="https://en.wikipedia.org/wiki/Trie" target="_blank" rel="noopener">Trie</a> is a data structure. It is good at searching words in a dictionary. So, in this case, <code>TiDB</code> searches tokens in a symbols dictionary.</p>
+<p>So, let’s talked about my studying today. I spend some time studying the implementation of <a target="_blank" rel="noopener" href="https://github.com/pingcap/tidb">TiDB</a> that I talked about yesterday. I have some reflection on its methods.</p>
+<p>It uses “trie” to identify tokens. <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Trie">Trie</a> is a data structure. It is good at searching words in a dictionary. So, in this case, <code>TiDB</code> searches tokens in a symbols dictionary.</p>
 <p>I am thinking why it uses trie, but I still don’t understand why. As far as I am concerned, I would rather use hash. The searching complexity of trie and hash are both O(N). In this case, we only need to look up tokens, so no need to considering inserting and deleting data. In the condition that with a large amount of words, trie would use less space. However, in our case, symbols are only about a hundred, and adopting hash is much easy and straightforward for me.</p>
 <p>No matter <code>MySQL</code> or <code>TiDB</code>, they both use <code>Yacc</code>, and their scanners are just the interface for <code>Yacc</code>. I would not use <code>Yacc</code>, on one hand it is written in C++ (I want StellarSQL is pure Rust. Though in fact, <code>Yacc</code> is run to create codes before the runtime of the program), and the other hand I would like to doing any parts by myself (less third party modules as possible), so the term, “from scratch”, would make sense.</p>
 <p>Further, considering the performance, many DBMS implement their own bytes or strings handler for the scanner. I have not designed the protocol of the message yet, and I am just thinking about converting the string to bytes as protocol to make it simple. Anyway, handling bytes by well designed protocol would optimize the performance, but I would just process strings and using the Rust standard library for now. Maybe I will rewrite and refactor this part in the future, but now it’s fine to “keep it simple, keep it stupid”.</p>

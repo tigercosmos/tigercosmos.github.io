@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="站在巨人的肩膀上，一覽瀏覽器引擎研究" />
     <title>Neutrino&#39;s Blog: 站在巨人的肩膀上，一覽瀏覽器引擎研究 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -188,48 +188,48 @@
 <p>有關於瀏覽器的相關研究真的很少，一般發 paper 都是大學、研究單位，但這些地方幾乎沒人做這方面研究。像我想在台大找教授研究瀏覽器，看了一下資工系的教授背景，頂多「軟體架構設計」這個研究領域比較接近一點了。瀏覽器研究完全不是顯學，機器學習、視覺辨識這方面反而一堆。多數的技術都是由瀏覽器的開發人員自己設計出來，卻也不會去發 paper。我自己認為比較可惜，雖然現在都開源了，但如果沒有文章特別去解釋技術，恐怕別人也很難去學習。</p>
 <h2 id="瀏覽器的並行-平行化"><a class="header-anchor" href="#瀏覽器的並行-平行化">¶ </a>瀏覽器的並行/平行化</h2>
 <ul>
-<li><a href="https://raw.githubusercontent.com/larsbergstrom/papers/master/icse16-servo-preprint.pdf" target="_blank" rel="noopener">Engineering the Servo Web Browser Engine using Rust</a></li>
-<li><a href="http://arxiv.org/abs/1505.07383" target="_blank" rel="noopener">Experience Report: Developing the Servo Web Browser Engine using Rust</a></li>
-<li><a href="http://www.tinmith.net/papers/cascaval-ppopp-2013.pdf" target="_blank" rel="noopener">ZOOMM: A Parallel Web Browser Engine for Multicore Mobile Devices</a></li>
-<li><a href="https://www.usenix.org/system/files/conference/hotpar12/hotpar12-final58.pdf" target="_blank" rel="noopener">A Case for Parallelizing Web Pages</a></li>
-<li><a href="http://research.microsoft.com/pubs/79655/gazelle.pdf" target="_blank" rel="noopener">The Multi-Principal OS Construction of the Gazelle Web Browser</a></li>
+<li><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/larsbergstrom/papers/master/icse16-servo-preprint.pdf">Engineering the Servo Web Browser Engine using Rust</a></li>
+<li><a target="_blank" rel="noopener" href="http://arxiv.org/abs/1505.07383">Experience Report: Developing the Servo Web Browser Engine using Rust</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.tinmith.net/papers/cascaval-ppopp-2013.pdf">ZOOMM: A Parallel Web Browser Engine for Multicore Mobile Devices</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.usenix.org/system/files/conference/hotpar12/hotpar12-final58.pdf">A Case for Parallelizing Web Pages</a></li>
+<li><a target="_blank" rel="noopener" href="http://research.microsoft.com/pubs/79655/gazelle.pdf">The Multi-Principal OS Construction of the Gazelle Web Browser</a></li>
 </ul>
 <h2 id="瀏覽器工作的平行化"><a class="header-anchor" href="#瀏覽器工作的平行化">¶ </a>瀏覽器工作的平行化</h2>
 <ul>
-<li><a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7396817" target="_blank" rel="noopener">Parallel JavaScript Execution in Web Navigation Sequences</a></li>
-<li><a href="http://dl.acm.org/citation.cfm?id=2555301" target="_blank" rel="noopener">HPar: A practical parallel parser for HTML–taming HTML complexities for parallel parsing</a></li>
-<li><a href="https://lmeyerov.github.io/projects/pbrowser/pubfiles/paper.pdf" target="_blank" rel="noopener">Fast and Parallel Webpage Layout</a></li>
-<li><a href="https://www.usenix.org/legacy/event/hotpar10/tech/full_papers/Badea.pdf" target="_blank" rel="noopener">Towards Parallelizing the Layout Engine of Firefox</a></li>
+<li><a target="_blank" rel="noopener" href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7396817">Parallel JavaScript Execution in Web Navigation Sequences</a></li>
+<li><a target="_blank" rel="noopener" href="http://dl.acm.org/citation.cfm?id=2555301">HPar: A practical parallel parser for HTML–taming HTML complexities for parallel parsing</a></li>
+<li><a target="_blank" rel="noopener" href="https://lmeyerov.github.io/projects/pbrowser/pubfiles/paper.pdf">Fast and Parallel Webpage Layout</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.usenix.org/legacy/event/hotpar10/tech/full_papers/Badea.pdf">Towards Parallelizing the Layout Engine of Firefox</a></li>
 </ul>
 <h2 id="瀏覽器工作的分析與建模"><a class="header-anchor" href="#瀏覽器工作的分析與建模">¶ </a>瀏覽器工作的分析與建模</h2>
 <ul>
-<li><a href="http://dl.acm.org/citation.cfm?id=2883014" target="_blank" rel="noopener">An In-depth Study of Mobile Browser Performance</a></li>
-<li><a href="http://www.sciencedirect.com/science/article/pii/S2210537916000081" target="_blank" rel="noopener">Energy consumption and privacy in mobile Web browsing: Individual issues and connected solutions</a></li>
-<li><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=7140678" target="_blank" rel="noopener">Concurrency in Mobile Browser Engines</a></li>
-<li><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6327179" target="_blank" rel="noopener">Exploiting Webpage Characteristics for Energy-Efficient Mobile Web Browsing</a></li>
-<li><a href="http://www.yuhaozhu.com/pubs/isca14.pdf" target="_blank" rel="noopener">WebCore: Architectural Support for Mobile Web Browsing</a></li>
-<li><a href="https://www3.cs.stonybrook.edu/%7Earunab/papers/wprof.pdf" target="_blank" rel="noopener">Demystifying Page Load Performance with WProf</a></li>
-<li><a href="http://3nity.io/%7Evj/downloads/publications/zhu10hpca.pdf" target="_blank" rel="noopener">High-Performance and Energy-Efficient Mobile Web Browsing on Big/Little Systems</a></li>
-<li><a href="http://delivery.acm.org/10.1145/2530000/2525402/p3-larres.pdf?ip=169.234.217.188&amp;id=2525402&amp;acc=PUBLIC&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=804568850&amp;CFTOKEN=79805568&amp;__acm__=1466664534_ac8d7658ff673120270c10e7287b5e46" target="_blank" rel="noopener">A study of performance variations in the Mozilla Firefox web browser</a></li>
-<li><a href="https://crypto.stanford.edu/~dabo/pubs/papers/browserpower.pdf" target="_blank" rel="noopener">Who killed my battery?: Analyzing Mobile Browser Energy Consumption</a></li>
-<li><a href="http://dl.acm.org/citation.cfm?id=2184508" target="_blank" rel="noopener">Why are Web Browers Slow on Smartphones?</a></li>
-<li><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5649419" target="_blank" rel="noopener">A Limit Study of JavaScript Parallelism</a></li>
+<li><a target="_blank" rel="noopener" href="http://dl.acm.org/citation.cfm?id=2883014">An In-depth Study of Mobile Browser Performance</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.sciencedirect.com/science/article/pii/S2210537916000081">Energy consumption and privacy in mobile Web browsing: Individual issues and connected solutions</a></li>
+<li><a target="_blank" rel="noopener" href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=7140678">Concurrency in Mobile Browser Engines</a></li>
+<li><a target="_blank" rel="noopener" href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6327179">Exploiting Webpage Characteristics for Energy-Efficient Mobile Web Browsing</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.yuhaozhu.com/pubs/isca14.pdf">WebCore: Architectural Support for Mobile Web Browsing</a></li>
+<li><a target="_blank" rel="noopener" href="https://www3.cs.stonybrook.edu/%7Earunab/papers/wprof.pdf">Demystifying Page Load Performance with WProf</a></li>
+<li><a target="_blank" rel="noopener" href="http://3nity.io/%7Evj/downloads/publications/zhu10hpca.pdf">High-Performance and Energy-Efficient Mobile Web Browsing on Big/Little Systems</a></li>
+<li><a target="_blank" rel="noopener" href="http://delivery.acm.org/10.1145/2530000/2525402/p3-larres.pdf?ip=169.234.217.188&amp;id=2525402&amp;acc=PUBLIC&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=804568850&amp;CFTOKEN=79805568&amp;__acm__=1466664534_ac8d7658ff673120270c10e7287b5e46">A study of performance variations in the Mozilla Firefox web browser</a></li>
+<li><a target="_blank" rel="noopener" href="https://crypto.stanford.edu/~dabo/pubs/papers/browserpower.pdf">Who killed my battery?: Analyzing Mobile Browser Energy Consumption</a></li>
+<li><a target="_blank" rel="noopener" href="http://dl.acm.org/citation.cfm?id=2184508">Why are Web Browers Slow on Smartphones?</a></li>
+<li><a target="_blank" rel="noopener" href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5649419">A Limit Study of JavaScript Parallelism</a></li>
 </ul>
 <h2 id="改善瀏覽器的效率"><a class="header-anchor" href="#改善瀏覽器的效率">¶ </a>改善瀏覽器的效率</h2>
 <ul>
-<li><a href="http://web.mit.edu/ravinet/www/polaris_nsdi16.pdf" target="_blank" rel="noopener">Polaris: Faster Page Loads Using Fine-grained Dependency Tracking</a></li>
-<li><a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6776557" target="_blank" rel="noopener">Energy-Aware Web Browsing on Smartphones</a></li>
-<li><a href="http://delivery.acm.org/10.1145/2570000/2567971/p575-wang.pdf?ip=169.234.217.188&amp;id=2567971&amp;acc=ACTIVE%20SERVICE&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=804568850&amp;CFTOKEN=79805568&amp;__acm__=1466664056_0298e63e62dbf74a962413739f521a82" target="_blank" rel="noopener">Similarity-based web browser optimization</a></li>
-<li><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6525571&amp;tag=1" target="_blank" rel="noopener">Mobile Web Browser Optimizations in the Cloud Era: A Survey</a></li>
-<li><a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6689051" target="_blank" rel="noopener">GPU acceleration for the web browser based evolutionary computing system</a></li>
-<li><a href="http://delivery.acm.org/10.1145/1780000/1772741/p491-zhang.pdf?ip=169.234.16.99&amp;id=1772741&amp;acc=ACTIVE%20SERVICE&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=773108184&amp;CFTOKEN=96473062&amp;__acm__=1461092571_faf3749e491f2a63796ae5bf811efc79" target="_blank" rel="noopener">Smart Caching for Web Browsers</a></li>
+<li><a target="_blank" rel="noopener" href="http://web.mit.edu/ravinet/www/polaris_nsdi16.pdf">Polaris: Faster Page Loads Using Fine-grained Dependency Tracking</a></li>
+<li><a target="_blank" rel="noopener" href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6776557">Energy-Aware Web Browsing on Smartphones</a></li>
+<li><a target="_blank" rel="noopener" href="http://delivery.acm.org/10.1145/2570000/2567971/p575-wang.pdf?ip=169.234.217.188&amp;id=2567971&amp;acc=ACTIVE%20SERVICE&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=804568850&amp;CFTOKEN=79805568&amp;__acm__=1466664056_0298e63e62dbf74a962413739f521a82">Similarity-based web browser optimization</a></li>
+<li><a target="_blank" rel="noopener" href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6525571&amp;tag=1">Mobile Web Browser Optimizations in the Cloud Era: A Survey</a></li>
+<li><a target="_blank" rel="noopener" href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6689051">GPU acceleration for the web browser based evolutionary computing system</a></li>
+<li><a target="_blank" rel="noopener" href="http://delivery.acm.org/10.1145/1780000/1772741/p491-zhang.pdf?ip=169.234.16.99&amp;id=1772741&amp;acc=ACTIVE%20SERVICE&amp;key=CA367851C7E3CE77%2EE385B6E260950907%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=773108184&amp;CFTOKEN=96473062&amp;__acm__=1461092571_faf3749e491f2a63796ae5bf811efc79">Smart Caching for Web Browsers</a></li>
 </ul>
 <h2 id="一些文件"><a class="header-anchor" href="#一些文件">¶ </a>一些文件</h2>
 <ul>
-<li><a href="https://www.usenix.org/legacy/event/hotpar10/tech/slides/badea.pdf" target="_blank" rel="noopener">Towards parallelizing the layout engine of firefox</a></li>
-<li><a href="http://lmeyerov.github.io/projects/pbrowser/hotpar09/paper.pdf" target="_blank" rel="noopener">Parallelizing the web browser</a></li>
-<li><a href="http://lmeyerov.github.io/projects/pbrowser/pubfiles/login.pdf" target="_blank" rel="noopener">Rethinking Browser Performance</a></li>
-<li><a href="http://parlab.eecs.berkeley.edu/sites/all/parlab/files/playout.pdf" target="_blank" rel="noopener">Parallel Webpage Layout</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.usenix.org/legacy/event/hotpar10/tech/slides/badea.pdf">Towards parallelizing the layout engine of firefox</a></li>
+<li><a target="_blank" rel="noopener" href="http://lmeyerov.github.io/projects/pbrowser/hotpar09/paper.pdf">Parallelizing the web browser</a></li>
+<li><a target="_blank" rel="noopener" href="http://lmeyerov.github.io/projects/pbrowser/pubfiles/login.pdf">Rethinking Browser Performance</a></li>
+<li><a target="_blank" rel="noopener" href="http://parlab.eecs.berkeley.edu/sites/all/parlab/files/playout.pdf">Parallel Webpage Layout</a></li>
 </ul>
 <hr>
 <p>以上的資料很多，全部都看要花不少時間，但也代表網路的世界很寬闊。<br>
@@ -246,12 +246,12 @@
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">
@@ -323,7 +323,7 @@
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#瀏覽器相關研究"><span class="toc-text">瀏覽器相關研究</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#瀏覽器的並行-平行化"><span class="toc-text">瀏覽器的並行&#x2F;平行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#瀏覽器工作的平行化"><span class="toc-text">瀏覽器工作的平行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#瀏覽器工作的分析與建模"><span class="toc-text">瀏覽器工作的分析與建模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改善瀏覽器的效率"><span class="toc-text">改善瀏覽器的效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些文件"><span class="toc-text">一些文件</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9B%B8%E9%97%9C%E7%A0%94%E7%A9%B6"><span class="toc-text">瀏覽器相關研究</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84%E4%B8%A6%E8%A1%8C-%E5%B9%B3%E8%A1%8C%E5%8C%96"><span class="toc-text">瀏覽器的並行&#x2F;平行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%B9%B3%E8%A1%8C%E5%8C%96"><span class="toc-text">瀏覽器工作的平行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%88%86%E6%9E%90%E8%88%87%E5%BB%BA%E6%A8%A1"><span class="toc-text">瀏覽器工作的分析與建模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E5%96%84%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84%E6%95%88%E7%8E%87"><span class="toc-text">改善瀏覽器的效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%96%87%E4%BB%B6"><span class="toc-text">一些文件</span></a></li></ol>
 </div>
                 </section>
             

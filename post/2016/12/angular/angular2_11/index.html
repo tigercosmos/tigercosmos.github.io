@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -179,7 +179,7 @@
 <h2>&#x76EE;&#x6A19;</h2>
 <p>&#x6A21;&#x677F;&#x53EF;&#x4EE5;&#x9019;&#x6A23;&#x4F7F;&#x7528;</p>
 <pre><code>&lt;!-- &#x7576;&#x6211;&#x5011;&#x7FFB;&#x8B6F;&#x6210;&#x897F;&#x73ED;&#x7259;&#x8A9E;&#xFF0C;&#x61C9;&#x8A72;&#x8B8A;&#x6210; &apos;hola mundo&apos;  --&gt;
-&lt;p&gt;{{ &apos;hello world&apos; | translate }}&lt;/p&gt;
+&lt;p&gt;&#123;&#123; &apos;hello world&apos; | translate &#125;&#125;&lt;/p&gt;
 </code></pre>
 <p>&#x6A21;&#x7D44;&#x7684;&#x90E8;&#x5206;&#x5927;&#x6982;&#x6703;&#x9577;&#x9019;&#x6A23;</p>
 <pre><code>this.translate.use(&apos;es&apos;); // &#x7528;&#x897F;&#x73ED;&#x7259;&#x6587;
@@ -207,80 +207,80 @@
 <h2>&#x52D5;&#x5DE5;</h2>
 <p>&#x9996;&#x5148;&#x8981;&#x9023;&#x7D50;&#x6211;&#x5011;&#x7684;&#x5B57;&#x5178;&#x6A94;</p>
 <pre><code>// app/translate/translation.ts
-<p>import { OpaqueToken } from '@angular/core';</p>
+<p>import &#123; OpaqueToken &#125; from '@angular/core';</p>
 <p>// 引進我們的語言檔案包<br>
-import { LANG_EN_NAME, LANG_EN_TRANS } from './lang-en';<br>
-import { LANG_ES_NAME, LANG_ES_TRANS } from './lang-es';<br>
-import { LANG_ZH_NAME, LANG_ZH_TRANS } from './lang-zh';</p>
+import &#123; LANG_EN_NAME, LANG_EN_TRANS &#125; from './lang-en';<br>
+import &#123; LANG_ES_NAME, LANG_ES_TRANS &#125; from './lang-es';<br>
+import &#123; LANG_ZH_NAME, LANG_ZH_TRANS &#125; from './lang-zh';</p>
 <p>// translation token<br>
 export const TRANSLATIONS = new OpaqueToken('translations');</p>
 <p>// 翻譯辭典<br>
-const dictionary = {<br>
+const dictionary = &#123;<br>
 [LANG_EN_NAME]: LANG_EN_TRANS,<br>
 [LANG_ES_NAME]: LANG_ES_TRANS,<br>
 [LANG_ZH_NAME]: LANG_ZH_TRANS,<br>
-};</p>
+&#125;;</p>
 <p>// providers<br>
 export const TRANSLATION_PROVIDERS = [<br>
-{ provide: TRANSLATIONS, useValue: dictionary },<br>
+&#123; provide: TRANSLATIONS, useValue: dictionary &#125;,<br>
 ];<br>
 </code></pre></p>
 <p><code>TRANSLATION_PROVIDERS</code> &#x6703;&#x8A3B;&#x518A;&#x5728;&#x4E00;&#x958B;&#x59CB;&#x7684; bootstrap&#x3002;</p>
 <h2>Translate Service</h2>
 <p>&#x63A5;&#x8457;&#x8981;&#x5EFA;&#x7ACB;&#x670D;&#x52D9;&#xFF0C;&#x7528;&#x4F86;&#x505A;&#x5207;&#x63DB;&#x8A9E;&#x8A00;&#x7528;</p>
 <pre><code>// app/translate/translate.service.ts
-<p>import {Injectable, Inject} from '@angular/core';<br>
-import { TRANSLATIONS } from './translations'; // import our opaque token</p>
+<p>import &#123;Injectable, Inject&#125; from '@angular/core';<br>
+import &#123; TRANSLATIONS &#125; from './translations'; // import our opaque token</p>
 <p>@Injectable()<br>
-export class TranslateService {<br>
+export class TranslateService &#123;<br>
 private _currentLang: string;</p>
-<pre><code>public get currentLang() {
+<pre><code>public get currentLang() &#123;
     return this._currentLang;
-}
+&#125;
 
 // inject our translations
-constructor(@Inject(TRANSLATIONS) private _translations: any) {
-}
+constructor(@Inject(TRANSLATIONS) private _translations: any) &#123;
+&#125;
 
-public use(lang: string): void {
+public use(lang: string): void &#123;
     // set current language
     this._currentLang = lang;
-}
+&#125;
 
-private translate(key: string): string {
+private translate(key: string): string &#123;
     // private perform translation
     let translation = key;
 
-    if (this._translations[this.currentLang] &amp;amp;&amp;amp; this._translations[this.currentLang][key]) {
+    if (this._translations[this.currentLang] &amp;amp;&amp;amp; this._translations[this.currentLang][key]) &#123;
         return this._translations[this.currentLang][key];
-    }
+    &#125;
 
     return translation;
-}
+&#125;
 
-public instant(key: string) {
+public instant(key: string) &#123;
     // call translation
     return this.translate(key); 
-}
+&#125;
 </code></pre>
 <p>}<br>
 </code></pre></p>
 <h2>Translation Pipe</h2>
 <p>&#x4E4B;&#x524D;&#x4ECB;&#x7D39;&#x904E; Pipe&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x8B93;&#x6211;&#x5011;&#x5728;&#x6A21;&#x677F;&#x4E2D;&#x7684;&#x6587;&#x5B57;&#xFF0C;&#x80FD;&#x900F;&#x904E; Pipe &#x4F86;&#x505A;&#x5207;&#x63DB;&#x3002;</p>
 <pre><code>// app/translate/translate.pipe.ts
-<p>import { Pipe, PipeTransform } from '@angular/core';<br>
-import { TranslateService } from '…/translate'; // translate service</p>
-<p>@Pipe({<br>
+<p>import &#123; Pipe, PipeTransform &#125; from '@angular/core';<br>
+import &#123; TranslateService &#125; from '…/translate'; // translate service</p>
+<p>@Pipe(&#123;<br>
 name: 'translate',<br>
 pure: false // 使成為 impure<br>
-})</p>
-<p>export class TranslatePipe implements PipeTransform {</p>
-<pre><code>constructor(private _translate: TranslateService) { }
+&#125;)</p>
+<p>export class TranslatePipe implements PipeTransform &#123;</p>
+<pre><code>constructor(private _translate: TranslateService) &#123; &#125;
 
-transform(value: string, args: any[]): any {
+transform(value: string, args: any[]): any &#123;
     if (!value) return;
     return this._translate.instant(value);
-}
+&#125;
 </code></pre>
 <p>}<br>
 </code></pre></p>
@@ -289,67 +289,67 @@ transform(value: string, args: any[]): any {
 <p>&#x7C21;&#x55AE;&#x4F86;&#x8AAA;&#x5C31;&#x662F;&#x653E;&#x4E00;&#x5806;&#x8A9E;&#x8A5E;&#x7684;&#x6A21;&#x7D44;&#x3002;</p>
 <pre><code>// lang-zh.ts
 <p>export const LANG_ZH_NAME = 'zh';</p>
-<p>export const LANG_ZH_TRANS = {<br>
+<p>export const LANG_ZH_TRANS = &#123;<br>
 'hello world': '你好，世界',<br>
-};<br>
+&#125;;<br>
 </code></pre></p>
 <h2>App Module</h2>
 <p>&#x57FA;&#x790E;&#x8A2D;&#x7F6E;&#xFF0C;&#x5C07;&#x7528;&#x5230;&#x7684;&#x6771;&#x897F;&#x5F15;&#x5165;&#xFF0C;&#x4E26;&#x5C07; <code>TranslatePipe</code> &#x6CE8;&#x5165;&#x3002;</p>
 <pre><code>// app.module.ts
-<p>import { NgModule }      from '@angular/core';<br>
-import { BrowserModule } from '@angular/platform-browser';</p>
-<p>import { AppComponent }   from './app.component';<br>
-import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService }   from './translate';</p>
-<p>@NgModule({<br>
+<p>import &#123; NgModule &#125;      from '@angular/core';<br>
+import &#123; BrowserModule &#125; from '@angular/platform-browser';</p>
+<p>import &#123; AppComponent &#125;   from './app.component';<br>
+import &#123; TRANSLATION_PROVIDERS, TranslatePipe, TranslateService &#125;   from './translate';</p>
+<p>@NgModule(&#123;<br>
 imports:      [ BrowserModule ],<br>
 declarations: [ AppComponent, TranslatePipe ], // Inject Translate Pipe here<br>
 bootstrap:    [ AppComponent ],<br>
 providers:    [ TRANSLATION_PROVIDERS, TranslateService ]<br>
-})</p>
-<p>export class AppModule { }<br>
+&#125;)</p>
+<p>export class AppModule &#123; &#125;<br>
 </code></pre></p>
 <h2>App Component</h2>
 <pre><code>// app/app.component.ts
-<p>import { Component, OnInit } from '@angular/core';<br>
-import { TranslateService } from './translate';</p>
-<p>@Component({<br>
-moduleId: <a href="http://module.id" target="_blank" rel="noopener">module.id</a>,<br>
+<p>import &#123; Component, OnInit &#125; from '@angular/core';<br>
+import &#123; TranslateService &#125; from './translate';</p>
+<p>@Component(&#123;<br>
+moduleId: <a target="_blank" rel="noopener" href="http://module.id">module.id</a>,<br>
 selector: 'app-root',<br>
 templateUrl: 'app.component.html',<br>
-})</p>
-<p>export class AppComponent implements OnInit {</p>
+&#125;)</p>
+<p>export class AppComponent implements OnInit &#123;</p>
 <pre><code>public translatedText: string;
 public supportedLanguages: any[];
 
-constructor(private _translate: TranslateService) { }
+constructor(private _translate: TranslateService) &#123; &#125;
 
-ngOnInit() {
+ngOnInit() &#123;
     // standing data
     this.supportedLangs = [
-    { display: &amp;apos;English&amp;apos;, value: &amp;apos;en&amp;apos; },
-    { display: &amp;apos;Espa&amp;#xF1;ol&amp;apos;, value: &amp;apos;es&amp;apos; },
-    { display: &amp;apos;&amp;#x4E2D;&amp;#x6587;&amp;apos;, value: &amp;apos;zh&amp;apos; },
+    &#123; display: &amp;apos;English&amp;apos;, value: &amp;apos;en&amp;apos; &#125;,
+    &#123; display: &amp;apos;Espa&amp;#xF1;ol&amp;apos;, value: &amp;apos;es&amp;apos; &#125;,
+    &#123; display: &amp;apos;&amp;#x4E2D;&amp;#x6587;&amp;apos;, value: &amp;apos;zh&amp;apos; &#125;,
     ];
 
     // &amp;#x8A2D;&amp;#x5B9A;&amp;#x76EE;&amp;#x524D;&amp;#x8A9E;&amp;#x8A00;
     this.selectLang(&amp;apos;zh&amp;apos;);
-}
+&#125;
 
-isCurrentLang(lang: string) {
+isCurrentLang(lang: string) &#123;
     //&amp;#x78BA;&amp;#x5B9A;&amp;#x9078;&amp;#x7684;&amp;#x8A9E;&amp;#x8A00;&amp;#x662F;&amp;#x5426;&amp;#x70BA;&amp;#x986F;&amp;#x793A;&amp;#x8A9E;&amp;#x8A00;
     return lang === this._translate.currentLang;
-}
+&#125;
 
-selectLang(lang: string) {
+selectLang(lang: string) &#123;
     // &amp;#x8A2D;&amp;#x5B9A;&amp;#x76EE;&amp;#x524D;&amp;#x8A9E;&amp;#x8A00;
     this._translate.use(lang);
     this.refreshText();
-}
+&#125;
 
-refreshText() {
+refreshText() &#123;
     // &amp;#x8A9E;&amp;#x8A00;&amp;#x6539;&amp;#x8B8A;&amp;#x5C31;&amp;#x5237;&amp;#x65B0;
     this.translatedText = this._translate.instant(&amp;apos;hello world&amp;apos;);
-}
+&#125;
 </code></pre>
 <p>}<br>
 </code></pre></p>
@@ -362,15 +362,15 @@ refreshText() {
 &lt;button *ngFor=&quot;let lang of supportedLangs&quot;<br>
 (click)=&quot;selectLang(lang.value)&quot;<br>
 class=&quot;btn btn-default&quot; [class.btn-primary]=&quot;isCurrentLang(lang.value)&quot;&gt;<br>
-{{ lang.display }}<br>
+&#123;&#123; lang.display &#125;&#125;<br>
 &lt;/button&gt;<br>
 &lt;/div&gt;<br>
 &lt;div style=&quot;margin-top: 20px&quot;&gt;<br>
 &lt;p&gt;<br>
-使用 Pipe 翻譯: &lt;strong&gt;{{ &apos;hello world&apos; | translate }}&lt;/strong&gt;<br>
+使用 Pipe 翻譯: &lt;strong&gt;&#123;&#123; &apos;hello world&apos; | translate &#125;&#125;&lt;/strong&gt;<br>
 &lt;/p&gt;<br>
 &lt;p&gt;<br>
-使用 Service 翻譯: &lt;strong&gt;{{ translatedText }}&lt;/strong&gt;<br>
+使用 Service 翻譯: &lt;strong&gt;&#123;&#123; translatedText &#125;&#125;&lt;/strong&gt;<br>
 &lt;/p&gt;<br>
 &lt;/div&gt;<br>
 &lt;/div&gt;<br>
@@ -465,7 +465,7 @@ class=&quot;btn btn-default&quot; [class.btn-primary]=&quot;isCurrentLang(lang.v
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x76EE;&amp;#x6A19;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x85CD;&amp;#x5716;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x52D5;&amp;#x5DE5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">Translate Service</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">Translation Pipe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5B57;&amp;#x5178;&amp;#x6A94;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">App Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">App Component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">App Template</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">目標</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">藍圖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">動工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Translate Service</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Translation Pipe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">字典檔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">App Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">App Component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">App Template</span></a></li></ol>
 </div>
                 </section>
             

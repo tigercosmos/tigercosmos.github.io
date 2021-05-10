@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,7 +178,7 @@
 <p><img class="dz t u gw ak" src="https://miro.medium.com/max/3200/0*UZk2Fw5ruoYQ6qbJ.png" role="presentation"><br/></p>
 <h2 id="前言"><a class="header-anchor" href="#前言">¶ </a>前言</h2>
 <p>最近在開發<a href="https://github.com/weather-bot/weather-bot" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">氣象機器人</a>的時候，為了要促進工作流程的效率，不得不加入 bot（機器人） 進來工作流程。所以就邊研究邊實做了一個，在此記下開發心得。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <p>Github 上的 bot 專有名詞稱為 Github App，其實原理跟 Line Bot、Messenger Bot 等等都差不多。</p>
 <p>你可能在大型開源專案上看過以下情況：</p>
 <p>範例一：<a href="https://github.com/servo/servo" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">Servo</a> 專案 bot 對 Pull Request（PR，此文之後皆採縮寫） 的回應，其中 taskcluster 是回報持續整合測試結果，highfive 則會檢查 PR 的程式碼改動有沒有附上測試的程式碼。</p>
@@ -205,7 +205,7 @@
 <p>6、在 <code class="ha ir is it iu b">.env</code> 填上 <code class="ha ir is it iu b">APP_ID</code>，可以在組織/個人的「Setting」，底下的「Github App」中，點選剛剛建立的 App，進去之後在「General」最底下就可以看到 ID 啦，此外也可以在這邊重新點選要求的權限。</p>
 <p><img class="dz t u gw ak" src="https://miro.medium.com/max/4000/0*cU2hQ59kMzSmTZti.png" role="presentation"><br/></p>
 <p>7、在同一個頁面下找到「Private keys」，點下載會有 <code class="ha ir is it iu b">xxx.pem</code> 的金鑰檔，把他放入專案裡面，此外雖然 <code class="ha ir is it iu b">.gitignore</code> 有排除 <code class="ha ir is it iu b">*.pem</code>，但千萬不要不小心進入 commit。</p>
-<p>8、再來要把剛剛建立的 App 安裝，進入你的 App 頁面 <code class="ha ir is it iu b"><a href="https://github.com/apps/%E4%BD%A0%E7%9A%84APP%E5%90%8D%E7%A8%B1" target="_blank" rel="noopener">https://github.com/apps/你的APP名稱</a></code> 中點「Install」。</p>
+<p>8、再來要把剛剛建立的 App 安裝，進入你的 App 頁面 <code class="ha ir is it iu b"><a target="_blank" rel="noopener" href="https://github.com/apps/%E4%BD%A0%E7%9A%84APP%E5%90%8D%E7%A8%B1">https://github.com/apps/你的APP名稱</a></code> 中點「Install」。</p>
 <p>9、終端機進入專案，輸入 <code class="ha ir is it iu b">npm start</code>，你應該會看到類似：</p>
 <pre><code class="language-undefined">$ npm start
 
@@ -217,7 +217,7 @@
 </code></pre>
 <h2 id="開發-bot"><a class="header-anchor" href="#開發-bot">¶ </a>開發 bot</h2>
 <p>一開始 <code class="ha ir is it iu b">index.js</code> 裡面長這樣</p>
-<pre><code class="language-javascript=">module.exports = (robot) =&gt; {
+<pre><code class="language-javascript=">module.exports = (robot) =&gt; &#123;
   // Your code here
   robot.log('Yay, the app was loaded!')
   
@@ -226,16 +226,16 @@
   
   // To get your app running against GitHub, see:
   // https://probot.github.io/docs/development/
-}
+&#125;
 </code></pre>
 <p>框架採用模組的載入的形式，所以程式碼就這麼簡單！</p>
 <h2 id="接收-Webhook"><a class="header-anchor" href="#接收-Webhook">¶ </a>接收 Webhook</h2>
 <p>我們可以改成這樣：</p>
-<pre><code class="language-javascript=">module.exports = robot =&gt; {
-  robot.on(['issues.opened', 'issues.edited'], async context =&gt; {
+<pre><code class="language-javascript=">module.exports = robot =&gt; &#123;
+  robot.on(['issues.opened', 'issues.edited'], async context =&gt; &#123;
     console.log(context.payload.issue.user.login)
-  })
-}
+  &#125;)
+&#125;
 </code></pre>
 <p>先講解上半段，這樣代表說，issue 被新開或是被編輯的時候，Webhook 就會通知並產生 <code class="ha ir is it iu b">context</code>。其中 <code class="ha ir is it iu b">issues.opened</code> 是由 <a href="https://developer.github.com/v3/activity/events/types/#issuesevent" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">Github Webhook Doc</a> 中去查。格式為 <code class="ha ir is it iu b">name.action</code>，就是我圖中圈起來的部分。</p>
 <p><img class="dz t u gw ak" src="https://miro.medium.com/max/2812/0*BaOuWz5aUNYH8DkY.png" role="presentation"><br/></p>
@@ -245,34 +245,34 @@
 <p>在繼續前，這邊要解釋一下 Github webhook event name 中什麼是 <code class="ha ir is it iu b">issue_comment</code>。我看了文件很久，想破頭為什麼沒有一個叫做 <code class="ha ir is it iu b">pull_request_comment</code>，也就是在 PR 下面留言。最接近的頂多叫 <code class="ha ir is it iu b">pull_request_review_comment</code>，但他是指直接在 PR 程式碼上面留言。</p>
 <p>後來我知道原來不管是 issue 或是 PR，底下的留言通通叫做 <code class="ha ir is it iu b">issue_comment</code>，希望大家別踩雷了！</p>
 <p>接下來我們可以把程式碼改成：</p>
-<pre><code class="language-javascript=">module.exports = robot =&gt; {
-  robot.on('issues.opened', async context =&gt; {
+<pre><code class="language-javascript=">module.exports = robot =&gt; &#123;
+  robot.on('issues.opened', async context =&gt; &#123;
     // 自動根據這個 context 把資料包裝
-    const params = context.issue({body: 'Hello World!'})
+    const params = context.issue(&#123;body: 'Hello World!'&#125;)
     // 讓 bot 新建一個留言
     await context.github.issues.createComment(params)
-  })
-}
+  &#125;)
+&#125;
 </code></pre>
 <p>上面那段程式碼可以讓 bot 在 issue 被打開的時候，在底下留言說 <code class="ha ir is it iu b">Hello World!</code>。更多用法可以看<a href="https://probot.github.io/docs/github-api/" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">文件</a>，還可以做到替 issue 加標籤、自動 assign 人、修改程式碼、編輯 PR 內容等等。</p>
 <p>此外要小心的是，如果是這樣寫：</p>
-<pre><code class="language-javascript=">robot.on('issue_comment.created', async context =&gt; {
-    const params = context.issue({body: 'Hello World!'})
+<pre><code class="language-javascript=">robot.on('issue_comment.created', async context =&gt; &#123;
+    const params = context.issue(&#123;body: 'Hello World!'&#125;)
     await context.github.issues.createComment(params)
-  })
-}
+  &#125;)
+&#125;
 </code></pre>
 <p>意思是，當有 PR 或 issue 有人留言，bot 就留言。然後就悲劇了！因為 bot 看到 bot 留言，bot 就繼續留言⋯⋯。所以這種情況要寫判斷，讓他不會陷入無窮迴圈中。</p>
 <p>此外還可以這樣寫：</p>
-<pre><code class="language-javascript=">robot.on('issue_comment.created', async context =&gt; {
-    const params = context.issue({body: '要開始工作囉！'})
+<pre><code class="language-javascript=">robot.on('issue_comment.created', async context =&gt; &#123;
+    const params = context.issue(&#123;body: '要開始工作囉！'&#125;)
     await context.github.issues.createComment(params)
     // 做了一些事情後
-    const params = context.issue({body: '工作做完了！'})
+    const params = context.issue(&#123;body: '工作做完了！'&#125;)
     await context.github.issues.createComment(params)
     // 記得加判斷條件避免無窮迴圈
-  })
-}
+  &#125;)
+&#125;
 </code></pre>
 <p>善用 <code class="ha ir is it iu b">async</code> 和 <code class="ha ir is it iu b">await</code>，可以做到按步驟的對 Github 操作，切記 JS 是異步執行的語言，直接多個執行 <code class="ha ir is it iu b">context.github.XX()</code> 會導致順序錯亂！</p>
 <p>改好之後，記得在用 <code class="ha ir is it iu b">npm start</code> 開始伺服，上 Github 的 issue 或 PR 做你規則的動作，看結果有沒有反應喔！</p>
@@ -361,7 +361,7 @@
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什麼是-Probot？"><span class="toc-text">什麼是 Probot？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#設定步驟"><span class="toc-text">設定步驟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#開發-bot"><span class="toc-text">開發 bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接收-Webhook"><span class="toc-text">接收 Webhook</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#讓-bot-對-Github-做改動"><span class="toc-text">讓 bot 對 Github 做改動</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-text">結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Probot%EF%BC%9F"><span class="toc-text">什麼是 Probot？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A%E6%AD%A5%E9%A9%9F"><span class="toc-text">設定步驟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E7%99%BC-bot"><span class="toc-text">開發 bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E6%94%B6-Webhook"><span class="toc-text">接收 Webhook</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%93-bot-%E5%B0%8D-Github-%E5%81%9A%E6%94%B9%E5%8B%95"><span class="toc-text">讓 bot 對 Github 做改動</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
 </div>
                 </section>
             

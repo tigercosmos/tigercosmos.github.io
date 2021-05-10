@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -187,96 +187,96 @@
 <p>!FILENAME component/database.rs</p>
 <pre><code>use component::table::Table;
 #[derive(Debug, Clone)]
-pub struct Database {
+pub struct Database &#123;
     name: String,
     tables: Vec&lt;Table&gt;
-}
-impl Database {
-    fn new(name: &amp;str) -&gt; Database {
-        Database {
+&#125;
+impl Database &#123;
+    fn new(name: &amp;str) -&gt; Database &#123;
+        Database &#123;
             name: name.to_string(),
             tables: vec![],
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>!FILENAME component/table.rs</p>
 <pre><code>use std::collections::HashMap;
 use component::field::Field;
 #[derive(Debug, Clone)]
-pub struct Table {
+pub struct Table &#123;
     name: String,
     fields: HashMap&lt;String,Field&gt;,
     primary_key: Vec&lt;String&gt;,
     foreign_key: Vec&lt;String&gt;,
     reference_table: Option&lt;String&gt;,
-}
-impl Table {
-    fn new(name: &amp;str) -&gt; Table {
-        Table {
+&#125;
+impl Table &#123;
+    fn new(name: &amp;str) -&gt; Table &#123;
+        Table &#123;
             name: name.to_string(),
             fields: HashMap::new(),
             primary_key: vec![],
             foreign_key: vec![],
             reference_table: None,
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>!FILENAME component/field.rs</p>
 <pre><code>use component::datatype::DataType;
 use component::datatype::Value;
 #[derive(Debug, Clone)]
-pub struct Field {
+pub struct Field &#123;
     name: String,
     datatype: DataType,
     value: Value,
     not_null: bool,
     check: Checker,
-}
+&#125;
 #[derive(Debug, Clone)]
-pub enum Checker {
+pub enum Checker &#123;
     None,
     Some(Operator, Value)
-}
+&#125;
 #[derive(Debug, Clone)]
-enum Operator {
+enum Operator &#123;
     LT, // &lt;
     LE, // &lt;=
     EQ, // =
     NE, // !=
     GT, // &gt;
     GE, // &gt;=
-}
-impl Field {
-    fn new(name: &amp;str, datatype: DataType, value: Value, not_null: bool, check: Checker) -&gt; Field {
-        Field {
+&#125;
+impl Field &#123;
+    fn new(name: &amp;str, datatype: DataType, value: Value, not_null: bool, check: Checker) -&gt; Field &#123;
+        Field &#123;
             name: name.to_string(),
             datatype,
             value,
             not_null,
             check,
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>!FILENAME component/datatype.rs</p>
 <pre><code>#[derive(Debug, Clone)]
-pub enum DataType {
+pub enum DataType &#123;
     Char,
     Double,
     Float,
     Int,
     Varchar,
-}
+&#125;
 #[derive(Debug, Clone)]
-pub enum Value{
+pub enum Value&#123;
     Char(u8, String),
     Double(f64),
     Float(f32),
     Int(i32),
     Varchar(u8, String),
-}
+&#125;
 </code></pre>
 <p>This is just the initialization. I will implement methods later.</p>
 

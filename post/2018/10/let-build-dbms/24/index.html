@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -184,7 +184,7 @@
 <pre><code class="language-java">String conUrl = &quot;jdbc:sqlserver://portNumber:1234;serverName=test;databaseName=test_db;user=tester;password=12345;&quot;;
 Connection connection = DriverManager.getConnection(conUrl);
 
-try {
+try &#123;
     String sql = &quot;SELECT user_id FROM user_table&quot;;
     Statement stmt = connection.createStatement();
 
@@ -192,7 +192,7 @@ try {
     ResultSetMetaData rsmd = rs.getMetaData(); // get data from query
 
     // ...
-}
+&#125;
 </code></pre>
 <p>The biggest improvement is not the object-oriented design, but rather the concept of <code>connection</code>. In this design, the <code>connection</code> needs to set the ip, port, and the server name, which means there are more than one DBMS the program could reach for. In other words, there are more data and servers in the age of this design becoming to be used.</p>
 <p>In the end, advance in technology, there will be more and more high level designs of DBMS and clients for big data and distributed system being being created and adopted.</p>

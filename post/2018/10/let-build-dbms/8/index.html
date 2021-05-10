@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -175,41 +175,41 @@
     </ul>
     <div class="post-content">
         <p>As I introduced yesterday, there are a lexical scanner and a grammar rule parser in the SQL parser.</p>
-<p>I would implement a basic SQL first, which supports a simplified version of SQL syntax. How basic is it? I use <a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener">W3C SQL Tutorial</a> as the standard, which means I will support most syntax in that tutorial. There are more syntax which are complex, and I would not support those for now.</p>
-<p>Today, I am studying how to implement the lexical scanner. There are many articles about how a lexical scanner works, so I skip the introduction here. Just mention a few good articles: “<em><a href="https://medium.com/dailyjs/733246be6738" target="_blank" rel="noopener">Gentle introduction into compilers. Part 1: Lexical analysis and Scanner</a></em>” by @maxim_koretskyi, “<em><a href="https://hackernoon.com/861b8bfe4cb0" target="_blank" rel="noopener">Lexical Analysis</a></em>” by Faiçal Tchirou.</p>
+<p>I would implement a basic SQL first, which supports a simplified version of SQL syntax. How basic is it? I use <a target="_blank" rel="noopener" href="https://www.w3schools.com/sql/">W3C SQL Tutorial</a> as the standard, which means I will support most syntax in that tutorial. There are more syntax which are complex, and I would not support those for now.</p>
+<p>Today, I am studying how to implement the lexical scanner. There are many articles about how a lexical scanner works, so I skip the introduction here. Just mention a few good articles: “<em><a target="_blank" rel="noopener" href="https://medium.com/dailyjs/733246be6738">Gentle introduction into compilers. Part 1: Lexical analysis and Scanner</a></em>” by @maxim_koretskyi, “<em><a target="_blank" rel="noopener" href="https://hackernoon.com/861b8bfe4cb0">Lexical Analysis</a></em>” by Faiçal Tchirou.</p>
 <h2 id="How-MySQL-Does"><a class="header-anchor" href="#How-MySQL-Does">¶ </a>How MySQL Does</h2>
 <p>Before we start, it’s good to see how others compiler implement their lexical scanner. Finite state machines and finite automaton are helpful for processing lexical analysis. Most projects use tools like GNU Flex, however MySQL uses handwritten identifiers in lexical scanner for better performance and flexibility.</p>
 <p>MySQL puts their keywords in <code>sql/lex.h</code>:</p>
 <p>!FILENAME mysql_server/sql/lex.h</p>
-<pre><code class="language-h">static const SYMBOL symbols[] = {
+<pre><code class="language-h">static const SYMBOL symbols[] = &#123;
     /*
      Insert new SQL keywords after that commentary (by alphabetical order):
     */
-    {SYM(&quot;&amp;&amp;&quot;, AND_AND_SYM)},
-    {SYM(&quot;&lt;&quot;, LT)},
-    {SYM(&quot;&lt;=&quot;, LE)},
-    {SYM(&quot;&lt;&gt;&quot;, NE)},
-    {SYM(&quot;!=&quot;, NE)},
-    {SYM(&quot;=&quot;, EQ)},
-    {SYM(&quot;&gt;&quot;, GT_SYM)},
-    {SYM(&quot;&gt;=&quot;, GE)},
-    {SYM(&quot;&lt;&lt;&quot;, SHIFT_LEFT)},
-    {SYM(&quot;&gt;&gt;&quot;, SHIFT_RIGHT)},
-    {SYM(&quot;&lt;=&gt;&quot;, EQUAL_SYM)},
-    {SYM(&quot;ACCESSIBLE&quot;, ACCESSIBLE_SYM)},
-    {SYM(&quot;ACCOUNT&quot;, ACCOUNT_SYM)},
-    {SYM(&quot;ACTION&quot;, ACTION)},
-    {SYM(&quot;ADD&quot;, ADD)},
-    {SYM(&quot;ADMIN&quot;, ADMIN_SYM)},
-    {SYM(&quot;AFTER&quot;, AFTER_SYM)},
-    {SYM(&quot;AGAINST&quot;, AGAINST)},
+    &#123;SYM(&quot;&amp;&amp;&quot;, AND_AND_SYM)&#125;,
+    &#123;SYM(&quot;&lt;&quot;, LT)&#125;,
+    &#123;SYM(&quot;&lt;=&quot;, LE)&#125;,
+    &#123;SYM(&quot;&lt;&gt;&quot;, NE)&#125;,
+    &#123;SYM(&quot;!=&quot;, NE)&#125;,
+    &#123;SYM(&quot;=&quot;, EQ)&#125;,
+    &#123;SYM(&quot;&gt;&quot;, GT_SYM)&#125;,
+    &#123;SYM(&quot;&gt;=&quot;, GE)&#125;,
+    &#123;SYM(&quot;&lt;&lt;&quot;, SHIFT_LEFT)&#125;,
+    &#123;SYM(&quot;&gt;&gt;&quot;, SHIFT_RIGHT)&#125;,
+    &#123;SYM(&quot;&lt;=&gt;&quot;, EQUAL_SYM)&#125;,
+    &#123;SYM(&quot;ACCESSIBLE&quot;, ACCESSIBLE_SYM)&#125;,
+    &#123;SYM(&quot;ACCOUNT&quot;, ACCOUNT_SYM)&#125;,
+    &#123;SYM(&quot;ACTION&quot;, ACTION)&#125;,
+    &#123;SYM(&quot;ADD&quot;, ADD)&#125;,
+    &#123;SYM(&quot;ADMIN&quot;, ADMIN_SYM)&#125;,
+    &#123;SYM(&quot;AFTER&quot;, AFTER_SYM)&#125;,
+    &#123;SYM(&quot;AGAINST&quot;, AGAINST)&#125;,
     // ...
     // ...
-}
+&#125;
 </code></pre>
 <p>The entry points for the lexical scanner of MySQL is <code>yylex()</code> in <code>sql/sql_lex.cc</code>, where <code>yy</code> is just a prefix.</p>
 <p>!FILENAME mysql_server/sql/sql_lex.cc</p>
-<pre><code class="language-c++">static int lex_one_token(YYSTYPE *yylval, THD *thd) {
+<pre><code class="language-c++">static int lex_one_token(YYSTYPE *yylval, THD *thd) &#123;
   uchar c = 0;
   bool comment_closed;
   int tokval, result_state;
@@ -225,15 +225,15 @@
   lip-&gt;start_token();
   state = lip-&gt;next_state;
   lip-&gt;next_state = MY_LEX_START;
-  for (;;) {
-    switch (state) {
+  for (;;) &#123;
+    switch (state) &#123;
       case MY_LEX_START:  // Start of token
         // Skip starting whitespace
-        while (state_map[c = lip-&gt;yyPeek()] == MY_LEX_SKIP) {
+        while (state_map[c = lip-&gt;yyPeek()] == MY_LEX_SKIP) &#123;
           if (c == '\n') lip-&gt;yylineno++;
 
           lip-&gt;yySkip();
-        }
+        &#125;
 
         /* Start of real token */
         lip-&gt;restart_token();
@@ -244,12 +244,12 @@
       // ...
       // ...
       // ...
-    }
-  }
-}
+    &#125;
+  &#125;
+&#125;
 </code></pre>
 <h2 id="How-TypeScript-Does"><a class="header-anchor" href="#How-TypeScript-Does">¶ </a>How TypeScript Does</h2>
-<p>It is also worth to read the scanner in TypeScript, in which is <a href="https://github.com/Microsoft/TypeScript/blob/fbd6cad437390693e69707928896d7da620a803e/src/compiler/scanner.ts" target="_blank" rel="noopener">TypeScript/src/compiler/scanner.ts</a></p>
+<p>It is also worth to read the scanner in TypeScript, in which is <a target="_blank" rel="noopener" href="https://github.com/Microsoft/TypeScript/blob/fbd6cad437390693e69707928896d7da620a803e/src/compiler/scanner.ts">TypeScript/src/compiler/scanner.ts</a></p>
 <p>!FILENAME TypeScript/src/compiler/scanner.ts</p>
 <pre><code class="language-ts">    // ...
     // ...
@@ -257,10 +257,10 @@
     // ...
     // ...
 
-    const textToToken = createMapFromTemplate&lt;SyntaxKind&gt;({
+    const textToToken = createMapFromTemplate&lt;SyntaxKind&gt;(&#123;
         ...textToKeywordObj,
-        &quot;{&quot;: SyntaxKind.OpenBraceToken,
-        &quot;}&quot;: SyntaxKind.CloseBraceToken,
+        &quot;&#123;&quot;: SyntaxKind.OpenBraceToken,
+        &quot;&#125;&quot;: SyntaxKind.CloseBraceToken,
         &quot;(&quot;: SyntaxKind.OpenParenToken,
         &quot;)&quot;: SyntaxKind.CloseParenToken,
         &quot;[&quot;: SyntaxKind.OpenBracketToken,
@@ -269,7 +269,7 @@
         &quot;...&quot;: SyntaxKind.DotDotDotToken
         // ...
         // ...
-    })
+    &#125;)
     // ...
     // ...
 
@@ -286,7 +286,7 @@
                                   textInitial?: string,
                                   onError?: ErrorCallback,
                                   start?: number,
-                                  length?: number): Scanner {
+                                  length?: number): Scanner &#123;
         let text = textInitial!;
 
         // Current position (end position of text of current token)
@@ -310,7 +310,7 @@
 
         setText(text, start, length);
 
-        return {
+        return &#123;
             getStartPos: () =&gt; startPos,
             getTextPos: () =&gt; pos,
             getToken: () =&gt; token,
@@ -342,7 +342,7 @@
             tryScan,
             lookAhead,
             scanRange,
-    };
+    &#125;;
     // ...
     // ...
 

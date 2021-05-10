@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="&lt;論文&gt; 網頁瀏覽器在異質運算多核心處理器平台上電量管理的工作量描述" />
     <title>Neutrino&#39;s Blog: &lt;論文&gt; 網頁瀏覽器在異質運算多核心處理器平台上電量管理的工作量描述 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -185,7 +185,7 @@
 </ul>
 <hr>
 <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
-<p>這篇論文在研究 Google 的 Chrome 瀏覽器在異質運算多核心處理器（heterogeneous multi-processing, HMP），或是所謂 <a href="https://zh.wikipedia.org/wiki/Big.LITTLE" target="_blank" rel="noopener">big.LITTLE</a> 架構的情況下，處理器使用方式對於瀏覽器的效能以及耗電有怎樣的影響。</p>
+<p>這篇論文在研究 Google 的 Chrome 瀏覽器在異質運算多核心處理器（heterogeneous multi-processing, HMP），或是所謂 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Big.LITTLE">big.LITTLE</a> 架構的情況下，處理器使用方式對於瀏覽器的效能以及耗電有怎樣的影響。</p>
 <p>big.LITTLE 是 ARM 提出的處理器架構，也就是由幾個「高效能」處理器搭配幾個「低功耗」處理器，所組成的處理器叢集。至於所謂異質運算多核心處理器，節錄自 Wiki：</p>
 <blockquote>
 <p>異質多處理（heterogeneous multi-processing，HMP）是big.LITTLE組態中最靈活也是效能最強勁的使用模式，在這種組態中，同一時間點上所有的物理CPU核心都是可用的並且可以同時全部開啟使用，也可以將高效能CPU核心全數關閉而只使用低功耗CPU核心。高優先級或者對運算速度吃重的執行緒可以被分派至高效能CPU核心上，而低優先級或對運算速度要求不高的執行緒（如背景任務），則是由低功耗CPU核心負責完成。</p>
@@ -272,12 +272,12 @@ eBay 的例子中，將最高時脈限制在 1.2GHz，消耗的功減少 34.6% �
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">
@@ -349,7 +349,7 @@ eBay 的例子中，將最高時脈限制在 1.2GHz，消耗的功減少 34.6% �
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#簡介"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#瀏覽器架構"><span class="toc-text">瀏覽器架構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#實驗器材"><span class="toc-text">實驗器材</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HMP-平台電源控制"><span class="toc-text">HMP 平台電源控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#檢測機制"><span class="toc-text">檢測機制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#瀏覽器執行緒"><span class="toc-text">瀏覽器執行緒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#實驗囉！"><span class="toc-text">實驗囉！</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#限制效能分析（Power-Performance-Trade-off-Analysis）"><span class="toc-text">限制效能分析（Power-Performance Trade-off Analysis）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#限制使用核心（Constraints-for-Core-Allocation）"><span class="toc-text">限制使用核心（Constraints for Core Allocation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#採用動態時脈電壓（Power-Savings-by-DVFS-without-Perfor-mance-Compromise）"><span class="toc-text">採用動態時脈電壓（Power Savings by DVFS without Perfor- mance Compromise）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前階段電門控制（Post-Loading-Phase-Power-Gating）"><span class="toc-text">前階段電門控制（Post-Loading Phase Power Gating）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-text">結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8%E6%9E%B6%E6%A7%8B"><span class="toc-text">瀏覽器架構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%A6%E9%A9%97%E5%99%A8%E6%9D%90"><span class="toc-text">實驗器材</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HMP-%E5%B9%B3%E5%8F%B0%E9%9B%BB%E6%BA%90%E6%8E%A7%E5%88%B6"><span class="toc-text">HMP 平台電源控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AA%A2%E6%B8%AC%E6%A9%9F%E5%88%B6"><span class="toc-text">檢測機制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8%E5%9F%B7%E8%A1%8C%E7%B7%92"><span class="toc-text">瀏覽器執行緒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%A6%E9%A9%97%E5%9B%89%EF%BC%81"><span class="toc-text">實驗囉！</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%90%E5%88%B6%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90%EF%BC%88Power-Performance-Trade-off-Analysis%EF%BC%89"><span class="toc-text">限制效能分析（Power-Performance Trade-off Analysis）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%90%E5%88%B6%E4%BD%BF%E7%94%A8%E6%A0%B8%E5%BF%83%EF%BC%88Constraints-for-Core-Allocation%EF%BC%89"><span class="toc-text">限制使用核心（Constraints for Core Allocation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A1%E7%94%A8%E5%8B%95%E6%85%8B%E6%99%82%E8%84%88%E9%9B%BB%E5%A3%93%EF%BC%88Power-Savings-by-DVFS-without-Perfor-mance-Compromise%EF%BC%89"><span class="toc-text">採用動態時脈電壓（Power Savings by DVFS without Perfor- mance Compromise）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E9%9A%8E%E6%AE%B5%E9%9B%BB%E9%96%80%E6%8E%A7%E5%88%B6%EF%BC%88Post-Loading-Phase-Power-Gating%EF%BC%89"><span class="toc-text">前階段電門控制（Post-Loading Phase Power Gating）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
 </div>
                 </section>
             

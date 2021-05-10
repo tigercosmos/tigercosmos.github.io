@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,servo,open source,開源,瀏覽器,browsers," />
+        content="browser,servo,open source,開源,browsers,瀏覽器," />
     <meta name="description"
         content="你的第一份大型開源專案--Servo 瀏覽器" />
     <title>Neutrino&#39;s Blog: 你的第一份大型開源專案--Servo 瀏覽器 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -179,7 +179,7 @@
 <h2 id="前言"><a class="header-anchor" href="#前言">¶ </a>前言</h2>
 <p>開放原始碼軟體，又稱開源軟體（Open Source Software），顧名思義是將軟體的原始碼公開。詳細介紹可以看<a href="https://zh.wikipedia.org/zh-tw/%E9%96%8B%E6%BA%90%E8%BB%9F%E9%AB%94" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">維基百科</a>介紹以及<a href="https://buzzorange.com/techorange/2014/12/19/what-is-open-source/" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">什麼是開源</a>一文。</p>
 <p>身為軟體開發者，我們常常會需要很多工具來幫助我們更簡單完成工作，而且我們都知道沒事不要自己造輪子，這時候就會看看網路上有沒有現成的工具。例如想要開發機器學習可能就會用 Tensorflow，想要開發網頁前端可能會使用 Angular，想要開發 Android App 可能會用 Kotlin，平常用的 gcc 或 clang，甚至 Linux 作業系統通通都是開源軟體。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <p>取之於社會，回饋於社會。在我們享受開源軟體的無窮好處之虞，也想為開源軟體盡一份心力，不僅讓更多人受惠，也滿足自己的成就感。貢獻開源有很多種，可以是協助建立文件、幫忙翻譯、解決 bug、開發新功能，此外開源軟體也有分大跟小，大的專案例如 Chrome 瀏覽器，小的專案可能只是 VSCode 的擴充功能。當我們野心比較大的時候，就會希望自己能貢獻一些大型專案，而不是小專案而已，而且會希望自己能開發出核心功能，不僅僅是改個小 bug 或幫忙翻譯文件而已。</p>
 <p>但是大型開源軟體往往已經發展過於龐大，面對已經有數十萬、數百萬行的軟體而言，一個新手想要參一咖並不容易，更何況還沒有其他開源經驗。</p>
 <p>本篇將選定 Servo 瀏覽器作為一個想要貢獻大型開源專案新手的第一份專案，目前我在 Servo 專案中在八百名貢獻者中排名約前五十，算是活躍貢獻者之一。此外因為我本身熱愛開源，所以也參加了不少開源專案。希望透過我的經驗，帶大家進入開源的世界！</p>
@@ -276,7 +276,7 @@ sudo apt install libssl-dev
 <h2 id="實際開發"><a class="header-anchor" href="#實際開發">¶ </a>實際開發</h2>
 <p>這邊以這個 issue: <a href="https://github.com/servo/servo/issues/13282" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">Support cloning steps for textarea/input</a> 為例，假設我們選定這個當作要解決的目標。</p>
 <p>這個 issue 是因為 WHATWG 的 HTML 文件有更新，所以要讓 Servo 與最新的標準一致。而要修正的地方就是直接對照文件變動的部分。</p>
-<p>對應的 <a href="https://github.com/servo/servo/pull/21015/files" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">Pull Request</a> 是這一支，可以看到我改了兩個檔案，一個是 <code class="ha if ig ih ii b"><a href="http://htmltextareaelement.rs" target="_blank" rel="noopener">htmltextareaelement.rs</a></code> 另個是 <code class="ha if ig ih ii b">cloning-steps.html.ini</code>。</p>
+<p>對應的 <a href="https://github.com/servo/servo/pull/21015/files" class="dj by hy hz ia ib" target="_blank" rel="noopener nofollow">Pull Request</a> 是這一支，可以看到我改了兩個檔案，一個是 <code class="ha if ig ih ii b"><a target="_blank" rel="noopener" href="http://htmltextareaelement.rs">htmltextareaelement.rs</a></code> 另個是 <code class="ha if ig ih ii b">cloning-steps.html.ini</code>。</p>
 <p><code class="ha if ig ih ii b">rs</code> 即為 Rust 檔案，顧名思義是處理 HTML text area element，所以針對這個檔案做改動。</p>
 <p><code class="ha if ig ih ii b">.ini</code> 檔比較特殊，他是指通過不了 WPT 測試（等等會介紹）的檔案，例如 <code class="ha if ig ih ii b">cloning-steps.html</code> 還通過不了，所以有 <code class="ha if ig ih ii b">cloning-steps.html.ini</code> 來記錄。因為這邊實作之後可以通過了，所以就把 <code class="ha if ig ih ii b">.ini</code> 檔案刪除。</p>
 <p>總之這步驟就是將 issue 中所描述的問題解決，可能是除 bug，或是增加新功能。過程中碰到問題都可以在 issue 上發問。</p>
@@ -337,12 +337,12 @@ sudo apt install libssl-dev
                 開源
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/browsers/">
                 browsers
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
     </div>
@@ -410,7 +410,7 @@ sudo apt install libssl-dev
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什麼是-Servo-專案"><span class="toc-text">什麼是 Servo 專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servo-有什麼好處"><span class="toc-text">Servo 有什麼好處</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在開始貢獻之前"><span class="toc-text">在開始貢獻之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#瀏覽器原理"><span class="toc-text">瀏覽器原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#取得源碼、編譯-Servo"><span class="toc-text">取得源碼、編譯 Servo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#開始貢獻"><span class="toc-text">開始貢獻</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#開發流程"><span class="toc-text">開發流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#找到目標"><span class="toc-text">找到目標</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#參考文件"><span class="toc-text">參考文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#實際開發"><span class="toc-text">實際開發</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#單機測試"><span class="toc-text">單機測試</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#送出審查"><span class="toc-text">送出審查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自動化整合"><span class="toc-text">自動化整合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#進入主幹"><span class="toc-text">進入主幹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-text">結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#參考與延伸"><span class="toc-text">參考與延伸</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Servo-%E5%B0%88%E6%A1%88"><span class="toc-text">什麼是 Servo 專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servo-%E6%9C%89%E4%BB%80%E9%BA%BC%E5%A5%BD%E8%99%95"><span class="toc-text">Servo 有什麼好處</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E9%96%8B%E5%A7%8B%E8%B2%A2%E7%8D%BB%E4%B9%8B%E5%89%8D"><span class="toc-text">在開始貢獻之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8%E5%8E%9F%E7%90%86"><span class="toc-text">瀏覽器原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%BE%97%E6%BA%90%E7%A2%BC%E3%80%81%E7%B7%A8%E8%AD%AF-Servo"><span class="toc-text">取得源碼、編譯 Servo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B%E8%B2%A2%E7%8D%BB"><span class="toc-text">開始貢獻</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E7%99%BC%E6%B5%81%E7%A8%8B"><span class="toc-text">開發流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%88%B0%E7%9B%AE%E6%A8%99"><span class="toc-text">找到目標</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E6%96%87%E4%BB%B6"><span class="toc-text">參考文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%A6%E9%9A%9B%E9%96%8B%E7%99%BC"><span class="toc-text">實際開發</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%96%AE%E6%A9%9F%E6%B8%AC%E8%A9%A6"><span class="toc-text">單機測試</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%81%E5%87%BA%E5%AF%A9%E6%9F%A5"><span class="toc-text">送出審查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8B%95%E5%8C%96%E6%95%B4%E5%90%88"><span class="toc-text">自動化整合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E5%85%A5%E4%B8%BB%E5%B9%B9"><span class="toc-text">進入主幹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%88%87%E5%BB%B6%E4%BC%B8"><span class="toc-text">參考與延伸</span></a></li></ol>
 </div>
                 </section>
             

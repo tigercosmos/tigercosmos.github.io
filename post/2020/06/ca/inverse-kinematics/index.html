@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -223,7 +223,7 @@ $$</p>
 <p>在反向動力學中 (Inverse Kinematics) 中，我們將關係反過來，我們給定 End Effector，希望得到旋轉的角度：</p>
 <p>$$\mathbf \theta = f^{-1}(\mathbf e)$$</p>
 <h3 id="2-3-Jacobian"><a class="header-anchor" href="#2-3-Jacobian">¶ </a>2.3 Jacobian</h3>
-<p>向量微積分的 <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant" target="_blank" rel="noopener">Jacobian</a> 代表一個函數 $f$ 的線性近似值，我們可以用 Jacobian $J$ 從 End Effector $\mathbf e$ 去回推 d$\mathbf \theta$。</p>
+<p>向量微積分的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a> 代表一個函數 $f$ 的線性近似值，我們可以用 Jacobian $J$ 從 End Effector $\mathbf e$ 去回推 d$\mathbf \theta$。</p>
 <img src="https://i.imgur.com/z22VM1L.jpg" width="80%">
 <p><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">J</mi></mrow><mo>=</mo><mrow class="MJX-TeXAtom-ORD"><mfrac><mrow class="MJX-TeXAtom-ORD"><mi>d</mi><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">e</mi></mrow></mrow><mrow class="MJX-TeXAtom-ORD"><mi>d</mi><mrow class="MJX-TeXAtom-ORD"><mi>θ<!-- θ --></mi></mrow></mrow></mfrac></mrow></math></p>
 <p>$$d\mathbf e  = \mathbf J d \mathbf \theta$$</p>
@@ -328,16 +328,16 @@ $$\mathbf \theta_{k} = \mathbf \theta_{k+1} - dt * \mathbf J^+(\mathbf \theta_{k
 <h2 id="5-參考"><a class="header-anchor" href="#5-參考">¶ </a>5. 參考</h2>
 <ul>
 <li>
-<p>Samuel R. Buss. 2009. Introduction to Inverse Kinematics with Jacobian Transpose, Pseudoinverse and Damped Least Squares methods. <a href="http://graphics.cs.cmu.edu/nsp/course/15-464/Spring11/handouts/iksurvey.pdf" target="_blank" rel="noopener">http://graphics.cs.cmu.edu/nsp/course/15-464/Spring11/handouts/iksurvey.pdf</a></p>
+<p>Samuel R. Buss. 2009. Introduction to Inverse Kinematics with Jacobian Transpose, Pseudoinverse and Damped Least Squares methods. <a target="_blank" rel="noopener" href="http://graphics.cs.cmu.edu/nsp/course/15-464/Spring11/handouts/iksurvey.pdf">http://graphics.cs.cmu.edu/nsp/course/15-464/Spring11/handouts/iksurvey.pdf</a></p>
 </li>
 <li>
-<p><a href="https://epiphany.pub/@shi-yan" target="_blank" rel="noopener">@shi-yan</a>. 2019. Inverse Kinematics Explained Interactively. <a href="https://epiphany.pub/@shi-yan/inverse-kinematics-explained-interactively" target="_blank" rel="noopener">https://epiphany.pub/@shi-yan/inverse-kinematics-explained-interactively</a></p>
+<p><a target="_blank" rel="noopener" href="https://epiphany.pub/@shi-yan">@shi-yan</a>. 2019. Inverse Kinematics Explained Interactively. <a target="_blank" rel="noopener" href="https://epiphany.pub/@shi-yan/inverse-kinematics-explained-interactively">https://epiphany.pub/@shi-yan/inverse-kinematics-explained-interactively</a></p>
 </li>
 <li>
-<p>Rickard Nilsson. Inverse Kinematics Explained Interactively. 2009. <a href="https://www.diva-portal.org/smash/get/diva2:1018821/FULLTEXT01.pdf" target="_blank" rel="noopener">https://www.diva-portal.org/smash/get/diva2:1018821/FULLTEXT01.pdf</a></p>
+<p>Rickard Nilsson. Inverse Kinematics Explained Interactively. 2009. <a target="_blank" rel="noopener" href="https://www.diva-portal.org/smash/get/diva2:1018821/FULLTEXT01.pdf">https://www.diva-portal.org/smash/get/diva2:1018821/FULLTEXT01.pdf</a></p>
 </li>
 <li>
-<p><a href="http://www.cs.cmu.edu/~nsp" target="_blank" rel="noopener">Nancy Pollard</a>. 2003. CMU: Technical Animation. <a href="http://www.cs.cmu.edu/~15464-s13/" target="_blank" rel="noopener">http://www.cs.cmu.edu/~15464-s13/assignments/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~nsp">Nancy Pollard</a>. 2003. CMU: Technical Animation. <a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~15464-s13/">http://www.cs.cmu.edu/~15464-s13/assignments/</a></p>
 </li>
 </ul>
 
@@ -435,7 +435,7 @@ $$\mathbf \theta_{k} = \mathbf \theta_{k+1} - dt * \mathbf J^+(\mathbf \theta_{k
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介紹"><span class="toc-text">1. 介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Jacobian-Pseudoinverse-原理與實作"><span class="toc-text">2. Jacobian Pseudoinverse 原理與實作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-參數定義"><span class="toc-text">2.1 參數定義</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-動力學"><span class="toc-text">2.2 動力學</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Jacobian"><span class="toc-text">2.3 Jacobian</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-求-Jacobian-近似解"><span class="toc-text">2.4 求 Jacobian 近似解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-Inverse-of-Jacobian"><span class="toc-text">2.5 Inverse of Jacobian</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-IK-演算法"><span class="toc-text">2.6 IK 演算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-探討"><span class="toc-text">3. 探討</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-參數影響"><span class="toc-text">3.1 參數影響</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-可動關節數量對-IK-的影響"><span class="toc-text">3.2 可動關節數量對 IK 的影響</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-結論"><span class="toc-text">4. 結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-參考"><span class="toc-text">5. 參考</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%8B%E7%B4%B9"><span class="toc-text">1. 介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Jacobian-Pseudoinverse-%E5%8E%9F%E7%90%86%E8%88%87%E5%AF%A6%E4%BD%9C"><span class="toc-text">2. Jacobian Pseudoinverse 原理與實作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%8F%83%E6%95%B8%E5%AE%9A%E7%BE%A9"><span class="toc-text">2.1 參數定義</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%8B%95%E5%8A%9B%E5%AD%B8"><span class="toc-text">2.2 動力學</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Jacobian"><span class="toc-text">2.3 Jacobian</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%B1%82-Jacobian-%E8%BF%91%E4%BC%BC%E8%A7%A3"><span class="toc-text">2.4 求 Jacobian 近似解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-Inverse-of-Jacobian"><span class="toc-text">2.5 Inverse of Jacobian</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-IK-%E6%BC%94%E7%AE%97%E6%B3%95"><span class="toc-text">2.6 IK 演算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8E%A2%E8%A8%8E"><span class="toc-text">3. 探討</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%8F%83%E6%95%B8%E5%BD%B1%E9%9F%BF"><span class="toc-text">3.1 參數影響</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%8F%AF%E5%8B%95%E9%97%9C%E7%AF%80%E6%95%B8%E9%87%8F%E5%B0%8D-IK-%E7%9A%84%E5%BD%B1%E9%9F%BF"><span class="toc-text">3.2 可動關節數量對 IK 的影響</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B5%90%E8%AB%96"><span class="toc-text">4. 結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8F%83%E8%80%83"><span class="toc-text">5. 參考</span></a></li></ol>
 </div>
                 </section>
             

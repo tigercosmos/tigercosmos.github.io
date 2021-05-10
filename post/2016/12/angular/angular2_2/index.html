@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -182,41 +182,41 @@
 <p>Component &#x662F;&#x4E00;&#x500B;&#x7528; TS &#x5BEB;&#x51FA;&#x4F86;&#x7684; Class&#xFF0C;&#x9019;&#x500B; Class &#x4E4B;&#x5F8C;&#x6703;&#x88AB;&#x7DE8;&#x8B6F;&#x6210; JS&#x3002;&#x800C;&#x9019;&#x4E9B; Component &#x6700;&#x5F8C;&#x53EF;&#x4EE5;&#x88AB;&#x5305;&#x88DD;&#x8B8A;&#x6210;&#x7368;&#x7ACB;&#x7684; Module &#x8B93;&#x5176;&#x4ED6; Mudule &#x4F7F;&#x7528;&#x3002;</p>
 <p>&#x4E00;&#x500B; Component&#x53EF;&#x80FD;&#x9577;&#x5F97;&#x50CF;&#x9019;&#x6A23;&#xFF1A;</p>
 <pre><code>//app.component.ts
-import { Component } from &apos;@angular/core&apos;;
-<p>@Component({<br>
-moduleId: <a href="http://module.id" target="_blank" rel="noopener">module.id</a>,<br>
+import &#123; Component &#125; from &apos;@angular/core&apos;;
+<p>@Component(&#123;<br>
+moduleId: <a target="_blank" rel="noopener" href="http://module.id">module.id</a>,<br>
 selector: 'my-app',<br>
 templateUrl: 'app.component.html',<br>
 styleUrls: ['app.component.css']<br>
-})<br>
-export class AppComponent implements OnInit {<br>
+&#125;)<br>
+export class AppComponent implements OnInit &#123;<br>
 //Do Something<br>
-}<br>
+&#125;<br>
 </code></pre></p>
 <p>&#x800C;&#x4ED6;&#x8CA0;&#x8CAC;&#x5305;&#x88DD;&#x5B83;&#x7684; Module &#x5247;&#x53EF;&#x80FD;&#x9577;&#x9019;&#x6A23;&#xFF1A;</p>
 <pre><code>//app.module.ts
-import { NgModule }      from &apos;@angular/core&apos;;
-import { AppComponent } from &apos;./app.component&apos;; //&#x5F15;&#x5165; Component
-import { BrowserModule } from &apos;@angular/platform-browser&apos;;
-@NgModule({
+import &#123; NgModule &#125;      from &apos;@angular/core&apos;;
+import &#123; AppComponent &#125; from &apos;./app.component&apos;; //&#x5F15;&#x5165; Component
+import &#123; BrowserModule &#125; from &apos;@angular/platform-browser&apos;;
+@NgModule(&#123;
   imports:      [ BrowserModule ],
   providers:    [ Logger ],
   declarations: [ AppComponent ],
   exports:      [ AppComponent ],
   bootstrap:    [ AppComponent ]
-})
-export class AppModule { }
+&#125;)
+export class AppModule &#123; &#125;
 </code></pre>
 <p>&#x4E00;&#x500B; Module&#x53EF;&#x4EE5;&#x5305;&#x88DD;&#x5F88;&#x591A; Component &#x7D66;&#x5176;&#x4ED6; Module &#x4F7F;&#x7528;&#x3002;</p>
 <h3>Metadata</h3>
 <p>&#x518D;&#x56DE;&#x4F86;&#x770B;&#x7C21;&#x55AE;&#x7684; Component&#xFF1A;</p>
-<pre><code>import { Component } from &apos;@angular/core&apos;;
-<p>@Component({<br>
+<pre><code>import &#123; Component &#125; from &apos;@angular/core&apos;;
+<p>@Component(&#123;<br>
 selector: 'my-app',<br>
 templateUrl: 'aa.component.html',<br>
 styleUrls: ['app.component.css']<br>
-})<br>
-export class AppComponent { name = 'Angular'; }<br>
+&#125;)<br>
+export class AppComponent &#123; name = 'Angular'; &#125;<br>
 </code></pre></p>
 <p>Component &#x7528;&#x7A31;&#x4F5C; decorator function&#x7684; <code>@Component</code>&#x4F86;&#x8868;&#x793A;&#x70BA; Metadata&#x7269;&#x4EF6;&#x3002; Metadata &#x7528;&#x4F86;&#x7D81;&#x5B9A; HTML template &#x3001;CSS &#x548C; Component&#x3002;</p>
 <p>&#x81F3;&#x65BC; <code>selector</code> &#x5247;&#x662F;&#x544A;&#x8A34; Angular &#x9019;&#x500B; Component &#x8981;&#x653E;&#x5728; <code>index.html</code> &#x88E1;&#x7684;&#x81EA;&#x8A02;&#x6A19;&#x7C64; <code>&lt;my-app&gt;</code>&#x3002;</p>
@@ -231,7 +231,7 @@ export class AppComponent { name = 'Angular'; }<br>
 <ul>
 <li>Components directives&#xFF1A; &#x7528;&#x4F86;&#x63A7;&#x5236; HTML Template&#x3002;&#x662F;&#x6211;&#x5011;&#x6700;&#x5E38;&#x7528;&#x5230;&#x7684; Directive&#x3002;</li>
 <li>&#x7D50;&#x69CB;&#x6027; directives&#xFF1A;&#x4F8B;&#x5982; ngFor (&#x7528;&#x4F86;&#x6539;&#x8B8A; HTML DOM&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x589E;&#x52A0;&#x6216;&#x522A;&#x6389;)<br>
-<code>&lt;div *ngFor=&quot;let hero of heroes&quot;&gt;&lt;/div&gt;</code>
+<code>&lt;div *ngFor=&quot;let hero of heroes&quot;&gt;&#123;&#123;hero.fullName&#125;&#125;&lt;/div&gt;</code>
 </li>
 <li>&#x5C6C;&#x6027; directives&#xFF1A; &#x4F8B;&#x5982; ngStyle (&#x7528;&#x4F86;&#x6539;&#x8B8A; Elements &#x7684; Style)<br>
 <code>&lt;p [style.background]=&quot;&apos;lime&apos;&quot;&gt;I am green with envy!&lt;/p&gt;</code>
@@ -248,7 +248,7 @@ export class AppComponent { name = 'Angular'; }<br>
 <h3>Data Binding</h3>
 <h4>Interpolation</h4>
 <p>&#x76F4;&#x63A5;&#x5728; HTML &#x4E2D;&#x63D2;&#x5165;&#x8B8A;&#x6578;</p>
-<pre><code>&lt;h1&gt;{{employee.name}}&lt;/h1&gt;  
+<pre><code>&lt;h1&gt;&#123;&#123;employee.name&#125;&#125;&lt;/h1&gt;  
 </code></pre>
 <h4>One Way Binding</h4>
 <p>&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x4F55; HTML property&#x3002;&#x50CF;&#x662F;<code>innerText</code> <code>style</code>&#x3002;</p>
@@ -354,7 +354,7 @@ export class AppComponent { name = 'Angular'; }<br>
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">Angular 2 &amp;#x67B6;&amp;#x69CB;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x958B;&amp;#x59CB;&amp;#x756B;&amp;#x8A2D;&amp;#x8A08;&amp;#x5716;&amp;#x56C9;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">Component</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">Metadata</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">Directive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">Data Binding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">Interpolation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">One Way Binding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">Two Way Binding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">Event Binding</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Angular 2 架構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">開始畫設計圖囉</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Component</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Metadata</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Directive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Data Binding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">Interpolation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">One Way Binding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">Two Way Binding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">Event Binding</span></a></li></ol></li></ol></li></ol>
 </div>
                 </section>
             

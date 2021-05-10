@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -180,7 +180,7 @@
 <p>網頁是採用 JavaScript (JS) 語言，隨著瀏覽器進步、JS 引擎發展，我們似乎已經達到優化效能的瓶頸，JS 不管怎樣快，由於是直譯式語言，會一行一行讀程式碼同時進行編譯，這種模式鐵定會比編譯式語言像是 C++ 還要慢。那你會問，為啥網頁不用 C++ 這種編譯式語言？這是因為不管是事先編好，編譯出來的執行檔會很大，這樣傳給瀏覽器反而會造成網路傳輸花太多時間，或是瀏覽器拿到檔案才開始編譯，那要等他全部編完才能跑也會花太多時間。所以直譯式語言的 JS 先傳給瀏覽器，由於是原始檔檔案不會很大傳輸時間就還行，然後拿到檔案後一行一行編譯，先編譯好的部分可以先跑，也不會讓速度過慢。</p>
 <p>不管如何，JS 效能已經到上限了，人們開始想要怎樣讓網頁可以在瀏覽器上跑得更快，於是就有 WebAssembly (WASM) 的誕生了，WASM 是一個低階類似組合語言的語言，其效能可以接近原生 (Native) 的程式，像是 C++ 或 Rust 跑出來的效能。開發網頁時，JS 和 WASM 會搭配使用，概念簡單來說是一般程式邏輯一樣給 JS 跑，但把部分負擔很重的程式碼改成事先編譯的 WASM，這樣就可以讓效能更加進化。同時享有 JS 可以快速啟動的好處，也享有 WASM 在運算複雜的程式碼上有高效能的表現。</p>
 <p>接下來本文將會介紹如何使用 JS 搭配 WASM 進行開發。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="2-WebAssembly-API-介紹"><a class="header-anchor" href="#2-WebAssembly-API-介紹">¶ </a>2. WebAssembly API 介紹</h2>
 <p>WebAssembly 主要物件有：</p>
 <ol>
@@ -224,9 +224,9 @@ fetch('simple.wasm')
 <p><code>WebAssembly.compileStreaming()</code> 示例：</p>
 <pre><code class="language-js">// 異步邊下載邊編譯 WASM 檔案
 WebAssembly.compileStreaming(fetch('simple.wasm'))
-    .then(module =&gt; {
+    .then(module =&gt; &#123;
         // 得到 WebAssembly.Module
-    })
+    &#125;)
 </code></pre>
 <p>要注意的是用 <code>compileStreaming</code> 的話，Server 的 HTTP Request Header 必須將 WASM 檔案標註 <code>Application/wasm</code> 才行。</p>
 <h4 id="2-2-3-WebAssembly-Module-建構子"><a class="header-anchor" href="#2-2-3-WebAssembly-Module-建構子">¶ </a>2.2.3 WebAssembly.Module 建構子</h4>
@@ -235,9 +235,9 @@ WebAssembly.compileStreaming(fetch('simple.wasm'))
 <p><code>WebAssembly.Module</code> 建構子示例：</p>
 <pre><code class="language-js">fetch('simple.wasm').then(response =&gt;
   response.arrayBuffer()
-).then(bytes =&gt; {
+).then(bytes =&gt; &#123;
   let mod = new WebAssembly.Module(bytes);
-})
+&#125;)
 </code></pre>
 <p>先將 WASM 檔案編譯成 <code>WebAssembly.Module</code> 物件之後，可以等等再初始化，或是將 <code>Module</code> 傳給 Worker 使用。</p>
 <h3 id="2-2-初始化-WebAssembly"><a class="header-anchor" href="#2-2-初始化-WebAssembly">¶ </a>2.2 初始化 WebAssembly</h3>
@@ -255,21 +255,21 @@ Promise&lt;ResultObject&gt; WebAssembly.instantiate(bufferSource, importObject);
 </code></pre>
 <p><code>instantiate()</code> 可以吃 WASM binary 或是編譯過的 <code>Module</code>，意思是你如果不事先用 <code>compile()</code> 跑也沒關係，主要是對程式碼安排有更大彈性。<code>importObject</code> 是將一些函數、變數、物件引入 WASM 裡面。</p>
 <p><strong>關於 <code>importObject</code> 的使用方式，到「2.3」的時候再介紹。</strong></p>
-<p>如果是用 <code>Module</code> 當參數則回傳 <code>Instance</code>，若是傳入 WASM 則回傳 <code>ResultObject {instance: Instance, module: Module}</code>。</p>
+<p>如果是用 <code>Module</code> 當參數則回傳 <code>Instance</code>，若是傳入 WASM 則回傳 <code>ResultObject &#123;instance: Instance, module: Module&#125;</code>。</p>
 <p><code>WebAssembly.instantiate()</code> 示例：</p>
 <pre><code class="language-js">fetch('simple.wasm').then(response =&gt;
   response.arrayBuffer()
-).then(bytes =&gt; {
+).then(bytes =&gt; &#123;
   let mod = new WebAssembly.Module(bytes);
   let instance = new WebAssembly.Instance(mod, importObject);
   instance.exports.exported_func(); // 呼叫 WASM 的 exported_func
-})
+&#125;)
 </code></pre>
 <p>WASM 裡面的物件可以透過 <code>instance.exports</code> 去取得。</p>
 <h4 id="2-2-2-WebAssembly-instantiateStreaming"><a class="header-anchor" href="#2-2-2-WebAssembly-instantiateStreaming">¶ </a>2.2.2 WebAssembly.instantiateStreaming()</h4>
 <pre><code class="language-js">Promise&lt;ResultObject&gt; WebAssembly.instantiateStreaming(bytes, importObject);
 </code></pre>
-<p><code>WebAssembly.instantiateStreaming()</code> 只能吃 WASM Stream，<code>importObject</code> 是要引入的物件，然後會產生 <code>ResultObject {instance: Instance, module: Module}</code>。</p>
+<p><code>WebAssembly.instantiateStreaming()</code> 只能吃 WASM Stream，<code>importObject</code> 是要引入的物件，然後會產生 <code>ResultObject &#123;instance: Instance, module: Module&#125;</code>。</p>
 <p>示例：</p>
 <pre><code class="language-js">WebAssembly.instantiateStreaming(fetch('simple.wasm'), importObject)
     .then(obj =&gt; obj.instance.exports.exported_func());
@@ -281,24 +281,24 @@ Promise&lt;ResultObject&gt; WebAssembly.instantiate(bufferSource, importObject);
 <p>注意用建構子時只能放編譯好的 <code>Module</code>，<code>importObject</code> 則和前面一樣。要注意的是，用建構子是同步，意思是會把 Thread 卡住，而且初始化通常很花時間，除非必要不然用前面介紹的異步方法比較好。</p>
 <pre><code class="language-js">fetch('simple.wasm').then(response =&gt;
   response.arrayBuffer()
-).then(bytes =&gt; {
+).then(bytes =&gt; &#123;
   // 先取得 Module
   let mod = new WebAssembly.Module(bytes);
   // 用 Module 初始化得到 Instance
   let instance = new WebAssembly.Instance(mod, importObject);
   instance.exports.exported_func();
-})
+&#125;)
 </code></pre>
 <h3 id="2-3-WebAssembly-Memory"><a class="header-anchor" href="#2-3-WebAssembly-Memory">¶ </a>2.3 WebAssembly Memory</h3>
 <p>目前 WASM 必須由 JS 來啟動，WASM 跑完的結果自然也要透過 JS 去取得，為此透過 <code>WebAssembly.Memory</code> 讓 JS 和 WASM 共同使用記憶體區塊，兩邊都可以做讀取。</p>
-<pre><code class="language-js">const memory = new WebAssembly.Memory({initial:10, maximum:100, shared: true});
+<pre><code class="language-js">const memory = new WebAssembly.Memory(&#123;initial:10, maximum:100, shared: true&#125;);
 </code></pre>
 <p><code>WebAssembly.Memory</code> 本身其實就是 <code>ArrayBuffer</code> 或 <code>SharedArrayBuffer</code>，可以由 <code>memory.buffer</code> 直接去操作 Raw Memory。</p>
 <p>宣告 <code>WebAssembly.Memory</code> 總共會有三個參數，分別是 <code>initial</code>、<code>maximum</code> 和 <code>shared</code>，代表初始記憶體大小，記憶體上限大小，兩者都以 64 kB 為單位 (一個記憶體分頁 (Page Size))，最後 <code>shared</code> 為是否是 Shared Memory。</p>
 <p>之所以有分出使大小和上限值，是因為 <code>WebAssembly.Memory</code> 允許動態擴增 (Resize)，使用：</p>
 <pre><code class="language-js">memory.grow(number);
 </code></pre>
-<p>便可以改變記憶體大小，<code>grow()</code> 一樣是以 64kB 為單位。<code>grow</code> 原則上不會有太大 Overheads，因為 WASM 記憶體原理是管理記憶體分頁，會有個 <code>manifest</code> 做管理，<a href="https://webassembly.github.io/spec/core/exec/runtime.html#syntax-meminst" target="_blank" rel="noopener">定義</a>如下：</p>
+<p>便可以改變記憶體大小，<code>grow()</code> 一樣是以 64kB 為單位。<code>grow</code> 原則上不會有太大 Overheads，因為 WASM 記憶體原理是管理記憶體分頁，會有個 <code>manifest</code> 做管理，<a target="_blank" rel="noopener" href="https://webassembly.github.io/spec/core/exec/runtime.html#syntax-meminst">定義</a>如下：</p>
 <p>$$<br>
 \begin{split}\begin{array}{llll}<br>
 {\mathit{meminst}} &amp;::=&amp;<br>
@@ -306,18 +306,18 @@ Promise&lt;ResultObject&gt; WebAssembly.instantiate(bufferSource, importObject);
 \end{array}\end{split}<br>
 $$</p>
 <p>不過要注意的是，雖然底層操作是 Page 所以不會有 Overheads，但是每次做 Resize 時，不管是 <code>ArrayBuffer</code> 或 <code>SharedArrayBuffer</code> 都會產生新的物件，而原本舊的物件則會被 detached。</p>
-<p><a href="https://mdn.github.io/webassembly-examples/js-api-examples/memory.html" target="_blank" rel="noopener">示例</a>：</p>
+<p><a target="_blank" rel="noopener" href="https://mdn.github.io/webassembly-examples/js-api-examples/memory.html">示例</a>：</p>
 <pre><code class="language-js">WebAssembly.instantiateStreaming(
   fetch('memory.wasm'), 
-  { js: { mem: memory } } // 代表 WASM 宣告引入 js.mem
-).then(obj =&gt; {
+  &#123; js: &#123; mem: memory &#125; &#125; // 代表 WASM 宣告引入 js.mem
+).then(obj =&gt; &#123;
     let i32 = new Uint32Array(memory.buffer);
-    for (let i = 0; i &lt; 10; i++) {
+    for (let i = 0; i &lt; 10; i++) &#123;
         i32[i] = i;
-    }
+    &#125;
     let sum = obj.instance.exports.accumulate(0, 10);
     console.log(sum);
-});
+&#125;);
 </code></pre>
 <p>解釋上面這段 Code 之前我們先看 <code>memory.wasm</code> 是甚麼？</p>
 <p><code>memory.wasm</code> 轉成 WAT 格式 (可識讀格式)：</p>
@@ -352,28 +352,28 @@ $$</p>
 </code></pre>
 <h3 id="2-4-WebAssembly-Table"><a class="header-anchor" href="#2-4-WebAssembly-Table">¶ </a>2.4 WebAssembly Table</h3>
 <p>不同於 WebAssembly Memory 是 JS 和 WASM 之間共享資料，<code>WebAssembly.Table</code> 是將 WASM 內部的函數包裝成一個 WASM table，可以讓 JS 或 WASM 去存取或改變 table 裡面所儲存的函數參考 (Function Reference)。(白話來說，就是一個可以抓 WASM 裡面有啥函數的表)</p>
-<pre><code class="language-js">const table = new WebAssembly.Table({
+<pre><code class="language-js">const table = new WebAssembly.Table(&#123;
                 element: &quot;anyfunc&quot;, // 表格物件型別，目前只能是「任意函數」
                 initial: Number, // 多少個元素
                 maximum: Number? // Optional，表可以擴展的最大值
-              });
+              &#125;);
 </code></pre>
 <p>我們可以透過 <code>table.get(index)</code> 來取得元素，<code>table.set(index)</code> 設定元素，和用 <code>table.grow(number)</code> 擴增 Table。</p>
 <p>示例：</p>
-<pre><code class="language-js">const tbl = new WebAssembly.Table({initial: 2, element: &quot;anyfunc&quot;});
+<pre><code class="language-js">const tbl = new WebAssembly.Table(&#123;initial: 2, element: &quot;anyfunc&quot;&#125;);
 console.log(tbl.length);  // &quot;2&quot;
 // 此時此刻，table 還是空的
 console.log(tbl.get(0));  // &quot;null&quot; 
 console.log(tbl.get(1));  // &quot;null&quot;
 
 
-const importObj = {js: {tbl: tbl}};
+const importObj = &#123;js: &#123;tbl: tbl&#125;&#125;;
 WebAssembly.instantiateStreaming(fetch('table2.wasm'), importObject)
-  .then(function(obj) {
+  .then(function(obj) &#123;
     // 表格已經和 WASM 同步
     console.log(tbl.get(0)()); // 呼叫 table 第 0 個元素代表的函數
     console.log(tbl.get(1)());  // 呼叫 table 第 1 個元素代表的函數
-  });
+  &#125;);
 </code></pre>
 <p><code>tbl.get(0)()</code> 代表先取得函數 <code>tbl.get(0)</code> 之後再呼叫他 <code>()</code>。</p>
 <p>我們可以看 <code>table.wasm</code> 長怎樣：</p>
@@ -388,21 +388,21 @@ WebAssembly.instantiateStreaming(fetch('table2.wasm'), importObject)
 <h3 id="2-5-WebAssembly-Global"><a class="header-anchor" href="#2-5-WebAssembly-Global">¶ </a>2.5 WebAssembly Global</h3>
 <p><code>WebAssembly.Global</code> 是一個 <code>Global</code> 物件，可以同時給 JS 和多個 <code>Module</code> 存取，最大處是他可以達到不同 <code>Module</code> 之間動態連結 (Dynamic Linking) 的功用。</p>
 <p>WASM 可以由 C++ 等語言編譯而來，如同我們編譯 C++ 時可以將不同 <code>cpp</code> 檔案做連結，WASM 也能做到一樣的事，就會透過 <code>Global</code> 來做到，Emscripten 這類的 WASM 編譯器編譯出來的 WASM 即是透過這個方法。</p>
-<pre><code class="language-js">new WebAssembly.Global(descriptor {value, mutable}, value);
+<pre><code class="language-js">new WebAssembly.Global(descriptor &#123;value, mutable&#125;, value);
 </code></pre>
 <p>第一個參數 <code>descriptor</code> 的 <code>value</code> 代表型別，<code>mutable</code> 代表是否可改動。第二個參數 <code>value</code> 代表變數的初始值，如果只填入 <code>0</code> 代表填入預設值。</p>
-<p><a href="https://mdn.github.io/webassembly-examples/js-api-examples/global.html" target="_blank" rel="noopener">示例</a>：</p>
+<p><a target="_blank" rel="noopener" href="https://mdn.github.io/webassembly-examples/js-api-examples/global.html">示例</a>：</p>
 <pre><code class="language-js">const global = new WebAssembly.Global(
-  {value:'i32', mutable:true}, // 可變的 i32
+  &#123;value:'i32', mutable:true&#125;, // 可變的 i32
    0 // 填入預設值
 );
 
-WebAssembly.instantiateStreaming(fetch('global.wasm'), { js: { global } })
-  .then(({instance}) =&gt; {
+WebAssembly.instantiateStreaming(fetch('global.wasm'), &#123; js: &#123; global &#125; &#125;)
+  .then((&#123;instance&#125;) =&gt; &#123;
       global.value = 42; // 用 JS 設為 42
       instance.exports.incGlobal(); // incGlobal 是 WASM 的函數，可以加一，所以現在是 43
       assertEq(global.value, 43); // 確認是 43 無誤
-  });
+  &#125;);
 </code></pre>
 <h3 id="2-6-WebAssembly-Error"><a class="header-anchor" href="#2-6-WebAssembly-Error">¶ </a>2.6 WebAssembly Error</h3>
 <p>WASM 定義了 3 種錯誤，分別為 <code>WebAssembly.CompileError</code>、<code>WebAssembly.LinkError</code>、<code>WebAssembly.RuntimeError</code>。</p>
@@ -411,9 +411,9 @@ new WebAssembly.LinkError(message, fileName, lineNumber)
 new WebAssembly.RuntimeError(message, fileName, lineNumber)
 </code></pre>
 <p>三種用法都一樣，示例：</p>
-<pre><code class="language-js">try {
+<pre><code class="language-js">try &#123;
   throw new WebAssembly.CompileError('Hello', 'someFile', 10);
-} catch (e) {
+&#125; catch (e) &#123;
   console.log(e instanceof CompileError); // true
   console.log(e.message);                 // &quot;Hello&quot;
   console.log(e.name);                    // &quot;CompileError&quot;
@@ -421,14 +421,14 @@ new WebAssembly.RuntimeError(message, fileName, lineNumber)
   console.log(e.lineNumber);              // 10
   console.log(e.columnNumber);            // 0
   console.log(e.stack);                   // returns the location where the code was run
-}
+&#125;
 </code></pre>
 <h2 id="3-應用"><a class="header-anchor" href="#3-應用">¶ </a>3. 應用</h2>
 <h3 id="3-1-簡易-C-函數"><a class="header-anchor" href="#3-1-簡易-C-函數">¶ </a>3.1 簡易 C 函數</h3>
 <pre><code class="language-c">// square.c
-int square(int n) { 
+int square(int n) &#123; 
    return n*n; 
-}
+&#125;
 </code></pre>
 <p>用 Emscripten 編譯：</p>
 <pre><code class="language-shell">$ emcc square.c -s SIDE_MODULE -o square.wasm
@@ -455,7 +455,7 @@ int square(int n) {
 <p>接著我們寫一個網頁 <code>square.html</code>：</p>
 <pre><code class="language-html">&lt;!-- square.html --&gt;
 &lt;script&gt;
-    (async () =&gt; {
+    (async () =&gt; &#123;
         const res = await fetch(&quot;square.wasm&quot;);
         const wasmFile = await res.arrayBuffer();
         const module = await WebAssembly.compile(wasmFile);
@@ -463,7 +463,7 @@ int square(int n) {
 
         const square = instance.exports.square(13);
         console.log(&quot;The square of 13 = &quot; + square);
-    })();
+    &#125;)();
 &lt;/script&gt;
 </code></pre>
 <p>將 <code>square.html</code> 和 <code>square.wasm</code> 放在同一個目錄，用 HTTP Server 伺服開啟網頁 (因為要能下載 WASM)，打開 Console 就可以看到結果了。</p>
@@ -472,13 +472,13 @@ int square(int n) {
 <pre><code class="language-c">// accumulate.c
 int arr[];
 
-int accumulate(int start, int end) { 
+int accumulate(int start, int end) &#123; 
    int sum = 0;
-   for(int i = start; i &lt; end; i++) {
+   for(int i = start; i &lt; end; i++) &#123;
       sum += arr[i];
-   }
+   &#125;
    return sum;
-}
+&#125;
 </code></pre>
 <pre><code class="language-shell">$  emcc accumulate.c  -O3  -s SIDE_MODULE  -o accumulate.wasm
 </code></pre>
@@ -496,33 +496,33 @@ int accumulate(int start, int end) {
 <p><code>accumulate.html</code> 網頁程式碼如下：</p>
 <pre><code class="language-html">&lt;!-- accumulate.html --&gt;
 &lt;script&gt;
-    const memory = new WebAssembly.Memory({
+    const memory = new WebAssembly.Memory(&#123;
         initial: 1,
-    });
+    &#125;);
 
-    const importObj = {
+    const importObj = &#123;
         // 根據 WASM 來宣告
-        env: {
+        env: &#123;
             memory: memory,
             __memory_base: 0,
-            g$arr: () =&gt; {}
-        }
-    };
+            g$arr: () =&gt; &#123;&#125;
+        &#125;
+    &#125;;
 
-    (async () =&gt; {
+    (async () =&gt; &#123;
         const res = await fetch(&quot;accumulate.wasm&quot;);
         const wasmFile = await res.arrayBuffer();
         const module = await WebAssembly.compile(wasmFile);
         const instance = await WebAssembly.instantiate(module, importObj);
 
         const arr = new Uint32Array(memory.buffer);
-        for (let i = 0; i &lt; 10; i++) {
+        for (let i = 0; i &lt; 10; i++) &#123;
             arr[i] = i;
-        }
+        &#125;
 
         const sum = instance.exports.accumulate(0, 10);
         console.log(&quot;accumulate from 0 to 10: &quot; + sum);
-    })();
+    &#125;)();
 &lt;/script&gt;
 </code></pre>
 <p>由於 WASM 要求要有 <code>env.memory</code>，所以我們先宣告 <code>WebAssembly.Memory</code> 給他使用，<code>env.__memory_base</code> 則是記憶體要從哪開始讀。</p>
@@ -536,10 +536,10 @@ int accumulate(int start, int end) {
 <p>我總覺得網路上看到的文章在思路上總欠缺甚麼，因此我重新整理過網路資源，以我認為最有邏輯的方式將整個 WASM 概念講過，希望有幫助到大家。</p>
 <h2 id="5-參考資料"><a class="header-anchor" href="#5-參考資料">¶ </a>5. 參考資料</h2>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly" target="_blank" rel="noopener">MDN: WebAssembly</a></li>
-<li><a href="https://webassembly.github.io/spec/js-api/#webassembly-namespace" target="_blank" rel="noopener">WebAssembly JS API SPEC</a></li>
-<li><a href="https://webassembly.github.io/spec/core/exec/index.html" target="_blank" rel="noopener">WebAssembly Execution SPEC</a></li>
-<li><a href="https://github.com/emscripten-core/emscripten/wiki/WebAssembly-Standalone" target="_blank" rel="noopener">WebAssembly Standalone</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly">MDN: WebAssembly</a></li>
+<li><a target="_blank" rel="noopener" href="https://webassembly.github.io/spec/js-api/#webassembly-namespace">WebAssembly JS API SPEC</a></li>
+<li><a target="_blank" rel="noopener" href="https://webassembly.github.io/spec/core/exec/index.html">WebAssembly Execution SPEC</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/emscripten-core/emscripten/wiki/WebAssembly-Standalone">WebAssembly Standalone</a></li>
 </ul>
 
     </div>
@@ -624,7 +624,7 @@ int accumulate(int start, int end) {
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-簡介"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-WebAssembly-API-介紹"><span class="toc-text">2. WebAssembly API 介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-JS-編譯-WASM"><span class="toc-text">2.1 JS 編譯 WASM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-WebAssembly-compile"><span class="toc-text">2.1.1 WebAssembly.compile()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-WebAssembly-compileStreaming"><span class="toc-text">2.1.2 WebAssembly.compileStreaming()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-WebAssembly-Module-建構子"><span class="toc-text">2.2.3 WebAssembly.Module 建構子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-初始化-WebAssembly"><span class="toc-text">2.2 初始化 WebAssembly</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-WebAssembly-instantiate"><span class="toc-text">2.2.1 WebAssembly.instantiate()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-WebAssembly-instantiateStreaming"><span class="toc-text">2.2.2 WebAssembly.instantiateStreaming()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-WebAssembly-Instance-建構子"><span class="toc-text">2.2.3 WebAssembly.Instance 建構子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-WebAssembly-Memory"><span class="toc-text">2.3 WebAssembly Memory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-WebAssembly-Table"><span class="toc-text">2.4 WebAssembly Table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-WebAssembly-Global"><span class="toc-text">2.5 WebAssembly Global</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-WebAssembly-Error"><span class="toc-text">2.6 WebAssembly Error</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-應用"><span class="toc-text">3. 應用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-簡易-C-函數"><span class="toc-text">3.1 簡易 C 函數</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-C-函數：使用-WebAssembly-Memory"><span class="toc-text">3.2 C 函數：使用 WebAssembly.Memory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Pthread-轉-JS-WASM"><span class="toc-text">3.3 Pthread 轉 JS + WASM</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-結論"><span class="toc-text">4. 結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-參考資料"><span class="toc-text">5. 參考資料</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B0%A1%E4%BB%8B"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-WebAssembly-API-%E4%BB%8B%E7%B4%B9"><span class="toc-text">2. WebAssembly API 介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-JS-%E7%B7%A8%E8%AD%AF-WASM"><span class="toc-text">2.1 JS 編譯 WASM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-WebAssembly-compile"><span class="toc-text">2.1.1 WebAssembly.compile()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-WebAssembly-compileStreaming"><span class="toc-text">2.1.2 WebAssembly.compileStreaming()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-WebAssembly-Module-%E5%BB%BA%E6%A7%8B%E5%AD%90"><span class="toc-text">2.2.3 WebAssembly.Module 建構子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%88%9D%E5%A7%8B%E5%8C%96-WebAssembly"><span class="toc-text">2.2 初始化 WebAssembly</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-WebAssembly-instantiate"><span class="toc-text">2.2.1 WebAssembly.instantiate()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-WebAssembly-instantiateStreaming"><span class="toc-text">2.2.2 WebAssembly.instantiateStreaming()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-WebAssembly-Instance-%E5%BB%BA%E6%A7%8B%E5%AD%90"><span class="toc-text">2.2.3 WebAssembly.Instance 建構子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-WebAssembly-Memory"><span class="toc-text">2.3 WebAssembly Memory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-WebAssembly-Table"><span class="toc-text">2.4 WebAssembly Table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-WebAssembly-Global"><span class="toc-text">2.5 WebAssembly Global</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-WebAssembly-Error"><span class="toc-text">2.6 WebAssembly Error</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%87%89%E7%94%A8"><span class="toc-text">3. 應用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E7%B0%A1%E6%98%93-C-%E5%87%BD%E6%95%B8"><span class="toc-text">3.1 簡易 C 函數</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-C-%E5%87%BD%E6%95%B8%EF%BC%9A%E4%BD%BF%E7%94%A8-WebAssembly-Memory"><span class="toc-text">3.2 C 函數：使用 WebAssembly.Memory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Pthread-%E8%BD%89-JS-WASM"><span class="toc-text">3.3 Pthread 轉 JS + WASM</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B5%90%E8%AB%96"><span class="toc-text">4. 結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-text">5. 參考資料</span></a></li></ol>
 </div>
                 </section>
             

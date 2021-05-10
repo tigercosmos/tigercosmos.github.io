@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -179,15 +179,15 @@
 <p>&#x6211;&#x5011;&#x6709;&#x60F3;&#x8981;&#x5448;&#x73FE;&#x7684;&#x6578;&#x64DA;&#xFF0C;&#x4F46;&#x53EF;&#x80FD;&#x6A23;&#x5B50;&#x5F88;&#x919C;&#xFF0C;&#x9020;&#x6210;&#x7528;&#x6236;&#x9AD4;&#x9A57;&#x5F88;&#x5DEE;&#xFF0C;&#x6216;&#x8457;&#x4E0D;&#x662F;&#x6211;&#x5011;&#x8981;&#x7684;&#x683C;&#x5F0F;&#x3002;&#x6BD4;&#x65B9;&#x8AAA;&#x5E7E;&#x4E4E;&#x986F;&#x793A;&#x65E5;&#x671F; (2016-12-22) &#x800C;&#x975E;&#x539F;&#x59CB;&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F; (Thu Dec 22 2016 20:00:00 GMT+0800)&#x3002;&#x6216;&#x8457;&#x6709;&#x6642;&#x5019;&#x60F3;&#x8981;&#x628A;&#x6240;&#x6709;&#x5C0F;&#x5BEB;&#x5B57;&#x6BCD;&#xFF0C;&#x5728;&#x986F;&#x793A;&#x7684;&#x6642;&#x5019;&#x8B8A;&#x6210;&#x90FD;&#x662F;&#x5927;&#x5BEB;&#x3002;</p>
 <p>&#x5C07;&#x5C0F;&#x5BEB;&#x8B8A;&#x6210;&#x5927;&#x5BEB;&#xFF1A;</p>
 <pre><code>// app.component.ts
-<p>import { Component } from '@angular/core';</p>
-<p>@Component({<br>
+<p>import &#123; Component &#125; from '@angular/core';</p>
+<p>@Component(&#123;<br>
 selector: 'my-app',<br>
 // uppercase 為 Angular 內建<br>
-template: '&lt;p&gt;My name is &lt;strong&gt;{{ name | uppercase }}&lt;/strong&gt;.&lt;/p&gt;',<br>
-})<br>
-export class AppComponent {<br>
+template: '&lt;p&gt;My name is &lt;strong&gt;&#123;&#123; name | uppercase &#125;&#125;&lt;/strong&gt;.&lt;/p&gt;',<br>
+&#125;)<br>
+export class AppComponent &#123;<br>
 name = 'john doe';<br>
-}<br>
+&#125;<br>
 </code></pre></p>
 <p>&#x8F38;&#x51FA;&#x7D50;&#x679C;&#x6703;&#x662F; My name is JOHN DOE.</p>
 <p>&#x6211;&#x5011;&#x767C;&#x73FE;&#xFF0C;&#x61C9;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x91CD;&#x8907;&#x8457;&#x4E0A;&#x8FF0;&#x76F8;&#x540C;&#x7684;&#x8F49;&#x63DB;&#x975E;&#x5E38;&#x591A;&#x3002;&#x89E3;&#x6C7A;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x7528; TS &#x628A;&#x6578;&#x64DA;&#x505A;&#x597D;&#x8F49;&#x63DB;&#xFF0C;&#x518D;&#x4F86;&#x5448;&#x73FE;&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x5C07;&#x9019;&#x4E9B;&#x8F49;&#x63DB;&#x76F4;&#x63A5;&#x5728; HTML &#x6A21;&#x677F;&#x88E1;&#x8F49;&#x63DB;&#x3002;&#x5F8C;&#x8005;&#x904E;&#x7A0B;&#x53EB;&#x505A;&#x7BA1;&#x9053;(pipe)&#x3002;</p>
@@ -195,46 +195,46 @@ name = 'john doe';<br>
 <p>&#x73FE;&#x5728;&#x6211;&#x5011;&#x8981;&#x505A;&#x4E00;&#x500B;&#x628A;&#x6BCF;&#x500B;&#x55AE;&#x5B57;&#x7B2C;&#x4E00;&#x500B;&#x5B57;&#x6BCD;&#x8B8A;&#x6210;&#x5927;&#x5BEB;&#x7684;&#x901A;&#x9053;&#xFF1A;<br>
 &#x5148;&#x5B9A;&#x7FA9;&#x6211;&#x5011;&#x7684; Pipe</p>
 <pre><code>// capitalize.pipe.ts
-<p>import { Pipe, PipeTransform } from '@angular/core';</p>
-<p>@Pipe({name: 'capitalize'})<br>
-export class CapitalizePipe implements PipeTransform {<br>
-transform(value: string, args: string[]): any {<br>
+<p>import &#123; Pipe, PipeTransform &#125; from '@angular/core';</p>
+<p>@Pipe(&#123;name: 'capitalize'&#125;)<br>
+export class CapitalizePipe implements PipeTransform &#123;<br>
+transform(value: string, args: string[]): any &#123;<br>
 if (!value) return value;</p>
-<pre><code>return value.replace(/\w\S*/g, function(txt) {
+<pre><code>return value.replace(/\w\S*/g, function(txt) &#123;
     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-});
+&#125;);
 </code></pre>
 <p>}<br>
 }<br>
 </code></pre></p>
 <p>&#x63A5;&#x8457;&#x4F7F;&#x7528;&#x6211;&#x5011;&#x7684; Pipe</p>
 <pre><code>// app.component.ts
-<p>import { Component } from '@angular/core';</p>
-<p>@Component({<br>
+<p>import &#123; Component &#125; from '@angular/core';</p>
+<p>@Component(&#123;<br>
 selector: 'my-app',<br>
-template: '&lt;p&gt;My name is &lt;strong&gt;{{ name | capitalize }}&lt;/strong&gt;.&lt;/p&gt;'<br>
+template: '&lt;p&gt;My name is &lt;strong&gt;&#123;&#123; name | capitalize &#125;&#125;&lt;/strong&gt;.&lt;/p&gt;'<br>
 // 用 capitalize 這個 pipe 來做轉換<br>
-})<br>
-export class AppComponent {<br>
+&#125;)<br>
+export class AppComponent &#123;<br>
 name = 'john doe';<br>
-}<br>
+&#125;<br>
 </code></pre></p>
 <p>&#x8F38;&#x51FA;&#x7D50;&#x679C;&#x6703;&#x662F;  My name is John Doe.</p>
 <h2>App &#x901A;&#x7528;&#x7684; Pipe</h2>
 <p>&#x6709;&#x4E9B; Pipe &#x6211;&#x5011;&#x53EF;&#x80FD;&#x6703;&#x4E00;&#x76F4;&#x7528;&#x5230;&#xFF0C;&#x4F8B;&#x5982;&#x65E5;&#x671F;&#x8F49;&#x63DB;&#x3001;&#x8A9E;&#x8A00;&#x7FFB;&#x8B6F;&#xFF0C;&#x9019;&#x4E9B;&#x53EF;&#x80FD;&#x5728;&#x5F88;&#x591A;&#x500B; Components &#x4E2D;&#x90FD;&#x6709;&#x7528;&#x5230;&#xFF0C;&#x6211;&#x5011;&#x80FD;&#x505A;&#x5230;&#x8B93;&#x81EA;&#x5DF1;&#x5B9A;&#x7FA9;&#x7684; Pipe &#x5C31;&#x50CF;&#x4E00;&#x4E9B;&#x5167;&#x5EFA;&#x7684; Pipe &#x5728;&#x6BCF;&#x500B; Component &#x4E2D;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x3002;</p>
 <p>&#x4E00;&#x7A2E;&#x65B9;&#x6CD5;&#x662F;&#x6211;&#x5011;&#x5728; App Module &#x4E2D;&#x5F15;&#x5165;&#x6211;&#x5011;&#x5BEB;&#x597D;&#x7684; Pipe</p>
 <pre><code>// app.module.ts
-<p>import { NgModule }      from '@angular/core';<br>
-import { BrowserModule } from '@angular/platform-browser';</p>
-<p>import { AppComponent }   from './app.component';<br>
-import { CapitalizePipe } from './capitalize.pipe'; // 導入我們的 pipe</p>
-<p>@NgModule({<br>
+<p>import &#123; NgModule &#125;      from '@angular/core';<br>
+import &#123; BrowserModule &#125; from '@angular/platform-browser';</p>
+<p>import &#123; AppComponent &#125;   from './app.component';<br>
+import &#123; CapitalizePipe &#125; from './capitalize.pipe'; // 導入我們的 pipe</p>
+<p>@NgModule(&#123;<br>
 imports:      [ BrowserModule ],<br>
 // 引入 capitalize pipe<br>
 declarations: [ AppComponent, CapitalizePipe ],<br>
 bootstrap:    [ AppComponent ]<br>
-})</p>
-<p>export class AppModule { }<br>
+&#125;)</p>
+<p>export class AppModule &#123; &#125;<br>
 </code></pre></p>
 <p>&#x9019;&#x6A23;&#x4E4B;&#x5F8C;&#x8981;&#x7528; Pipe &#x5C31;&#x4E0D;&#x7528;&#x6BCF;&#x500B; Component &#x90FD;&#x4E00;&#x4E00;&#x5BA3;&#x544A;&#x56C9;&#xFF01;<br>
 <a href="https://plnkr.co/edit/LVwYDhFXhAbqffs03g9h?p=preview" target="_blank">Plurk</a> &#x7BC4;&#x4F8B;</p>
@@ -328,7 +328,7 @@ bootstrap:    [ AppComponent ]<br>
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5BA2;&amp;#x88FD;&amp;#x5316;&amp;#x901A;&amp;#x9053;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">App &amp;#x901A;&amp;#x7528;&amp;#x7684; Pipe</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">客製化通道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">App 通用的 Pipe</span></a></li></ol>
 </div>
                 </section>
             

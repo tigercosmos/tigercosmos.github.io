@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器平行化" />
     <title>Neutrino&#39;s Blog: 瀏覽器平行化 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,14 +178,14 @@
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a></p>
 </blockquote>
 <p>今天討論一下瀏覽器的平行化。像是 Servo 瀏覽器引擎其終旨就是希望做一個平行化的瀏覽器，而 Servo 最早開始是從 2012 起開發。</p>
-<p>大家可以看一下 2009 年的論文：<a href="https://people.eecs.berkeley.edu/~krste/papers/parallelbrowser-hotpar2009.pdf" target="_blank" rel="noopener">Parallelizing the Web Browser</a>，時間在 Servo 之前，有種倒敘的味道。而這篇論文被引用 89 次，近幾年相關研究幾乎都會在參考中看到。或多或少也影響後來的瀏覽器開發。 Firefox 和 Chrome 未來勢必也會將平行化技術完善的實踐在瀏覽器裡面。</p>
+<p>大家可以看一下 2009 年的論文：<a target="_blank" rel="noopener" href="https://people.eecs.berkeley.edu/~krste/papers/parallelbrowser-hotpar2009.pdf">Parallelizing the Web Browser</a>，時間在 Servo 之前，有種倒敘的味道。而這篇論文被引用 89 次，近幾年相關研究幾乎都會在參考中看到。或多或少也影響後來的瀏覽器開發。 Firefox 和 Chrome 未來勢必也會將平行化技術完善的實踐在瀏覽器裡面。</p>
 <p>這篇論文主要都是討論概念的可行性，技術千奇百怪，永遠都在進步，又是同個概念，「沒有絕對，只有相對」，針對不同領域會各有選擇。總之我認為這篇論文滿有啟發性的，整理一些重點加上心得與大家分享。</p>
 <p>首先來了解一下什麼是平行化（Parallelism）和並行化（Concurrency）：</p>
 <blockquote>
 <p>如果兩個任務分配到一個CPU核心，在取得的時間片段中交互執行，稱之為並行。如果有兩個核心，兩個任務各分配到其中之一同時執行，稱之為平行。現今開發者對於並行設計應不陌生，利用並行運算處理多個流程，讓客戶端以為任務「同時」執行，或者是某任務被阻斷（Block）之時，切換另一任務執行，避免等待而浪費CPU執行時間，用以提升整體任務執行效率。<br>
-過去十年多以來，處理器著重在多核心的發展，就連個人電腦、智慧型手機等，多核心處理器的搭載已經是基本配備，在提升整體任務執行效率這方面，越來越多開發者注意到，設法將任務分配至多個核心上平行執行，成為另一個可行途徑。 (<a href="https://www.ithome.com.tw/voice/91464" target="_blank" rel="noopener">來源</a>)</p>
+過去十年多以來，處理器著重在多核心的發展，就連個人電腦、智慧型手機等，多核心處理器的搭載已經是基本配備，在提升整體任務執行效率這方面，越來越多開發者注意到，設法將任務分配至多個核心上平行執行，成為另一個可行途徑。 (<a target="_blank" rel="noopener" href="https://www.ithome.com.tw/voice/91464">來源</a>)</p>
 </blockquote>
-<p>平行化卻容易有資料競奪的衝突發生，因為大家同時都在做事，一不小心就順序錯亂了。舉個例子今天媽媽生日，爸爸買了蛋糕回來，但是你不知道所以你也買了一個，結果最後才發現兩個人都買了。記憶體也是差不多的情況，一隻程式和另一隻程式可能不小心重複讀寫到同一個位置。想了解更多可以看一下<a href="https://hacks.mozilla.org/2017/06/avoiding-race-conditions-in-sharedarraybuffers-with-atomics/" target="_blank" rel="noopener">這篇</a>。</p>
+<p>平行化卻容易有資料競奪的衝突發生，因為大家同時都在做事，一不小心就順序錯亂了。舉個例子今天媽媽生日，爸爸買了蛋糕回來，但是你不知道所以你也買了一個，結果最後才發現兩個人都買了。記憶體也是差不多的情況，一隻程式和另一隻程式可能不小心重複讀寫到同一個位置。想了解更多可以看一下<a target="_blank" rel="noopener" href="https://hacks.mozilla.org/2017/06/avoiding-race-conditions-in-sharedarraybuffers-with-atomics/">這篇</a>。</p>
 <p>幫大家複習一下歷史，所以後來就開發出沒有資料競奪問題的程式語言 — Rust。然後，能充分體現細緻平行處理優勢的新瀏覽器引擎 — Servo 就誕生了！</p>
 <hr>
 <p>一切又要回到根本：<br>
@@ -201,7 +201,7 @@
 <img src="https://user-images.githubusercontent.com/18013815/34527582-f08ea110-f0e0-11e7-9ddb-d15743fbc176.png" alt=""></p>
 <hr>
 <p>這篇論文提到說可以將 lexing（見上圖）拆成好幾個片段進行解析。每隔一段字串，當演算法認為是「穩定的」，代表這邊可以切開獨立運算，於是就可以同時算然後再整合。適用圖片解析、文法檢查等等，有就是單一片段與整體程式碼可以互為獨立。</p>
-<p>此外除了論文提到的方法，還有做法是在解析 tree 的時候，進行平行處理。一般處理 tree 的時候，要不最大深度，要不最大廣度（可以參考<a href="http://www.csie.ntnu.edu.tw/~u91029/Tree.html" target="_blank" rel="noopener">這個</a>）。但不論哪種，只有單一執行緒的時候還是很慢。不過我們也可以同時走好幾個樹枝，也就快多了，就像好幾個人同時探索一個地圖一樣。甚至樹枝份量不一樣大的時候，還可以協調執行緒（避免有人一堆事，有人閒閒沒事幹），讓大家的運算量盡量一樣，這也是目前 Firefox 的做法。如下圖所示（取自 Mozilla）而<a href="https://medium.com/@moz2000tw/%E5%89%96%E6%9E%90%E6%A5%B5%E9%80%9F-css-%E5%BC%95%E6%93%8E-quantum-css-%E5%8E%9F%E5%90%8D-stylo-%E4%B8%8B-5d4e171b6309" target="_blank" rel="noopener">這篇</a>有針對這部份細節實作有更深多解說。<br>
+<p>此外除了論文提到的方法，還有做法是在解析 tree 的時候，進行平行處理。一般處理 tree 的時候，要不最大深度，要不最大廣度（可以參考<a target="_blank" rel="noopener" href="http://www.csie.ntnu.edu.tw/~u91029/Tree.html">這個</a>）。但不論哪種，只有單一執行緒的時候還是很慢。不過我們也可以同時走好幾個樹枝，也就快多了，就像好幾個人同時探索一個地圖一樣。甚至樹枝份量不一樣大的時候，還可以協調執行緒（避免有人一堆事，有人閒閒沒事幹），讓大家的運算量盡量一樣，這也是目前 Firefox 的做法。如下圖所示（取自 Mozilla）而<a target="_blank" rel="noopener" href="https://medium.com/@moz2000tw/%E5%89%96%E6%9E%90%E6%A5%B5%E9%80%9F-css-%E5%BC%95%E6%93%8E-quantum-css-%E5%8E%9F%E5%90%8D-stylo-%E4%B8%8B-5d4e171b6309">這篇</a>有針對這部份細節實作有更深多解說。<br>
 <img src="https://cdn-images-1.medium.com/max/1600/0*cMeyDCZiKkNW6bEH." alt=""></p>
 <hr>
 <p>Javascript 語言本身就是異步處理，沒有 lock 也沒有 thread，但可以並行化處理很多事件。不過論文中也提出一些擔憂，例如點擊按鈕讓目前視窗會漸漸消失，而點另個按鈕可以讓視窗漸漸出現，要是先點第一個在消失的過程中，在點第二個，就會出問題了！這是因為 JS 沒有 lock，無法處理 race 的問題。</p>
@@ -222,12 +222,12 @@
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

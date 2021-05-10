@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -179,7 +179,7 @@
 <p>條件判斷顧名思義就是針對不同的條件來判斷要做出怎樣的結果。舉例來說，現在要採收水果，但我們只要取下已經成熟的水果，還沒熟的我們要讓他繼續成熟。</p>
 <p>或是我們有更多條件，例如大於 500 公克的蘋果放到 A 籃子，介於 200 到 500 公克的蘋果放到 B 籃子，小於 200 公克的蘋果不要摘下來。</p>
 <p>現實生活中我們都在做各種判斷，而我們當然可以把這種判斷的工作交給電腦來做，接著讓我們來了解電腦怎樣做判斷的。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <blockquote>
 <p>傳送門：此系列文章「<a href="/post/2018/11/master_js/table/">30 天 Javascript 從入門到進階</a>」</p>
 </blockquote>
@@ -193,25 +193,25 @@
 
 const isAppleMature = true;
 
-if(isAppleMature == true) {
+if(isAppleMature == true) &#123;
     console.log(&quot;摘下來&quot;);
-}
+&#125;
 </code></pre>
 <p>執行 <code>ex1.js</code> 會印出</p>
 <pre><code class="language-txt">看見一顆蘋果
 摘下來
 </code></pre>
 <p>這邊的 <code>if</code> 就是如果的意思，後面的 <code>(isAppleMature == true)</code> 則是判斷的條件，<code>==</code> 的意思是判斷相等，注意判斷相等必須是<strong>兩</strong>個 <code>=</code>，否則為語法錯誤。而這邊因為我們已經定義 <code>const isAppleMature = true;</code>，所以判斷條件相當於是問 <code>true</code> 和 <code>true</code> 一樣嗎？很顯然，答案是一樣，所以這個判斷條件的結果是 <code>true</code>。</p>
-<p><code>if</code> 所包住的 <code>{ }</code> 裡面的程式碼要被執行，只有當 if 的判斷條件為 <code>true</code>（不為 <code>false</code>），所以在這個例子中，<code>if</code> 條件通過，所以會印出「摘下來」。</p>
+<p><code>if</code> 所包住的 <code>&#123; &#125;</code> 裡面的程式碼要被執行，只有當 if 的判斷條件為 <code>true</code>（不為 <code>false</code>），所以在這個例子中，<code>if</code> 條件通過，所以會印出「摘下來」。</p>
 <p>如果今天 <code>isAppleMature</code> 是 <code>false</code> 的話：</p>
 <p>檔案：ex2.js</p>
 <pre><code class="language-js">console.log(&quot;看見一顆蘋果&quot;);
 
 const isAppleMature = false;
 
-if(isAppleMature == true) {
+if(isAppleMature == true) &#123;
     console.log(&quot;摘下來&quot;);
-}
+&#125;
 </code></pre>
 <p>執行 <code>ex2.js</code> 會印出</p>
 <pre><code class="language-txt">看見一顆蘋果
@@ -245,11 +245,11 @@ if(str1 != str2) // if str1 is not equal to str2
 <pre><code class="language-js">const isMature = false;
 console.log(&quot;對這個水梨：&quot;);
 
-if(isMature == true) {
+if(isMature == true) &#123;
     console.log(&quot;採收&quot;);
-} else {
+&#125; else &#123;
     console.log(&quot;加裝保護套&quot;)
-}
+&#125;
 </code></pre>
 <p><code>ex3.js</code> 執行結果為：</p>
 <pre><code class="language-txt">對這個水梨：
@@ -265,13 +265,13 @@ if(isMature == true) {
 <p>這時候我們只用 if 和 else 並不夠用，因為這邊有三個條件。於是我們可以這樣寫：</p>
 <p>檔案：ex4.js</p>
 <pre><code class="language-js">const score = 75;
-if(score &gt;= 80) {
+if(score &gt;= 80) &#123;
     console.log(&quot;A&quot;);
-} else if(score &gt;= 50) {
+&#125; else if(score &gt;= 50) &#123;
     console.log(&quot;B&quot;);
-} else {
+&#125; else &#123;
     console.log(&quot;C&quot;);
-}
+&#125;
 </code></pre>
 <p>印出來結果就會是 <code>B</code>。</p>
 <p>根據我們剛剛定義的成績規則，第一條是 80 ～ 100 是 A，所以第一個 <code>if</code> 判斷是只要大於等於 80 就是 A。</p>
@@ -291,20 +291,20 @@ if(score &gt;= 80) {
 <p>所以假設我們要找到等第為 B 的學生，因為 B 介於 50 到 80 之間，我們就可以用「且」邏輯把兩個判斷條件綁在一起。</p>
 <p>檔案：ex5.js</p>
 <pre><code class="language-js">const score = 75;
-if(score &gt;= 50 &amp;&amp; score &lt; 80) {
+if(score &gt;= 50 &amp;&amp; score &lt; 80) &#123;
     console.log(&quot;符合 B 等第&quot;);
-}
+&#125;
 </code></pre>
 <h2 id="true-和-false-判斷的簡化寫法"><a class="header-anchor" href="#true-和-false-判斷的簡化寫法">¶ </a>true 和 false 判斷的簡化寫法</h2>
 <p>剛剛我們在例子中都寫成：</p>
-<pre><code class="language-js">if(x == true) {
+<pre><code class="language-js">if(x == true) &#123;
     // ...
-}
+&#125;
 </code></pre>
 <p>事實上在這種情況下可以簡化寫成</p>
-<pre><code class="language-js">if(x) {
+<pre><code class="language-js">if(x) &#123;
     // ...
-}
+&#125;
 </code></pre>
 <p>如果在條件判斷的地方只放入單一個變數，程式就知道你是在問他 <code>x==true</code> 了。</p>
 <p>JS 中，<code>x</code> 是 <code>false</code> 的條件為：</p>
@@ -326,14 +326,14 @@ if(score &gt;= 50 &amp;&amp; score &lt; 80) {
 </ul>
 <p>上面這些是比較容易有誤解的條件，例如空陣列、空物件都是 <code>true</code>，請特別小心！</p>
 <p>另一個簡化的情況是：</p>
-<pre><code class="language-js">if(x == false) { // 或是 x != true
+<pre><code class="language-js">if(x == false) &#123; // 或是 x != true
     // ...
-}
+&#125;
 </code></pre>
 <p>事實上在這種情況下可以簡化寫成</p>
-<pre><code class="language-js">if(!x) {
+<pre><code class="language-js">if(!x) &#123;
     // ...
-}
+&#125;
 </code></pre>
 <p>如果在條件判斷的地方只放入「非」單一個變數，程式就知道你是在問他 <code>x!=true</code> 了，或是等同 <code>x == false</code>。</p>
 <p>以下舉例各種情況，條件通過為 <code>true</code>，不通過為 <code>false</code>：</p>
@@ -349,37 +349,37 @@ if(undefined) // false
 </code></pre>
 <pre><code class="language-js">const x = false;
 
-if(!x) {
+if(!x) &#123;
     // !x 相當於 true，這邊會被執行
-}
+&#125;
 </code></pre>
 <h2 id="生命週期"><a class="header-anchor" href="#生命週期">¶ </a>生命週期</h2>
 <p>變數會有存在的範圍（scope）或是稱作生命週期。舉個例子，你在園遊會兌換了 400 元園遊券，這個園遊券只能在園遊會使用，當園遊會結束，園遊券也就沒用了。</p>
 <p>程式語言中也是如此，變數也有生命週期，過了她能影響的範圍，那個變數就會被銷毀。</p>
 <p>舉例來說：</p>
-<pre><code class="language-js">if(something) {
+<pre><code class="language-js">if(something) &#123;
     const name = &quot;tiger&quot;
-}
+&#125;
 console.log(name); // ReferenceError: name is not defined
 </code></pre>
-<p>執行上面程式碼，會出現錯誤，因為 <code>name</code> 在 <code>if(){ }</code> 結束時就被銷毀，但是 <code>console.log</code> 卻在 <code>if</code> 結束後，也就是 <code>name</code> 被銷毀了，才去呼叫 <code>name</code>。</p>
+<p>執行上面程式碼，會出現錯誤，因為 <code>name</code> 在 <code>if()&#123; &#125;</code> 結束時就被銷毀，但是 <code>console.log</code> 卻在 <code>if</code> 結束後，也就是 <code>name</code> 被銷毀了，才去呼叫 <code>name</code>。</p>
 <p>如果想要變數在 <code>if</code> 結束後還能存在，就要擺在 <code>if</code> 的外面（且之前）：</p>
 <pre><code class="language-js">let name = &quot;&quot;;
-if(something) {
+if(something) &#123;
     name = &quot;tiger&quot;
-}
+&#125;
 console.log(name); // OK
 </code></pre>
-<p>簡單來說變數的生命只有在他被宣告的 <code>{ }</code> 裡面，<code>{ }</code> 可能是來自 <code>if</code>、<code>else</code> 或是下一章會提到的 <code>for</code> 皆是如此，離開 <code>{ }</code> 也代表變數死亡。</p>
-<p>如果之後還要使用該變數，就要確保那個變數至少生命週期在被呼叫的時候還存在，可以是放在同一層的 <code>{ }</code> 或是比被呼叫的 <code>{ }</code> 還要上層的 <code>{ }</code>。</p>
+<p>簡單來說變數的生命只有在他被宣告的 <code>&#123; &#125;</code> 裡面，<code>&#123; &#125;</code> 可能是來自 <code>if</code>、<code>else</code> 或是下一章會提到的 <code>for</code> 皆是如此，離開 <code>&#123; &#125;</code> 也代表變數死亡。</p>
+<p>如果之後還要使用該變數，就要確保那個變數至少生命週期在被呼叫的時候還存在，可以是放在同一層的 <code>&#123; &#125;</code> 或是比被呼叫的 <code>&#123; &#125;</code> 還要上層的 <code>&#123; &#125;</code>。</p>
 <p>例如：</p>
-<pre><code class="language-js">if(something) {
+<pre><code class="language-js">if(something) &#123;
     let name = &quot;Coco&quot;;
-    if(other) {
+    if(other) &#123;
         console.log(name); // 沒問題，name 的層級比被呼叫還要高
-    }
+    &#125;
     console.log(name); // 沒問題，name 的層級跟被呼叫時一樣高
-}
+&#125;
 </code></pre>
 <hr>
 <p>以上就是程式運行過程中，控制程式是否執行的方式了。</p>
@@ -473,7 +473,7 @@ console.log(name); // OK
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">條件判斷</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#if-判斷"><span class="toc-text">if 判斷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判斷運算子"><span class="toc-text">判斷運算子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#else-判斷"><span class="toc-text">else 判斷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#else-if-判斷"><span class="toc-text">else if 判斷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#邏輯運算子"><span class="toc-text">邏輯運算子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#true-和-false-判斷的簡化寫法"><span class="toc-text">true 和 false 判斷的簡化寫法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命週期"><span class="toc-text">生命週期</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">條件判斷</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#if-%E5%88%A4%E6%96%B7"><span class="toc-text">if 判斷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%B7%E9%81%8B%E7%AE%97%E5%AD%90"><span class="toc-text">判斷運算子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#else-%E5%88%A4%E6%96%B7"><span class="toc-text">else 判斷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#else-if-%E5%88%A4%E6%96%B7"><span class="toc-text">else if 判斷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%8F%E8%BC%AF%E9%81%8B%E7%AE%97%E5%AD%90"><span class="toc-text">邏輯運算子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#true-%E5%92%8C-false-%E5%88%A4%E6%96%B7%E7%9A%84%E7%B0%A1%E5%8C%96%E5%AF%AB%E6%B3%95"><span class="toc-text">true 和 false 判斷的簡化寫法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F"><span class="toc-text">生命週期</span></a></li></ol></li></ol>
 </div>
                 </section>
             

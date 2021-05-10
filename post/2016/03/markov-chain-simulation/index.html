@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -175,7 +175,7 @@
     </ul>
     <div class="post-content">
         <p>馬可夫鏈 (Markov chain) 或稱馬可夫過程 (Markov process)是一種隨機過程，在數學上只要這傳遞矩陣有一些好的性質，就可以證明經由這馬可夫鏈抽樣的分佈會收斂到想要的機率分佈。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <p>這個程式簡單模擬有一群人，分為 A 和 B 兩種狀態，並且一開始兩種狀態人數相同，而每回合 A 中的每個人會有 aRate 機率變 B，B 中的每個人會有 bRate 的機率變 A。如此進行多回合。<br>
 (這邊採用 Agent-Based 而不是直接矩陣運算)</p>
 <p>效果如下：</p>
@@ -188,20 +188,20 @@
     &lt;title&gt;Simulation&lt;/title&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;style&gt;
-        body {
+        body &#123;
             font: 14px sans-serif;
-        }
+        &#125;
 
         .axis path,
-        .axis line {
+        .axis line &#123;
             fill: none;
             stroke: #111;
             shape-rendering: crispEdges;
-        }
+        &#125;
 
-        .x.axis path {
+        .x.axis path &#123;
             display: none;
-        }
+        &#125;
     &lt;/style&gt;
     &lt;script src=&quot;https://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js&quot;&gt;&lt;/script&gt;
@@ -218,98 +218,98 @@
 
     &lt;script&gt;
         var aRate, bRate;
-        $(document).ready(function () {
-            $(&quot;button&quot;).click(function () {
+        $(document).ready(function () &#123;
+            $(&quot;button&quot;).click(function () &#123;
                 aRate = $(&quot;#aRate&quot;).val();
                 bRate = $(&quot;#bRate&quot;).val();
                 f();
-            });
-        });
-        var Pss = { // person state
+            &#125;);
+        &#125;);
+        var Pss = &#123; // person state
             A: 1,
             B: 2
-        };
+        &#125;;
 
-        function f() {
+        function f() &#123;
             var res = System.runRounds(),
                 data = [];
-            for (var i = 0; i &lt;= System.NumRounds; i++) {
-                data.push({
+            for (var i = 0; i &lt;= System.NumRounds; i++) &#123;
+                data.push(&#123;
                     Terms: i,
                     A: res[i].A,
                     B: res[i].B
-                });
-            }
+                &#125;);
+            &#125;
             showResult(data);
-        }
+        &#125;
 
-        var System = (function () {
+        var System = (function () &#123;
             var People = [];
 
-            var runRounds = function () {
+            var runRounds = function () &#123;
                 var result = [];
                 initialize();
-                result.push({
+                result.push(&#123;
                     A: System.NumPeople,
                     B: System.NumPeople
-                }); // initial
-                for (var i = 0; i &lt; System.NumRounds; i++) {
+                &#125;); // initial
+                for (var i = 0; i &lt; System.NumRounds; i++) &#123;
                     result.push(aRound());
-                }
+                &#125;
                 return result;
-            };
+            &#125;;
 
-            var initialize = function () {
+            var initialize = function () &#123;
                 People = [];
-                for (var i = 0; i &lt; System.NumPeople; i++) {
+                for (var i = 0; i &lt; System.NumPeople; i++) &#123;
                     People.push(new Person(Pss.A));
                     People.push(new Person(Pss.B));
-                }
-            };
+                &#125;
+            &#125;;
 
-            var aRound = function () {
-                People.forEach(function (ps) {
+            var aRound = function () &#123;
+                People.forEach(function (ps) &#123;
                     ps.change();
-                });
+                &#125;);
                 return count();
-            };
+            &#125;;
 
-            var count = function () {
+            var count = function () &#123;
                 var Pp = People;
-                var data = {
+                var data = &#123;
                     A: 0,
                     B: 0
-                };
-                for (var i in Pp) {
+                &#125;;
+                for (var i in Pp) &#123;
                     if (Pp[i].State == Pss.A) data.A++;
                     else data.B++;
-                }
+                &#125;
                 return data;
-            };
+            &#125;;
 
-            return {
+            return &#123;
                 NumPeople: 10000,
                 NumRounds: 30,
                 runRounds: runRounds
-            };
-        })();
+            &#125;;
+        &#125;)();
 
-        function Person(state) {
+        function Person(state) &#123;
             this.State = state;
-        }
+        &#125;
 
-        Person.prototype.change = function () {
+        Person.prototype.change = function () &#123;
             this.Rate = (this.State == Pss.A) ? aRate : bRate;
             this.State = (Math.random() &lt; this.Rate) ? 3 ^ this.State : this.State;
-        }
+        &#125;
 
-        function showResult(data) {
-            var margin = {
+        function showResult(data) &#123;
+            var margin = &#123;
                     top: 20,
                     right: 20,
                     bottom: 30,
                     left: 40
-                },
+                &#125;,
                 width = 900 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
@@ -342,24 +342,24 @@
 
             var X_Names = ['A', 'B', ];
 
-            data.forEach(function (d) {
-                d.xs = X_Names.map(function (name) {
-                    return {
+            data.forEach(function (d) &#123;
+                d.xs = X_Names.map(function (name) &#123;
+                    return &#123;
                         name: name,
                         value: +d[name]
-                    };
-                });
-            });
+                    &#125;;
+                &#125;);
+            &#125;);
 
-            x0.domain(data.map(function (d) {
+            x0.domain(data.map(function (d) &#123;
                 return d.Terms;
-            }));
+            &#125;));
             x1.domain(X_Names).rangeRoundBands([0, x0.rangeBand()]);
-            y.domain([0, d3.max(data, function (d) {
-                return d3.max(d.xs, function (d) {
+            y.domain([0, d3.max(data, function (d) &#123;
+                return d3.max(d.xs, function (d) &#123;
                     return d.value;
-                });
-            })]);
+                &#125;);
+            &#125;)]);
 
             svg.append(&quot;g&quot;)
                 .attr(&quot;class&quot;, &quot;x axis&quot;)
@@ -385,36 +385,36 @@
                 .data(data)
                 .enter().append(&quot;g&quot;)
                 .attr(&quot;class&quot;, &quot;terms&quot;)
-                .attr(&quot;transform&quot;, function (d) {
+                .attr(&quot;transform&quot;, function (d) &#123;
                     return &quot;translate(&quot; + x0(d.Terms) + &quot;,0)&quot;;
-                });
+                &#125;);
 
             terms.selectAll(&quot;rect&quot;)
-                .data(function (d) {
+                .data(function (d) &#123;
                     return d.xs;
-                })
+                &#125;)
                 .enter().append(&quot;rect&quot;)
                 .attr(&quot;width&quot;, x1.rangeBand())
-                .attr(&quot;x&quot;, function (d) {
+                .attr(&quot;x&quot;, function (d) &#123;
                     return x1(d.name);
-                })
-                .attr(&quot;y&quot;, function (d) {
+                &#125;)
+                .attr(&quot;y&quot;, function (d) &#123;
                     return y(d.value);
-                })
-                .attr(&quot;height&quot;, function (d) {
+                &#125;)
+                .attr(&quot;height&quot;, function (d) &#123;
                     return height - y(d.value);
-                })
-                .style(&quot;fill&quot;, function (d) {
+                &#125;)
+                .style(&quot;fill&quot;, function (d) &#123;
                     return color(d.name);
-                });
+                &#125;);
 
             var legend = svg.selectAll(&quot;.legend&quot;)
                 .data(X_Names.slice().reverse())
                 .enter().append(&quot;g&quot;)
                 .attr(&quot;class&quot;, &quot;legend&quot;)
-                .attr(&quot;transform&quot;, function (d, i) {
+                .attr(&quot;transform&quot;, function (d, i) &#123;
                     return &quot;translate(0,&quot; + i * 20 + &quot;)&quot;;
-                });
+                &#125;);
 
             legend.append(&quot;rect&quot;)
                 .attr(&quot;x&quot;, width - 16)
@@ -427,11 +427,11 @@
                 .attr(&quot;y&quot;, 9)
                 .attr(&quot;dy&quot;, &quot;.35em&quot;)
                 .style(&quot;text-anchor&quot;, &quot;end&quot;)
-                .text(function (d) {
+                .text(function (d) &#123;
                     return d;
-                });
+                &#125;);
 
-        };
+        &#125;;
     &lt;/script&gt;
 &lt;/body&gt;
 

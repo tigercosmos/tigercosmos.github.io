@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,35 +177,35 @@
         <p>I modify some parts that I did yesterday.</p>
 <p><code>Table</code> in <code>Database</code> should be stored in <code>HashMap</code>. So checking the table is convenient.</p>
 <p>!FILENAME component/database.rs</p>
-<pre><code>pub struct Database {
+<pre><code>pub struct Database &#123;
     pub name: String,
     pub tables: HashMap&lt;String, Table&gt;,
-}
+&#125;
 </code></pre>
 <p>I decide to store all value in <code>String</code>. For the reasons that, (1) the <code>Field</code> has defined the <code>DataType</code>, so we can format the value if we want, (2) DBMS will not use the real value so frequently (only when processing <code>where</code>, but that’s fine to deal in <code>String</code>), and (3) loading and saving data are all in <code>String</code> (actually, string to binary).</p>
 <p>Therefore I only remain <code>DataType</code>:</p>
 <p>!FILENAME component/datatype.rs</p>
-<pre><code>pub enum DataType {
+<pre><code>pub enum DataType &#123;
     Char(u8),
     Double,
     Float,
     Int,
     Varchar(u8),
-}
+&#125;
 </code></pre>
 <p>Also, I forget that attributes could have default values. So I add a <code>default</code> in <code>Field</code>. Also, I remove <code>DataValue</code>, because <code>Field</code> is only the definition of a table. Therefore I also update table.</p>
 <p>!FILENAME component/field.rs</p>
-<pre><code>pub struct Field {
+<pre><code>pub struct Field &#123;
     pub name: String,
     pub datatype: DataType,
     pub not_null: bool,
     pub default: Option&lt;String&gt;,
     pub check: Checker,
-}
+&#125;
 </code></pre>
 <p>I also update <code>Table</code> a lot. A <code>Table</code> should be able to store <code>rows</code>, and it might be just a part of data from a huge set of table files. So, it needs to know where is the data from, including which <code>page</code> and which range by the <code>cursors</code>.</p>
 <p>!FILENAME component/table.rs</p>
-<pre><code>pub struct Table {
+<pre><code>pub struct Table &#123;
     /* definition */
     pub name: String,
     pub fields: HashMap&lt;String, Field&gt;, // aka attributes
@@ -219,7 +219,7 @@
     /* storage */
     pub page: u64, // which page of this table
     pub cursors: (u64, u64), // cursors of range in a page
-}
+&#125;
 </code></pre>
 <p>I cannot design very well at the moment, so I would find more that should be modified as time goes by. In real practice, I believe I am on the right way.</p>
 

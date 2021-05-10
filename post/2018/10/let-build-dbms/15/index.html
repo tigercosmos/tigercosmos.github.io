@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -180,19 +180,19 @@
 <p>There are also tests for the scanner, just take a look at the bottom of <code>lexer.rs</code>.</p>
 <p>!FILENAME sql/lexer.rs</p>
 <pre><code>// if this is possible a multikeyword, search the following chars
-match symbol::check_multi_keywords_front(word) {
+match symbol::check_multi_keywords_front(word) &#123;
     // parts&lt;Vec[u32]&gt; for how many parts in this possible keyword
-    Some(parts) =&gt; {
-        println!(&quot;The word `{}` might be a multikeyword&quot;, word);
+    Some(parts) =&gt; &#123;
+        println!(&quot;The word `&#123;&#125;` might be a multikeyword&quot;, word);
 
-        for keyword_total_parts in parts {
-            println!(&quot;Assume this keyword has {} parts&quot;, keyword_total_parts);
+        for keyword_total_parts in parts &#123;
+            println!(&quot;Assume this keyword has &#123;&#125; parts&quot;, keyword_total_parts);
 
             // copy remaining chars for testing
             let mut test_chars = chars.as_str().chars();
             // for testing if the string a multikeyword. Insert the first word
             // and a space already. (because start scanning from next word)
-            let mut test_str = String::from(format!(&quot;{} &quot;, word));
+            let mut test_str = String::from(format!(&quot;&#123;&#125; &quot;, word));
 
             // for checking a new word
             let mut is_last_letter = false;
@@ -205,66 +205,66 @@ match symbol::check_multi_keywords_front(word) {
             // if the keyword is 3 parts, the following_parts should be 2
             let mut following_parts = 0;
 
-            loop {
-                match test_chars.next() {
-                    Some(y) =&gt; {
+            loop &#123;
+                match test_chars.next() &#123;
+                    Some(y) =&gt; &#123;
                         // A multikeyword should be all ASCII alphabetic character
-                        if y.is_ascii_alphabetic() {
-                            if !is_last_letter {
+                        if y.is_ascii_alphabetic() &#123;
+                            if !is_last_letter &#123;
                                 is_last_letter = true;
-                            }
+                            &#125;
                             test_str.push(y);
-                        } else {
-                            match y {
-                                ' ' | '\t' | '\r' | '\n' =&gt; {
-                                    if is_last_letter {
+                        &#125; else &#123;
+                            match y &#123;
+                                ' ' | '\t' | '\r' | '\n' =&gt; &#123;
+                                    if is_last_letter &#123;
                                         // from letter to space, count one
                                         following_parts += 1;
                                         // find enough parts, break earlier
                                         if following_parts
                                             == keyword_total_parts - 1
-                                        {
+                                        &#123;
                                             break; // loop
-                                        }
+                                        &#125;
                                         // add ` ` between words
                                         test_str.push(' ');
                                         is_last_letter = false
-                                    }
-                                }
+                                    &#125;
+                                &#125;
                                 // &amp;, %, *, @, etc.
                                 // keywords must be letters
                                 _ =&gt; break, // loop
-                            }
-                        }
-                    }
+                            &#125;
+                        &#125;
+                    &#125;
                     None =&gt; break, // loop
-                }
+                &#125;
                 step_counter += 1;
-            }
+            &#125;
 
-            println!(&quot;Checking `{}` ...&quot;, test_str);
-            match symbol::SYMBOLS.get(test_str.as_str()) {
+            println!(&quot;Checking `&#123;&#125;` ...&quot;, test_str);
+            match symbol::SYMBOLS.get(test_str.as_str()) &#123;
                 // a multikeyword
-                Some(token) =&gt; {
-                    println!(&quot;Found keyword `{}`&quot;, test_str);
+                Some(token) =&gt; &#123;
+                    println!(&quot;Found keyword `&#123;&#125;`&quot;, test_str);
                     self.tokens.push(token.clone());
 
                     // shift the right cursor to the right of multikeyword
                     self.pos.cursor_r += step_counter;
                     // skip the chars included in this multikeyword
-                    for _ in 0..step_counter {
+                    for _ in 0..step_counter &#123;
                         chars.next();
-                    }
+                    &#125;
 
                     is_multi_keyword = true;
                     break; // parts
-                }
-                None =&gt; println!(&quot;`{}` not a keyword&quot;, test_str),
-            }
-        }
-    }
-    None =&gt; {}
-}
+                &#125;
+                None =&gt; println!(&quot;`&#123;&#125;` not a keyword&quot;, test_str),
+            &#125;
+        &#125;
+    &#125;
+    None =&gt; &#123;&#125;
+&#125;
 </code></pre>
 
     </div>

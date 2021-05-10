@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="&lt;論文&gt; Servo 案例分析：平行化瀏覽器效能-能源的預測模型" />
     <title>Neutrino&#39;s Blog: &lt;論文&gt; Servo 案例分析：平行化瀏覽器效能-能源的預測模型 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,14 +177,14 @@
         <blockquote>
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a></p>
 </blockquote>
-<p>今日論文：<a href="http://ieeexplore.ieee.org/document/7839666/" target="_blank" rel="noopener">Parallel Performance-Energy Predictive Modeling of Browsers: Case Study of Servo</a><br>
+<p>今日論文：<a target="_blank" rel="noopener" href="http://ieeexplore.ieee.org/document/7839666/">Parallel Performance-Energy Predictive Modeling of Browsers: Case Study of Servo</a><br>
 發表： High Performance Computing (HiPC), 2016 IEEE 23rd International Conference<br>
 作者： Rohit Zambre(CA)、Lars Bergstrom(Mozilla)、Laleh Aghababaie Beni(CA)</p>
 <blockquote>
 <p>本文圖片來自原始論文</p>
 </blockquote>
 <hr>
-<p><a href="https://ithelp.ithome.com.tw/users/20103745/ironman/1270" target="_blank" rel="noopener">本系列</a>有介紹過 Servo，是一個平行化的瀏覽器引擎。而這篇論文第二作者是之前 Servo 團隊的主管。</p>
+<p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/users/20103745/ironman/1270">本系列</a>有介紹過 Servo，是一個平行化的瀏覽器引擎。而這篇論文第二作者是之前 Servo 團隊的主管。</p>
 <p>平行化處理不一定每次都比較快。有時候，與其分散給四個執行緒跑，不如讓單一執行緒時脈衝高，可能處理得更快，也就是說，不是每次都採用平行化就是最好的。而今天我們既然想要做一個更快的引擎，當然就不能反而被「平行化」而扯後腿，所以這篇在研究如何建立一個模型，讓我們在處理網站的時候，能決定要用幾個執行緒，來達到最佳效能。</p>
 <hr>
 <p>例如我們看這張圖，顯示不同模型下的結果：<br>
@@ -193,7 +193,7 @@
 <p>可以發現，假設這個網站其實用 1 執行緒比較好，但 Servo 預設是全開，那反而就慢了。而這篇論文預測的準度也還算不錯，看圖大致上 <code>Our</code> 都有吻合 <code>Best</code>。</p>
 <hr>
 <p>既然談到機器學習，就要選一些特徵值，這邊作者採用 DOM tree 的一些數據來當特徵。<br>
-這張圖視覺化一棵 DOM tree 的樣子，順帶一提用的工具是 <a href="https://chikeichan.wordpress.com/2014/12/23/treeify-visualizing-dom-tree/" target="_blank" rel="noopener">treeify</a>，大家可以玩玩看<br>
+這張圖視覺化一棵 DOM tree 的樣子，順帶一提用的工具是 <a target="_blank" rel="noopener" href="https://chikeichan.wordpress.com/2014/12/23/treeify-visualizing-dom-tree/">treeify</a>，大家可以玩玩看<br>
 <img src="https://user-images.githubusercontent.com/18013815/35138533-f388b216-fd29-11e7-9ee9-69a019544581.png" alt=""><br>
 最後作者挑出以下九點當特徵值，不過後來有兩個發現沒啥用：</p>
 <ol>
@@ -235,10 +235,10 @@
 </ul>
 <p>正確率看起來有點低啦，不過這篇論文本來就不是一篇「機器學習」的論文，所以情有可原。</p>
 <hr>
-<p>不過即使機器學習的效果沒有到非常好，但是拿 MNR 的結果來和原本的 Servo 比起來，最多可以省到 94% 的效能，例如 “<a href="http://indeed.com" target="_blank" rel="noopener">indeed.com</a>” 原本 Servo 預設用 4 執行緒要跑 45ms，但其實用 1 執行緒只要 2.48 ms，甚至消耗的能量也少了一半。</p>
+<p>不過即使機器學習的效果沒有到非常好，但是拿 MNR 的結果來和原本的 Servo 比起來，最多可以省到 94% 的效能，例如 “<a target="_blank" rel="noopener" href="http://indeed.com">indeed.com</a>” 原本 Servo 預設用 4 執行緒要跑 45ms，但其實用 1 執行緒只要 2.48 ms，甚至消耗的能量也少了一半。</p>
 <p>總之這篇論文最有趣的地方就是，用機器學習來判斷說，現在瀏覽的這個網站該採用幾個執行緒來處理比較好。看完這篇有給我一點啟發，如果將類似的概念套入快取的處理上呢？</p>
 <blockquote>
-<p>延伸閱讀：<a href="https://blog.servo.org/2015/09/11/timing-energy/" target="_blank" rel="noopener">Fine-grained timing and energy profiling in Servo</a></p>
+<p>延伸閱讀：<a target="_blank" rel="noopener" href="https://blog.servo.org/2015/09/11/timing-energy/">Fine-grained timing and energy profiling in Servo</a></p>
 </blockquote>
 
     </div>
@@ -250,12 +250,12 @@
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

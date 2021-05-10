@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器引擎處理版面佈局的簡易版（二）" />
     <title>Neutrino&#39;s Blog: 瀏覽器引擎處理版面佈局的簡易版（二） </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,45 +178,45 @@
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a></p>
 </blockquote>
 <p>昨天討論了什麼是 box。算是對 layout 有初步認識了。<br>
-今天來看 <a href="https://github.com/mbrubeck/robinson/blob/master/src/layout.rs" target="_blank" rel="noopener">robinson/src/layout.rs</a> 裡面如何實作。</p>
+今天來看 <a target="_blank" rel="noopener" href="https://github.com/mbrubeck/robinson/blob/master/src/layout.rs">robinson/src/layout.rs</a> 裡面如何實作。</p>
 <p>首先定義 box 的模型，包含 x、y 位置，寬度、高度、padding、margin、邊框。</p>
 <pre><code>#[derive(Clone, Copy, Default, Debug)]
-pub struct Rect {
+pub struct Rect &#123;
     pub x: f32,
     pub y: f32,
     pub width: f32,
     pub height: f32,
-}
+&#125;
 
 #[derive(Clone, Copy, Default, Debug)]
-pub struct Dimensions {
+pub struct Dimensions &#123;
     /// Position of the content area relative to the document origin:
     pub content: Rect,
     // Surrounding edges:
     pub padding: EdgeSizes,
     pub border: EdgeSizes,
     pub margin: EdgeSizes,
-}
+&#125;
 
 #[derive(Clone, Copy, Default, Debug)]
-pub struct EdgeSizes {
+pub struct EdgeSizes &#123;
     pub left: f32,
     pub right: f32,
     pub top: f32,
     pub bottom: f32,
-}
+&#125;
 </code></pre>
 <hr>
 <p>layout tree 是由許多 box 所組成。這邊定義一個 box，包含他的模型、型別和他的 child。</p>
-<pre><code>struct LayoutBox&lt;'a&gt; {
+<pre><code>struct LayoutBox&lt;'a&gt; &#123;
     dimensions: Dimensions,
     box_type: BoxType&lt;'a&gt;,
     children: Vec&lt;LayoutBox&lt;'a&gt;&gt;,
-}
+&#125;
 </code></pre>
 <p>再來是定義 box 型別，也就是 CSS 的 deplay。<br>
 這邊只定義三種型別：block、inline、anonymous<br>
-這邊可以看一下 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank" rel="noopener">Mozilla</a> 的說明。</p>
+這邊可以看一下 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/display">Mozilla</a> 的說明。</p>
 <table>
 <thead>
 <tr>
@@ -233,83 +233,89 @@ pub struct EdgeSizes {
 <td>inline</td>
 <td>The element generates one or more inline element boxes.</td>
 </tr>
+<tr>
+<td>如下圖所示（<a target="_blank" rel="noopener" href="https://limpet.net/mbrubeck/2014/09/08/toy-layout-engine-5-boxes.html">來源</a>）</td>
+<td></td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/zGC9r2f.png" alt=""></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<p>如下圖所示（<a href="https://limpet.net/mbrubeck/2014/09/08/toy-layout-engine-5-boxes.html" target="_blank" rel="noopener">來源</a>）<br>
-<img src="https://i.imgur.com/zGC9r2f.png" alt=""></p>
-<p>至於什麼是 Anonymous 可以看以下圖解(<a href="https://www.w3.org/TR/CSS2/visuren.html#anonymous-block-level" target="_blank" rel="noopener">來源</a>)：</p>
+<p>至於什麼是 Anonymous 可以看以下圖解(<a target="_blank" rel="noopener" href="https://www.w3.org/TR/CSS2/visuren.html#anonymous-block-level">來源</a>)：</p>
 <pre><code>&lt;DIV&gt;
   Some text
   &lt;P&gt;More text
 &lt;/DIV&gt;
 </code></pre>
 <p><img src="https://www.w3.org/TR/CSS2/images/anon-block.png" alt=""></p>
-<pre><code>pub enum BoxType&lt;'a&gt; {
+<pre><code>pub enum BoxType&lt;'a&gt; &#123;
     BlockNode(&amp;'a StyledNode&lt;'a&gt;),
     InlineNode(&amp;'a StyledNode&lt;'a&gt;),
     AnonymousBlock,
-}
+&#125;
 </code></pre>
 <hr>
 <p>為了讓 layout tree 取得 DOM 的 display 是什麼，我們在 style 的模組中有以下的 code 來取得：</p>
-<pre><code>enum Display {
+<pre><code>enum Display &#123;
     Inline,
     Block,
     None,
-}
+&#125;
 
-impl StyledNode {
+impl StyledNode &#123;
     // Return the specified value of a property if it exists, otherwise `None`.
-    fn value(&amp;self, name: &amp;str) -&gt; Option&lt;Value&gt; {
+    fn value(&amp;self, name: &amp;str) -&gt; Option&lt;Value&gt; &#123;
         self.specified_values.get(name).map(|v| v.clone())
-    }
+    &#125;
 
     // The value of the `display` property (defaults to inline).
-    fn display(&amp;self) -&gt; Display {
-        match self.value(&quot;display&quot;) {
-            Some(Keyword(s)) =&gt; match &amp;*s {
+    fn display(&amp;self) -&gt; Display &#123;
+        match self.value(&quot;display&quot;) &#123;
+            Some(Keyword(s)) =&gt; match &amp;*s &#123;
                 &quot;block&quot; =&gt; Display::Block,
                 &quot;none&quot; =&gt; Display::None,
                 _ =&gt; Display::Inline
-            },
+            &#125;,
             _ =&gt; Display::Inline
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <hr>
 <p>接著就可以來建立用 style tree 建立 layout tree。<br>
 順著 root 不斷遞迴把樹建構起來。<br>
 如果 display 是 none 的節點則不列入計算。</p>
 <pre><code>/// Transform a style tree into a layout tree.
-pub fn layout_tree&lt;'a&gt;(node: &amp;'a StyledNode&lt;'a&gt;, mut containing_block: Dimensions) -&gt; LayoutBox&lt;'a&gt; {
+pub fn layout_tree&lt;'a&gt;(node: &amp;'a StyledNode&lt;'a&gt;, mut containing_block: Dimensions) -&gt; LayoutBox&lt;'a&gt; &#123;
     // The layout algorithm expects the container height to start at 0.
     containing_block.content.height = 0.0;
 
     let mut root_box = build_layout_tree(node);
     root_box.layout(containing_block);
     root_box
-}
+&#125;
 
 /// Build the tree of LayoutBoxes, but don't perform any layout calculations yet.
-fn build_layout_tree&lt;'a&gt;(style_node: &amp;'a StyledNode&lt;'a&gt;) -&gt; LayoutBox&lt;'a&gt; {
+fn build_layout_tree&lt;'a&gt;(style_node: &amp;'a StyledNode&lt;'a&gt;) -&gt; LayoutBox&lt;'a&gt; &#123;
     // Create the root box.
-    let mut root = LayoutBox::new(match style_node.display() {
+    let mut root = LayoutBox::new(match style_node.display() &#123;
         Display::Block =&gt; BlockNode(style_node),
         Display::Inline =&gt; InlineNode(style_node),
         Display::None =&gt; panic!(&quot;Root node has display: none.&quot;)
-    });
+    &#125;);
 
     // Create the descendant boxes.
-    for child in &amp;style_node.children {
-        match child.display() {
+    for child in &amp;style_node.children &#123;
+        match child.display() &#123;
             Display::Block =&gt; root.children.push(build_layout_tree(child)),
             Display::Inline =&gt; root.get_inline_container().children.push(build_layout_tree(child)),
-            Display::None =&gt; {} // Don't lay out nodes with `display: none;`
-        }
-    }
+            Display::None =&gt; &#123;&#125; // Don't lay out nodes with `display: none;`
+        &#125;
+    &#125;
     root
-}
+&#125;
 </code></pre>
 
     </div>
@@ -321,12 +327,12 @@ fn build_layout_tree&lt;'a&gt;(style_node: &amp;'a StyledNode&lt;'a&gt;) -&gt; L
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

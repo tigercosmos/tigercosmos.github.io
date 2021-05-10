@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -179,10 +179,10 @@
 <p>&#x4E0D;&#x592A;&#x7406;&#x89E3;&#x6587;&#x5B57;&#x7684;&#x610F;&#x601D;&#xFF1F;&#x7E7C;&#x7E8C;&#x770B;&#x4E0B;&#x53BB;&#x3002;</p>
 <h2>ContentChild</h2>
 <p>app.ts</p>
-<pre><code>import {Component}       from &apos;angular2/core&apos;;
-import {ParentComponent} from &apos;./parent&apos;;
-import {ChildComponent}  from &apos;./child&apos;;
-<p>@Component({<br>
+<pre><code>import &#123;Component&#125;       from &apos;angular2/core&apos;;
+import &#123;ParentComponent&#125; from &apos;./parent&apos;;
+import &#123;ChildComponent&#125;  from &apos;./child&apos;;
+<p>@Component(&#123;<br>
 selector: 'my-app',<br>
 template: <code>        &amp;lt;h2&amp;gt;App Component&amp;lt;/h2&amp;gt;         &amp;lt;my-parent&amp;gt;            &amp;lt;my-child&amp;gt;&amp;lt;/my-child&amp;gt;         &amp;lt;/my-parent&amp;gt;    </code>,<br>
 directives:[ParentComponent,ChildComponent]<br>
@@ -192,8 +192,8 @@ export class AppComponent {<br>
 </code></pre></p>
 <p>&#x4E3B;&#x7A0B;&#x5F0F;&#x7684;&#x6A23;&#x5B50;&#xFF0C;&#x8981;&#x6C42; <code>&lt;my-parent&gt;</code> &#x88E1;&#x9762;&#x5305;&#x8457;&#x4E00;&#x500B; <code>&lt;my-child&gt;</code></p>
 <p>child.ts</p>
-<pre><code>import {Component} from &apos;angular2/core&apos;;
-<p>@Component({<br>
+<pre><code>import &#123;Component&#125; from &apos;angular2/core&apos;;
+<p>@Component(&#123;<br>
 selector: 'my-child',<br>
 template: <code>        &amp;lt;div&amp;gt;Child Component&amp;lt;/div&amp;gt;    </code><br>
 })<br>
@@ -203,18 +203,18 @@ name:string = 'childName';<br>
 </code></pre></p>
 <p><code>name</code> &#x662F;&#x6211;&#x5011;&#x5F85;&#x6703;&#x6703;&#x7528;&#x5230;&#x7684;&#x6771;&#x897F;&#x3002;</p>
 <p>parent.ts</p>
-<pre><code>import {Component,ContentChild} from &apos;angular2/core&apos;;
-import {ChildComponent}         from &apos;./child&apos;;
-<p>@Component({<br>
+<pre><code>import &#123;Component,ContentChild&#125; from &apos;angular2/core&apos;;
+import &#123;ChildComponent&#125;         from &apos;./child&apos;;
+<p>@Component(&#123;<br>
 selector: 'my-parent',<br>
-template: <code>        &amp;lt;div&amp;gt;Parent Component&amp;lt;/div&amp;gt;         &amp;lt;ng-content&amp;gt;&amp;lt;/ng-content&amp;gt;         &amp;lt;p&amp;gt;{{child.name}}&amp;lt;/p&amp;gt;    </code><br>
+template: <code>        &amp;lt;div&amp;gt;Parent Component&amp;lt;/div&amp;gt;         &amp;lt;ng-content&amp;gt;&amp;lt;/ng-content&amp;gt;         &amp;lt;p&amp;gt;&#123;&#123;child.name&#125;&#125;&amp;lt;/p&amp;gt;    </code><br>
 })<br>
 export class ParentComponent {<br>
 @ContentChild(ChildComponent)<br>
 child:ChildComponent;<br>
 }<br>
 </code></pre></p>
-<p><code>&lt;p&gt;&lt;/p&gt;</code> &#x9019;&#x908A;&#x8981;&#x6C42; <code>child:ChildComponent</code> &#x7684;&#x7269;&#x4EF6;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; parent &#x76F4;&#x63A5;&#x8ABF;&#x7528; child &#x7684;&#x5167;&#x5BB9;&#xFF0C;&#x9019;&#x908A;&#x662F;&#x900F;&#x904E; <code>@ContentChild</code> &#x4F86;&#x8655;&#x7406;&#xFF0C; &#x5176;&#x5BE6;&#x5C31;&#x8DDF;&#x6CE8;&#x5165;&#x7684;&#x6982;&#x5FF5;&#x5F88;&#x50CF;&#x3002;</p>
+<p><code>&lt;p&gt;&#123;&#123;child.name&#125;&#125;&lt;/p&gt;</code> &#x9019;&#x908A;&#x8981;&#x6C42; <code>child:ChildComponent</code> &#x7684;&#x7269;&#x4EF6;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; parent &#x76F4;&#x63A5;&#x8ABF;&#x7528; child &#x7684;&#x5167;&#x5BB9;&#xFF0C;&#x9019;&#x908A;&#x662F;&#x900F;&#x904E; <code>@ContentChild</code> &#x4F86;&#x8655;&#x7406;&#xFF0C; &#x5176;&#x5BE6;&#x5C31;&#x8DDF;&#x6CE8;&#x5165;&#x7684;&#x6982;&#x5FF5;&#x5F88;&#x50CF;&#x3002;</p>
 <p><a href="https://embed.plnkr.co/rSmStf53EZx4Dh4AlI1g/" target="_blank">Plunker</a><br>
 <img src="https://raw.githubusercontent.com/tigercosmos/webImg/master/angular-contentChild.PNG" alt></p>
  <br>
@@ -307,7 +307,7 @@ child:ChildComponent;<br>
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">ContentChild</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">ContentChild</span></a></li></ol>
 </div>
                 </section>
             

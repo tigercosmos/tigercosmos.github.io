@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器引擎處理 HTML 的簡易版" />
     <title>Neutrino&#39;s Blog: 瀏覽器引擎處理 HTML 的簡易版 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,14 +177,14 @@
         <blockquote>
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a></p>
 </blockquote>
-<p>這篇一樣使用 <a href="https://github.com/mbrubeck/robinson" target="_blank" rel="noopener">robinson</a> 這個「玩具」來進行講解，還記得我們第二篇文章中提到解析的部分嗎？分為 HTML 和 CSS 解析。忘記的話、或是之前偷懶沒看的話，可以回去看一下，那篇解釋瀏覽器如何進行解析，「How browser work」一篇文章更是對原理講得非常仔細，讀懂原理才能知道這篇在做什麼。</p>
+<p>這篇一樣使用 <a target="_blank" rel="noopener" href="https://github.com/mbrubeck/robinson">robinson</a> 這個「玩具」來進行講解，還記得我們第二篇文章中提到解析的部分嗎？分為 HTML 和 CSS 解析。忘記的話、或是之前偷懶沒看的話，可以回去看一下，那篇解釋瀏覽器如何進行解析，「How browser work」一篇文章更是對原理講得非常仔細，讀懂原理才能知道這篇在做什麼。</p>
 <p>我們知道如何處理一個 DOM 了，接下來我們要來解析 HTML 本身了！解析好的 HTML 便可以使用我們昨天寫好的 DOM 模組來組裝。這樣一來就完成 DOM Tree 的部分了！</p>
-<p>robinson 關於 html 的部分在 <a href="https://github.com/mbrubeck/robinson/blob/master/src/html.rs" target="_blank" rel="noopener">robinson/src/html.rs</a>。程式碼也不算太長，比昨天稍微朝一點點而已。</p>
-<p>玩具當然無法滿足我們，我們最終的目標是要去挑戰 Servo 專案，這邊先告訴大家，Servo 的 html parser 是 <a href="https://github.com/servo/html5ever" target="_blank" rel="noopener">html5ever</a>，其實做原理也是照著 SPEC 來完成的，被獨立出來作為一個模組。意思是他不是包含在 Servo 裡面，假設你也用 Rust 語言寫一個「玩具瀏覽器」，你可以完全使用這個套件來完成 html 的解析。把時間花在更想實作練習的項目上！</p>
+<p>robinson 關於 html 的部分在 <a target="_blank" rel="noopener" href="https://github.com/mbrubeck/robinson/blob/master/src/html.rs">robinson/src/html.rs</a>。程式碼也不算太長，比昨天稍微朝一點點而已。</p>
+<p>玩具當然無法滿足我們，我們最終的目標是要去挑戰 Servo 專案，這邊先告訴大家，Servo 的 html parser 是 <a target="_blank" rel="noopener" href="https://github.com/servo/html5ever">html5ever</a>，其實做原理也是照著 SPEC 來完成的，被獨立出來作為一個模組。意思是他不是包含在 Servo 裡面，假設你也用 Rust 語言寫一個「玩具瀏覽器」，你可以完全使用這個套件來完成 html 的解析。把時間花在更想實作練習的項目上！</p>
 <h2 id="實作"><a class="header-anchor" href="#實作">¶ </a>實作</h2>
-<p>以下為我直接複製 <a href="https://github.com/mbrubeck/robinson/blob/master/src/html.rs" target="_blank" rel="noopener"><code>html.rs</code></a> 過來，並拆解成片段來解釋在做什麼。<br>
+<p>以下為我直接複製 <a target="_blank" rel="noopener" href="https://github.com/mbrubeck/robinson/blob/master/src/html.rs"><code>html.rs</code></a> 過來，並拆解成片段來解釋在做什麼。<br>
 建議先去看原始碼，大概意會一下原始程式碼的想法。再來看我的解說。<br>
-程式的作者也有寫<a href="https://limpet.net/mbrubeck/2014/08/11/toy-layout-engine-2.html" target="_blank" rel="noopener">文章</a>解釋，但我的絕對比他的更詳細，當然還是中文的 X)<br>
+程式的作者也有寫<a target="_blank" rel="noopener" href="https://limpet.net/mbrubeck/2014/08/11/toy-layout-engine-2.html">文章</a>解釋，但我的絕對比他的更詳細，當然還是中文的 X)<br>
 原始程式碼的註解和一些我覺得不用特別解說的部分這邊有拿掉。這邊只挑出關鍵的邏輯部分。<br>
 這段程式碼有一些使用 Rust 語言的特性，不影響邏輯理解，但是如果想完全瞭解程式碼的運作過程，最好還是去了解一下 Rust 的使用方式。</p>
 <p>好啦！我們上路！</p>
@@ -195,55 +195,55 @@ use dom;
 use std::collections::HashMap;
 </code></pre>
 <p>用我們寫好的 Parser 來進行解析，其中 <code>dom::elem()</code> 是我們昨天定義的函示，解析完 HTML 就可以建立一個新的 DOM。Parser 的實作在下面。</p>
-<pre><code>pub fn parse(source: String) -&gt; dom::Node {
-    let mut nodes = Parser { pos: 0, input: source }.parse_nodes();
+<pre><code>pub fn parse(source: String) -&gt; dom::Node &#123;
+    let mut nodes = Parser &#123; pos: 0, input: source &#125;.parse_nodes();
 
     // 如果節點只有一個，也就是根節點，就返回
-    if nodes.len() == 1 {
+    if nodes.len() == 1 &#123;
         nodes.swap_remove(0)
     // 不然就建立節點
-    } else {
+    &#125; else &#123;
         dom::elem(&quot;html&quot;.to_string(), HashMap::new(), nodes)
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>建立一個 Class 叫做 Parser，你可以完全不要這樣寫，這邊只是一種可行的方式</p>
-<pre><code>struct Parser {
+<pre><code>struct Parser &#123;
     pos: usize,
     input: String,
-}
+&#125;
 </code></pre>
 <p>Parser 的 method</p>
-<pre><code>impl Parser {
+<pre><code>impl Parser &#123;
     ...
     ...
-}
+&#125;
 </code></pre>
 <hr>
 <p><em><strong>以下是 Parser 的 Methods</strong></em></p>
 <p>這邊把所有子節點都解析進來</p>
 <pre><code>    /// Parse a sequence of sibling nodes.
-    fn parse_nodes(&amp;mut self) -&gt; Vec&lt;dom::Node&gt; {
+    fn parse_nodes(&amp;mut self) -&gt; Vec&lt;dom::Node&gt; &#123;
         let mut nodes = vec!();
-        loop {
+        loop &#123;
             self.consume_whitespace();
-            if self.eof() || self.starts_with(&quot;&lt;/&quot;) {
+            if self.eof() || self.starts_with(&quot;&lt;/&quot;) &#123;
                 break;
-            }
+            &#125;
             nodes.push(self.parse_node());
-        }
+        &#125;
         nodes
-    }
+    &#125;
 </code></pre>
 <p>判斷解析的節點是元素還是文字節點。如果是文字節點就會者的像是，<code>&lt;h1&gt;Tiltle&lt;/h1&gt;</code>，可以看到裡面只有文字，所以這邊用<code>&lt;</code>來判斷是什麼節點。當然因為這邊假設只有兩種節點型態才能這樣做。</p>
 <pre><code>    /// Parse a single node.
-    fn parse_node(&amp;mut self) -&gt; dom::Node {
-        match self.next_char() {
+    fn parse_node(&amp;mut self) -&gt; dom::Node &#123;
+        match self.next_char() &#123;
             '&lt;' =&gt; self.parse_element(),
             // 在 Rust 中，_ 代表其餘狀況，或是設定值為空
             _   =&gt; self.parse_text()
-        }
-    }
+        &#125;
+    &#125;
 </code></pre>
 <p>解析一個元素，這邊把檢查一起寫進來了，正式的產品不建議這樣做，最好是能夠把測試分離。<br>
 一個元素大概長這樣:</p>
@@ -253,7 +253,7 @@ use std::collections::HashMap;
 </code></pre>
 <p>然後你再看一下這邊解析元素作的部分，就能明白為啥要有三個步驟。</p>
 <pre><code>    /// Parse a single element, including its open tag, contents, and closing tag.
-    fn parse_element(&amp;mut self) -&gt; dom::Node {
+    fn parse_element(&amp;mut self) -&gt; dom::Node &#123;
         // Opening tag.
         assert_eq!(self.consume_char(), '&lt;');
         let tag_name = self.parse_tag_name();
@@ -270,62 +270,62 @@ use std::collections::HashMap;
         assert_eq!(self.consume_char(), '&gt;');
 
         dom::elem(tag_name, attrs, children)
-    }
+    &#125;
 </code></pre>
 <p>這邊認定 <code>tag</code> 的名稱只會有英文和數字</p>
 <pre><code>    /// Parse a tag or attribute name.
-    fn parse_tag_name(&amp;mut self) -&gt; String {
-        self.consume_while(|c| match c {
+    fn parse_tag_name(&amp;mut self) -&gt; String &#123;
+        self.consume_while(|c| match c &#123;
             'a'...'z' | 'A'...'Z' | '0'...'9' =&gt; true,
             _ =&gt; false
-        })
-    }
+        &#125;)
+    &#125;
 </code></pre>
 <p>Attibutes 就像是 <code>class=&quot;btn red box&quot;</code>，會用空白隔開，所以這邊解析屬性時，將屬性內容用空白切開，跑回圈來記錄。</p>
 <pre><code>    /// Parse a list of name=&quot;value&quot; pairs, separated by whitespace.
-    fn parse_attributes(&amp;mut self) -&gt; dom::AttrMap {
+    fn parse_attributes(&amp;mut self) -&gt; dom::AttrMap &#123;
         let mut attributes = HashMap::new();
-        loop {
+        loop &#123;
             self.consume_whitespace();
-            if self.next_char() == '&gt;' {
+            if self.next_char() == '&gt;' &#123;
                 break;
-            }
+            &#125;
             let (name, value) = self.parse_attr();
             attributes.insert(name, value);
-        }
+        &#125;
         attributes
-    }
+    &#125;
 </code></pre>
 <p>只處理元素的 <code>name</code>，像是 <code>&lt;input name=&quot;upload&quot;&gt;</code> 這種。</p>
 <pre><code>    /// Parse a single name=&quot;value&quot; pair.
-    fn parse_attr(&amp;mut self) -&gt; (String, String) {
+    fn parse_attr(&amp;mut self) -&gt; (String, String) &#123;
         let name = self.parse_tag_name();
         assert_eq!(self.consume_char(), '=');
         let value = self.parse_attr_value();
         (name, value)
-    }
+    &#125;
 </code></pre>
 <p>解析文字節點，上面有提過，節點內不該有<code>&lt;</code>存在</p>
 <pre><code>    /// Parse a text node.
-    fn parse_text(&amp;mut self) -&gt; dom::Node {
+    fn parse_text(&amp;mut self) -&gt; dom::Node &#123;
         dom::text(self.consume_while(|c| c != '&lt;'))
-    }
+    &#125;
 </code></pre>
 <p>一般瀏覽器對於多餘的空白都會直接忽視，所以這邊有特別處理一下，其實不是很重要啦</p>
 <pre><code>    /// Consume and discard zero or more whitespace characters.
-    fn consume_whitespace(&amp;mut self) {
+    fn consume_whitespace(&amp;mut self) &#123;
         self.consume_while(char::is_whitespace);
-    }
+    &#125;
 </code></pre>
 <p>這邊實現的解析器，是從左到右，一個字元一個字元向右判斷，然後把輸入的字串跑完來做解析</p>
 <pre><code>    /// Return the current character, and advance self.pos to the next character.
-    fn consume_char(&amp;mut self) -&gt; char {
+    fn consume_char(&amp;mut self) -&gt; char &#123;
         let mut iter = self.input[self.pos..].char_indices();
         let (_, cur_char) = iter.next().unwrap();
         let (next_pos, _) = iter.next().unwrap_or((1, ' '));
         self.pos += next_pos;
         cur_char
-    }
+    &#125;
 </code></pre>
 <hr>
 <p>以上就是簡單的 HTML 解析器，基本功能都有了，當然很多缺陷，不僅一堆特殊狀況無法處理，很多的標準 HTML 寫法也不支援。不過我們也大概了解 Parser 的作用和做法了，可以以此改進，或是有興趣的話就去貢獻一下到 html5ever 吧！</p>
@@ -340,12 +340,12 @@ use std::collections::HashMap;
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">
@@ -417,7 +417,7 @@ use std::collections::HashMap;
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#實作"><span class="toc-text">實作</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C"><span class="toc-text">實作</span></a></li></ol>
 </div>
                 </section>
             

@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,7 +178,7 @@
 <p>Emscripten 是可以將 C/C++ 轉換成 WebAssembly 的工具，背後是透過 LLVM 轉換，支援轉換 Pthread，會轉成 JavaScript 的 Web Worker 加 WebAssembly，甚至可以將 OpenGL 轉成 WebGL，讓程式在網頁上跑還能有接近原生程式的效能。</p>
 <p>其中 Pthread 轉成 Web Worker 加 WebAssembly 的部分，就是本文要介紹的重點。我會拿一個範例程式來實際轉換看看，不過要找一個好的測試程式不容易，所以我寫一支 Pthread 計算 PI 的平行程式，用來做轉換測試。</p>
 <p>本文先介紹如何使用 Emscripten 將 Pthread 轉 JS，照著官網教學做的過程採到一些坑，順便也記錄下來，免得大家又落坑了。隨後會分析 (1)原生 C Code (2)Emscripten 轉換的 JS (3)直接用 JS 寫的 Web Worker，三種情境下的效能差異。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="Pthread-範例程式"><a class="header-anchor" href="#Pthread-範例程式">¶ </a>Pthread 範例程式</h2>
 <p>範例程式是用 Pthread 平行計算 PI 的小程式，使用這個程式有幾個原因，寫平行程式最重要是測他能不能開新的執行緒，能不能使用共享記憶體，能不能上鎖，以及能不能等待其他執行緒，基本上一個平行程式的概念差不多就這樣，而這個計算 PI 的 Pthread 程式剛好足夠滿足我需求。</p>
 <p>為了節省篇幅，Pthread 詳細可以參考之前的文章「<a href="/post/2020/07/simple-pthread-usage/">簡易 Pthreads 平行化範例與效能分析</a>」。</p>
@@ -192,18 +192,18 @@
 #define MAGNIFICATION 1e9
 
 typedef struct
-{
+&#123;
    int thread_id;
    int start;
    int end;
    double *pi;
-} Arg;
+&#125; Arg;
 
 pthread_t callThd[NUMTHRDS];
 pthread_mutex_t mutexsum;
 
 void *count_pi(void *arg)
-{
+&#123;
 
    Arg *data = (Arg *)arg;
    int thread_id = data-&gt;thread_id;
@@ -215,10 +215,10 @@ void *count_pi(void *arg)
    double local_pi = 0;
    double step = 1 / MAGNIFICATION;
    for (int i = start; i &lt; end; i++)
-   {
+   &#123;
       x = (i + 0.5) * step;
       local_pi += 4 / (1 + x * x);
-   }
+   &#125;
 
    local_pi *= step;
 
@@ -230,10 +230,10 @@ void *count_pi(void *arg)
           end, local_pi, *pi);
 
    pthread_exit((void *)0);
-}
+&#125;
 
 int main(int argc, char *argv[])
-{
+&#123;
    pthread_mutex_init(&amp;mutexsum, NULL);
 
    pthread_attr_t attr;
@@ -247,21 +247,21 @@ int main(int argc, char *argv[])
 
    Arg arg[NUMTHRDS];
    for (int i = 0; i &lt; NUMTHRDS; i++)
-   {
+   &#123;
       arg[i].thread_id = i;
       arg[i].start = part * i;
       arg[i].end = part * (i + 1);
       arg[i].pi = pi;
       pthread_create(&amp;callThd[i], &amp;attr, count_pi, (void *)&amp;arg[i]);
-   }
+   &#125;
 
    pthread_attr_destroy(&amp;attr);
 
    void *status;
    for (int i = 0; i &lt; NUMTHRDS; i++)
-   {
+   &#123;
       pthread_join(callThd[i], &amp;status);
-   }
+   &#125;
 
    printf(&quot;Pi =  %.10lf \n&quot;, *pi);
 
@@ -269,7 +269,7 @@ int main(int argc, char *argv[])
 
    pthread_mutex_destroy(&amp;mutexsum);
    pthread_exit(NULL);
-}
+&#125;
 </code></pre>
 <h2 id="Emscripten-下載"><a class="header-anchor" href="#Emscripten-下載">¶ </a>Emscripten 下載</h2>
 <p>要用 Emscripten 要先下載他的 Github Repo，不過你電腦要記得先裝 Git。</p>
@@ -297,10 +297,10 @@ source ./emsdk_env.sh
 <pre><code class="language-c">// hello.c
 #include &lt;stdio.h&gt;
 
-int main() {
+int main() &#123;
   printf(&quot;hello, world!\n&quot;);
   return 0;
-}
+&#125;
 </code></pre>
 <p>編譯：</p>
 <pre><code class="language-shell">$ emcc hello.c
@@ -310,7 +310,7 @@ int main() {
 </code></pre>
 <p>你也可以指定輸出成 HTML，那就會是一個可以用瀏覽器開的範例，網頁檔裡面會有個虛擬的終端機，可以看到原本的程式碼在網頁裡的終端機執行。</p>
 <p>這邊要注意，如果輸出成 HTML，必須先開一個 Local Server 來開啟網頁，這是因為瀏覽器不支援 <code>file://</code> XHR 請求，同時 Emscripten 對於 HTTP Header 的 File Type 還有特別要求，其實還頗麻煩。這部分細節請上 Emscripten 官網查詢。</p>
-<p>更多使用教學可以參考 <a href="https://emscripten.org/docs/getting_started/Tutorial.html#emscripten-tutorial" target="_blank" rel="noopener">Emscripten 的 Tutorial</a>。</p>
+<p>更多使用教學可以參考 <a target="_blank" rel="noopener" href="https://emscripten.org/docs/getting_started/Tutorial.html#emscripten-tutorial">Emscripten 的 Tutorial</a>。</p>
 <h2 id="Emscripten-編譯-Pthread"><a class="header-anchor" href="#Emscripten-編譯-Pthread">¶ </a>Emscripten 編譯 Pthread</h2>
 <p>現在我們要來編譯 <code>pi.c</code>，根據官網說法編譯 Pthread 要在後面加上 <code>-s USE_PTHREADS=1</code> 參數。</p>
 <pre><code class="language-shell">$ emcc pi.c -s USE_PTHREADS=1
@@ -321,7 +321,7 @@ int main() {
 // 完全沒動靜
 </code></pre>
 <p>沒錯，他就這樣卡住了。</p>
-<p>上 Github 問才知道，原來 Emscripten 的機制問題 (細節我也沒很懂)，參考我提的 <a href="https://github.com/emscripten-core/emscripten/issues/11543#issuecomment-654317178" target="_blank" rel="noopener">issue</a>，總之有三個方法可以解決：</p>
+<p>上 Github 問才知道，原來 Emscripten 的機制問題 (細節我也沒很懂)，參考我提的 <a target="_blank" rel="noopener" href="https://github.com/emscripten-core/emscripten/issues/11543#issuecomment-654317178">issue</a>，總之有三個方法可以解決：</p>
 <ol>
 <li>編譯加上 <code>-s PROXY_TO_PTHREAD</code></li>
 <li>編譯加上 <code>-s PTHREAD_POOL_SIZE=N</code> 其中 N &gt; 0</li>
@@ -338,7 +338,7 @@ Thread 0 did 0 to 250000000:  local Pi=0.979915 global Pi=2.5740044352
 Thread 3 did 750000000 to 1000000000:  local Pi=0.567588 global Pi=3.1415926536
 Pi =  3.1415926536」」
 </code></pre>
-<p>我當初試 Pthread 幾乎所有基本語法都跑不動，真是嚇傻了。老實說我覺得是文件很有問題，開發成員也提出 <a href="https://github.com/emscripten-core/emscripten/issues/11554" target="_blank" rel="noopener">issue</a> 指出需要改進。</p>
+<p>我當初試 Pthread 幾乎所有基本語法都跑不動，真是嚇傻了。老實說我覺得是文件很有問題，開發成員也提出 <a target="_blank" rel="noopener" href="https://github.com/emscripten-core/emscripten/issues/11554">issue</a> 指出需要改進。</p>
 <h2 id="效能分析"><a class="header-anchor" href="#效能分析">¶ </a>效能分析</h2>
 <p>接下來要測試，同一個計算 PI 的平行化邏輯，使用 (1) 原生 pthread (2) pthread 轉 WASM (3) 用 JS 寫 Web Worker，這三種情況下效能差異。</p>
 <p>其中 (1)、(2) 的程式碼使用本文的 <code>pi.c</code> 和 Emscripten 轉出來的 WASM，(3) 使用我先前文章「<a href="/post/2020/06/js/web-worker-evaluation/#NodeJS"><br>
@@ -529,7 +529,7 @@ real    0m0.350s
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#簡介"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pthread-範例程式"><span class="toc-text">Pthread 範例程式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emscripten-下載"><span class="toc-text">Emscripten 下載</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emscripten-入門"><span class="toc-text">Emscripten 入門</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emscripten-編譯-Pthread"><span class="toc-text">Emscripten 編譯 Pthread</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效能分析"><span class="toc-text">效能分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-text">結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pthread-%E7%AF%84%E4%BE%8B%E7%A8%8B%E5%BC%8F"><span class="toc-text">Pthread 範例程式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emscripten-%E4%B8%8B%E8%BC%89"><span class="toc-text">Emscripten 下載</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emscripten-%E5%85%A5%E9%96%80"><span class="toc-text">Emscripten 入門</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emscripten-%E7%B7%A8%E8%AD%AF-Pthread"><span class="toc-text">Emscripten 編譯 Pthread</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-text">效能分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
 </div>
                 </section>
             

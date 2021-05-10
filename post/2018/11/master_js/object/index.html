@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,7 +178,7 @@
 <p>這個世界由各種不同的東西(Things)組成，我們身處的宇宙、太陽系、每天繞地球的月球，山海與花花草草。</p>
 <p>有一部電影〈The Theory of Everything〉描述一位已逝的偉大物理學家——霍金，年輕時候的愛情故事。霍金一生為追求宇宙的真理而努力，物理學家堅信世界應該是由一個可以統合並解釋所有物理現象的理論所支配，亦即萬物的理論。</p>
 <p>在 JS 的世界中，萬物的理論就是 <code>object</code> 這個物件型別，這個物件型別包含各種形形色色的玩意，讓我娓娓道來。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <blockquote>
 <p>傳送門：此系列文章「<a href="/post/2018/11/master_js/table/">30 天 Javascript 從入門到進階</a>」</p>
 </blockquote>
@@ -190,12 +190,12 @@
 </ul>
 <p>屬性也可以稱為成員(member)，代表這個物件所擁有的資料；方法也稱作函式，讓物件可以執行工作，也就是這個物件的功能，例如操作物件成員來做判斷並回傳數值。</p>
 <p>JS 中的物件，可以有很多種方式生成，例如：</p>
-<pre><code class="language-js">const obj = {};
+<pre><code class="language-js">const obj = &#123;&#125;;
 </code></pre>
-<pre><code class="language-js">function Obj(){}
+<pre><code class="language-js">function Obj()&#123;&#125;
 const obj = new Obj();
 </code></pre>
-<pre><code class="language-js">class Obj{}
+<pre><code class="language-js">class Obj&#123;&#125;
 const obj = new Obj();
 </code></pre>
 <p>但是這個章節主要在講觀念，因此使用第一種方式做介紹！</p>
@@ -209,29 +209,29 @@ const obj = new Obj();
 </code></pre>
 <p>當然這個人就是我。</p>
 <p>那如果想用 JS 描述一個人呢？</p>
-<pre><code class="language-js">let person = {
+<pre><code class="language-js">let person = &#123;
     firstName: &quot;Liu&quot;,
     lastName: &quot;An Chi&quot;,
     age: 22,
     sex: &quot;male&quot;
-};
+&#125;;
 </code></pre>
 <p>這樣就是定義一個人了。</p>
 <p>所以 JS 定義物件的語法是：</p>
-<pre><code class="language-js">let 東西 = {
+<pre><code class="language-js">let 東西 = &#123;
     特徵1: 描述1,
     特徵2: 描述2,
     // ...
     // ...
-}
+&#125;
 </code></pre>
 <p>檔案：ex1.js</p>
-<pre><code class="language-js">let person = {
+<pre><code class="language-js">let person = &#123;
     firstName: &quot;Liu&quot;,
     lastName: &quot;An Chi&quot;,
     age: 22,
     sex: &quot;male&quot;
-};
+&#125;;
 
 console.log(typeof person)
 console.log(person)
@@ -240,7 +240,7 @@ console.log(person.age)
 <p>執行 <code>ex1.js</code>：</p>
 <pre><code class="language-py">$ node ex1.js
 object
-{ firstName: 'Liu', lastName: 'An Chi', age: 22, sex: 'male' }
+&#123; firstName: 'Liu', lastName: 'An Chi', age: 22, sex: 'male' &#125;
 22
 </code></pre>
 <p>由此可知 <code>person</code> 的確被 JS 歸納在 <code>object</code> 型別，我們可以直接印出完整的物件，也可以直接呼叫 <code>person.age</code> 來取得 <code>person</code> 的 <code>age</code> 的值是多少。</p>
@@ -259,21 +259,21 @@ object
 <p>這樣看下來這個人是否更生動了一些呢？這就是物件中屬性和方法的概念，屬性描述東西的特徵，方法是這個物件可以做的事情。</p>
 <p>如果我們用 JS 來表示的話：</p>
 <p>檔案：ex2.js</p>
-<pre><code class="language-js">const girl = {
+<pre><code class="language-js">const girl = &#123;
     name: &quot;Jenny&quot;,
     age: 21,
     sex: &quot;female&quot;,
-    isGirl: () =&gt; {
+    isGirl: () =&gt; &#123;
         return this.sex == &quot;female&quot;;
-    },
-    getName: function() {
-        console.log(`I am ${this.name}!`);
-    },
-    sayHello: function(who) {
-        console.log(`Hello, ${who}!`);
+    &#125;,
+    getName: function() &#123;
+        console.log(`I am $&#123;this.name&#125;!`);
+    &#125;,
+    sayHello: function(who) &#123;
+        console.log(`Hello, $&#123;who&#125;!`);
         this.getName();
-    }
-};
+    &#125;
+&#125;;
 
 console.log(girl.name) // 印出屬性來看
 console.log(girl.isGirl()) // 印出物件方法的回傳值
@@ -287,31 +287,31 @@ Hello, Tiger!
 I am Jenny!
 </code></pre>
 <p>這個例子有點小複雜，首先我們注意到一個規則：</p>
-<pre><code class="language-js">const thing = {
+<pre><code class="language-js">const thing = &#123;
     屬性: 變數,
     方法: 函式
-}
+&#125;
 </code></pre>
 <p>亦即長這樣：</p>
-<pre><code class="language-js">const thing = {
+<pre><code class="language-js">const thing = &#123;
     name: &quot;XXX&quot;,
-    doThing1: fucntion(){ /* 寫法一 */ },
-    doThing2: () =&gt; { /* 寫法二 */  }
-}
+    doThing1: fucntion()&#123; /* 寫法一 */ &#125;,
+    doThing2: () =&gt; &#123; /* 寫法二 */  &#125;
+&#125;
 </code></pre>
-<p>注意到不管是屬性或是方法，我們都會先定義名稱，然後如果是屬性，後面會接變數。如果是方法，後面會接函式，函式可以用 <code>function</code> 寫法也可以用 <code>()=&gt;{}</code> 箭頭式寫法，兩種寫法有稍微差異，後面會解釋。此外物件中的方法，因為是函式，所以可以單純跑程式碼，也可以有回傳值。</p>
+<p>注意到不管是屬性或是方法，我們都會先定義名稱，然後如果是屬性，後面會接變數。如果是方法，後面會接函式，函式可以用 <code>function</code> 寫法也可以用 <code>()=&gt;&#123;&#125;</code> 箭頭式寫法，兩種寫法有稍微差異，後面會解釋。此外物件中的方法，因為是函式，所以可以單純跑程式碼，也可以有回傳值。</p>
 <p>在 <code>ex2.js</code> 中有一段：</p>
-<pre><code class="language-js">    getName: function() {
-        console.log(`I am ${this.name}!`);
-    },
+<pre><code class="language-js">    getName: function() &#123;
+        console.log(`I am $&#123;this.name&#125;!`);
+    &#125;,
 </code></pre>
 <p>這個方法採用 <code>fuction</code> 來表示函式。重點是關鍵字 <code>this</code>，<code>this</code> 意味著物件自己，因爲 <code>girl</code> 有 <code>name</code> 這個屬性，我們如果從外面呼叫就是 <code>girl.name</code>。但我們現在要在物件裡面呼叫這個屬性，所以我們用 <code>this.name</code>。</p>
 <p>所以 <code>this.name</code> 在物件裡的方法中被使用時，會得到物件本來定義 <code>name</code> 的 <code>&quot;Jenny&quot;</code>。</p>
 <p>因此當我們執行 <code>girl.getName()</code> 的時候，這個方法會找到自己的屬性<code>name</code>，然後印出 <code>I am Jenny!</code>。</p>
 <p>我們再來 <code>ex2.js</code> 這段：</p>
-<pre><code class="language-js">    isGirl: () =&gt; {
+<pre><code class="language-js">    isGirl: () =&gt; &#123;
         return this.sex == &quot;female&quot;;
-    },
+    &#125;,
 </code></pre>
 <p>這段也是物件的方法，採用箭頭式函式，至於要用 <code>function</code> 還是箭頭函式，大有學問！如果用箭頭函示 <code>()=&gt;</code> 定義，物件的其他方法會無法透過 <code>this</code> 來使用這個箭頭函式做操作，必須是 <code>function()</code> 定義的方法，才是 <code>this</code> 可見。意思就是說，如果你想要讓某個方法<strong>不能</strong>被物件的其他方法讀取，就可以用箭頭函式。這邊牽扯到 <code>this</code> 的操作細節，因為比較進階和複雜，在之後章節會再加以介紹。</p>
 <p>我剛剛知道可以呼叫自己屬性，所以這邊在條件判斷 <code>self.sex</code> 是否為女生，是就回傳 <code>true</code>，反之回傳 <code>false</code>。所以當我們呼叫 <code>girl.isGirl()</code> 時候，會得到回傳值 <code>true</code>。</p>
@@ -320,23 +320,23 @@ I am Jenny!
 <p>雖然最後都是取得 <code>true</code>，兩種代表的含義並不太一樣，一個是直接存取物件屬性，一種是呼叫函式來對物件屬性做操作。如果今天物件的屬性是不希望被外面直接取得，就可以用物件方法來呼叫物件屬性，這時候就會有差異了。</p>
 <p>例如大雄可能有個屬性是「今天考試成績」，我們無法直接得知這個屬性，因為大雄不肯說（不公開）。但是大雄有個「大雄心情如何」的方法，任何人只要看得見大雄都知道他心情怎樣（公開），事實上「心情如何」是呼叫「今天考試成績」取得的答案（別懷疑，因為大雄現在只有這個煩惱）。</p>
 <p>另外我們在 <code>ex2.js</code> 這段程式碼：</p>
-<pre><code class="language-js">    sayHello: function(who) {
-        console.log(`Hello, ${who}!`);
+<pre><code class="language-js">    sayHello: function(who) &#123;
+        console.log(`Hello, $&#123;who&#125;!`);
         this.getName();
-    }
+    &#125;
 </code></pre>
 <p>發現物件的方法也可以呼叫自己的方法，在這例子中 <code>sayHello</code> 呼叫了自己的 <code>getName</code>，因為是呼叫自己所以要加上 <code>this</code>。記得我們剛剛提到過，必須是 <code>function()</code> 定義的方法，才能在其他方法中呼叫 <code>this.方法()</code>。否則會出現錯誤。</p>
 <p>舉一個會錯誤的例子，執行下面程式碼：</p>
-<pre><code class="language-js">const girl = {
+<pre><code class="language-js">const girl = &#123;
     name: &quot;Jenny&quot;,
-    getName: () =&gt; {
-        console.log(`I am ${this.name}!`);
-    },
-    sayHello: who =&gt; {
-        console.log(`Hello, ${who}!`);
+    getName: () =&gt; &#123;
+        console.log(`I am $&#123;this.name&#125;!`);
+    &#125;,
+    sayHello: who =&gt; &#123;
+        console.log(`Hello, $&#123;who&#125;!`);
         this.getName();
-    }
-};
+    &#125;
+&#125;;
 
 girl.sayHello(&quot;Tom&quot;);
 // TypeError: this.getName is not a function
@@ -348,14 +348,14 @@ girl.sayHello(&quot;Tom&quot;);
 <p>關於物件，更常使用的情境是單純作為資料儲存的容器，就如同之前在介紹陣列時一樣。</p>
 <p>如果只拿物件來存資料，就只會使用到上面介紹物件中的屬性了。在這邊的情境下，物件不會有任何方法。</p>
 <p>例如簡單的例子：</p>
-<pre><code class="language-js">const time = {
+<pre><code class="language-js">const time = &#123;
     year: 2018,
     month: &quot;July&quot;,
     day: 29,
     hour: 23,
     minute: 34,
     second: 53
-};
+&#125;;
 </code></pre>
 <p>這個物件只有單純存放資料而已。在這個情況下，我們稱為 key-value 結構，一個 key（索引） 對應一個 value（數值）。</p>
 <p>當然我們也可以直接對他做修改：</p>
@@ -365,19 +365,19 @@ time.hour = 3;
 <p>我們可以使用 <code>物件[索引]</code> 或是 <code>物件.索引</code> 來取得資料。當然，在含有方法的物件中，我們也可以用這兩種方法取得物件的屬性。</p>
 <p>物件也可以不單只存一個數值，他也可以存另一個物件或是陣列，並可以有好多層。</p>
 <p>舉例來說：</p>
-<pre><code class="language-js">const currentTime = {
-    date : {
+<pre><code class="language-js">const currentTime = &#123;
+    date : &#123;
         year: 2018,
         month: 6,
         day: 14,
         format: [&quot;2018/6/14&quot;, &quot;14/6/2018&quot;]
-    },
-    time: {
+    &#125;,
+    time: &#123;
         hour: 5,
         minute: 44
-    },
+    &#125;,
     nextDays: [&quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;]
-}
+&#125;
 
 console.log(currentTime.data.year) // 2018
 console.log(currentTime.data.format[0]) // 2018/6/14
@@ -390,14 +390,14 @@ console.log(currentTime.nextDays[2]) // Fri
 <p>那如果我們想要把物件傳給別人，或是記錄在檔案中呢？</p>
 <p>這時候我們要使用序列化[^1]的技術，一種方式是將物件轉成文字來儲存，在 JS 中我們稱為 JSON(JavaScript Object Notation)[^2]，所以 JSON 是一串純文字所構成的資料。</p>
 <p>來看看怎麼將物件轉換成 JSON 吧！</p>
-<pre><code class="language-js">const time = {
+<pre><code class="language-js">const time = &#123;
     year: 2018,
     month: &quot;July&quot;,
     day: 29,
     hour: 23,
     minute: 34,
     second: 53
-};
+&#125;;
 
 const timeJson = JSON.stringify(time);
 console.log(typeof timeJson);
@@ -405,13 +405,13 @@ console.log(timeJson);
 </code></pre>
 <p>執行上面程式會跑出：</p>
 <pre><code class="language-py">string
-{&quot;year&quot;:2018,&quot;month&quot;:&quot;July&quot;,&quot;day&quot;:29,&quot;hour&quot;:23,&quot;minute&quot;:34,&quot;second&quot;:53}
+&#123;&quot;year&quot;:2018,&quot;month&quot;:&quot;July&quot;,&quot;day&quot;:29,&quot;hour&quot;:23,&quot;minute&quot;:34,&quot;second&quot;:53&#125;
 </code></pre>
-<p>如同我剛剛所說 JSON 會是文字。當我們觀察 <code>timeJson</code> 時，有沒有發現長相跟我們剛剛定義 <code>time</code> 物件時幾乎一模一樣，差別只是 key 的欄位必須由雙引號所括起來。其餘的物件 <code>{}</code>、字串、數字、陣列 <code>[]</code> 幾乎全部都和原本的程式碼差不多。但現在因為轉變成純文字了，所以我們可以很方便的存在檔案中，或是經由網路傳送給其他人。</p>
+<p>如同我剛剛所說 JSON 會是文字。當我們觀察 <code>timeJson</code> 時，有沒有發現長相跟我們剛剛定義 <code>time</code> 物件時幾乎一模一樣，差別只是 key 的欄位必須由雙引號所括起來。其餘的物件 <code>&#123;&#125;</code>、字串、數字、陣列 <code>[]</code> 幾乎全部都和原本的程式碼差不多。但現在因為轉變成純文字了，所以我們可以很方便的存在檔案中，或是經由網路傳送給其他人。</p>
 <p>所以 <code>JSON.stringify</code> 這個函式可以讓我們將物件轉換成 JSON 格式。</p>
 <p>如果今天我們想從 JSON 轉回成物件呢？</p>
 <p>我們可以使用 <code>JSON.parse</code>：</p>
-<pre><code class="language-js">const timeJson = `{&quot;year&quot;:2018,&quot;month&quot;:&quot;July&quot;,&quot;day&quot;:29,&quot;hour&quot;:23,&quot;minute&quot;:34,&quot;second&quot;:53}`;
+<pre><code class="language-js">const timeJson = `&#123;&quot;year&quot;:2018,&quot;month&quot;:&quot;July&quot;,&quot;day&quot;:29,&quot;hour&quot;:23,&quot;minute&quot;:34,&quot;second&quot;:53&#125;`;
 
 const time = JSON.parse(timeJson);
 console.log(typeof time);
@@ -419,28 +419,28 @@ console.log(time); // 已經是物件了，只是印出來其實就等於 JSON
 </code></pre>
 <p>就會得到</p>
 <pre><code class="language-py">object
-{ year: 2018,
+&#123; year: 2018,
   month: 'July',
   day: 29,
   hour: 23,
   minute: 34,
-  second: 53 }
+  second: 53 &#125;
 </code></pre>
 <p>要注意的是，如果物件中含有方法，執行 <code>JSON.stringify</code> 的時候，所有有函式的部分都會被移除。</p>
 <h2 id="搭配迴圈"><a class="header-anchor" href="#搭配迴圈">¶ </a>搭配迴圈</h2>
 <p>物件也可以用迴圈來跑，就會把所有 key-value 跑過一輪。</p>
-<pre><code class="language-js">const time = {
+<pre><code class="language-js">const time = &#123;
     year: 2018,
     month: 'July',
     day: 29,
     hour: 23,
     minute: 34,
     second: 53
-};
+&#125;;
 
-for(const key in time) {
+for(const key in time) &#123;
     console.log(key, time[key]);
-}
+&#125;
 </code></pre>
 <p>這是另外一種 <code>for</code> 迴圈的寫法，可以列舉物件中的 key。在每一次的迴圈裡面，<code>key</code> 都代表不同的值。</p>
 <p>就會跑出</p>
@@ -457,8 +457,8 @@ second 53
 <p>更進階的物件操作方式會在後續文章在介紹。目前我們已經有基本的物件概念了！</p>
 <h2 id="參考與延伸"><a class="header-anchor" href="#參考與延伸">¶ </a>參考與延伸</h2>
 <ol>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%BA%8F%E5%88%97%E5%8C%96" target="_blank" rel="noopener">Wiki: 序列化</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/JSON" target="_blank" rel="noopener">Wiki: JSON</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%BA%8F%E5%88%97%E5%8C%96">Wiki: 序列化</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JSON">Wiki: JSON</a></li>
 </ol>
 
     </div>
@@ -547,7 +547,7 @@ second 53
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">物件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#物件定義"><span class="toc-text">物件定義</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#屬性"><span class="toc-text">屬性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#物件資料"><span class="toc-text">物件資料</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON"><span class="toc-text">JSON</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭配迴圈"><span class="toc-text">搭配迴圈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小結"><span class="toc-text">小結</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#參考與延伸"><span class="toc-text">參考與延伸</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">物件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E4%BB%B6%E5%AE%9A%E7%BE%A9"><span class="toc-text">物件定義</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%AC%E6%80%A7"><span class="toc-text">屬性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E4%BB%B6%E8%B3%87%E6%96%99"><span class="toc-text">物件資料</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON"><span class="toc-text">JSON</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E9%85%8D%E8%BF%B4%E5%9C%88"><span class="toc-text">搭配迴圈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%B5%90"><span class="toc-text">小結</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%88%87%E5%BB%B6%E4%BC%B8"><span class="toc-text">參考與延伸</span></a></li></ol></li></ol>
 </div>
                 </section>
             

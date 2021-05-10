@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -195,28 +195,28 @@
 <h3>&#x5361;&#x7247;&#x7D44;&#x4EF6;</h3>
 <p>&#x4E00;&#x500B;&#x5361;&#x7247;&#x5206;&#x70BA;&#xFF1A;&#x982D;&#x3001;&#x8EAB;&#x9AD4;&#x3001;&#x8173;&#x3002;&#x6211;&#x5011;&#x5C07;&#x628A;&#x8EAB;&#x9AD4;&#x8B8A;&#x6210;&#x5D4C;&#x5165;&#x7684;&#x3002;</p>
 <pre><code>// card.component.ts
-<p>import { Component, Input, Output } from '@angular/core';<br>
-@Component({<br>
+<p>import &#123; Component, Input, Output &#125; from '@angular/core';<br>
+@Component(&#123;<br>
 selector: 'card',<br>
 templateUrl: 'card.component.html',<br>
-})<br>
-export class CardComponent {<br>
+&#125;)<br>
+export class CardComponent &#123;<br>
 @Input() header: string = 'this is header';<br>
 @Input() footer: string = 'this is footer';<br>
-}<br>
+&#125;<br>
 </code></pre></p>
 <p><code>@Input()</code>&#x4EE3;&#x8868;&#x53EF;&#x4EE5;&#x5F9E; parent &#x50B3;&#x7D66; child&#x3002;</p>
 <h3>&#x5361;&#x7247;&#x6A21;&#x677F;</h3>
 <pre><code>&lt;!-- card.component.html --&gt;
 <p>&lt;div class=&quot;card&quot;&gt;<br>
 &lt;div class=&quot;card-header&quot;&gt;<br>
-{{ header }}<br>
+&#123;&#123; header &#125;&#125;<br>
 &lt;/div&gt;</p>
 <pre><code>&amp;lt;!-- &amp;#x55AE;&amp;#x4E00;&amp;#x5D4C;&amp;#x5165;&amp;#x9EDE; --&amp;gt;
 &amp;lt;ng-content&amp;gt;&amp;lt;/ng-content&amp;gt;
 
 &amp;lt;div class=&amp;quot;card-footer&amp;quot;&amp;gt;
-    {{ footer }}
+    &#123;&#123; footer &#125;&#125;
 &amp;lt;/div&amp;gt;
 </code></pre>
 <p>&lt;/div&gt;<br>
@@ -239,16 +239,16 @@ export class CardComponent {<br>
 <p>&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5728; <code>AppComponent</code> &#x76F4;&#x63A5;&#x4F7F;&#x7528; <code>card</code>&#x3002;<code>&lt;card&gt;</code> &#x88E1;&#x9762;&#x653E;&#x5165;&#x6211;&#x5011;&#x8981;&#x7684;&#x5167;&#x5BB9;&#xFF0C;&#x5C31;&#x6703;&#x81EA;&#x5DF1;&#x5D4C;&#x5165;&#x9032; <code>card</code> &#x4E86;&#x3002;</p>
 <h3>App Module</h3>
 <p>&#x8A18;&#x5F97;&#x8A2D;&#x5B9A; app module</p>
-<pre><code>import { NgModule }      from &apos;@angular/core&apos;;
-import { BrowserModule } from &apos;@angular/platform-browser&apos;;
-<p>import { AppComponent }   from './app.component';<br>
-import { CardComponent } from './card.component'; // 記得加入</p>
-<p>@NgModule({<br>
+<pre><code>import &#123; NgModule &#125;      from &apos;@angular/core&apos;;
+import &#123; BrowserModule &#125; from &apos;@angular/platform-browser&apos;;
+<p>import &#123; AppComponent &#125;   from './app.component';<br>
+import &#123; CardComponent &#125; from './card.component'; // 記得加入</p>
+<p>@NgModule(&#123;<br>
 imports:      [ BrowserModule ],<br>
 declarations: [ AppComponent, CardComponent ], // 注入<br>
 bootstrap:    [ AppComponent ],<br>
-})</p>
-<p>export class AppModule { }<br>
+&#125;)</p>
+<p>export class AppModule &#123; &#125;<br>
 </code></pre></p>
 <h2>&#x5176;&#x4ED6;&#x65B9;&#x6CD5;</h2>
 <ul>
@@ -321,17 +321,17 @@ bootstrap:    [ AppComponent ],<br>
 </code></pre>
 <p>&#x9019;&#x908A;&#x8981;&#x8A2D;&#x5B9A; <code>NO_ERRORS_SCHEMA</code>&#xFF0C;&#x4E0D;&#x7136;&#x6703;&#x51FA;&#x932F;</p>
 <pre><code>// app.module.ts
-<p>import { NgModule, NO_ERRORS_SCHEMA }      from '@angular/core'; //<br>
-import { BrowserModule } from '@angular/platform-browser';</p>
-<p>import { AppComponent }   from './app.component';<br>
-import { CardComponent } from './card.component';</p>
-<p>@NgModule({<br>
+<p>import &#123; NgModule, NO_ERRORS_SCHEMA &#125;      from '@angular/core'; //<br>
+import &#123; BrowserModule &#125; from '@angular/platform-browser';</p>
+<p>import &#123; AppComponent &#125;   from './app.component';<br>
+import &#123; CardComponent &#125; from './card.component';</p>
+<p>@NgModule(&#123;<br>
 imports:      [ BrowserModule ],<br>
 declarations: [ AppComponent, CardComponent ],<br>
 bootstrap:    [ AppComponent ],<br>
 schemas:      [ NO_ERRORS_SCHEMA ] // 增加這行<br>
-})</p>
-<p>export class AppModule { }<br>
+&#125;)</p>
+<p>export class AppModule &#123; &#125;<br>
 </code></pre></p>
 <h2>&#x591A;&#x9EDE;&#x5D4C;&#x5165;</h2>
 <p>&#x9664;&#x4E86;&#x55AE;&#x4E00;&#x9EDE;&#x5D4C;&#x5165;&#xFF0C;&#x591A;&#x9EDE;&#x5D4C;&#x5165;&#x7576;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;</p>
@@ -465,7 +465,7 @@ schemas:      [ NO_ERRORS_SCHEMA ] // 增加這行<br>
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x85CD;&amp;#x5716;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x52D5;&amp;#x5DE5;&amp;#x56C9;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5361;&amp;#x7247;&amp;#x7D44;&amp;#x4EF6;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5361;&amp;#x7247;&amp;#x6A21;&amp;#x677F;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x4F7F;&amp;#x7528;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">App Module</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5176;&amp;#x4ED6;&amp;#x65B9;&amp;#x6CD5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x591A;&amp;#x9EDE;&amp;#x5D4C;&amp;#x5165;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x7E3D;&amp;#x7D50;</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">藍圖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">動工囉</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">卡片組件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">卡片模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">App Module</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">其他方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">多點嵌入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">總結</span></a></li></ol>
 </div>
                 </section>
             

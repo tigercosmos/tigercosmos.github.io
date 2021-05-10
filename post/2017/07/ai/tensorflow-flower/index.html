@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -176,7 +176,7 @@
     <div class="post-content">
         <h1>前言</h1>
 <p>最近機器學習、人工智慧、深度學習等等名詞非常夯，本篇用深度學習簡單實作一個可以辨識不同種類花朵的 Android App。第一部分是訓練圖片的模型，這時已經可以在電腦上作辨識了。第二部分是將第一部份訓練的模型放進 Android 裡面，實作手機辨識的部分。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <h1>第一部分</h1>
 <h2 id="環境設定"><a class="header-anchor" href="#環境設定">¶ </a>環境設定</h2>
 <h3 id="Anaconda"><a class="header-anchor" href="#Anaconda">¶ </a>Anaconda</h3>
@@ -195,7 +195,7 @@ $ bash Anaconda3-4.4.0-Linux-x86_64.sh
 <p>而取消啟用是用 <code>deactivate</code></p>
 <pre><code> $ source deactivate
 </code></pre>
-<p>接著要安裝 <code>tensorflow</code>，我這邊版本是用 tensorflow1.1 python2.7 CPU 版本，有其他需求可以在<a href="https://www.tensorflow.org/install/install_linux#the_url_of_the_tensorflow_python_package" target="_blank" rel="noopener">這裡</a>找其他版本。</p>
+<p>接著要安裝 <code>tensorflow</code>，我這邊版本是用 tensorflow1.1 python2.7 CPU 版本，有其他需求可以在<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/install_linux#the_url_of_the_tensorflow_python_package">這裡</a>找其他版本。</p>
 <pre><code> (py2t1.1)$ pip install --ignore-installed --upgrade \
  https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.1.0-cp27-none-linux_x86_64.whl
 </code></pre>
@@ -271,12 +271,12 @@ $ cd tensorflow-for-poets-2
 <pre><code>$ cp flower_classification/rounded_graph.pb flower_classification/retrained_labels.txt android/assets/ 
 </code></pre>
 <h2 id="安裝-AndroidStudio"><a class="header-anchor" href="#安裝-AndroidStudio">¶ </a>安裝 AndroidStudio</h2>
-<p><a href="https://developer.android.com/studio/index.html" target="_blank" rel="noopener">https://developer.android.com/studio/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/index.html">https://developer.android.com/studio/index.html</a></p>
 <h2 id="開啟-Android-專案"><a class="header-anchor" href="#開啟-Android-專案">¶ </a>開啟 Android 專案</h2>
 <p>打開 AndroidStudio，選擇 “Open an existing Android Studio project”，選擇資料夾 <code>tensorflow-for-poets-2/android</code>。 然後它會問是否用 gradle，選擇&quot;ok&quot;。 等 gradle 更新好之後，就可以 build 了。最後再把 APK 安裝到手機上。</p>
 <h2 id="參考資料"><a class="header-anchor" href="#參考資料">¶ </a>參考資料</h2>
-<p><a href="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/index.html#0" target="_blank" rel="noopener">https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/index.html#0</a><br>
-<a href="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets-2/#0" target="_blank" rel="noopener">https://codelabs.developers.google.com/codelabs/tensorflow-for-poets-2/#0</a></p>
+<p><a target="_blank" rel="noopener" href="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/index.html#0">https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/index.html#0</a><br>
+<a target="_blank" rel="noopener" href="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets-2/#0">https://codelabs.developers.google.com/codelabs/tensorflow-for-poets-2/#0</a></p>
 
     </div>
     
@@ -356,7 +356,7 @@ $ cd tensorflow-for-poets-2
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">第一部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#環境設定"><span class="toc-text">環境設定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Anaconda"><span class="toc-text">Anaconda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-Tensorflow"><span class="toc-text">Python &amp; Tensorflow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#訓練模型"><span class="toc-text">訓練模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前置作業"><span class="toc-text">前置作業</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#開始訓練"><span class="toc-text">開始訓練</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#辨識照片"><span class="toc-text">辨識照片</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">第二部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置作業-2"><span class="toc-text">前置作業</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#處理模型"><span class="toc-text">處理模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安裝-AndroidStudio"><span class="toc-text">安裝 AndroidStudio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#開啟-Android-專案"><span class="toc-text">開啟 Android 專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第一部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A"><span class="toc-text">環境設定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Anaconda"><span class="toc-text">Anaconda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-Tensorflow"><span class="toc-text">Python &amp; Tensorflow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%93%E7%B7%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">訓練模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E4%BD%9C%E6%A5%AD"><span class="toc-text">前置作業</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B%E8%A8%93%E7%B7%B4"><span class="toc-text">開始訓練</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%A8%E8%AD%98%E7%85%A7%E7%89%87"><span class="toc-text">辨識照片</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第二部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E4%BD%9C%E6%A5%AD-2"><span class="toc-text">前置作業</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%95%E7%90%86%E6%A8%A1%E5%9E%8B"><span class="toc-text">處理模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-AndroidStudio"><span class="toc-text">安裝 AndroidStudio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%95%9F-Android-%E5%B0%88%E6%A1%88"><span class="toc-text">開啟 Android 專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-text">參考資料</span></a></li></ol></li></ol>
 </div>
                 </section>
             

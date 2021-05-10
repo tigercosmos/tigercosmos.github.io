@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器引擎輸出畫面的簡易版" />
     <title>Neutrino&#39;s Blog: 瀏覽器引擎輸出畫面的簡易版 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -184,7 +184,7 @@ CSS tree /
 </code></pre>
 <p>前面文章已經將 painting 之前的步驟解說過了，所以我們差最後一個步驟，也就是將處理好的版面繪畫在螢幕上。<br>
 這算是最簡單的處理方式，因為就是將靜態的文件處理後輸出成一個影像，可以想成 html 轉圖片的概念，事實上瀏覽器看到的畫面不過是文字可以框選，本質上跟一張有文字、排版的圖片沒太大差異。<br>
-而在 roobinson 這個專案中，就是將網頁輸出成影像檔。繪出的模組在 <a href="https://github.com/mbrubeck/robinson/blob/master/src/painting.rs" target="_blank" rel="noopener">painting.rs</a> 裡面。<br>
+而在 roobinson 這個專案中，就是將網頁輸出成影像檔。繪出的模組在 <a target="_blank" rel="noopener" href="https://github.com/mbrubeck/robinson/blob/master/src/painting.rs">painting.rs</a> 裡面。<br>
 如果是更真實一點的瀏覽器的話，流程應該會長得像以下：</p>
 <pre><code class="language-sh">DOM tree \
            --&gt; style tree --&gt; layout --&gt; painting
@@ -192,81 +192,81 @@ CSS tree /  └─----- rendering &lt;--------┘
 </code></pre>
 <p>因為通常網站還會透過 js 渲染，簡單來說就是畫面是動態的，會一直變化。</p>
 <hr>
-<p>程式邏輯滿簡單的，這邊只講部分 code，有興趣可以上去 <a href="https://github.com/mbrubeck/robinson/blob/master/src/painting.rs" target="_blank" rel="noopener">painting.rs</a> 看他如何實作。</p>
+<p>程式邏輯滿簡單的，這邊只講部分 code，有興趣可以上去 <a target="_blank" rel="noopener" href="https://github.com/mbrubeck/robinson/blob/master/src/painting.rs">painting.rs</a> 看他如何實作。</p>
 <p>因為我們目的是輸出成一個「畫面」，這邊畫面我們直接輸出成圖像。<br>
 因此我們首先建立一個畫布，用來把各種元素畫在裡面。<br>
 目前只能畫出各種矩形。包含 box 的內部和邊框。</p>
-<pre><code>struct Canvas {
+<pre><code>struct Canvas &#123;
     pixels: Vec&lt;Color&gt;,
     width: usize,
     height: usize,
-}
+&#125;
 
-impl Canvas {
+impl Canvas &#123;
     // Create a blank canvas
-    fn new(width: usize, height: usize) -&gt; Canvas {
-        let white = Color { r: 255, g: 255, b: 255, a: 255 };
-        return Canvas {
+    fn new(width: usize, height: usize) -&gt; Canvas &#123;
+        let white = Color &#123; r: 255, g: 255, b: 255, a: 255 &#125;;
+        return Canvas &#123;
             pixels: repeat(white).take(width * height).collect(),
             width: width,
             height: height,
-        }
-    }
+        &#125;
+    &#125;
     // ...
-}
+&#125;
 </code></pre>
 <p>用 layout tree 建立一個 display tree，包含每個 node 的畫素資訊</p>
-<pre><code>fn build_display_list(layout_root: &amp;LayoutBox) -&gt; DisplayList {
+<pre><code>fn build_display_list(layout_root: &amp;LayoutBox) -&gt; DisplayList &#123;
     let mut list = Vec::new();
     render_layout_box(&amp;mut list, layout_root);
     return list;
-}
+&#125;
 
-fn render_layout_box(list: &amp;mut DisplayList, layout_box: &amp;LayoutBox) {
+fn render_layout_box(list: &amp;mut DisplayList, layout_box: &amp;LayoutBox) &#123;
     render_background(list, layout_box);
     render_borders(list, layout_box);
     // TODO: render text
     // 作者還沒有將顯示文字寫進去
 
-    for child in &amp;layout_box.children {
+    for child in &amp;layout_box.children &#123;
         render_layout_box(list, child);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>把目前的 box 所在的位置的所有畫素的顏色設定好。</p>
-<pre><code>fn paint_item(&amp;mut self, item: &amp;DisplayCommand) {
-    match item {
-        &amp;DisplayCommand::SolidColor(color, rect) =&gt; {
+<pre><code>fn paint_item(&amp;mut self, item: &amp;DisplayCommand) &#123;
+    match item &#123;
+        &amp;DisplayCommand::SolidColor(color, rect) =&gt; &#123;
             // Clip the rectangle to the canvas boundaries.
             let x0 = rect.x.clamp(0.0, self.width as f32) as usize;
             let y0 = rect.y.clamp(0.0, self.height as f32) as usize;
             let x1 = (rect.x + rect.width).clamp(0.0, self.width as f32) as usize;
             let y1 = (rect.y + rect.height).clamp(0.0, self.height as f32) as usize;
 
-            for y in (y0 .. y1) {
-                for x in (x0 .. x1) {
+            for y in (y0 .. y1) &#123;
+                for x in (x0 .. x1) &#123;
                     // TODO: alpha compositing with existing pixel
                     self.pixels[x + y * self.width] = color;
-                }
-            }
-        }
-    }
-}
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>從 display tree 讀出所有 box 的位置、顏色資訊，然後畫在畫布上。</p>
-<pre><code>fn paint(layout_root: &amp;LayoutBox, bounds: Rect) -&gt; Canvas {
+<pre><code>fn paint(layout_root: &amp;LayoutBox, bounds: Rect) -&gt; Canvas &#123;
     let display_list = build_display_list(layout_root);
     let mut canvas = Canvas::new(bounds.width as usize, bounds.height as usize);
-    for item in display_list {
+    for item in display_list &#123;
         canvas.paint_item(&amp;item);
-    }
+    &#125;
     return canvas;
-}
+&#125;
 </code></pre>
-<p>最後就可以透過 <a href="https://github.com/PistonDevelopers/image/" target="_blank" rel="noopener">Rust Image</a> 之類的函式庫，把圖像輸出。</p>
+<p>最後就可以透過 <a target="_blank" rel="noopener" href="https://github.com/PistonDevelopers/image/">Rust Image</a> 之類的函式庫，把圖像輸出。</p>
 <pre><code>// Save an image:
 let (w, h) = (canvas.width as u32, canvas.height as u32);
-let buffer: Vec&lt;image::Rgba&lt;u8&gt;&gt; = unsafe { std::mem::transmute(canvas.pixels) };
+let buffer: Vec&lt;image::Rgba&lt;u8&gt;&gt; = unsafe &#123; std::mem::transmute(canvas.pixels) &#125;;
 let img = image::ImageBuffer::from_fn(w, h, Box::new(|&amp;: x: u32, y: u32| buffer[(y * w + x) as usize]));
 let result = image::ImageRgba8(img).save(file, image::PNG);
 </code></pre>
@@ -283,12 +283,12 @@ let result = image::ImageRgba8(img).save(file, image::PNG);
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

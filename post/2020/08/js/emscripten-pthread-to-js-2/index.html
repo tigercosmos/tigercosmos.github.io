@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,11 +177,11 @@
         <h2 id="1-簡介"><a class="header-anchor" href="#1-簡介">¶ </a>1. 簡介</h2>
 <p>本文接續前篇「<a href="/post/2020/07/js/emscripten-pthread-to-js/">使用 Emscripten 將 Pthread 轉成 JavaScript 與效能分析</a>」，對用 Emscripten 將 Pthread 轉 JS 做另一個 Case 的測試，這次將檢驗 Merge Sort 的表現。</p>
 <h2 id="2-Merge-Sort"><a class="header-anchor" href="#2-Merge-Sort">¶ </a>2. Merge Sort</h2>
-<p><a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank" rel="noopener">Merge Sort</a> 複雜度原本是 $\Theta(nlogn)$，如果將 Recursion 的部分做平行化之後可以縮減到 $\Theta(n)$，若是合併 Sort 也平行化可以優化到 $\Theta({n \over (log n)^2})$。</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Merge_sort">Merge Sort</a> 複雜度原本是 $\Theta(nlogn)$，如果將 Recursion 的部分做平行化之後可以縮減到 $\Theta(n)$，若是合併 Sort 也平行化可以優化到 $\Theta({n \over (log n)^2})$。</p>
 <img alt="merge sort image" src="https://user-images.githubusercontent.com/18013815/89739372-a37af680-dab2-11ea-9f27-2718fd2535c4.png" width=50%>
-<p>(source: <a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank" rel="noopener">Wikipedia</a> )</p>
+<p>(source: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Merge_sort">Wikipedia</a> )</p>
 <h3 id="2-1-Pthread-版本-Merge-Sort"><a class="header-anchor" href="#2-1-Pthread-版本-Merge-Sort">¶ </a>2.1 Pthread 版本 Merge Sort</h3>
-<p>以下 Merge Sort 的 Pthread 範例 C++ Code 來自 <a href="https://www.geeksforgeeks.org/merge-sort/" target="_blank" rel="noopener">Geeksforgeeks</a>，這個範例 Code 僅將 Recursion 做平行化，合併 Sort 的部分為單緒執行。我已經將註解都翻譯成中文。</p>
+<p>以下 Merge Sort 的 Pthread 範例 C++ Code 來自 <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/merge-sort/">Geeksforgeeks</a>，這個範例 Code 僅將 Recursion 做平行化，合併 Sort 的部分為單緒執行。我已經將註解都翻譯成中文。</p>
 <p><code>merge_sort.cc</code>:</p>
 <pre><code class="language-c++">#include &lt;iostream&gt; 
 #include &lt;pthread.h&gt; 
@@ -201,7 +201,7 @@ int part = 0;
 
 // 用來合併兩個已經排好的部份的函數
 void merge(int low, int mid, int high) 
-{ 
+&#123; 
     // 暫時儲存左邊部分和右邊部分的陣列
 	int* left = new int[mid - low + 1]; 
 	int* right = new int[high - mid]; 
@@ -221,30 +221,30 @@ void merge(int low, int mid, int high)
 	i = j = 0; 
 
 	// 從左到右遞升合併進 arr
-	while (i &lt; n1 &amp;&amp; j &lt; n2) { 
+	while (i &lt; n1 &amp;&amp; j &lt; n2) &#123; 
 		if (left[i] &lt;= right[j]) 
 			arr[k++] = left[i++]; 
 		else
 			arr[k++] = right[j++]; 
-	} 
+	&#125; 
 
 	// 插入左邊剩下的部分
-	while (i &lt; n1) { 
+	while (i &lt; n1) &#123; 
 		arr[k++] = left[i++]; 
-	} 
+	&#125; 
 
 	// 插入右邊剩下的部分
-	while (j &lt; n2) { 
+	while (j &lt; n2) &#123; 
 		arr[k++] = right[j++]; 
-	} 
-} 
+	&#125; 
+&#125; 
 
 // merge sort 函數
 void merge_sort(int low, int high) 
-{ 
+&#123; 
 	// 取得陣列中位數
 	int mid = low + (high - low) / 2; 
-	if (low &lt; high) { 
+	if (low &lt; high) &#123; 
 
 		// 遞迴左半邊
 		merge_sort(low, mid); 
@@ -254,12 +254,12 @@ void merge_sort(int low, int high)
 
 		// 合併
 		merge(low, mid, high); 
-	} 
-} 
+	&#125; 
+&#125; 
 
 // thread 用的函數
 void* merge_sort(void* arg) 
-{ 
+&#123; 
 	// 4 個 thread 的哪一個
 	int thread_part = part++; 
 
@@ -268,16 +268,16 @@ void* merge_sort(void* arg)
 	int high = (thread_part + 1) * (MAX / 4) - 1; 
 
 	int mid = low + (high - low) / 2; 
-	if (low &lt; high) { 
+	if (low &lt; high) &#123; 
 		merge_sort(low, mid); 
 		merge_sort(mid + 1, high); 
 		merge(low, mid, high); 
-	} 
-} 
+	&#125; 
+&#125; 
 
 // 起始點
 int main() 
-{ 
+&#123; 
 	// 隨便填入數值
 	for (int i = 0; i &lt; MAX; i++) 
 		arr[i] = rand() % 100; 
@@ -315,7 +315,7 @@ int main()
 			(double)CLOCKS_PER_SEC &lt;&lt; endl; 
 
 	return 0; 
-}
+&#125;
 </code></pre>
 <p>執行這段 code：</p>
 <pre><code class="language-shell">$ g++ merge_sort.cc -lpthread
@@ -355,7 +355,7 @@ $ ./a.out
     let arr;
 
     // merge function for merging two parts 
-    function merge(low, mid, high) {
+    function merge(low, mid, high) &#123;
         const left = new Array(mid - low + 1);
         const right = new Array(high - mid);
 
@@ -372,52 +372,52 @@ $ ./a.out
         let k = low;
         i = j = 0;
 
-        while (i &lt; n1 &amp;&amp; j &lt; n2) {
+        while (i &lt; n1 &amp;&amp; j &lt; n2) &#123;
             if (left[i] &lt;= right[j])
                 arr[k++] = left[i++];
             else
                 arr[k++] = right[j++];
-        }
+        &#125;
 
-        while (i &lt; n1) {
+        while (i &lt; n1) &#123;
             arr[k++] = left[i++];
-        }
+        &#125;
 
-        while (j &lt; n2) {
+        while (j &lt; n2) &#123;
             arr[k++] = right[j++];
-        }
-    }
+        &#125;
+    &#125;
 
-    function merge_sort(low, high) {
+    function merge_sort(low, high) &#123;
         const mid = (low + (high - low) / 2 | 0 );
-        if (low &lt; high) {
+        if (low &lt; high) &#123;
 
             merge_sort(low, mid);
 
             merge_sort(mid + 1, high);
 
             merge(low, mid, high);
-        }
-    }
+        &#125;
+    &#125;
 
-    addEventListener('message', function (e) {
+    addEventListener('message', function (e) &#123;
         const low = e.data.low;
         const high = e.data.high;
         arr = new Int32Array(e.data.buf);
 
         const mid = (low + (high - low) / 2) | 0;
 
-        if (low &lt; high) {
+        if (low &lt; high) &#123;
             merge_sort(low, mid);
             merge_sort(mid + 1, high);
             merge(low, mid, high);
-        }
+        &#125;
 
         postMessage(&quot;done&quot;);
-    }, false);
+    &#125;, false);
 &lt;/script&gt;
 &lt;script&gt;
-    function merge(low, mid, high) {
+    function merge(low, mid, high) &#123;
         console.log(arr)
         const left = new Array(mid - low + 1);
         const right = new Array(high - mid);
@@ -435,21 +435,21 @@ $ ./a.out
         let k = low;
         i = j = 0;
 
-        while (i &lt; n1 &amp;&amp; j &lt; n2) {
+        while (i &lt; n1 &amp;&amp; j &lt; n2) &#123;
             if (left[i] &lt;= right[j])
                 arr[k++] = left[i++];
             else
                 arr[k++] = right[j++];
-        }
+        &#125;
 
-        while (i &lt; n1) {
+        while (i &lt; n1) &#123;
             arr[k++] = left[i++];
-        }
+        &#125;
 
-        while (j &lt; n2) {
+        while (j &lt; n2) &#123;
             arr[k++] = right[j++];
-        }
-    }
+        &#125;
+    &#125;
 
     const first_time = (new Date()).getTime();
     const thread = 4;
@@ -458,15 +458,15 @@ $ ./a.out
     const buf = new SharedArrayBuffer(arrMax * Int32Array.BYTES_PER_ELEMENT);
     const arr = new Int32Array(buf);
 
-    for (const i in arr) {
+    for (const i in arr) &#123;
         arr[i] = Math.random() * 10000 | 0;
-    }
+    &#125;
     document.getElementById(&quot;content&quot;).innerHTML = &quot;origin: &quot; + arr + &quot;&lt;br/&gt;&quot;;
 
     const barrierBuf = new SharedArrayBuffer(1 * Int32Array.BYTES_PER_ELEMENT);
     const barrier = new Int32Array(barrierBuf);
 
-    for (let i = 0; i &lt; thread; i++) {
+    for (let i = 0; i &lt; thread; i++) &#123;
         const blob = new Blob([document.querySelector('#worker').textContent]);
         const url = window.URL.createObjectURL(blob);
         const worker = new Worker(url);
@@ -474,17 +474,17 @@ $ ./a.out
         const low = i * (arrMax / thread);
         const high = (i + 1) * (arrMax / thread) - 1;
 
-        worker.postMessage({
+        worker.postMessage(&#123;
             low: low,
             high: high,
             buf: buf,
-        });
+        &#125;);
 
-        worker.onmessage = e =&gt; {
-            if (e.data == &quot;done&quot;) {
+        worker.onmessage = e =&gt; &#123;
+            if (e.data == &quot;done&quot;) &#123;
                 Atomics.add(barrier, 0, 1);
 
-                if (Atomics.load(barrier, 0) === thread) {
+                if (Atomics.load(barrier, 0) === thread) &#123;
 
                     merge(0, ((arrMax / 2 | 0) - 1) / 2 | 0, (arrMax / 2 | 0) - 1);
                     merge(arrMax / 2, arrMax / 2 | 0 + 
@@ -495,52 +495,19 @@ $ ./a.out
                     const content = &quot;new: &quot; + arr + &quot;&lt;br/&gt;&quot; +
                         &quot;time: &quot; + (last_time - first_time) / 1000 + &quot;s&quot;
                     document.getElementById(&quot;content&quot;).innerHTML += content;
-                }
-            }
-        };
-    }
+                &#125;
+            &#125;
+        &#125;;
+    &#125;
 &lt;/script&gt;
 </code></pre>
 <h2 id="3-效能分析"><a class="header-anchor" href="#3-效能分析">¶ </a>3. 效能分析</h2>
 <p>效能實驗分別測試 (1) Pthread 用 Emscripten Proxy 模式 O3 轉 JS + WASM  (2) Pthread 用Emscripten 一般模式 O3 轉 JS + WASM (3) Pthread g++ O3 (4) Pthread g++ O2 (5) Chrome 跑純 JavaScript 版本，這幾種情況下效能差異。實驗環境為 AMD Ryzen 7 2700X 3.7 GHz 八核處理器 (只開 4 執行緒)，emcc v1.39、g++ v7.5、Chrome 84。</p>
-<table>
-<thead>
-<tr>
-<th>Array Length</th>
-<th>Em Proxy</th>
-<th>Em No Proxy</th>
-<th>C++ O3</th>
-<th>C++ O2</th>
-<th>JS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>100000</td>
-<td>0.056s</td>
-<td>0.062s</td>
-<td>0.027s</td>
-<td>0.032s</td>
-<td>0.214s</td>
-</tr>
-<tr>
-<td>10000</td>
-<td>0.031s</td>
-<td>0.009s</td>
-<td>0.002s</td>
-<td>0.003s</td>
-<td>0.052s</td>
-</tr>
-<tr>
-<td>1000</td>
-<td>0.029s</td>
-<td>0.002s</td>
-<td>0.001s</td>
-<td>0.001s</td>
-<td>0.023s</td>
-</tr>
-</tbody>
-</table>
+<p>| Array Length  | Em Proxy | Em No Proxy | C++ O3 | C++ O2 | JS |<br>
+|—|—|—|—|—|—|—|<br>
+|  100000 | 0.056s  | 0.062s | 0.027s | 0.032s | 0.214s |<br>
+|  10000 | 0.031s  | 0.009s | 0.002s | 0.003s | 0.052s |<br>
+|  1000 |  0.029s | 0.002s | 0.001s | 0.001s | 0.023s |</p>
 <p>將上表時間取 log 並反轉可以得到下圖。同個長度下，不同方法之間越高代表越快。不同長度，同個方法下，越高代表越快。</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/89744481-eacbac00-dadf-11ea-9513-825905cba9d4.png" alt="result graph"></p>
 <p>Pthread 不意外是最快的，不過 O3 和 O2 相差沒很多，這個結果跟前篇文章 PI 的結果大相逕庭。</p>
@@ -668,7 +635,7 @@ $ ./a.out
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-簡介"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Merge-Sort"><span class="toc-text">2. Merge Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Pthread-版本-Merge-Sort"><span class="toc-text">2.1 Pthread 版本 Merge Sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Pthread-轉-JavaScript-版本-Merge-Sort"><span class="toc-text">2.2 Pthread 轉 JavaScript 版本 Merge Sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-JavaScript-版本-Merge-Sort"><span class="toc-text">2.3 JavaScript 版本 Merge Sort</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-效能分析"><span class="toc-text">3. 效能分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-結論"><span class="toc-text">4. 結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B0%A1%E4%BB%8B"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Merge-Sort"><span class="toc-text">2. Merge Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Pthread-%E7%89%88%E6%9C%AC-Merge-Sort"><span class="toc-text">2.1 Pthread 版本 Merge Sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Pthread-%E8%BD%89-JavaScript-%E7%89%88%E6%9C%AC-Merge-Sort"><span class="toc-text">2.2 Pthread 轉 JavaScript 版本 Merge Sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-JavaScript-%E7%89%88%E6%9C%AC-Merge-Sort"><span class="toc-text">2.3 JavaScript 版本 Merge Sort</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-text">3. 效能分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B5%90%E8%AB%96"><span class="toc-text">4. 結論</span></a></li></ol>
 </div>
                 </section>
             

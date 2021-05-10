@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -182,7 +182,7 @@
 <p>正所謂「橫看成嶺側成峰，遠近高低各不同」，混疊圖像在一張圖片藏了不只一種訊息，甚至還可以將更多圖片藏在同一張圖片之中。</p>
 <h2 id="2-原理"><a class="header-anchor" href="#2-原理">¶ </a>2. 原理</h2>
 <h3 id="2-1-概念"><a class="header-anchor" href="#2-1-概念">¶ </a>2.1 概念</h3>
-<p>混疊圖片的原理背後就是訊號處理，說到訊號處理就要談談<a href="https://zh.wikipedia.org/wiki/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2" target="_blank" rel="noopener">傅立葉變換</a>。</p>
+<p>混疊圖片的原理背後就是訊號處理，說到訊號處理就要談談<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2">傅立葉變換</a>。</p>
 <p>傅立葉變換讓我們有辦法把複雜的訊號，一一去拆解成各種基本訊號，舉例來說：</p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Fourier_transform_time_and_frequency_domains_%28small%29.gif" alt="gif of fourier transform form wiki"><br>
 (source from Wikipedia)</p>
@@ -204,7 +204,7 @@ $$</p>
 <p>$$g(i,j) = EXP({ -{ {(x-i)^2+(y-j)^2} \over{ 2 \sigma ^2}} })$$</p>
 <p>其中 $\sigma$ 為範圍大小，$(i, j)$ 是圖片的像素點位置，而 $(x, y)$ 是中心點。</p>
 <h3 id="2-3-濾鏡"><a class="header-anchor" href="#2-3-濾鏡">¶ </a>2.3 濾鏡</h3>
-<p>濾鏡選擇高斯函數理由可以參考<a href="https://dsp.stackexchange.com/questions/3002/why-are-gaussian-filters-used-as-low-pass-filters-in-image-processing" target="_blank" rel="noopener">這篇</a>，簡單來說有幾點優點，一來是他不會產生負的值，再來是他過濾後的圖片跟自然界的物理現象比較接近。</p>
+<p>濾鏡選擇高斯函數理由可以參考<a target="_blank" rel="noopener" href="https://dsp.stackexchange.com/questions/3002/why-are-gaussian-filters-used-as-low-pass-filters-in-image-processing">這篇</a>，簡單來說有幾點優點，一來是他不會產生負的值，再來是他過濾後的圖片跟自然界的物理現象比較接近。</p>
 <p>以理想濾鏡  (Ideal Filter) 和高斯濾鏡來比較的話，理想濾鏡是一個邊界分明的濾鏡，高斯濾鏡則是套用高斯函數的濾鏡。下圖為低通情況這兩種濾鏡示意圖，圖片在經過傅立葉變換之後，若只保留中心部分 (白色)，則代表此圖片經過濾鏡後僅留下低頻訊號。</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/80313634-a9f4a380-881e-11ea-9de2-1526ac3b1692.png" alt="image"></p>
 <p>套用這兩款不同的低通濾鏡，此時低通會造成模糊，呈現的結果如下，可以看到理想濾鏡比較沒那麼自然。</p>
@@ -396,7 +396,7 @@ plt.show(plt.imshow(hybrid_img(img1, img2, 10, 10), cmap='gray'))
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-簡介"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-原理"><span class="toc-text">2. 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-概念"><span class="toc-text">2.1 概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-數學"><span class="toc-text">2.2 數學</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-濾鏡"><span class="toc-text">2.3 濾鏡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-實現"><span class="toc-text">3. 實現</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-細部介紹"><span class="toc-text">3.1 細部介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-完整程式碼"><span class="toc-text">3.2 完整程式碼</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-結果呈現"><span class="toc-text">4. 結果呈現</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-高斯過濾的低通和高通"><span class="toc-text">4.1 高斯過濾的低通和高通</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-混疊圖片"><span class="toc-text">4.2 混疊圖片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-text">結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B0%A1%E4%BB%8B"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8E%9F%E7%90%86"><span class="toc-text">2. 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%A6%82%E5%BF%B5"><span class="toc-text">2.1 概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%95%B8%E5%AD%B8"><span class="toc-text">2.2 數學</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%BF%BE%E9%8F%A1"><span class="toc-text">2.3 濾鏡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AF%A6%E7%8F%BE"><span class="toc-text">3. 實現</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E7%B4%B0%E9%83%A8%E4%BB%8B%E7%B4%B9"><span class="toc-text">3.1 細部介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%AE%8C%E6%95%B4%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="toc-text">3.2 完整程式碼</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B5%90%E6%9E%9C%E5%91%88%E7%8F%BE"><span class="toc-text">4. 結果呈現</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E9%AB%98%E6%96%AF%E9%81%8E%E6%BF%BE%E7%9A%84%E4%BD%8E%E9%80%9A%E5%92%8C%E9%AB%98%E9%80%9A"><span class="toc-text">4.1 高斯過濾的低通和高通</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%B7%B7%E7%96%8A%E5%9C%96%E7%89%87"><span class="toc-text">4.2 混疊圖片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
 </div>
                 </section>
             

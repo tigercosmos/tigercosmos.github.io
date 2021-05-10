@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -176,7 +176,7 @@
     <div class="post-content">
         <h1>迴圈</h1>
 <p>在生活中，我們常常會有有做一樣的事情的時候，例如一張一張比對發票、一行一行檢查有沒有錯字。這個要重複做的動作，在程式語言中就可以用迴圈（loop）辦到。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <blockquote>
 <p>傳送門：此系列文章「<a href="/post/2018/11/master_js/table/">30 天 Javascript 從入門到進階</a>」</p>
 </blockquote>
@@ -261,9 +261,9 @@
 <h3 id="For-迴圈"><a class="header-anchor" href="#For-迴圈">¶ </a>For 迴圈</h3>
 <p>先從簡單的開始，如同剛剛範例，如何用 JS 印出 5 遍「我愛妳」呢？</p>
 <p>檔案：ex1.js</p>
-<pre><code class="language-js">for(let i = 0; i &lt; 5; i++) {
+<pre><code class="language-js">for(let i = 0; i &lt; 5; i++) &#123;
     console.log(&quot;I LOVE YOU!&quot;);
-}
+&#125;
 </code></pre>
 <p>執行 <code>ex1.js</code> 就會看到以下結果：</p>
 <pre><code class="language-py">$ node ex1.js
@@ -277,12 +277,12 @@ I LOVE YOU!
 <p>以這邊為例，我們先定義 <code>let i = 0</code>，然後規定 <code>i &lt; 5</code>，一但 i 大於等於 5 迴圈就會終止，最後告訴迴圈每一回合結束 <code>i++</code>。<code>i++</code> 的意思就是 <code>i = i + 1</code>，也就是每回合 <code>i</code> 會加 1。所以 <code>i</code> 其實就是一個計數器。</p>
 <p>最後這段程式碼的 <code>i</code> 會從 0、1、2 一直數到 4，總共 5 次。當第 5 次執行完，<code>i</code> 會變成 5 就不滿足條件，迴圈就會結束了。</p>
 <p>習慣上我們會讓計數器從 0 開始，因為後面會介紹的陣列通常都是由 0 開始，這邊可以先當作是慣例就好。當然，我們也可以讓 <code>i</code> 從 1 開始到 5 結束，迴圈就會是 <code>for(let i = 1; i &lt;= 5; i++)</code>。</p>
-<p><code>for</code> 後面包住的 <code>{}</code> 為迴圈每回合執行的程式碼，在這邊就是執行印出的動作。</p>
+<p><code>for</code> 後面包住的 <code>&#123;&#125;</code> 為迴圈每回合執行的程式碼，在這邊就是執行印出的動作。</p>
 <p>再舉一個例子，我們也可以讓迴圈執行的內容與計數器有關：</p>
 <p>檔案：ex2.js</p>
-<pre><code class="language-js">for(let i = 0; i &lt; 5; i++) {
+<pre><code class="language-js">for(let i = 0; i &lt; 5; i++) &#123;
     console.log(i);
-}
+&#125;
 </code></pre>
 <p>執行 <code>ex2.js</code> 就會看到以下結果：</p>
 <pre><code class="language-py">$ node ex1.js
@@ -295,9 +295,9 @@ I LOVE YOU!
 <p>不管是我們單純的想要跑 n 遍而已，或是想要在迴圈內執行有關計數器的動作，都可以用 <code>for</code> 定義計數器 <code>i</code> 從初始值走到條件終點。</p>
 <p>計數器當然也可以反向來數：</p>
 <p>檔案：ex3.js</p>
-<pre><code class="language-js">for(let i = 5; i &gt; 0; i--) {
+<pre><code class="language-js">for(let i = 5; i &gt; 0; i--) &#123;
     console.log(i);
-}
+&#125;
 </code></pre>
 <p>我們先讓 <code>i</code> 為 5，接著每次 <code>i--</code> 等同 <code>i = i - 1</code>，也就是每次減一，條件是必須大於 0。</p>
 <p>執行 <code>ex3.js</code> 就會看到以下結果：</p>
@@ -311,9 +311,9 @@ I LOVE YOU!
 <p>還記得我們前面有用虛擬程式碼，計算 0 加到 100 等於多少，現在我們可以用 JS 來寫：</p>
 <p>檔案：ex4.js</p>
 <pre><code class="language-js">let sum = 0
-for(let i = 0; i &lt;= 100; i++) {
+for(let i = 0; i &lt;= 100; i++) &#123;
     sum += i;
-}
+&#125;
 console.log(sum);
 </code></pre>
 <p>執行 <code>ex4.js</code> 就會看到以下結果：</p>
@@ -321,11 +321,11 @@ console.log(sum);
 5050
 </code></pre>
 <p>我們必須把 <code>sum</code> 放在最一開始，也就是迴圈前面，這樣每回合才能使用 <code>sum</code>。如果 <code>sum</code> 沒有在開始迴圈前就先定義，而是在迴圈的每一個回合中才被定義的話，那麼當那個回合結束， <code>sum</code> 也就消失了，因為迴圈裡面的變數的生命只存在當下的回合。</p>
-<p>除非先把變數定義在迴圈外面，這樣的話每回合都是操作外面的變數。即使回合結束，外面的變數還會保留著。這個概念就是變數的生命週期（scope），與 <code>if</code>、<code>else</code> 雷同，如同前一章所介紹。如果變數是在某個區塊 <code>{ }</code> 裡面定義，變數的生命只在那個區塊 <code>{ }</code> 的區間裡面存在，一但出了 <code>{ }</code> 就會被銷毀。在迴圈中，每一回合就是一個 <code>{ }</code>，下一回合等同離開上一回合的 <code>{ }</code>。</p>
+<p>除非先把變數定義在迴圈外面，這樣的話每回合都是操作外面的變數。即使回合結束，外面的變數還會保留著。這個概念就是變數的生命週期（scope），與 <code>if</code>、<code>else</code> 雷同，如同前一章所介紹。如果變數是在某個區塊 <code>&#123; &#125;</code> 裡面定義，變數的生命只在那個區塊 <code>&#123; &#125;</code> 的區間裡面存在，一但出了 <code>&#123; &#125;</code> 就會被銷毀。在迴圈中，每一回合就是一個 <code>&#123; &#125;</code>，下一回合等同離開上一回合的 <code>&#123; &#125;</code>。</p>
 <p>所以假設我們這樣寫：</p>
-<pre><code class="language-js">for(let i = 0; i &lt;= 100; i++) {
+<pre><code class="language-js">for(let i = 0; i &lt;= 100; i++) &#123;
     let sum = i;
-}
+&#125;
 </code></pre>
 <p>這樣寫就完全沒意義，因為每回合 <code>sum</code> 都會被重新定義，所以甚至辦不到累加動作！這就是為什麼會先在迴圈前先定義好 <code>sum = 0</code>。</p>
 <p>然後，我們讓 <code>i</code> 從 0 數到 100，每回合執行 <code>sum += i</code>，<code>+=</code> 是一種縮寫，這句等於 <code>sum = sum + i</code>，所以每回合就會把 <code>i</code> 加進 <code>sum</code> 裡面。最後迴圈結束之後，我們再印出 <code>sum</code> 是多少。</p>
@@ -333,17 +333,17 @@ console.log(sum);
 <p>JS 中迴圈除了 <code>for</code> 以外，還可以使用 <code>while</code> 語法。兩個概念是一樣的，都是會在條件內反覆執行，不過使用方法有點不同，接下來我們比對 <code>for</code> 和 <code>while</code> 兩者即能看出差別。</p>
 <p>舉個例子，舉個例子我們先用 <code>for</code> 來寫一個簡單迴圈：</p>
 <p>檔案：ex5-1.js</p>
-<pre><code class="language-js">for(let i = 0; i &lt; 5; i++) {
+<pre><code class="language-js">for(let i = 0; i &lt; 5; i++) &#123;
     console.log(i);
-}
+&#125;
 </code></pre>
 <p>如果使用 <code>while</code> 的話，一樣的效果會寫成這樣：</p>
 <p>檔案：ex5-2.js</p>
 <pre><code class="language-js">let i = 0;
-while(i &lt; 5) {
+while(i &lt; 5) &#123;
     console.log(i);
     i += 1;
-}
+&#125;
 </code></pre>
 <p>兩個結果一樣，執行 <code>ex5-1.js</code> 或 <code>ex5-2.js</code>都會印出：</p>
 <pre><code class="language-py">$ node ex5-2.js
@@ -353,20 +353,20 @@ while(i &lt; 5) {
 3
 4
 </code></pre>
-<p><code>while</code> 的用法是 <code>while(條件) { 做事 }</code>，在這邊 <code>i &lt; 5</code> 是條件，每回合會先印出 <code>i</code> 然後再讓 <code>i</code> 加一，然後當 <code>i = 4</code> 的那一輪回合結束時，<code>i</code> 會變成 5，下一回合執行前會確認 <code>i &lt; 5</code>，這時候就發現條件不合，於是迴圈就會終止。要注意 <code>i += 1</code> 的位置很重要，如果先讓 <code>i += 1</code> 才印出 <code>console.log(i)</code>，那麼印出的數字就會是「1 2 3 4 5」了。</p>
+<p><code>while</code> 的用法是 <code>while(條件) &#123; 做事 &#125;</code>，在這邊 <code>i &lt; 5</code> 是條件，每回合會先印出 <code>i</code> 然後再讓 <code>i</code> 加一，然後當 <code>i = 4</code> 的那一輪回合結束時，<code>i</code> 會變成 5，下一回合執行前會確認 <code>i &lt; 5</code>，這時候就發現條件不合，於是迴圈就會終止。要注意 <code>i += 1</code> 的位置很重要，如果先讓 <code>i += 1</code> 才印出 <code>console.log(i)</code>，那麼印出的數字就會是「1 2 3 4 5」了。</p>
 <p>從這邊我們可以發現 while 的特性是，控制條件的變數通常會在迴圈開始之前就存在，迴圈開始時，只會定義條件，不會初始化變數，這跟 for 會在迴圈一開始定義變數的做法不一樣。</p>
 <p>也因為這個特性，while 通常會用在判斷「開關」的用途，例如：</p>
 <p>檔案：ex6.js</p>
 <pre><code class="language-js">let isOn = true;
-while(isOn) { // 等同 while(isOn == true)
+while(isOn) &#123; // 等同 while(isOn == true)
 
     // 開著要做的事
 
     const result = foo();
-    if(result == &quot;the end&quot;){
+    if(result == &quot;the end&quot;)&#123;
         isOn = false;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p><code>ex6.js</code> 只是情境，這個範例中，迴圈開始前有個開關變數 <code>isOn</code>，接著 <code>while</code> 迴圈的條件是 <code>isOn == true</code>，然後這個迴圈就會反覆的執行。</p>
 <p>這邊有用到函數的概念，我們之後會提，可以先想成每次 <code>result</code> 會問 <code>foo()</code> 答案，然後把自己記錄成答案。</p>
@@ -375,10 +375,10 @@ while(isOn) { // 等同 while(isOn == true)
 <p>檔案：ex7.js</p>
 <pre><code class="language-js">let i = 0;
 let sum = 0;
-while(i &lt;= 100) {
+while(i &lt;= 100) &#123;
     sum += i; // 等同 sum = sum + i
     i += 1;
-}
+&#125;
 console.log(sum);
 </code></pre>
 <p>這個效果跟之前的 <code>for</code> 是一模一樣的，所以其實同樣的邏輯 <code>while</code> 或 <code>for</code> 都辦得到，要用哪個端看使用者的心情。</p>
@@ -391,26 +391,26 @@ console.log(sum);
 <p>舉例來說剛剛找耳機就是已經達成目的，所以剩下不用執行；想像一下你要把剛煮好的綠豆湯一碗一碗盛好，但一旦發現其中一碗裡面有死掉的蟲蟲，這一鍋的綠豆湯你可能都不想喝了，也就沒有必要繼續盛下一碗。</p>
 <p>舉個簡單的範例：</p>
 <p>檔案：ex8.js</p>
-<pre><code class="language-js">while(true) {
+<pre><code class="language-js">while(true) &#123;
     const result = foo();
-    if(result == &quot;find it&quot;){
+    if(result == &quot;find it&quot;)&#123;
         console.log(&quot;找到了，結束迴圈&quot;)
         break;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p><code>ex8.js</code> 只是概念，和 <code>ex6.js</code> 有異曲同工之妙，兩者皆是得到答案之後，就結束迴圈。只是 <code>ex8.js</code> 使用 <code>break</code> 來做跳出迴圈，而 <code>ex6.js</code> 是用一個開關變數來控制要不要結束迴圈。該採取哪一種做法，要看當時程式的先後文和情境，但效果其實是一樣的。</p>
 <p>或是假設迴圈要從 0 數到 100 代表找耳機，所們先假設他數到 50 找到了，所以就可以結束迴圈，就會這樣：</p>
 <p>檔案：ex9.js</p>
-<pre><code class="language-js">for(let i = 0; i &lt;= 100; i++){
-    console.log(`正在找第 ${i} 件褲子`);
-    if(i == 50){
+<pre><code class="language-js">for(let i = 0; i &lt;= 100; i++)&#123;
+    console.log(`正在找第 $&#123;i&#125; 件褲子`);
+    if(i == 50)&#123;
         console.log(&quot;找到了，結束迴圈&quot;)
         break;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<p>這邊有用到一個語法 `brabra ${var} brabra`。<code>${}</code> 裡面包變數，整句被 “`” 包住，就可以直接在字串中塞入變數。</p>
+<p>這邊有用到一個語法 `brabra ${var} brabra`。<code>$&#123;&#125;</code> 裡面包變數，整句被 “`” 包住，就可以直接在字串中塞入變數。</p>
 <p>執行 <code>ex9.js</code> 就會看到：</p>
 <pre><code class="language-py">$ node ex9.js
 正在找第 0 件褲子
@@ -427,22 +427,22 @@ console.log(sum);
 <p>想像一下你今天有一百個包包，假設每個包包有三個夾層，你要確認每個包包至少有一個夾層有放衛生紙，而你檢查的順序前、中、後夾層。也就是說假設你在前夾層看到有放衛生紙了，中、後兩層就可以跳過，然後去檢查下一個包包。</p>
 <p>這種在迴圈中，在其中一個回合略過該回合接下來的工作，直接去執行下一回合，可以用 <code>continue</code> 指令。</p>
 <p>檔案：ex10.js</p>
-<pre><code class="language-js">for(let i = 0; i &lt;= 100; i++){
-    console.log(`正在找第 ${i} 個包包`);
-    if(前面有){
+<pre><code class="language-js">for(let i = 0; i &lt;= 100; i++)&#123;
+    console.log(`正在找第 $&#123;i&#125; 個包包`);
+    if(前面有)&#123;
         console.log(&quot;找到了，跳下一回合&quot;)
         continue;
-    }
-    if(中間有){
+    &#125;
+    if(中間有)&#123;
         console.log(&quot;找到了，跳下一回合&quot;)
         continue;
-    }
-    if(後面有){
+    &#125;
+    if(後面有)&#123;
         console.log(&quot;找到了，跳下一回合&quot;)
         continue;
-    }
+    &#125;
     console.log(&quot;沒找到&quot;)
-}
+&#125;
 </code></pre>
 <p><code>ex10.js</code> 只是概念，並無法直接跑。從這個範例我們可以看到迴圈會檢查 0 到 100，並在每一回合檢查前、中、後是否有找到，只要前夾層有找到，後面的步驟就可以跳過，中、後夾層同理。如果其中一層有找到，就會因為 <code>continue</code> 跳下一回合，並不會印出「沒找到」，但如果都沒找到，就會執行到最後並印出「沒找到」。</p>
 <h2 id="多層迴圈"><a class="header-anchor" href="#多層迴圈">¶ </a>多層迴圈</h2>
@@ -456,13 +456,13 @@ console.log(sum);
 <p>迴圈可以不只兩層，可以有三層、四層或是更多。迴圈永遠會先把最裡面的迴圈先跑完，才會接著上一層的迴圈跑完。舉例來說：</p>
 <p>檔案：ex11.js</p>
 <pre><code class="language-js">console.log(&quot;ijk&quot;); // 方便對照
-for(let i = 0; i &lt;= 2; i++){
-    for(let j = 0; j &lt;= 2; j++){
-        for(let k = 0; k &lt;= 2; k++){
-            console.log(`${i}${j}${k}`);
-        }
-    }
-}
+for(let i = 0; i &lt;= 2; i++)&#123;
+    for(let j = 0; j &lt;= 2; j++)&#123;
+        for(let k = 0; k &lt;= 2; k++)&#123;
+            console.log(`$&#123;i&#125;$&#123;j&#125;$&#123;k&#125;`);
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>執行 <code>ex11.js</code> 會跑出：</p>
 <pre><code class="language-py">$ node ex11.js
@@ -594,7 +594,7 @@ ijk
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">迴圈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#迴圈概念"><span class="toc-text">迴圈概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-中的迴圈"><span class="toc-text">JS 中的迴圈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#For-迴圈"><span class="toc-text">For 迴圈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while-迴圈"><span class="toc-text">while 迴圈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迴圈操作"><span class="toc-text">迴圈操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#break"><span class="toc-text">break</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue"><span class="toc-text">continue</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多層迴圈"><span class="toc-text">多層迴圈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小結"><span class="toc-text">小結</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#練習題"><span class="toc-text">練習題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#入門"><span class="toc-text">入門</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#進階"><span class="toc-text">進階</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">迴圈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%B4%E5%9C%88%E6%A6%82%E5%BF%B5"><span class="toc-text">迴圈概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-%E4%B8%AD%E7%9A%84%E8%BF%B4%E5%9C%88"><span class="toc-text">JS 中的迴圈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#For-%E8%BF%B4%E5%9C%88"><span class="toc-text">For 迴圈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while-%E8%BF%B4%E5%9C%88"><span class="toc-text">while 迴圈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%B4%E5%9C%88%E6%93%8D%E4%BD%9C"><span class="toc-text">迴圈操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#break"><span class="toc-text">break</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue"><span class="toc-text">continue</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%B1%A4%E8%BF%B4%E5%9C%88"><span class="toc-text">多層迴圈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%B5%90"><span class="toc-text">小結</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B7%B4%E7%BF%92%E9%A1%8C"><span class="toc-text">練習題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E9%96%80"><span class="toc-text">入門</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E"><span class="toc-text">進階</span></a></li></ol></li></ol></li></ol>
 </div>
                 </section>
             

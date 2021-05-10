@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,windows,chromium," />
+        content="browser,windows,瀏覽器,chromium," />
     <meta name="description"
         content="在 Windows 上編譯 Chromium" />
     <title>Neutrino&#39;s Blog: 在 Windows 上編譯 Chromium </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -175,7 +175,7 @@
     </ul>
     <div class="post-content">
         <p>Chromium 是 Chrome 的開源版本，與 Chrome 差異是 Chrome 多了一些 Google 服務，並且介面設計上也會不太一樣。Chromium 因為是開源軟體，所以被許多其他瀏覽器開發商拿來改造，像是 MicroSoft Edge、Opera、Puffin 等瀏覽器，而 Chromium 底下的 V8 JavaScript 引擎則被 NodeJS 使用。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <p>為甚麼要編譯 Chromium 呢？</p>
 <blockquote>
 <p>因為很酷很爽很好玩啊！</p>
@@ -184,7 +184,7 @@
 <p>此外感受一下，現代高科技 (瀏覽器) 是怎樣被編譯出來的，應該也很有意思的，推薦搭配「<a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》</a>」一起享用。</p>
 <p>不過編譯這種大型專案最令人恐懼的不外乎是編譯卡關，因為程式碼數量龐大，稍微有個小環節有問題也很難找到根源，最怕的就是明明都照著說明步驟走，結果還是編譯不過，也不知問題出在哪。</p>
 <p>Chromium 的流程已經簡化的滿簡單了，基本上裡面的腳本已經替我們處理好很多事情了，之前在 Linux 和 MacOS 上都試過，基本上都照著指令打就沒問題。不過在 Windows 上我是第一次編譯，所以還是卡了滿久的，這篇記錄我編譯的流程。</p>
-<p>本文可能隨著時間與最新版不太一樣，請以<a href="https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md" target="_blank" rel="noopener">官方的指南</a>為準。</p>
+<p>本文可能隨著時間與最新版不太一樣，請以<a target="_blank" rel="noopener" href="https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md">官方的指南</a>為準。</p>
 <h2 id="前置動作"><a class="header-anchor" href="#前置動作">¶ </a>前置動作</h2>
 <ol>
 <li>
@@ -192,10 +192,10 @@
 <p>VS 會有個安裝工具，主頁勾選「Desktop development with C++” component (桌面開發 C++)」，然後去個別元件的選單，Windows SDK 勾選最新的，此外搜尋「MFC」、「ATL」都勾選最新版本。如果你是 AMD 的裝置，AMD 支援相關的元件最好也都勾選。</p>
 </li>
 <li>
-<p>此外你需要手動安裝「<a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/" target="_blank" rel="noopener">Debugging Tools For Windows</a>」。</p>
+<p>此外你需要手動安裝「<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/">Debugging Tools For Windows</a>」。</p>
 </li>
 <li>
-<p>接著你會需要安裝「<a href="https://storage.googleapis.com/chrome-infra/depot_tools.zip" target="_blank" rel="noopener">depot_tools bundle</a>」，這是 Chromium 開發用的一些工具程式，會需要用它來抓 Chromium 程式碼和編譯。</p>
+<p>接著你會需要安裝「<a target="_blank" rel="noopener" href="https://storage.googleapis.com/chrome-infra/depot_tools.zip">depot_tools bundle</a>」，這是 Chromium 開發用的一些工具程式，會需要用它來抓 Chromium 程式碼和編譯。</p>
 </li>
 <li>
 <p>然後要修改環境變數，左下角 Windows 選單點擊齒輪(設定)，搜尋「環境變數」，並以系統管理員身分修改。假設你把 <code>depot_tools</code> 解壓縮在 <code>C:\src\depot_tools</code>，那環境變數 <code>PATH</code> 中把這個路徑加進去，記住要把這個路徑放在第一條，以免你的系統中已經有 Python 或其他工具干擾編譯。此外在環境變數新增 <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> 並設為 <code>0</code>。</p>
@@ -221,7 +221,7 @@ $ git config --global branch.autosetuprebase always
 </code></pre>
 <p>進入 <code>src</code> (fetch 後就會有)，以下的所有操作都在 <code>src</code> 裡面。</p>
 <p>由於 Chromium 是一個快速開發的專案，每天都會有幾百條 commit 進入 master，直接編譯當前最新 commit 的版本很可能會出問題，所以我們要切換成穩定釋出版本，我的作法是選擇當下 Chrome 最新的穩定版本號。</p>
-<p>以下為切換版本的指令，更多細節可以參考<a href="https://www.chromium.org/developers/how-tos/get-the-code/working-with-release-branches" target="_blank" rel="noopener">這篇</a>。</p>
+<p>以下為切換版本的指令，更多細節可以參考<a target="_blank" rel="noopener" href="https://www.chromium.org/developers/how-tos/get-the-code/working-with-release-branches">這篇</a>。</p>
 <pre><code class="language-shell">$ gclient sync --with_branch_heads --with_tags
 $ git fetch --tags
 $ git checkout -b my_branch tags/80.0.3987.106
@@ -253,12 +253,12 @@ $ gclient sync --with_branch_heads --with_tags
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/windows/">
                 windows
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/chromium/">
@@ -330,7 +330,7 @@ $ gclient sync --with_branch_heads --with_tags
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置動作"><span class="toc-text">前置動作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#取得-Code"><span class="toc-text">取得 Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#編譯"><span class="toc-text">編譯</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E5%8B%95%E4%BD%9C"><span class="toc-text">前置動作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%BE%97-Code"><span class="toc-text">取得 Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B7%A8%E8%AD%AF"><span class="toc-text">編譯</span></a></li></ol>
 </div>
                 </section>
             

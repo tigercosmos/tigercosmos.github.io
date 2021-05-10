@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -176,23 +176,23 @@
     <div class="post-content">
         <h2 id="1-並行與平行"><a class="header-anchor" href="#1-並行與平行">¶ </a>1. 並行與平行</h2>
 <p>Concurrency (並行) 和 Parallelism (平行) 是非常像的概念。前者是說不同的計算並行地執行，相較於序列化 (Sequentially) 執行，在一個計算結束之前另一個就開始了；後者則是讓同個計算工作同時分工一起執行。</p>
-<p>乍看之下這兩者要講的概念其實很像，採用 <a href="https://www.oreilly.com/library/view/the-art-of/9780596802424/" target="_blank" rel="noopener">The Art of Concurrency</a> 的定義如下：</p>
+<p>乍看之下這兩者要講的概念其實很像，採用 <a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/the-art-of/9780596802424/">The Art of Concurrency</a> 的定義如下：</p>
 <blockquote>
 <p>A system is said to be concurrent if it can support two or more actions in progress at the same time. A system is said to be parallel if it can support two or more actions executing simultaneously. The key concept and difference between these definitions is the phrase “in progress.”</p>
 <p>一個系統稱做並行是當他可以同時執行兩個行進中的任務。一個系統稱為平行是當它可以同時執行多個任務。兩者關鍵差異是「行進中」。</p>
 </blockquote>
 <p>並行化可以在單核處理器 (Single Core) 上可以藉由交錯地執行任務來辦到，有趣的是並行化也可以在多核處理器上以平行的方式執行。某種程度上並行跟平行做的事情滿像的，但「行進中」精闢點出兩者區別，並且英文中 simultaneously 有 “happening or being done at exactly the same time” 的特性。</p>
-<p>對於平行和並行不熟的同學可以考慮複習 Operating System Concepts 第四章「Threads &amp; Concurrency」，或是 <a href="https://pages.cs.wisc.edu/~remzi/OSTEP/" target="_blank" rel="noopener">Operating Systems: Three Easy Pieces</a> 的 「Concurrency」 章節。</p>
+<p>對於平行和並行不熟的同學可以考慮複習 Operating System Concepts 第四章「Threads &amp; Concurrency」，或是 <a target="_blank" rel="noopener" href="https://pages.cs.wisc.edu/~remzi/OSTEP/">Operating Systems: Three Easy Pieces</a> 的 「Concurrency」 章節。</p>
 <p>而在並行與平行中，為了確保程式執行邏輯正確性和資料正確性，就會需要討論 Reentrancy 和 Thread-safe 分別是啥玩意。</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/117589349-823b5980-b15b-11eb-825d-55307d4c044b.png" alt="Cover"></p>
 <h2 id="2-Reentrancy"><a class="header-anchor" href="#2-Reentrancy">¶ </a>2. Reentrancy</h2>
-<p>在電腦科學中，<a href="https://zh.wikipedia.org/wiki/%E5%8F%AF%E9%87%8D%E5%85%A5" target="_blank" rel="noopener">Reentrancy (可重入)</a> 代表一個程式或子程式裡面的程式碼可以「在任意時刻發生中斷 (Interruption)，然後作業系統排程 (Schedule) 執行另外一段程式碼，當再次回來執行這段程式碼時卻不會出錯」。</p>
+<p>在電腦科學中，<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8F%AF%E9%87%8D%E5%85%A5">Reentrancy (可重入)</a> 代表一個程式或子程式裡面的程式碼可以「在任意時刻發生中斷 (Interruption)，然後作業系統排程 (Schedule) 執行另外一段程式碼，當再次回來執行這段程式碼時卻不會出錯」。</p>
 <p>至於為甚麼程式會甚麼會有中斷，有可能是內部自己的行為像是 <code>jump</code> 或 <code>call</code>，抑或是外部行為像是 Interrupt 或 Signal。也就是說，在程式執行的過程中，中斷的發生無關乎作業系統 (OS) 是否存在，沒有 OS 情況下，自身的行為也可能會引發中斷，所以還是要注意 Reentrancy 影響。</p>
-<p>Reentrancy 在單執行緒的形況下就可以做討論，像是程式是否能在被 OS Interrupt 後，再次直接恢復執行？換句話說，如果被中斷後要能繼續執行，應該要是 Reentrant Code，否則回來的時候答案就錯了。這邊還有個有趣的問題，那就是 <a href="https://stackoverflow.com/questions/18132580/does-an-interrupt-handler-have-to-be-reentrant" target="_blank" rel="noopener">Interrupt Handler 需要是 Reentrant 嗎</a>？簡單的答案是，除非你的 Handler 是巢狀的 (一個接一個呼叫)，否則是不需要擔心，另外像是 Linux 會有遮罩阻止另一個 Interrupt 打斷目前的 Interrupt。</p>
+<p>Reentrancy 在單執行緒的形況下就可以做討論，像是程式是否能在被 OS Interrupt 後，再次直接恢復執行？換句話說，如果被中斷後要能繼續執行，應該要是 Reentrant Code，否則回來的時候答案就錯了。這邊還有個有趣的問題，那就是 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/18132580/does-an-interrupt-handler-have-to-be-reentrant">Interrupt Handler 需要是 Reentrant 嗎</a>？簡單的答案是，除非你的 Handler 是巢狀的 (一個接一個呼叫)，否則是不需要擔心，另外像是 Linux 會有遮罩阻止另一個 Interrupt 打斷目前的 Interrupt。</p>
 <p>Reentrancy 非常重要是因為在 Concurrent Programming (並行程式設計) 開發中，我們需要確保異步程式 (Asynchronous Program) 在做任務切換的時候，中斷不會影響我們執行正確性。此外當我們使用遞迴的時候，預期他就是 Reentrant 否則會出錯。</p>
 <h2 id="3-Thread-safe"><a class="header-anchor" href="#3-Thread-safe">¶ </a>3. Thread-safe</h2>
-<p>另一方面， <a href="https://zh.wikipedia.org/zh-tw/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8" target="_blank" rel="noopener">Thread-safe (執行緒安全)</a>是指某個函數、函數庫在多執行緒環境中被呼叫時，能夠正確地處理多個執行緒之間的公用變數 (全域變數、共享變數)，使程式功能正確完成。</p>
-<p>Thread-safe 在平行程式中很重要，因為平行計算的過程中，往往很多資料是共用的，這樣處理資料的時候，很容易讓資料產生 <a href="https://en.wikipedia.org/wiki/Race_condition#Computing" target="_blank" rel="noopener">Race Conditions</a>，因此如何確保資料在每個 Thread 都有被正確進行讀寫就很關鍵。</p>
+<p>另一方面， <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8">Thread-safe (執行緒安全)</a>是指某個函數、函數庫在多執行緒環境中被呼叫時，能夠正確地處理多個執行緒之間的公用變數 (全域變數、共享變數)，使程式功能正確完成。</p>
+<p>Thread-safe 在平行程式中很重要，因為平行計算的過程中，往往很多資料是共用的，這樣處理資料的時候，很容易讓資料產生 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Race_condition#Computing">Race Conditions</a>，因此如何確保資料在每個 Thread 都有被正確進行讀寫就很關鍵。</p>
 <p>所以 Thread-safe 基本上就是在避免資料發生 Data Racing，實現機制可以使用 Reentrancy，但也可以使用 Thread-Local Data (只存在自己執行緒的資料)、不可改變的物件 (Immutable Objects)、互斥鎖 (Mutex)、原子化操作 (Atomic Operations)。</p>
 <h2 id="4-Reentrancy-VS-Thread-safe"><a class="header-anchor" href="#4-Reentrancy-VS-Thread-safe">¶ </a>4. Reentrancy VS Thread-safe</h2>
 <p>所以重點來了，那 Reentrancy 與 Thread-safe 關係是甚麼呢？</p>
@@ -201,19 +201,19 @@
 <h3 id="4-1-Reentrancy-❌-Thread-safe-❌"><a class="header-anchor" href="#4-1-Reentrancy-❌-Thread-safe-❌">¶ </a>4.1 Reentrancy ❌ | Thread-safe ❌</h3>
 <pre><code class="language-c">int t;
 
-void swap(int *x, int *y) {
+void swap(int *x, int *y) &#123;
   t = *x;
   *x = *y;
   
   // 這邊可能呼叫 my_func();
   
   *y = t;
-}
+&#125;
 
-void my_func() {
+void my_func() &#123;
   int x = 1, y = 2;
   swap(&amp;x, &amp;y);
-}
+&#125;
 </code></pre>
 <ul>
 <li>❌ Reentrancy
@@ -234,19 +234,19 @@ void my_func() {
 // `t` 是每個 thread 自己的
 thread_local int t;
 
-void swap(int *x, int *y) {
+void swap(int *x, int *y) &#123;
   t = *x;
   *x = *y;
 
   // 這邊可能呼叫 my_func();
 
   *y = t;
-}
+&#125;
 
-void my_func() {
+void my_func() &#123;
   int x = 1, y = 2;
   swap(&amp;x, &amp;y);
-}
+&#125;
 </code></pre>
 <ul>
 <li>❌ Reentrancy
@@ -264,7 +264,7 @@ void my_func() {
 <p>以下為刻意製造的情境，但可以想成程式很複雜的情況下會有的狀況。</p>
 <pre><code class="language-c">int t;
 
-void swap(int *x, int *y) {
+void swap(int *x, int *y) &#123;
   int s;
   // 存下全域變數
   s = t;
@@ -278,12 +278,12 @@ void swap(int *x, int *y) {
 
   // 恢復全域變數
   t = s;
-}
+&#125;
 
-void my_func() {
+void my_func() &#123;
   int x = 1, y = 2;
   swap(&amp;x, &amp;y);
-}
+&#125;
 </code></pre>
 <ul>
 <li>✅ Reentrancy
@@ -299,18 +299,18 @@ void my_func() {
 </ul>
 <h3 id="4-4-Reentrancy-✅-Thread-safe-✅"><a class="header-anchor" href="#4-4-Reentrancy-✅-Thread-safe-✅">¶ </a>4.4 Reentrancy ✅ | Thread-safe ✅</h3>
 <p>這個例子中的解決方法意外的容易，把全域變數拿掉就沒事了。</p>
-<pre><code class="language-c">void swap(int *x, int *y) {
+<pre><code class="language-c">void swap(int *x, int *y) &#123;
   int t = *x;
   *x = *y;
 
   // `my_func()` 執行
   *y = t;
-}
+&#125;
 
-void my_func() {
+void my_func() &#123;
   int x = 1, y = 2;
   swap(&amp;x, &amp;y);
-}
+&#125;
 
 </code></pre>
 <ul>
@@ -358,10 +358,10 @@ void my_func() {
 <p>那你可能就要問了，那如果我在平行程式上用非 MT-Safe 的函數呢？那可能會有兩種可能，一種是你得到錯的答案，因為他就不是安全的，第二種是你可能效率會比較差，因為他可能會不斷去搶外部變數。舉例來說，假設你在平行程式去呼叫 <code>rand</code> 而非 <code>rand_r</code>，那你將會發現亂數產生的速度會極慢 (甚至會不正確)，因為 <code>rand</code> 的實作中，就有使用 <code>static</code>。</p>
 <h2 id="7-參考資料"><a class="header-anchor" href="#7-參考資料">¶ </a>7. 參考資料</h2>
 <ol>
-<li>cjwind’s note. 2017. <a href="http://www.cjwind.idv.tw/Reentrancy-and-Thread-safety/" target="_blank" rel="noopener">Reentrancy and Thread-safety</a></li>
-<li>Mike Choi. 2017. <a href="https://deadbeef.me/2017/09/reentrant-threadsafe" target="_blank" rel="noopener">Reentrant and Threadsafe Code</a></li>
-<li>IBM. 1997. <a href="https://sites.ualberta.ca/dept/chemeng/AIX-43/share/man/info/C/a_doc_lib/aixprggd/genprogc/writing_reentrant_thread_safe_code.htm" target="_blank" rel="noopener">AIX Version 4.3 General Programming Concepts: Writing Reentrant and Thread-safe Code</a></li>
-<li><a href="http://GNU.ORG" target="_blank" rel="noopener">GNU.ORG</a>. 2021. <a href="https://www.gnu.org/software/libc/manual/html_node/POSIX-Safety-Concepts.html" target="_blank" rel="noopener">POSIX Safety Concepts</a></li>
+<li>cjwind’s note. 2017. <a target="_blank" rel="noopener" href="http://www.cjwind.idv.tw/Reentrancy-and-Thread-safety/">Reentrancy and Thread-safety</a></li>
+<li>Mike Choi. 2017. <a target="_blank" rel="noopener" href="https://deadbeef.me/2017/09/reentrant-threadsafe">Reentrant and Threadsafe Code</a></li>
+<li>IBM. 1997. <a target="_blank" rel="noopener" href="https://sites.ualberta.ca/dept/chemeng/AIX-43/share/man/info/C/a_doc_lib/aixprggd/genprogc/writing_reentrant_thread_safe_code.htm">AIX Version 4.3 General Programming Concepts: Writing Reentrant and Thread-safe Code</a></li>
+<li><a target="_blank" rel="noopener" href="http://GNU.ORG">GNU.ORG</a>. 2021. <a target="_blank" rel="noopener" href="https://www.gnu.org/software/libc/manual/html_node/POSIX-Safety-Concepts.html">POSIX Safety Concepts</a></li>
 </ol>
 
     </div>
@@ -450,7 +450,7 @@ void my_func() {
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-並行與平行"><span class="toc-text">1. 並行與平行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Reentrancy"><span class="toc-text">2. Reentrancy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Thread-safe"><span class="toc-text">3. Thread-safe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Reentrancy-VS-Thread-safe"><span class="toc-text">4. Reentrancy VS Thread-safe</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Reentrancy-❌-Thread-safe-❌"><span class="toc-text">4.1 Reentrancy ❌ | Thread-safe ❌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Reentrancy-❌-Thread-safe-✅"><span class="toc-text">4.2 Reentrancy ❌ | Thread-safe ✅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-Reentrancy-✅-Thread-safe-❌"><span class="toc-text">4.3 Reentrancy ✅ | Thread-safe ❌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-Reentrancy-✅-Thread-safe-✅"><span class="toc-text">4.4 Reentrancy ✅ | Thread-safe ✅</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Reentrancy-與-Thread-safe-的原則"><span class="toc-text">5. Reentrancy 與 Thread-safe 的原則</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Reentrant-與-Thread-Safe-函式庫"><span class="toc-text">6. Reentrant 與 Thread-Safe 函式庫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-參考資料"><span class="toc-text">7. 參考資料</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%A6%E8%A1%8C%E8%88%87%E5%B9%B3%E8%A1%8C"><span class="toc-text">1. 並行與平行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Reentrancy"><span class="toc-text">2. Reentrancy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Thread-safe"><span class="toc-text">3. Thread-safe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Reentrancy-VS-Thread-safe"><span class="toc-text">4. Reentrancy VS Thread-safe</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Reentrancy-%E2%9D%8C-Thread-safe-%E2%9D%8C"><span class="toc-text">4.1 Reentrancy ❌ | Thread-safe ❌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Reentrancy-%E2%9D%8C-Thread-safe-%E2%9C%85"><span class="toc-text">4.2 Reentrancy ❌ | Thread-safe ✅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-Reentrancy-%E2%9C%85-Thread-safe-%E2%9D%8C"><span class="toc-text">4.3 Reentrancy ✅ | Thread-safe ❌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-Reentrancy-%E2%9C%85-Thread-safe-%E2%9C%85"><span class="toc-text">4.4 Reentrancy ✅ | Thread-safe ✅</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Reentrancy-%E8%88%87-Thread-safe-%E7%9A%84%E5%8E%9F%E5%89%87"><span class="toc-text">5. Reentrancy 與 Thread-safe 的原則</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Reentrant-%E8%88%87-Thread-Safe-%E5%87%BD%E5%BC%8F%E5%BA%AB"><span class="toc-text">6. Reentrant 與 Thread-Safe 函式庫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-text">7. 參考資料</span></a></li></ol>
 </div>
                 </section>
             

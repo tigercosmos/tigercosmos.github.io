@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -176,27 +176,27 @@
     <div class="post-content">
         <p>I modify some part that I wrote yesterday.</p>
 <p>!FILENAME src/sql/symbol.rs</p>
-<pre><code>pub struct Symbol&lt;'a&gt; {
+<pre><code>pub struct Symbol&lt;'a&gt; &#123;
     name: &amp;'a str,
     len: usize,
     token: Token,
     group: Group,
-}
+&#125;
 </code></pre>
 <p>I change <code>Symbol.name</code> from <code>String</code> to <code>&amp;str</code> type, because <code>String</code> type stores data in the heap and <code>&amp;str</code> stores at the stack. There is no reason we should store <code>name</code> in heap, since <code>name</code> is a fixed value and put it in the stack would be faster.</p>
 <p>You would notice the <code>&lt;'a&gt;</code> syntax, it is the lifetime syntax in rust. The <code>&amp;str</code> usually live only in the scope, so I need to tell the compiler that <code>name</code> should live as long as <code>Symbol</code>.</p>
 <p>!FILENAME src/sql/symbol.rs</p>
-<pre><code>pub enum Group {
+<pre><code>pub enum Group &#123;
     DataType,
     DoubleKeyword,
     MultiKeyword,
     Function,
     Keyword,
-}
+&#125;
 </code></pre>
 <p>I add more enums in <code>Group</code>, where <code>DataType</code> includes <code>Int</code>, <code>Char</code>, etc., and <code>DoubleKeyword</code> means the a two-word keywords.</p>
 <p>!FILENAME src/sql/symbol.rs</p>
-<pre><code>pub enum Token {
+<pre><code>pub enum Token &#123;
     /* SQL Keywords */
 
     //...
@@ -215,7 +215,7 @@
     Float,
     Int,
     Varchar,
-}
+&#125;
 </code></pre>
 <p>I update struct <code>Token</code>. There is only <code>Keywords</code> part yesterday, and I fill up <code>Function</code> and <code>Data Type</code>. I just plan to implement <code>Functions</code> and <code>Data Type</code> listed in <code>Token</code>, though other DBMS implement more.</p>
 <p>You might wonder what is the difference between <code>Varchar</code> and <code>Char</code>. According to MySQL document, the <code>Char</code> and <code>Varchar</code> types are similar, but differ in the way they are stored and retrieved. They also differ in maximum length and in whether trailing spaces are retained.</p>
@@ -263,9 +263,9 @@
 </tbody>
 </table>
 <p>!FILENAME src/sql/symbol.rs</p>
-<pre><code>lazy_static! {
+<pre><code>lazy_static! &#123;
     /// A static struct of token hashmap storing all tokens
-    pub static ref SYMBOLS: HashMap&lt;&amp;'static str, Symbol&lt;'static&gt;&gt; = {
+    pub static ref SYMBOLS: HashMap&lt;&amp;'static str, Symbol&lt;'static&gt;&gt; = &#123;
         let mut m = HashMap::new();
 
         // The following is maintained by hand according to `Token`
@@ -281,8 +281,8 @@
         // ...
 
         m // return m
-    };
-}
+    &#125;;
+&#125;
 </code></pre>
 <p>I store all <code>Symbol</code> to <code>SYMBOLS</code> hashmap for later use by the scanner.</p>
 <p>In C++, we can define and export a list, an array, or a map with value. Other file could simply <code>include</code> the <code>.h</code> or <code>.cc</code> to use the exported variable.</p>

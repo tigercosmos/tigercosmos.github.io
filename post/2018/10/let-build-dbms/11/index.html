@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -174,15 +174,15 @@
         </li>
     </ul>
     <div class="post-content">
-        <p>I found a cool project – <a href="https://github.com/pingcap/tidb" target="_blank" rel="noopener">TiDB</a>, which has more than 15k stars.</p>
+        <p>I found a cool project – <a target="_blank" rel="noopener" href="https://github.com/pingcap/tidb">TiDB</a>, which has more than 15k stars.</p>
 <blockquote>
 <p>TiDB is an open-source distributed scalable Hybrid Transactional and Analytical Processing (HTAP) database. It features infinite horizontal scalability, strong consistency, and high availability. TiDB is MySQL compatible and serves as a one-stop data warehouse for both OLTP (Online Transactional Processing) and OLAP (Online Analytical Processing) workloads. – From Github</p>
 </blockquote>
-<p>I found this project because an article <a href="https://pingcap.com/blog-cn/tidb-source-code-reading-5/" target="_blank" rel="noopener"><em>“How TiDB SQL Parser implement (TiDB SQL Parser 的实现)”</em></a>(Written in Chinese). The article introduces the parser of TiDB, and it’s quite helpful for me. The parser source code is at <a href="https://github.com/pingcap/parser" target="_blank" rel="noopener">pingcap/parser</a>. I refer partly from <code>lexer.go</code>, which implement the scanner, and <code>misc.go</code>, which implements the token identifier with trie.</p>
+<p>I found this project because an article <a target="_blank" rel="noopener" href="https://pingcap.com/blog-cn/tidb-source-code-reading-5/"><em>“How TiDB SQL Parser implement (TiDB SQL Parser 的实现)”</em></a>(Written in Chinese). The article introduces the parser of TiDB, and it’s quite helpful for me. The parser source code is at <a target="_blank" rel="noopener" href="https://github.com/pingcap/parser">pingcap/parser</a>. I refer partly from <code>lexer.go</code>, which implement the scanner, and <code>misc.go</code>, which implements the token identifier with trie.</p>
 <p>Let’s see some snippets from <code>TiDB</code>:</p>
 <p>!FILENAME pingcap/parser/lexer.go</p>
 <pre><code class="language-go">// Scanner implements the yyLexer interface.
-type Scanner struct {
+type Scanner struct &#123;
   r   reader
   buf bytes.Buffer
 
@@ -193,47 +193,47 @@ type Scanner struct {
   specialComment specialCommentScanner
 
   sqlMode mysql.SQLMode
-}
+&#125;
 </code></pre>
 <p>!FILENAME pingcap/parser/misc.go</p>
-<pre><code class="language-go">func (s *Scanner) isTokenIdentifier(lit string, offset int) int {
+<pre><code class="language-go">func (s *Scanner) isTokenIdentifier(lit string, offset int) int &#123;
   // An identifier before or after '.' means it is part of a qualified identifier.
   // We do not parse it as keyword.
-  if s.r.peek() == '.' {
+  if s.r.peek() == '.' &#123;
     return 0
-  }
-  if offset &gt; 0 &amp;&amp; s.r.s[offset-1] == '.' {
+  &#125;
+  if offset &gt; 0 &amp;&amp; s.r.s[offset-1] == '.' &#123;
     return 0
-  }
+  &#125;
   buf := &amp;s.buf
   buf.Reset()
   buf.Grow(len(lit))
   data := buf.Bytes()[:len(lit)]
-  for i := 0; i &lt; len(lit); i++ {
-    if lit[i] &gt;= 'a' &amp;&amp; lit[i] &lt;= 'z' {
+  for i := 0; i &lt; len(lit); i++ &#123;
+    if lit[i] &gt;= 'a' &amp;&amp; lit[i] &lt;= 'z' &#123;
       data[i] = lit[i] + 'A' - 'a'
-    } else {
+    &#125; else &#123;
       data[i] = lit[i]
-    }
-  }
+    &#125;
+  &#125;
 
   checkBtFuncToken, tokenStr := false, string(data)
-  if s.r.peek() == '(' {
+  if s.r.peek() == '(' &#123;
     checkBtFuncToken = true
-  } else if s.sqlMode.HasIgnoreSpaceMode() {
+  &#125; else if s.sqlMode.HasIgnoreSpaceMode() &#123;
     s.skipWhitespace()
-    if s.r.peek() == '(' {
+    if s.r.peek() == '(' &#123;
       checkBtFuncToken = true
-    }
-  }
-  if checkBtFuncToken {
-    if tok := btFuncTokenMap[tokenStr]; tok != 0 {
+    &#125;
+  &#125;
+  if checkBtFuncToken &#123;
+    if tok := btFuncTokenMap[tokenStr]; tok != 0 &#123;
       return tok
-    }
-  }
+    &#125;
+  &#125;
   tok := tokenMap[tokenStr]
   return tok
-}
+&#125;
 </code></pre>
 <p>It is interesting and enlightening to read these code, but not just copy-and-parse. <code>TiDB</code> use <code>Yacc</code> to find the hierarchical structure of the program. The <code>Scanner</code> structure is following the interface of <code>Yacc</code>. However, I would implement all by myself without any other tools.</p>
 <p>I spend too much time reading <code>TiDB</code> source code, so I just program a little bit today. I think it’s fine that I show the code tomorrow, and it would be more complete.</p>

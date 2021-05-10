@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -183,10 +183,10 @@
 <p>&#x8B1B;&#x4E86;&#x9019;&#x9EBC;&#x591A;&#x9084;&#x662F;&#x4E0D;&#x592A;&#x61C2;&#xFF1F;&#x9084;&#x662F;&#x76F4;&#x63A5;&#x770B; Code &#x5427;&#xFF01; &#x5148;&#x770B;&#x770B; <a href="https://embed.plnkr.co/wuMAYPOrX77RAahL5BE6/" target="_blank">Plunker</a> &#x7BC4;&#x4F8B;&#x5427;&#xFF01;</p>
 <p><code>AppComponent</code> &#x9577;&#x9019;&#x6A23;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x88E1;&#x9762;&#x6709;&#x5169;&#x500B; Components&#xFF1A;<code>HelloComponent</code>&#x3001;<code>GoodbyeComponent</code></p>
 <pre><code>// app/app.component.ts
-<p>import {Component, Input} from 'angular2/core';<br>
+<p>import &#123;Component, Input&#125; from 'angular2/core';<br>
 import HelloComponent from './hello.component';<br>
 import GoodbyeComponent from './goodbye.component';</p>
-<p>@Component({<br>
+<p>@Component(&#123;<br>
 selector: 'app',<br>
 template: <code>&amp;lt;div&amp;gt; 	    &amp;lt;hello-component [myName]=&amp;quot;name&amp;quot;&amp;gt;&amp;lt;/hello-component&amp;gt; 	    &amp;lt;hello-component myName=&amp;quot;Other World&amp;quot;&amp;gt;&amp;lt;/hello-component&amp;gt; 	    &amp;lt;goodbye-component [myName]=&amp;quot;name&amp;quot;&amp;gt;&amp;lt;/goodbye-component&amp;gt; 	    &amp;lt;goodbye-component myName=&amp;quot;Your World&amp;quot;&amp;gt;&amp;lt;/goodbye-component&amp;gt; 	  &amp;lt;/div&amp;gt;</code>,<br>
 directives: [HelloComponent, GoodbyeComponent]<br>
@@ -194,7 +194,7 @@ directives: [HelloComponent, GoodbyeComponent]<br>
 export class App {<br>
 name: string;</p>
 <p>constructor() {<br>
-<a href="http://this.name" target="_blank" rel="noopener">this.name</a> = &quot;World&quot;;<br>
+<a target="_blank" rel="noopener" href="http://this.name">this.name</a> = &quot;World&quot;;<br>
 }<br>
 }<br>
 </code></pre></p>
@@ -206,47 +206,47 @@ name: string;</p>
 </code></pre></p>
 <p>&#x5148;&#x4F86;&#x770B;&#x770B;&#x53E6;&#x5916;&#x5169;&#x500B; Components &#x88E1;&#x9762;&#x662F;&#x751A;&#x9EBC;</p>
 <pre><code>// app/hello.component.ts
-<p>import {Component, Input} from 'angular2/core';</p>
-<p>@Component({<br>
+<p>import &#123;Component, Input&#125; from 'angular2/core';</p>
+<p>@Component(&#123;<br>
 selector: 'hello-component',<br>
-template: '&lt;p&gt;Hello, {{myName}}!&lt;/p&gt;',<br>
+template: '&lt;p&gt;Hello, &#123;&#123;myName&#125;&#125;!&lt;/p&gt;',<br>
 inputs: ['myName']<br>
-})<br>
-export default class HelloComponent {<br>
+&#125;)<br>
+export default class HelloComponent &#123;<br>
 myName: string;</p>
-<p>constructor() {}<br>
-}<br>
+<p>constructor() &#123;&#125;<br>
+&#125;<br>
 </code></pre></p>
 <pre><code>// app/goodbye.component.ts
 
-import {Component, Input} from &apos;angular2/core&apos;;
+import &#123;Component, Input&#125; from &apos;angular2/core&apos;;
 
-@Component({
+@Component(&#123;
 	selector: &apos;goodbye-component&apos;,
-	template: &apos;&lt;p&gt;Good Bye, {{myName}}!&lt;/p&gt;&apos;,
-})
-export default class GoodbyeComponent {
+	template: &apos;&lt;p&gt;Good Bye, &#123;&#123;myName&#125;&#125;!&lt;/p&gt;&apos;,
+&#125;)
+export default class GoodbyeComponent &#123;
   @Input()
   myName: string;
   
-  constructor() {}
-}
+  constructor() &#123;&#125;
+&#125;
 </code></pre>
 <p>&#x5927;&#x5BB6;&#x4F86;&#x627E;&#x78B4;&#xFF0C;&#x627E;&#x5230;&#x4E0D;&#x4E00;&#x6A23;&#x7684;&#x5730;&#x65B9;&#x4E86;&#x55CE;&#xFF1F;</p>
 <pre><code>...
-@Component({
+@Component(&#123;
 	selector: &apos;hello-component&apos;,
-	template: &apos;&lt;p&gt;Hello, {{myName}}!&lt;/p&gt;&apos;,
+	template: &apos;&lt;p&gt;Hello, &#123;&#123;myName&#125;&#125;!&lt;/p&gt;&apos;,
 	inputs: [&apos;myName&apos;]
-})
+&#125;)
 ...
 </code></pre>
 <pre><code>...
-export default class GoodbyeComponent {
+export default class GoodbyeComponent &#123;
   @Input()
   myName: string;
   ...
-}
+&#125;
 </code></pre>
 <p>&#x4E00;&#x500B;&#x662F;&#x653E;&#x5728; <code>@Component</code> &#x88E1;&#x9762;&#x52A0;&#x5165; <code>inputs</code>&#xFF0C;&#x4E00;&#x500B;&#x5247;&#x662F;&#x5728; <code>export</code> &#x52A0;&#x5165; <code>@Input</code>&#xFF0C;&#x5176;&#x5BE6;&#x5169;&#x500B;&#x65B9;&#x6CD5;&#x90FD;&#x53EF;&#x4EE5;&#xFF0C;&#x5F9E;&#x7BC4;&#x4F8B;&#x53EF;&#x4EE5;&#x770B;&#x5230; Hello &#x548C; GoodBye &#x5206;&#x5225;&#x63A1;&#x7528;&#x9019;&#x5169;&#x7A2E;&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x6210;&#x529F;&#x57F7;&#x884C;&#x3002;</p>
 <p>&#x6240;&#x4EE5; <code>@Input()</code> &#x662F;&#x5565;&#xFF1F;</p>
@@ -365,7 +365,7 @@ export default class GoodbyeComponent {
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">@Input() &amp; inputs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">@Output() &amp; outputs</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">@Input() &amp; inputs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">@Output() &amp; outputs</span></a></li></ol>
 </div>
                 </section>
             

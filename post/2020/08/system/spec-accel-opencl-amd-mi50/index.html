@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -175,12 +175,12 @@
     </ul>
     <div class="post-content">
         <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
-<p><a href="https://www.spec.org/accel/" target="_blank" rel="noopener">SPEC ACCEL</a> 是 The Standard Performance Evaluation Corporation (SPEC) 組織建立的加速器 (Accelerator) 效能測試指標 (Benchmark)。支援含括 OpenACC、OpenMP、OpenCL，這三個皆為可以讓程式碼分攤工作給 GPU 跑的框架。因為具有極大公信力，許多研究都會以這套指標當作評量測試。</p>
+<p><a target="_blank" rel="noopener" href="https://www.spec.org/accel/">SPEC ACCEL</a> 是 The Standard Performance Evaluation Corporation (SPEC) 組織建立的加速器 (Accelerator) 效能測試指標 (Benchmark)。支援含括 OpenACC、OpenMP、OpenCL，這三個皆為可以讓程式碼分攤工作給 GPU 跑的框架。因為具有極大公信力，許多研究都會以這套指標當作評量測試。</p>
 <p>SPEC ACCEL 有免費公開給研究機構使用，不像 SPEC CPU 要花一大筆錢 (雖然我直接拿隔壁實驗室的 😂)，總之免費公開的真香。之前剛好有一台配有 AMD MI50 的裝置要評測效能，於是就拿 SPEC ACCEL 來跑 OpenCL 的部分，看看這張顯卡效能如何。</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/90196045-88372080-ddfd-11ea-99d1-aa6b24a70ca6.png" alt="MI50"></p>
 <h2 id="安裝執行"><a class="header-anchor" href="#安裝執行">¶ </a>安裝執行</h2>
-<p>安裝過程參照官網「<a href="https://www.spec.org/accel/docs/install-guide-unix.html" target="_blank" rel="noopener">Install Guide Unix</a>」就很清楚了，過程不會遇到甚麼錯誤，就不特別重複過程，請參照文件。</p>
-<p>因為是 AMD 的 GPU，所以要裝它的驅動程式 <a href="https://github.com/RadeonOpenCompute/ROCm" target="_blank" rel="noopener">ROCM</a>，裝好之後可以用 <code>radeontop</code> 工具檢查看看能不能連到 GPU。</p>
+<p>安裝過程參照官網「<a target="_blank" rel="noopener" href="https://www.spec.org/accel/docs/install-guide-unix.html">Install Guide Unix</a>」就很清楚了，過程不會遇到甚麼錯誤，就不特別重複過程，請參照文件。</p>
+<p>因為是 AMD 的 GPU，所以要裝它的驅動程式 <a target="_blank" rel="noopener" href="https://github.com/RadeonOpenCompute/ROCm">ROCM</a>，裝好之後可以用 <code>radeontop</code> 工具檢查看看能不能連到 GPU。</p>
 <p>都弄好之後，執行之前要去修改 <code>.cfg</code> 裡面的 OpenCL 函式庫路徑，沒意外會在 ROCM 驅動裡面。</p>
 <p>接著就可以跑了：</p>
 <pre><code class="language-shell">runspec --config=my.cfg --platform AMD --device GPU opencl
@@ -190,7 +190,7 @@
 <h3 id="SPEC-ACCEL-OpenCL-Benchmarks"><a class="header-anchor" href="#SPEC-ACCEL-OpenCL-Benchmarks">¶ </a>SPEC ACCEL OpenCL Benchmarks</h3>
 <p>SPEC ACCEL 關於 OpenCL 的 Bencmarks 如以下：</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/90194424-de09c980-ddf9-11ea-8550-79ac0ef4c458.png" alt="image"></p>
-<p>(source: <a href="https://link.springer.com/chapter/10.1007/978-3-319-17248-4_3" target="_blank" rel="noopener">SPEC ACCEL: A Standard Application Suite for Measuring Hardware Accelerator Performance</a>)</p>
+<p>(source: <a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-3-319-17248-4_3">SPEC ACCEL: A Standard Application Suite for Measuring Hardware Accelerator Performance</a>)</p>
 <h3 id="AMD-MI50-測試結果"><a class="header-anchor" href="#AMD-MI50-測試結果">¶ </a>AMD MI50 測試結果</h3>
 <p>跑出來的結果長這樣，有些測試跑的時候會出錯，但我沒去檢查原因，就留白<br>
 <img src="https://user-images.githubusercontent.com/18013815/90194468-0265a600-ddfa-11ea-91a0-504888e3e807.png" alt="image"></p>
@@ -199,7 +199,7 @@
 <h3 id="GPU-使用佔比"><a class="header-anchor" href="#GPU-使用佔比">¶ </a>GPU 使用佔比</h3>
 <p>這邊是別的論文用 NVIDIA Tesla K20 跑出來的 GPU 使用佔比的結果：</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/90194641-4d7fb900-ddfa-11ea-9734-f70b0da84ef7.png" alt="image"></p>
-<p>(source: <a href="https://link.springer.com/chapter/10.1007/978-3-319-17248-4_3" target="_blank" rel="noopener">SPEC ACCEL: A Standard Application Suite for Measuring Hardware Accelerator Performance</a>)</p>
+<p>(source: <a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-3-319-17248-4_3">SPEC ACCEL: A Standard Application Suite for Measuring Hardware Accelerator Performance</a>)</p>
 <p>因為我不知道要怎麼去測量 GPU 使用比例，但是 OpenCL 的 Code 都一樣的情況下，GPU 佔比原則上不會差異太大，所以可以直接拿來當參考。</p>
 <h3 id="結果分析"><a class="header-anchor" href="#結果分析">¶ </a>結果分析</h3>
 <p>我將 AMD MI50 跑出來的結果框在上圖中，其中標註綠色的部分是在 AMD MI50 表現比較優的，紅色則相反。</p>
@@ -310,7 +310,7 @@
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#簡介"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安裝執行"><span class="toc-text">安裝執行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#測試結果"><span class="toc-text">測試結果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SPEC-ACCEL-OpenCL-Benchmarks"><span class="toc-text">SPEC ACCEL OpenCL Benchmarks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AMD-MI50-測試結果"><span class="toc-text">AMD MI50 測試結果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU-使用佔比"><span class="toc-text">GPU 使用佔比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#結果分析"><span class="toc-text">結果分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MI50-VS-GeForce-GTX-1050"><span class="toc-text">MI50 VS GeForce GTX 1050</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-text">結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D%E5%9F%B7%E8%A1%8C"><span class="toc-text">安裝執行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%AC%E8%A9%A6%E7%B5%90%E6%9E%9C"><span class="toc-text">測試結果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SPEC-ACCEL-OpenCL-Benchmarks"><span class="toc-text">SPEC ACCEL OpenCL Benchmarks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AMD-MI50-%E6%B8%AC%E8%A9%A6%E7%B5%90%E6%9E%9C"><span class="toc-text">AMD MI50 測試結果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU-%E4%BD%BF%E7%94%A8%E4%BD%94%E6%AF%94"><span class="toc-text">GPU 使用佔比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B5%90%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-text">結果分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MI50-VS-GeForce-GTX-1050"><span class="toc-text">MI50 VS GeForce GTX 1050</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
 </div>
                 </section>
             

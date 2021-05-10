@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -183,24 +183,24 @@
 <p>&#x76F4;&#x63A5;&#x770B;&#x7BC4;&#x4F8B; <a href="https://embed.plnkr.co/OR0H2lFS8o2Dkc34hBiy/" target="_blank">Plunker</a><br>
 <img src="https://raw.githubusercontent.com/tigercosmos/webImg/master/angular-directive.gif" alt></p>
 <h4>highlight.directive.ts</h4>
-<pre><code>import { Directive, ElementRef, HostListener, Input } from &apos;@angular/core&apos;;
-<p>@Directive({<br>
+<pre><code>import &#123; Directive, ElementRef, HostListener, Input &#125; from &apos;@angular/core&apos;;
+<p>@Directive(&#123;<br>
 selector: '[myHighlight]'<br>
-})<br>
-export class HighlightDirective {</p>
-<p>constructor(private el: ElementRef) { }</p>
+&#125;)<br>
+export class HighlightDirective &#123;</p>
+<p>constructor(private el: ElementRef) &#123; &#125;</p>
 <p>@Input() defaultColor: string;</p>
 <p>@Input('myHighlight') highlightColor: string;</p>
-<p>@HostListener('mouseenter') onMouseEnter() {<br>
+<p>@HostListener('mouseenter') onMouseEnter() &#123;<br>
 this.highlight(this.highlightColor || this.defaultColor || 'red');<br>
-}</p>
-<p>@HostListener('mouseleave') onMouseLeave() {<br>
+&#125;</p>
+<p>@HostListener('mouseleave') onMouseLeave() &#123;<br>
 this.highlight(null);<br>
-}</p>
-<p>private highlight(color: string) {<br>
+&#125;</p>
+<p>private highlight(color: string) &#123;<br>
 this.el.nativeElement.style.backgroundColor = color;<br>
-}<br>
-}<br>
+&#125;<br>
+&#125;<br>
 </code></pre></p>
 <ul>
 <li>
@@ -213,9 +213,9 @@ this.el.nativeElement.style.backgroundColor = color;<br>
 </code></pre>
 <p><code>myHighlight</code> &#x5728;&#x9019;&#x908A;&#x662F;&#x5225;&#x540D;&#xFF0C;&#x8B93;&#x5225;&#x4EBA;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9019;&#x7A31;&#x865F;&#x547C;&#x53EB;&#x4ED6;&#x3002;</p>
 <p>&#x53EF;&#x4EE5;&#x770B;&#x5230;</p>
-<pre><code>@Directive({
+<pre><code>@Directive(&#123;
   selector: &apos;[myHighlight]&apos;
-})
+&#125;)
 </code></pre>
 <p>&#x53C8;&#x770B;&#x5230; <code>app.component.html</code> &#x4E2D;</p>
 <pre><code>&lt;p [myHighlight]=&quot;color&quot;&gt;...&lt;/p&gt; // &#x55AE;&#x5411;&#x7D81;&#x5B9A;
@@ -313,7 +313,7 @@ this.el.nativeElement.style.backgroundColor = color;<br>
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x4F7F;&amp;#x7528;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">highlight.directive.ts</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">highlight.directive.ts</span></a></li></ol></li></ol></li></ol>
 </div>
                 </section>
             

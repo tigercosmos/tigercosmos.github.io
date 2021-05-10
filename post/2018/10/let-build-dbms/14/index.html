@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -182,21 +182,21 @@
 </code></pre>
 <p>then the scanner will get:</p>
 <pre><code>[
-    Symbol { name: &quot;select&quot;, len: 6, token: Select, group: Keyword },
-    Symbol { name: &quot;customername&quot;, len: 12, token: Identifier, group: Identifier },
-    Symbol { name: &quot;,&quot;, len: 1, token: Comma, group: Delimiter },
-    Symbol { name: &quot;&quot;, len: 0, token: Identifier, group: Identifier },
-    Symbol { name: &quot;contactname&quot;, len: 11, token: Identifier, group: Identifier },
-    Symbol { name: &quot;,&quot;, len: 1, token: Comma, group: Delimiter },
-    Symbol { name: &quot;&quot;, len: 0, token: Identifier, group: Identifier },
-    Symbol { name: &quot;address&quot;, len: 7, token: Identifier, group: Identifier },
-    Symbol { name: &quot;from&quot;, len: 4, token: From, group: Keyword },
-    Symbol { name: &quot;customers&quot;, len: 9, token: Identifier, group: Identifier },
-    Symbol { name: &quot;where&quot;, len: 5, token: Where, group: Keyword },
-    Symbol { name: &quot;address&quot;, len: 7, token: Identifier, group: Identifier },
-    Symbol { name: &quot;is&quot;, len: 2, token: Identifier, group: Identifier },
-    Symbol { name: &quot;null&quot;, len: 4, token: Identifier, group: Identifier },
-    Symbol { name: &quot;;&quot;, len: 1, token: Semicolon, group: Delimiter }
+    Symbol &#123; name: &quot;select&quot;, len: 6, token: Select, group: Keyword &#125;,
+    Symbol &#123; name: &quot;customername&quot;, len: 12, token: Identifier, group: Identifier &#125;,
+    Symbol &#123; name: &quot;,&quot;, len: 1, token: Comma, group: Delimiter &#125;,
+    Symbol &#123; name: &quot;&quot;, len: 0, token: Identifier, group: Identifier &#125;,
+    Symbol &#123; name: &quot;contactname&quot;, len: 11, token: Identifier, group: Identifier &#125;,
+    Symbol &#123; name: &quot;,&quot;, len: 1, token: Comma, group: Delimiter &#125;,
+    Symbol &#123; name: &quot;&quot;, len: 0, token: Identifier, group: Identifier &#125;,
+    Symbol &#123; name: &quot;address&quot;, len: 7, token: Identifier, group: Identifier &#125;,
+    Symbol &#123; name: &quot;from&quot;, len: 4, token: From, group: Keyword &#125;,
+    Symbol &#123; name: &quot;customers&quot;, len: 9, token: Identifier, group: Identifier &#125;,
+    Symbol &#123; name: &quot;where&quot;, len: 5, token: Where, group: Keyword &#125;,
+    Symbol &#123; name: &quot;address&quot;, len: 7, token: Identifier, group: Identifier &#125;,
+    Symbol &#123; name: &quot;is&quot;, len: 2, token: Identifier, group: Identifier &#125;,
+    Symbol &#123; name: &quot;null&quot;, len: 4, token: Identifier, group: Identifier &#125;,
+    Symbol &#123; name: &quot;;&quot;, len: 1, token: Semicolon, group: Delimiter &#125;
 ]
 </code></pre>
 <p><code>is null</code> should be recognized as a token, so I will fix later.</p>
@@ -205,42 +205,42 @@
 <pre><code>use sql::symbol;
 
 #[derive(Debug, Clone)]
-pub struct Scanner&lt;'a&gt; {
+pub struct Scanner&lt;'a&gt; &#123;
     message: String,
     tokens: Vec&lt;symbol::Symbol&lt;'a&gt;&gt;,
     pos: Pos,
-}
+&#125;
 
 #[derive(Debug, Clone)]
-struct Pos {
+struct Pos &#123;
     cursor_l: usize,
     cursor_r: usize,
-}
+&#125;
 
-impl&lt;'a&gt; Scanner&lt;'a&gt; {
-    pub fn new(message: &amp;str) -&gt; Scanner {
-        Scanner {
+impl&lt;'a&gt; Scanner&lt;'a&gt; &#123;
+    pub fn new(message: &amp;str) -&gt; Scanner &#123;
+        Scanner &#123;
             message: message.to_lowercase().trim().to_string(),
             tokens: vec![],
-            pos: Pos {
+            pos: Pos &#123;
                 cursor_l: 0,
                 cursor_r: 0,
-            },
-        }
-    }
-    pub fn scan_tokens(&amp;'a mut self) -&gt; Vec&lt;symbol::Symbol&lt;'a&gt;&gt; {
-        println!(&quot;Starting scanning message: {}&quot;, self.message);
+            &#125;,
+        &#125;
+    &#125;
+    pub fn scan_tokens(&amp;'a mut self) -&gt; Vec&lt;symbol::Symbol&lt;'a&gt;&gt; &#123;
+        println!(&quot;Starting scanning message: &#123;&#125;&quot;, self.message);
         let mut chars = self.message.chars();
-        loop {
-            match chars.next() {
-                Some(x) =&gt; {
-                    if is_letter_or_number(x) {
+        loop &#123;
+            match chars.next() &#123;
+                Some(x) =&gt; &#123;
+                    if is_letter_or_number(x) &#123;
                         self.pos.cursor_r += 1;
-                    } else {
-                        match x {
+                    &#125; else &#123;
+                        match x &#123;
                             ' ' | '\t' | '\r' | '\n' | '(' | ')' | ','
-                            | ';' =&gt; {
-                                if self.pos.cursor_l != self.pos.cursor_r {
+                            | ';' =&gt; &#123;
+                                if self.pos.cursor_l != self.pos.cursor_r &#123;
                                     let word = self
                                         .message
                                         .get(
@@ -248,55 +248,55 @@ impl&lt;'a&gt; Scanner&lt;'a&gt; {
                                                 ..self.pos.cursor_r,
                                         ).unwrap();
                                     println!(
-                                        &quot;encounter `{}`, last word is {}&quot;,
+                                        &quot;encounter `&#123;&#125;`, last word is &#123;&#125;&quot;,
                                         x, word
                                     );
-                                    match symbol::SYMBOLS.get(word) {
+                                    match symbol::SYMBOLS.get(word) &#123;
                                         // either keyword
-                                        Some(token) =&gt; {
+                                        Some(token) =&gt; &#123;
                                             self.tokens.push(token.clone())
-                                        }
+                                        &#125;
                                         // or identifier
-                                        None =&gt; {
+                                        None =&gt; &#123;
                                             self.tokens.push(symbol::sym(
                                                 word,
                                                 symbol::Token::Identifier,
                                                 symbol::Group::Identifier,
                                             ));
-                                        }
-                                    }
-                                    if is_delimiter(x) {
+                                        &#125;
+                                    &#125;
+                                    if is_delimiter(x) &#123;
                                         self.tokens.push(
                                             symbol::Symbol::match_delimiter(x)
                                                 .unwrap(),
                                         );
-                                    }
-                                }
+                                    &#125;
+                                &#125;
                                 // set the cursor next to `x` in the right
                                 self.pos.cursor_r += 1;
                                 self.pos.cursor_l = self.pos.cursor_r;
-                            }
-                            _ =&gt; {
+                            &#125;
+                            _ =&gt; &#123;
                                 // error
-                            }
-                        }
-                    }
-                }
+                            &#125;
+                        &#125;
+                    &#125;
+                &#125;
                 // no remaining char in message
                 None =&gt; break,
-            };
-        }
+            &#125;;
+        &#125;
         self.tokens.clone()
-    }
-}
+    &#125;
+&#125;
 
-fn is_letter_or_number(ch: char) -&gt; bool {
+fn is_letter_or_number(ch: char) -&gt; bool &#123;
     ch.is_digit(10) || ch.is_ascii_alphabetic()
-}
+&#125;
 
-fn is_delimiter(ch: char) -&gt; bool {
+fn is_delimiter(ch: char) -&gt; bool &#123;
     ch == '(' || ch == ')' || ch == ',' || ch == ';'
-}
+&#125;
 </code></pre>
 
     </div>

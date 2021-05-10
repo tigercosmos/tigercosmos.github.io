@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -193,7 +193,7 @@
 $ cd angular-seed
 <h1>安裝套件</h1>
 <p>$ npm install</p>
-<h1>快一點安裝套件 (用 Yarn： <a href="https://yarnpkg.com" target="_blank" rel="noopener">https://yarnpkg.com</a>)</h1>
+<h1>快一點安裝套件 (用 Yarn： <a target="_blank" rel="noopener" href="https://yarnpkg.com">https://yarnpkg.com</a>)</h1>
 <p>$ yarn install  # or yarn</p>
 <h1>AoT compilation 編譯檔案，檔案會產生在 <code>dist/prod</code></h1>
 <p>$ npm run build.prod.aot<br>
@@ -204,8 +204,8 @@ $ cd angular-seed
 <pre><code>npm install @angular/compiler-cli @angular/platform-server --save
 </code></pre>
 <p>&#x5EFA;&#x7ACB;&#x4E00;&#x500B; <code>tsconfig-aot.json</code></p>
-<pre><code>{
-  &quot;compilerOptions&quot;: {
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
     &quot;target&quot;: &quot;es5&quot;,
     &quot;module&quot;: &quot;es2015&quot;,
     &quot;moduleResolution&quot;: &quot;node&quot;,
@@ -215,24 +215,24 @@ $ cd angular-seed
     &quot;lib&quot;: [&quot;es2015&quot;, &quot;dom&quot;],
     &quot;noImplicitAny&quot;: true,
     &quot;suppressImplicitAnyIndexErrors&quot;: true
-  },
+  &#125;,
 <p>&quot;files&quot;: [<br>
 &quot;app/app.module.ts&quot;,<br>
 &quot;app/main.ts&quot;<br>
 ],</p>
-<p>&quot;angularCompilerOptions&quot;: {<br>
+<p>&quot;angularCompilerOptions&quot;: &#123;<br>
 &quot;genDir&quot;: &quot;aot&quot;,<br>
 &quot;skipMetadataEmit&quot; : true<br>
-}<br>
-}<br>
+&#125;<br>
+&#125;<br>
 </code></pre></p>
 <p>&#x7DE8;&#x8B6F;</p>
 <pre><code>node_modules/.bin/ngc -p tsconfig-aot.json
 </code></pre>
 <p>Bootstrap &#x4E5F;&#x8981;&#x8ABF;&#x6574;</p>
 <pre><code>//app/main.ts
-<p>import { platformBrowser }    from '@angular/platform-browser';<br>
-import { AppModuleNgFactory } from '…/aot/app/app.module.ngfactory';<br>
+<p>import &#123; platformBrowser &#125;    from '@angular/platform-browser';<br>
+import &#123; AppModuleNgFactory &#125; from '…/aot/app/app.module.ngfactory';<br>
 platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);<br>
 </code></pre></p>
 <p>Rollup: &#x4E00;&#x7A2E; treeshaking &#x7684;&#x6280;&#x5DE7;&#xFF0C;&#x5C31;&#x662F;&#x628A;&#x591A;&#x9918;&#x7121;&#x7528;&#x7684; code &#x50CF;&#x6416;&#x6A39;&#x822C;&#x6416;&#x6389;&#x3002;<br>
@@ -244,19 +244,19 @@ platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);<br>
 import nodeResolve from &apos;rollup-plugin-node-resolve&apos;
 import commonjs    from &apos;rollup-plugin-commonjs&apos;;
 import uglify      from &apos;rollup-plugin-uglify&apos;
-<p>export default {<br>
+<p>export default &#123;<br>
 entry: 'app/main.js',<br>
 dest: 'dist/build.js', // output a single application bundle<br>
 sourceMap: false,<br>
 format: 'iife',<br>
 plugins: [<br>
-nodeResolve({jsnext: true, module: true}),<br>
-commonjs({<br>
+nodeResolve(&#123;jsnext: true, module: true&#125;),<br>
+commonjs(&#123;<br>
 include: 'node_modules/rxjs/**',<br>
-}),<br>
+&#125;),<br>
 uglify()<br>
 ]<br>
-}<br>
+&#125;<br>
 </code></pre></p>
 <p>&#x57F7;&#x884C; rollup</p>
 <pre><code>node_modules/.bin/rollup -c rollup-config.js
@@ -274,23 +274,23 @@ uglify()<br>
 </code></pre>
 <p>&#x8A2D;&#x5B9A;&#x6210; development dependency</p>
 <p>&#x63A5;&#x8457;&#x52A0;&#x5165; Webpack configuration &#x6A94;&#x6848; <code>webpack.config.js</code>&#xFF0C;&#x4E26;&#x52A0;&#x5165;&#x4EE5;&#x4E0B;&#x5167;&#x5BB9;&#xFF1A;</p>
-<pre><code>import {AotPlugin} from &apos;@ngtools/webpack&apos;
-<p>exports = { /* … */<br>
-module: {<br>
+<pre><code>import &#123;AotPlugin&#125; from &apos;@ngtools/webpack&apos;
+<p>exports = &#123; /* … */<br>
+module: &#123;<br>
 rules: [<br>
-{<br>
+&#123;<br>
 test: /.ts$/,<br>
 loader: '@ngtools/webpack',<br>
-}<br>
+&#125;<br>
 ]<br>
-},</p>
+&#125;,</p>
 <p>plugins: [<br>
-new AotPlugin({<br>
+new AotPlugin(&#123;<br>
 tsConfigPath: 'path/to/tsconfig.json',<br>
 entryModule: 'path/to/app.module#AppModule'<br>
-})<br>
+&#125;)<br>
 ]<br>
-}<br>
+&#125;<br>
 </code></pre></p>
 <p>&#x9019;&#x908A; <code>@ngtools/webpack</code> &#x6703;&#x53D6;&#x4EE3; typescript &#x8F09;&#x5165;&#x5668;&#x50CF;&#x662F; <code>ts-loader</code> &#x6216; <code>awesome-typescript-loader</code>&#x3002; &#x9019;&#x500B;&#x5957;&#x4EF6;&#x6703;&#x548C; AotPlugin &#x4E00;&#x8D77;&#x5B8C;&#x6210; AoT &#x7DE8;&#x8B6F;&#x3002;</p>
  <br>
@@ -383,7 +383,7 @@ entryModule: 'path/to/app.module#AppModule'<br>
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">AoT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">1.&amp;#x4F7F;&amp;#x7528;&amp;#x958B;&amp;#x767C;&amp;#x74B0;&amp;#x5883;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">Angular-Seed</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">安裝套件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">快一點安裝套件 (用 Yarn： https:&#x2F;&#x2F;yarnpkg.com)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">AoT compilation 編譯檔案，檔案會產生在 dist&#x2F;prod</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">2.ngc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">3.@ngtools&#x2F;webpack</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">AoT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">1.使用開發環境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">Angular-Seed</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">安裝套件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">快一點安裝套件 (用 Yarn： https:&#x2F;&#x2F;yarnpkg.com)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">AoT compilation 編譯檔案，檔案會產生在 dist&#x2F;prod</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">2.ngc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">3.@ngtools&#x2F;webpack</span></a></li></ol></li></ol>
 </div>
                 </section>
             

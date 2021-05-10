@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -222,7 +222,7 @@ touch app/pages/detail/detail.scss
 &lt;ion-list&gt;<br>
 &lt;ion-item-sliding *ngFor=&quot;let todo of todoList; let i = index;&quot;&gt;<br>
 &lt;button ion-item (click)=&quot;detail(i)&quot;&gt;<br>
-&lt;h2&gt;{{ todo.title }}&lt;/h2&gt;<br>
+&lt;h2&gt;&#123;&#123; todo.title &#125;&#125;&lt;/h2&gt;<br>
 &lt;/button&gt;<br>
 &lt;ion-item-options&gt;<br>
 &lt;button class=&quot;red&quot; (click)=&quot;delete(i)&quot;&gt;<br>
@@ -240,45 +240,45 @@ Delete<br>
 <h3>ts</h3>
 <p>&#x4E00;&#x500B;&#x756B;&#x9762;&#x662F;&#x4E00;&#x500B;&#x7D44;&#x4EF6;&#xFF0C;&#x6982;&#x5FF5;&#x5C31;&#x662F; Angular 2&#x3002;<br>
 <code>app/pages/todos/home.ts</code></p>
-<pre><code>import { Component } from &apos;@angular/core&apos;;
-import { NavController } from &apos;ionic-angular&apos;;
-import { AddPage } from &quot;../add/add&quot;;
-import { DetailPage } from &quot;../detail/detail&quot;;
-<p>@Component({<br>
+<pre><code>import &#123; Component &#125; from &apos;@angular/core&apos;;
+import &#123; NavController &#125; from &apos;ionic-angular&apos;;
+import &#123; AddPage &#125; from &quot;../add/add&quot;;
+import &#123; DetailPage &#125; from &quot;../detail/detail&quot;;
+<p>@Component(&#123;<br>
 selector: 'page-home',<br>
 templateUrl: 'home.html'<br>
-})<br>
-export class HomePage {</p>
+&#125;)<br>
+export class HomePage &#123;</p>
 <pre><code>public todoList: Array&amp;lt;any&amp;gt; = [];
 
-constructor(private navCtrl: NavController) { }
+constructor(private navCtrl: NavController) &#123; &#125;
 
-ionViewDidEnter() {
+ionViewDidEnter() &#123;
     this.todoList = JSON.parse(localStorage.getItem(&amp;quot;todos&amp;quot;));
     console.log(this.todoList);
-}
+&#125;
 
-delete(index: number) {
+delete(index: number) &#123;
     this.todoList.splice(index, 1);
     localStorage.setItem(&amp;quot;todos&amp;quot;, JSON.stringify(this.todoList));
-}
+&#125;
 
-add() {
+add() &#123;
     this.navCtrl.push(AddPage);
-}
+&#125;
 
-detail(index: number){
-    this.navCtrl.push(DetailPage, {
+detail(index: number)&#123;
+    this.navCtrl.push(DetailPage, &#123;
       id: index
-    });
-}
+    &#125;);
+&#125;
 </code></pre>
 <p>}<br>
 </code></pre></p>
 <p><code>AddPage</code> <code>DetailPage</code> &#x7B49;&#x7B49;&#x8655;&#x7406;&#x3002;</p>
 <p>&#x6211;&#x5011;&#x5728;  <code>ionViewDidEnter()</code> &#x624D;&#x5C0E;&#x5165; localStorage &#x8CC7;&#x6599;&#x800C;&#x975E; <code>constructor()</code> &#x662F;&#x56E0;&#x70BA;&#x524D;&#x8005;&#x53EF;&#x4EE5;&#x8B93;&#x6211;&#x5011;&#x6BCF;&#x6B21;&#x9032;&#x5165;&#x756B;&#x9762;&#x90FD;&#x89F8;&#x767C;&#xFF0C;&#x800C;&#x5F8C;&#x8005;&#x53EA;&#x6709;&#x5728;&#x88AB;&#x5C0E;&#x5411;&#x9032;&#x4F86;&#x6642;&#x624D;&#x89F8;&#x767C; (&#x5982;&#x679C;&#x6309;&#x8FD4;&#x56DE;&#x5C31;&#x6C92;&#x4E8B;)&#x3002;<br>
 &#x8CC7;&#x6599;&#x90E8;&#x5206;&#x7C21;&#x55AE;&#x7528; localStorage &#x4EE5; json &#x4F86;&#x505A;&#x5132;&#x5B58;&#x3002;&#x7576;&#x7136;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x7528; DB &#x5916;&#x639B;&#x4F86;&#x8655;&#x7406;&#x3002;</p>
-<p><code>this.navCtrl.push()</code> &#x53EF;&#x4EE5;&#x5C0E;&#x5411;&#x5176;&#x4ED6;&#x9801;&#x9762;&#x3002;&#x4F8B;&#x5982; <code>this.navCtrl.push(AddPage)</code>&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;&#x53C3;&#x6578; <code>this.navCtrl.push(DetailPage, {id: index});</code>&#x3002;</p>
+<p><code>this.navCtrl.push()</code> &#x53EF;&#x4EE5;&#x5C0E;&#x5411;&#x5176;&#x4ED6;&#x9801;&#x9762;&#x3002;&#x4F8B;&#x5982; <code>this.navCtrl.push(AddPage)</code>&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;&#x53C3;&#x6578; <code>this.navCtrl.push(DetailPage, &#123;id: index&#125;);</code>&#x3002;</p>
 <h2>&#x589E;&#x52A0;&#x4E8B;&#x9805;&#x7684;&#x9801;&#x9762; add</h2>
 <h3>html</h3>
 <pre><code>&lt;ion-header&gt;
@@ -304,41 +304,41 @@ detail(index: number){
 </code></pre></p>
 <p><code>floating</code> &#x6A19;&#x7C64;&#x53EF;&#x4EE5;&#x8B93;&#x6587;&#x5B57;&#x98C4;&#x4E0A;&#x53BB;&#x3002;</p>
 <h3>ts</h3>
-<pre><code>import { Component } from &apos;@angular/core&apos;;
-import { NavController} from &apos;ionic-angular&apos;;
-<p>@Component({<br>
+<pre><code>import &#123; Component &#125; from &apos;@angular/core&apos;;
+import &#123; NavController&#125; from &apos;ionic-angular&apos;;
+<p>@Component(&#123;<br>
 templateUrl: 'add.html'<br>
-})<br>
-export class AddPage {</p>
+&#125;)<br>
+export class AddPage &#123;</p>
 <pre><code>public todoList: Array&amp;lt;any&amp;gt;;
 public todoTitle: string;
 public todoDes: string;
 
-constructor(private navCtrl: NavController) {
+constructor(private navCtrl: NavController) &#123;
     this.todoList = JSON.parse(localStorage.getItem(&amp;quot;todos&amp;quot;));
-    if(!this.todoList) {
+    if(!this.todoList) &#123;
         this.todoList = [];
-    }
+    &#125;
     this.todoTitle = &amp;quot;&amp;quot;;
     this.todoDes = &amp;quot;&amp;quot;; // description
-}
+&#125;
 
-save() {
-    if(this.todoTitle != &amp;quot;&amp;quot; &amp;amp;&amp;amp; this.todoDes != &amp;quot;&amp;quot;) {
+save() &#123;
+    if(this.todoTitle != &amp;quot;&amp;quot; &amp;amp;&amp;amp; this.todoDes != &amp;quot;&amp;quot;) &#123;
         this.todoList.push(
-          {
+          &#123;
             title: this.todoTitle,
             des: this.todoDes
-          } 
+          &#125; 
         );
         localStorage.setItem(&amp;quot;todos&amp;quot;, JSON.stringify(this.todoList));
         this.navCtrl.pop();
-    } else if(this.todoTitle == &amp;quot;&amp;quot;) {
+    &#125; else if(this.todoTitle == &amp;quot;&amp;quot;) &#123;
         alert(&amp;quot;No Title!&amp;quot;); 
-    } else if(this.todoDes == &amp;quot;&amp;quot;){
+    &#125; else if(this.todoDes == &amp;quot;&amp;quot;)&#123;
         alert(&amp;quot;No Description!&amp;quot;);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>}<br>
 </code></pre></p>
@@ -356,10 +356,10 @@ save() {
 <p>&lt;ion-content padding&gt;<br>
 &lt;ion-card&gt;<br>
 &lt;ion-card-header&gt;<br>
-{{ title }}<br>
+&#123;&#123; title &#125;&#125;<br>
 &lt;/ion-card-header&gt;<br>
 &lt;ion-card-content&gt;<br>
-{{ description }}<br>
+&#123;&#123; description &#125;&#125;<br>
 &lt;/ion-card-content&gt;<br>
 &lt;/ion-card&gt;<br>
 &lt;/ion-content&gt;<br>
@@ -374,41 +374,41 @@ save() {
 <p>&lt;ion-content padding&gt;<br>
 &lt;ion-card&gt;<br>
 &lt;ion-card-header&gt;<br>
-{{ title }}<br>
+&#123;&#123; title &#125;&#125;<br>
 &lt;/ion-card-header&gt;<br>
 &lt;ion-card-content&gt;<br>
-{{ description }}<br>
+&#123;&#123; description &#125;&#125;<br>
 &lt;/ion-card-content&gt;<br>
 &lt;/ion-card&gt;<br>
 &lt;/ion-content&gt;<br>
 </code></pre></p>
 <h3>ts</h3>
-<pre><code>import { Component } from &apos;@angular/core&apos;;
-import { NavController, NavParams } from &apos;ionic-angular&apos;;
-<p>@Component({<br>
+<pre><code>import &#123; Component &#125; from &apos;@angular/core&apos;;
+import &#123; NavController, NavParams &#125; from &apos;ionic-angular&apos;;
+<p>@Component(&#123;<br>
 selector: 'page-detail',<br>
 templateUrl: 'detail.html'<br>
-})<br>
-export class DetailPage {</p>
+&#125;)<br>
+export class DetailPage &#123;</p>
 <p>public title: string;<br>
 public description: string;</p>
-<p>constructor(public navCtrl: NavController, public navParams: NavParams) {<br>
+<p>constructor(public navCtrl: NavController, public navParams: NavParams) &#123;<br>
 let id: number = navParams.get('id');<br>
 let todoList: any = JSON.parse(localStorage.getItem(&quot;todos&quot;));<br>
 this.title = todoList[id].title;<br>
 this.description = todoList[id].des;<br>
 console.log(this.title);<br>
-}</p>
-<p>ionViewDidLoad() {<br>
-<a href="//console.log" target="_blank" rel="noopener">//console.log</a>('ionViewDidLoad DetailPage');<br>
-}</p>
-<p>close(){<br>
+&#125;</p>
+<p>ionViewDidLoad() &#123;<br>
+<a target="_blank" rel="noopener" href="//console.log">//console.log</a>('ionViewDidLoad DetailPage');<br>
+&#125;</p>
+<p>close()&#123;<br>
 this.navCtrl.pop();<br>
-}</p>
-<p>}<br>
+&#125;</p>
+<p>&#125;<br>
 </code></pre></p>
 <p>&#x9084;&#x8A18;&#x5F97;&#x525B;&#x525B;&#x5728; <code>home.ts</code> &#x7684; <code>detail(i)</code>&#xFF0C;&#x6211;&#x5011;&#x518D;&#x5C0E;&#x5165;&#x9032;&#x4F86; <code>detail</code> &#x6642;&#x5019;&#x6709;&#x8F38;&#x5165;&#x53C3;&#x6578;&#x55CE;&#xFF1F;<br>
-&#x9019;&#x6642;&#x5019;&#x6211;&#x5011;&#x8981; <code>import { NavParams } from &apos;ionic-angular&apos;;</code> &#x4F7F;&#x7528; <code>NavParams</code>&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x53D6;&#x5F97;&#x53C3;&#x6578; <code>let id: number = navParams.get(&apos;id&apos;);</code>&#x3002;</p>
+&#x9019;&#x6642;&#x5019;&#x6211;&#x5011;&#x8981; <code>import &#123; NavParams &#125; from &apos;ionic-angular&apos;;</code> &#x4F7F;&#x7528; <code>NavParams</code>&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x53D6;&#x5F97;&#x53C3;&#x6578; <code>let id: number = navParams.get(&apos;id&apos;);</code>&#x3002;</p>
 <h2>SCSS</h2>
 <p>&#x63A5;&#x8457;&#x6211;&#x5011;&#x7A0D;&#x5FAE;&#x4FEE;&#x98FE;&#x4E00;&#x4E0B;&#x6211;&#x5011;&#x7684;&#x5916;&#x89C0;<br>
 &#x6253;&#x958B; <code>src/theme/variables.scss</code><br>
@@ -419,10 +419,10 @@ $font-family-base: Microsoft JhengHei, -apple-system, &quot;Helvetica Neue&quot;
 </code></pre>
 <p>&#x9810;&#x8A2D;&#x6A19;&#x984C;&#x771F;&#x7684;&#x5F88;&#x5C0F;&#xFF0C;&#x628A;&#x6A19;&#x984C;&#x8B8A;&#x5927;&#x4E00;&#x9EDE;&#x3002;</p>
 <p>&#x6253;&#x958B; <code>src/pages/home/home.scss</code></p>
-<pre><code>.danger{
+<pre><code>.danger&#123;
     background-color: #f53d3d;
     color: white;
-}
+&#125;
 </code></pre>
 <p>&#x6211;&#x5011;&#x8B93;&#x522A;&#x9664;&#x7684;&#x6309;&#x9215;&#x8B8A;&#x6210;&#x7D05;&#x8272;&#x7684;&#x3002;</p>
 <h4>&#x5927;&#x529F;&#x544A;&#x6210;&#x56C9;&#xFF01;</h4>
@@ -517,7 +517,7 @@ $font-family-base: Microsoft JhengHei, -apple-system, &quot;Helvetica Neue&quot;
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5EFA;&amp;#x7ACB;&amp;#x5C08;&amp;#x6848;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x6210;&amp;#x54C1;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5EFA;&amp;#x7ACB;&amp;#x9801;&amp;#x9762;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x9996;&amp;#x9801; home</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">ts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x589E;&amp;#x52A0;&amp;#x4E8B;&amp;#x9805;&amp;#x7684;&amp;#x9801;&amp;#x9762; add</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">ts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x67E5;&amp;#x770B;&amp;#x7D30;&amp;#x7BC0;&amp;#x9801;&amp;#x9762; detail</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">ts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">SCSS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5927;&amp;#x529F;&amp;#x544A;&amp;#x6210;&amp;#x56C9;&amp;#xFF01;</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">建立專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">成品</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">建立頁面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">首頁 home</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">ts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">增加事項的頁面 add</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">ts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">查看細節頁面 detail</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">ts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">SCSS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">大功告成囉！</span></a></li></ol></li></ol></li></ol>
 </div>
                 </section>
             

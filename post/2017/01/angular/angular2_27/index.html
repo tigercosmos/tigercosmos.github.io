@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -223,8 +223,8 @@
 </code></pre>
 <p>&#x628A;&#x6240;&#x6709; <code>tab</code> &#x7684;&#x5167;&#x5BB9;&#x7576;&#x8B8A;&#x6578;&#x50B3;&#x905E;&#xFF0C;&#x9019;&#x6703;&#x589E;&#x52A0;&#x95B1;&#x8B80;&#x7684;&#x96E3;&#x5EA6;&#x3002;&#x6211;&#x5011;&#x60F3;&#x8981;&#x7684;&#x662F;&#x986F;&#x793A;&#x5C64;&#x6B21;&#x660E;&#x78BA;&#x7684;&#x6A23;&#x5B50;&#xFF0C;&#x9019;&#x6A23;&#x7684;&#x8A71;&#x5C31;&#x6703;&#x7528;&#x5230; <code>@ContentChild</code> &#x88DD;&#x98FE;&#x5668;&#x3002;</p>
 <h4>tab.ts</h4>
-<pre><code>import {Component,Input} from &apos;@angular/core&apos;;
-<p>@Component({<br>
+<pre><code>import &#123;Component,Input&#125; from &apos;@angular/core&apos;;
+<p>@Component(&#123;<br>
 selector: 'tab',<br>
 template: <code>        &amp;lt;p [hidden]=&amp;quot;!show&amp;quot;&amp;gt;             &amp;lt;ng-content&amp;gt;&amp;lt;/ng-content&amp;gt;         &amp;lt;/p&amp;gt;    </code><br>
 })<br>
@@ -236,11 +236,11 @@ tabTitle:string;</p>
 <p>}<br>
 </code></pre></p>
 <h4>tabs.ts</h4>
-<pre><code>import {Component,ContentChildren,QueryList,AfterContentInit} from &apos;@angular/core&apos;;
-import {TabComponent} from &apos;./tab&apos;;
-<p>@Component({<br>
+<pre><code>import &#123;Component,ContentChildren,QueryList,AfterContentInit&#125; from &apos;@angular/core&apos;;
+import &#123;TabComponent&#125; from &apos;./tab&apos;;
+<p>@Component(&#123;<br>
 selector: 'tabs',<br>
-template: <code>       &amp;lt;ul class=&amp;quot;tab-list&amp;quot;&amp;gt;            &amp;lt;li *ngFor=&amp;quot;let tab of tabs&amp;quot; [class.active]=&amp;quot;selectedTab===tab&amp;quot; (click)=&amp;quot;onSelect(tab)&amp;quot;&amp;gt;                {{tab.tabTitle}}            &amp;lt;/li&amp;gt;        &amp;lt;/ul&amp;gt;        &amp;lt;ng-content&amp;gt;&amp;lt;/ng-content&amp;gt;    </code>,<br>
+template: <code>       &amp;lt;ul class=&amp;quot;tab-list&amp;quot;&amp;gt;            &amp;lt;li *ngFor=&amp;quot;let tab of tabs&amp;quot; [class.active]=&amp;quot;selectedTab===tab&amp;quot; (click)=&amp;quot;onSelect(tab)&amp;quot;&amp;gt;                &#123;&#123;tab.tabTitle&#125;&#125;            &amp;lt;/li&amp;gt;        &amp;lt;/ul&amp;gt;        &amp;lt;ng-content&amp;gt;&amp;lt;/ng-content&amp;gt;    </code>,<br>
 styles: [`<br>
 .tab-list{<br>
 list-style:none;<br>
@@ -248,7 +248,7 @@ overflow:hidden;<br>
 padding:0;<br>
 color: white;<br>
 }</p>
-<pre><code>    .tab-list li{
+<pre><code>    .tab-list li&#123;
         cursor:pointer;
         float:left;
         width:60px;
@@ -256,14 +256,14 @@ color: white;<br>
         line-height:30px;
         text-align:center;
         background-color:gray;
-    }
+    &#125;
 
-    .tab-list li:hover{
+    .tab-list li:hover&#123;
         background-color:#424242;
-    }
-    .tab-list li.active{
+    &#125;
+    .tab-list li.active&#123;
         background-color:black;
-    }
+    &#125;
 `]
 </code></pre>
 <p>})<br>
@@ -272,30 +272,30 @@ export class TabsComponent implements AfterContentInit {<br>
 tabs:QueryList&lt;TabComponent&gt;;</p>
 <pre><code>selectedTab:TabComponent;
 
-ngAfterContentInit() {
+ngAfterContentInit() &#123;
     this.select(this.tabs.first);
-}
+&#125;
 
-onSelect(tab) {
+onSelect(tab) &#123;
     this.select(tab);
-}
+&#125;
 
-select(tab) {
-    this.tabs.forEach((item)=&amp;gt;{
+select(tab) &#123;
+    this.tabs.forEach((item)=&amp;gt;&#123;
         item.show = false;
-    });
+    &#125;);
 
     this.selectedTab = tab;
     this.selectedTab.show = true;
-}
+&#125;
 </code></pre>
 <p>}<br>
 </code></pre></p>
 <h4>app.ts</h4>
-<pre><code>import {Component,ContentChildren,QueryList} from &apos;@angular/core&apos;;
-import {TabsComponent} from &apos;./tabs&apos;;
-import {TabComponent} from &apos;./tab&apos;;
-<p>@Component({<br>
+<pre><code>import &#123;Component,ContentChildren,QueryList&#125; from &apos;@angular/core&apos;;
+import &#123;TabsComponent&#125; from &apos;./tabs&apos;;
+import &#123;TabComponent&#125; from &apos;./tab&apos;;
+<p>@Component(&#123;<br>
 selector: 'my-app',<br>
 template: <code>        &amp;lt;h2&amp;gt;App Component&amp;lt;/h2&amp;gt;         &amp;lt;tabs&amp;gt;             &amp;lt;tab tabTitle=&amp;quot;First&amp;quot;&amp;gt;                 &amp;lt;p&amp;gt;This Tab Content 1&amp;lt;/p&amp;gt;             &amp;lt;/tab&amp;gt;             &amp;lt;tab tabTitle=&amp;quot;Second&amp;quot;&amp;gt;                 &amp;lt;p&amp;gt;This Tab Content 2&amp;lt;/p&amp;gt;             &amp;lt;/tab&amp;gt;             &amp;lt;tab tabTitle=&amp;quot;third&amp;quot;&amp;gt;                 &amp;lt;p&amp;gt;This Tab Content 3&amp;lt;/p&amp;gt;             &amp;lt;/tab&amp;gt;         &amp;lt;/tabs&amp;gt;    </code>,<br>
 directives: [TabsComponent,TabComponent]<br>
@@ -396,7 +396,7 @@ export class AppComponent {<br>
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">Tab</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">tab.ts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">tabs.ts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">app.ts</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x7BC4;&amp;#x4F8B;</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Tab</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">tab.ts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">tabs.ts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">app.ts</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">範例</span></a></li></ol>
 </div>
                 </section>
             

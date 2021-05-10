@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -179,7 +179,7 @@
 <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
 <p>沒有人會懷疑了解天氣的重要性，我們總是看氣象預報或查天氣來決定等下外出時要不要帶傘，衣服要穿多厚是否需要帶件外套，或是需不需要先擦防曬油戴一副墨鏡出門等等。</p>
 <p>想查天氣的時候我想大部分人可能就是 Google 一下、上中央氣象局網站、使用 APP、看新聞。或是有種很潮的做法是問 Siri，不過效果可能不太好 ⋯⋯。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <p><img class="dz t u go ak" src="https://miro.medium.com/max/1288/0*6g3mklj9wFm9l0Lf.png" role="presentation"><br/></p>
 <p>其實還有一種做法是建立一個<a href="https://www.facebook.com/WxKitty.tw" class="dj by im in io ip" target="_blank" rel="noopener nofollow">天氣機器人</a>，其實概念就是聊天機器人，讓我們可以和機器人對話取得天氣資訊。你可能會問那和查 App 或問 Siri 差在哪裡呢？首先氣象機器人因為著重在氣象資訊上，所以資料處理非常細膩，尤其是台灣地區的資料是處理得非常完善，並且國外地區也支援。再來就是聊天機器人最好玩的地方就是，大家可以一起跟機器人對話，這也是聊天機器人最好玩的地方！</p>
 <p><img class="dz t u go ak" src="https://miro.medium.com/max/2024/0*3vi3cauDUIUA6ycS.png" role="presentation"><br/></p>
@@ -205,52 +205,52 @@
 <p>稍微介紹一下，這邊引用 <a href="https://blog.yoctol.com/yoctol-2017-review-1-6e876ad4de11" class="dj by im in io ip" target="_blank" rel="noopener nofollow">Bottender 團隊寫的文章</a>：</p>
 <p><em class="at">優拓投入近半年心力的產品 — 多平台 Chatbot 框架「Bottender」終於公開並在 </em><a href="https://github.com/Yoctol/Bottender" class="dj by im in io ip" target="_blank" rel="noopener nofollow"><em class="at">GitHub 開源</em></a><em class="at">。Bottender 是我們分析多套既有開發框架 (Framework) 後，綜合了 Chatbot 開發上的實務經驗，以「Learn Once, Write Anywhere」為核心理念，所打造出的一款開源 Framework，具備靈活、模組化、多平台等優勢。</em></p>
 <p>使用 Bottender 真的很簡單，我假設你會用 NodeJS with Express，那麼概念根本是一樣的，這邊我們簡單建立一個 Line 的 Hello World Bot：</p>
-<pre><code class="language-javascript=">const { LineBot } = require('Bottender');
-const { createServer } = require('Bottender/express');
+<pre><code class="language-javascript=">const &#123; LineBot &#125; = require('Bottender');
+const &#123; createServer &#125; = require('Bottender/express');
   
-const bot = new LineBot({
+const bot = new LineBot(&#123;
   channelSecret: process.env.channelSecret, // 填上 Channel Secret
   accessToken: process.env.accessToken // 填上 Access Token
-});
+&#125;);
   
-bot.onEvent(async context =&gt; {
+bot.onEvent(async context =&gt; &#123;
   await context.sendText('Hello World');
-});
+&#125;);
   
 const server = createServer(bot);
   
-server.listen(5000, () =&gt; {
+server.listen(5000, () =&gt; &#123;
   console.log('server is running on 5000 port...');
-});
+&#125;);
 </code></pre>
 <p>這樣寫完就是最簡單的 Hello World Bot 了，相較於上面幾篇我說只需要看概念就好的教學，是不是簡約多了？</p>
 <p>參數設定的地方，可以看到 <code class="gt iw ix iy iz b">process.env.channelSecret</code> 這樣的寫法，這是代表我們不會把真的 Secret 放在程式碼中，所以我們讓程式從環境變數中取得，環境變數通常可以在你架設伺服器的服務商網站設定，以 Heroku 為例的話，建立一個 App 之後，可以在 <code class="gt iw ix iy iz b">Setting &gt; Config Vars</code> 中設定：</p>
 <p><img class="dz t u go ak" src="https://miro.medium.com/max/3516/0*iTUZl6v0DUaJNSii.png" role="presentation"><br/></p>
 <p>那假設我們想要跨平台呢？</p>
 <p>理論上做法應該有好多種，這邊分享我的作法，不過可能不是最聰明的，我在 Heroku 建立兩個 APP，一個是給 Line 另個給 Messenger，然後兩個 Heroku 都綁定 Github repo 的 master：</p>
-<pre><code class="language-javascript=">const {
+<pre><code class="language-javascript=">const &#123;
     LineBot,
     MessengerBot
-} = require('Bottender');
+&#125; = require('Bottender');
   
 const bot = (process.env.chatbotPlatform == 'messenger') ?
-            new MessengerBot({
+            new MessengerBot(&#123;
                 accessToken: process.env.messengerAccessToken,
                 appSecret: process.env.messengerAppSecret,
-            }) : new LineBot({
+            &#125;) : new LineBot(&#123;
                 channelSecret: process.env.lineChannelSecret,
                 accessToken: process.env.lineChannelAccessToken
-            });
+            &#125;);
   
-bot.onEvent(async context =&gt; {
+bot.onEvent(async context =&gt; &#123;
   await context.sendText('Hello World');
-});
+&#125;);
   
 const server = createServer(bot);
   
-server.listen(5000, () =&gt; {
+server.listen(5000, () =&gt; &#123;
   console.log('server is running on 5000 port...');
-});
+&#125;);
 </code></pre>
 <p>因為我想要做到一份程式碼可以跨平台，這樣我只需要更新 master 主幹，就可以同時讓兩個 Heroku APP 一起更新，不需要再分別修改不同分支，因為是可以讓 Heroku 各別綁定不同的分支，但我不想要這樣。</p>
 <p>所以我在環境變數中設定這個 Heroku 是給哪個平台用的，程式碼運行時會從環境變數 <code class="gt iw ix iy iz b">process.env.chatbotPlatform</code> 中得知，並初始化對應的平台，因此可以看到我把 <code class="gt iw ix iy iz b">LineBot</code> 和 <code class="gt iw ix iy iz b">MessengerBot</code> 同時寫進去了。這樣就是一種可以跨平台的方法。</p>
@@ -258,13 +258,13 @@ server.listen(5000, () =&gt; {
 <h3 id="Bottender-小細節"><a class="header-anchor" href="#Bottender-小細節">¶ </a>Bottender 小細節</h3>
 <p>這邊必須提一下，由於我是 Line 免費版搭配 Messenger，所以 Line 只能回覆不能推播，但是臉書卻沒有這限制。這個特性使得我們用 Bottender 要特別注意，因為 Bottender 中沒有特別去區分，假設今天我要回覆照片，在 Line 上只能用 <code class="gt iw ix iy iz b">context.replyImage</code>，但 Messenger 要使用 <code class="gt iw ix iy iz b">context.sendImage</code>，可是我卻不能直接讓 Line 也使用 <code class="gt iw ix iy iz b">context.sendImage</code>，因為主動推播要使用付費版的 Line，並且 Messenger 並不能使用 <code class="gt iw ix iy iz b">context.replyImage</code>。於是就有了這樣尷尬的情況發生了！</p>
 <p>為了讓平台可以共用，我又自己包裝了一層函數：</p>
-<pre><code class="language-javascript=">async function platformReplyImage(context, url) {
-    if (process.env.chatroomPlatform == 'messenger') {
+<pre><code class="language-javascript=">async function platformReplyImage(context, url) &#123;
+    if (process.env.chatroomPlatform == 'messenger') &#123;
         await context.sendImage(url)
-    } else {
+    &#125; else &#123;
         await context.replyImage(url);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>如此一來就解決了上述問題，此問題也發生在 <code class="gt iw ix iy iz b">sendText</code> 和 <code class="gt iw ix iy iz b">replyText</code> 中，希望 Bottender 可以針對這塊改善，我也發了一個 <a href="https://github.com/Yoctol/Bottender/issues/264" class="dj by im in io ip" target="_blank" rel="noopener nofollow">issue</a> 表達我的想法。</p>
 <h2 id="機器人回應設計思路"><a class="header-anchor" href="#機器人回應設計思路">¶ </a>機器人回應設計思路</h2>
@@ -292,16 +292,16 @@ server.listen(5000, () =&gt; {
 <pre><code class="language-javascript=">// ...
 // 一些預處理，抓地點、時間、氣象關鍵字等
 // ...
-} else if (isWeatherKeyword) {  // 如果是要回應「天氣」況狀，例如：天氣、濕度、溫度
+&#125; else if (isWeatherKeyword) &#123;  // 如果是要回應「天氣」況狀，例如：天氣、濕度、溫度
     let replyMsg = &quot;&quot;; // 將回傳給使用者的資訊
     // ...
-    if (isTimeKeyword) { // 如果有時間關鍵字，並且不是現在，就採用預報
+    if (isTimeKeyword) &#123; // 如果有時間關鍵字，並且不是現在，就採用預報
         replyMsg = await getForecast(); // 取得氣象預報資料
-    } else { // 不然就回答現在天氣
+    &#125; else &#123; // 不然就回答現在天氣
         replyMsg = await getWeather(); // 取得現在氣象狀況
-    }
+    &#125;
     await platformReplyText(context, replyMsg); // 回傳給 Line 或 Messenger
-} else if(/* 其他氣象關鍵字，例如：空氣品質、 */) {
+&#125; else if(/* 其他氣象關鍵字，例如：空氣品質、 */) &#123;
 // ....
 </code></pre>
 <p>所以假設今天句子是「台北天氣」，就會是找台北現在天氣。如果句子是「明天台北天氣」，就會去找氣象預報的資料。你可能會好奇那「地點」呢？其實我是在 <code class="gt iw ix iy iz b">getForecast()</code> 和 <code class="gt iw ix iy iz b">getWeather()</code> 函數底下才處理地點。</p>
@@ -319,7 +319,7 @@ server.listen(5000, () =&gt; {
 <ul>
 <li id="2032" class="hr hs em at ht b hu if hw ig hy ih ia ii ic ij ie ja jb jc"><a href="https://opendata.cwb.gov.tw/index" class="dj by im in io ip" target="_blank" rel="noopener nofollow">氣象資料開放平臺</a>：氣象局的公開資料</li><li id="c2ee" class="hr hs em at ht b hu jw hw jx hy jy ia jz ic ka ie ja jb jc"><a href="https://openweathermap.org/api" class="dj by im in io ip" target="_blank" rel="noopener nofollow">Open Weather Map</a>：國外的氣象資料服務商</li>
 </ul>
-<p>還有很多，也可以參考<a href="https://www.climacell.co/blog/top-8-weather-apis-for-2020/" target="_blank" rel="noopener">這篇文章</a>，就不多列舉了。</p>
+<p>還有很多，也可以參考<a target="_blank" rel="noopener" href="https://www.climacell.co/blog/top-8-weather-apis-for-2020/">這篇文章</a>，就不多列舉了。</p>
 <h3 id="隱藏版-API"><a class="header-anchor" href="#隱藏版-API">¶ </a>隱藏版 API</h3>
 <p>這個技巧通常初學者都不知道，特別介紹一下。剛剛提到說，爬蟲是去抓 HTML 的欄位資料，但是很多時候 HTML 是透過 JS 事後補上去的。是的，這就是 MVC 框架下的網站架構。網站會先渲染版面，然後再由 HTTP Request 呼叫他自己的 API 取得剩下的資料，並用 JS 把資料補到渲染畫面上。</p>
 <p>所以我們要做的事情就是，攔截網站自己的 API，這些 API 不是公開的，但是我們也可以拿來用。不過風險是，因為這些 API 不是對外公開的，可能用法或是名稱常常再改變。</p>
@@ -356,33 +356,33 @@ server.listen(5000, () =&gt; {
 </code></pre>
 <p>根據中文描述轉換成時間概念。</p>
 <pre><code class="language-javascript=">// .....
-} else if (match[DAY_GROUP_1]) { // 處理中文字有關於「天」的部分
+&#125; else if (match[DAY_GROUP_1]) &#123; // 處理中文字有關於「天」的部分
     var day1 = match[DAY_GROUP_1];
     var time1 = match[TIME_GROUP_1];
 
-    if (day1 == '明' || day1 == '聽') {
+    if (day1 == '明' || day1 == '聽') &#123;
         // 如果半夜說明天，通常是今天的概念
-        if(refMoment.hour() &gt; 1) {
+        if(refMoment.hour() &gt; 1) &#123;
             startMoment.add(1, 'day');
-        }
-    } else if (day1 == '昨' || day1 == '尋' || day1 == '琴') {
+        &#125;
+    &#125; else if (day1 == '昨' || day1 == '尋' || day1 == '琴') &#123;
         startMoment.add(-1, 'day');
-    } else if (day1 == &quot;前&quot;){
+    &#125; else if (day1 == &quot;前&quot;)&#123;
         startMoment.add(-2, 'day');
-    } else if (day1 == &quot;大前&quot;){
+    &#125; else if (day1 == &quot;大前&quot;)&#123;
         startMoment.add(-3, 'day');
-    } else if ( day1 == &quot;後&quot;){
+    &#125; else if ( day1 == &quot;後&quot;)&#123;
         startMoment.add(2, 'day');
-    } else if (day1 == &quot;大後&quot;){
+    &#125; else if (day1 == &quot;大後&quot;)&#123;
         startMoment.add(3, 'day');
-    }
+    &#125;
 
-    if (time1 == '早' || time1 == '朝') {
+    if (time1 == '早' || time1 == '朝') &#123;
         result.start.imply('hour', 6);
-    } else if (time1 == '晚') {
+    &#125; else if (time1 == '晚') &#123;
         result.start.imply('hour', 22);
         result.start.imply('meridiem', 1);
-} else if (match[TIME_GROUP_2]) { // 處理中文字有關於「時」的部分
+&#125; else if (match[TIME_GROUP_2]) &#123; // 處理中文字有關於「時」的部分
 </code></pre>
 <p>上面只是中文處理的部份而已，可以把「明天晚上」、「後天早上」等時間概念轉換成 <code class="gt iw ix iy iz b">Date()</code> 物件。此外 Chrono 最好用的部分是不同語言的模組互通，所以可以混搭例如「明天 8:00pm」。中文數字處理以及英文時間判斷就留給讀者自行去看原始碼囉！</p>
 <p>此外在開發過程中我被「時間」折騰個半死，因為伺服器在美國，使用者應該是在台灣（很不嚴謹的假設，我還沒去研究如何從 line 或 messenger 中取得使用者時區），中央氣象局資料時間是台灣時間，所以要一直轉換來比對時間。</p>
@@ -414,7 +414,7 @@ server.listen(5000, () =&gt; {
 <p>很高興不知不覺就有超過一千名使用者，隨者使用者變多，未來架構可能也還會需要調整，如同所有規模逐漸成長的公司的後端架構一樣，A/B 測試、紅藍部署等等技術都是隨著規模擴大而將慢慢導入。</p>
 <p><em class="at">你可以在這邊查看</em><strong class="ht iv"><em class="at">氣象喵</em></strong><em class="at">的 Github Repo</em></p>
 <blockquote>
-<p><a href="https://github.com/weather-bot/WxKitty" target="_blank" rel="noopener">weather-bot/WxKitty</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/weather-bot/WxKitty">weather-bot/WxKitty</a></p>
 </blockquote>
 
     </div>
@@ -503,7 +503,7 @@ server.listen(5000, () =&gt; {
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#簡介"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何建立機器人"><span class="toc-text">如何建立機器人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Line-Bot"><span class="toc-text">Line Bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Messenger-Bot"><span class="toc-text">Messenger Bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bottender-框架"><span class="toc-text">Bottender 框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bottender-小細節"><span class="toc-text">Bottender 小細節</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#機器人回應設計思路"><span class="toc-text">機器人回應設計思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#樣板式模型實作"><span class="toc-text">樣板式模型實作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#資料來源"><span class="toc-text">資料來源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#爬蟲"><span class="toc-text">爬蟲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公開-API"><span class="toc-text">公開 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#隱藏版-API"><span class="toc-text">隱藏版 API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#資料處理"><span class="toc-text">資料處理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#資料庫"><span class="toc-text">資料庫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#圖片"><span class="toc-text">圖片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#氣象資料"><span class="toc-text">氣象資料</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#關鍵字的處理"><span class="toc-text">關鍵字的處理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#時間"><span class="toc-text">時間</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#地點"><span class="toc-text">地點</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#地名處理"><span class="toc-text">地名處理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#總結"><span class="toc-text">總結</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="toc-text">如何建立機器人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Line-Bot"><span class="toc-text">Line Bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Messenger-Bot"><span class="toc-text">Messenger Bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bottender-%E6%A1%86%E6%9E%B6"><span class="toc-text">Bottender 框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bottender-%E5%B0%8F%E7%B4%B0%E7%AF%80"><span class="toc-text">Bottender 小細節</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A9%9F%E5%99%A8%E4%BA%BA%E5%9B%9E%E6%87%89%E8%A8%AD%E8%A8%88%E6%80%9D%E8%B7%AF"><span class="toc-text">機器人回應設計思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A3%E6%9D%BF%E5%BC%8F%E6%A8%A1%E5%9E%8B%E5%AF%A6%E4%BD%9C"><span class="toc-text">樣板式模型實作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="toc-text">資料來源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%9F%B2"><span class="toc-text">爬蟲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E9%96%8B-API"><span class="toc-text">公開 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%B1%E8%97%8F%E7%89%88-API"><span class="toc-text">隱藏版 API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E6%96%99%E8%99%95%E7%90%86"><span class="toc-text">資料處理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B3%87%E6%96%99%E5%BA%AB"><span class="toc-text">資料庫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%96%E7%89%87"><span class="toc-text">圖片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B0%A3%E8%B1%A1%E8%B3%87%E6%96%99"><span class="toc-text">氣象資料</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%9C%E9%8D%B5%E5%AD%97%E7%9A%84%E8%99%95%E7%90%86"><span class="toc-text">關鍵字的處理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%82%E9%96%93"><span class="toc-text">時間</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E9%BB%9E"><span class="toc-text">地點</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%90%8D%E8%99%95%E7%90%86"><span class="toc-text">地名處理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-text">總結</span></a></li></ol>
 </div>
                 </section>
             

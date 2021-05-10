@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -185,7 +185,7 @@
 <h3 id="2-1-關鍵點與描述子"><a class="header-anchor" href="#2-1-關鍵點與描述子">¶ </a>2.1 關鍵點與描述子</h3>
 <p>關鍵點 (Key Point)是指圖片上特別的辨識點，又可以稱為特徵點 (Feature Points) 或興趣點 (Interest point)。先前提到我們會找到兩張圖片的特徵點用來做比對，因此首先需要找到這些特徵點。</p>
 <p>好的特徵點在影像比對中，會具有獨特性，不容易和其他特徵點混淆。圖片大致由平坦 (Flat)、邊 (Edge) 和角落 (Corner) 所組成，通常會形成特徵的部分為角落，所以找特徵點的一種方法是辨識是不是角落，像是最早被提出的 Harris Corner Detector。其他還有很多演算法，像是 Hessian affine region detector、 MSER、SIFT、SURF 等。</p>
-<p>儘管 Harris Corner 可以有效偵測角落，並且不受旋轉限制，但卻無法解決尺度縮放的問題，因此才有 <a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform" target="_blank" rel="noopener">SIFT</a> (Scale Invariant Feature Transform) 誕生。SURF（Speed up robust features），目的是加速計算時間，速度比 SIFT 快三倍，但相對的取得的特徵點就會比較少。</p>
+<p>儘管 Harris Corner 可以有效偵測角落，並且不受旋轉限制，但卻無法解決尺度縮放的問題，因此才有 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">SIFT</a> (Scale Invariant Feature Transform) 誕生。SURF（Speed up robust features），目的是加速計算時間，速度比 SIFT 快三倍，但相對的取得的特徵點就會比較少。</p>
 <p>找到影像中的特徵點後，我們會根據特徵點為中心的周圍區域，去計算其特徵描述，算出的結果為描述子 (descriptor)。目前最普遍的描述子為 SIFT (同時可以找到關鍵點和描述子)，基本概念是取關鍵點周圍 16x16 的區域 (window)，並切成 4x4 的區塊，去算每個區塊的 orientation histogram，這樣就會得到一個 128 維度的描述子。可以參考下圖：</p>
 <img src="https://i.imgur.com/oJzlOhD.png"  width=70%>
 <p>很多演算法可以同時得到關鍵點和描述子，像是 MSER、SIFT 和 SURF。每個算法各有所長，關鍵點偵測上角落辨識會有比較準的位置，但像是 SIFT 或 SURF 可以得到更多特徵點，也不受尺度變化限制。描述子演算法上，MSER 得到的描述子比較獨特可以減少之後比對的錯誤，但 SIFT 或 SUFT 相對比較彈性，可以接受的誤差比較大。</p>
@@ -205,7 +205,7 @@
 <p>簡化表示成：</p>
 <p>$$ \mathbf A = \mathbf h \mathbf 0 $$</p>
 <p>每一對會有 $2\times9$ 的矩陣，因為我們會有很多對，所以會有  $2n\times9$ matrix $\mathbf A$ 的矩陣。$\mathbf h$ 的解是「the eigenvector of  $\mathbf A^T \mathbf A$ associated with the smallest eigenvalue」。要得出解最少只需要 4 對特徵點。實作上我們不會把所有點都一次丟進矩陣算，因為這樣矩陣會很難解。</p>
-<p>因為我們只需要 4 對特徵點就可以求得 Homography $\mathbf H$，所以我們可以得到很多的 $\mathbf H$s。這時我們可以採用 <a href="https://en.wikipedia.org/wiki/Random_sample_consensus" target="_blank" rel="noopener">RANSAC (Random sample Consensus)</a> 演算法來找出兩張圖片對應的最佳 Homography。</p>
+<p>因為我們只需要 4 對特徵點就可以求得 Homography $\mathbf H$，所以我們可以得到很多的 $\mathbf H$s。這時我們可以採用 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Random_sample_consensus">RANSAC (Random sample Consensus)</a> 演算法來找出兩張圖片對應的最佳 Homography。</p>
 <p>RANSAC 演算法的步驟：</p>
 <ol>
 <li>隨機挑出要計算出 Homography $\mathbf H$ 所需的最少個的點。</li>
@@ -358,7 +358,7 @@ plot_matches(matches, total_img) # Good mathces
             num_best_inliers = num_inliers
             best_H = H.copy()
             
-    print(&quot;inliers/matches: {}/{}&quot;.format(num_best_inliers, len(matches)))
+    print(&quot;inliers/matches: &#123;&#125;/&#123;&#125;&quot;.format(num_best_inliers, len(matches)))
     return best_inliers, best_H
 </code></pre>
 <pre><code class="language-python">inliers, H = ransac(matches, 0.5, 2000)
@@ -432,23 +432,23 @@ plot_matches(matches, total_img) # Good mathces
 <pre><code class="language-python">plt.imshow(stitch_img(left_rgb, right_rgb, H))
 </code></pre>
 <p><img src="https://user-images.githubusercontent.com/18013815/82591037-4701ec80-9bd1-11ea-85ff-68247d8cfde4.png" alt="output_17_4"></p>
-<p>完整的 Notebook 檔案可以在<a href="https://gist.github.com/tigercosmos/90a5664a3b698dc9a4c72bc0fcbd21f4" target="_blank" rel="noopener">這邊</a>找到。</p>
+<p>完整的 Notebook 檔案可以在<a target="_blank" rel="noopener" href="https://gist.github.com/tigercosmos/90a5664a3b698dc9a4c72bc0fcbd21f4">這邊</a>找到。</p>
 <h2 id="4-討論"><a class="header-anchor" href="#4-討論">¶ </a>4. 討論</h2>
 <h3 id="4-1-SIFT-只能處理灰階"><a class="header-anchor" href="#4-1-SIFT-只能處理灰階">¶ </a>4.1 SIFT 只能處理灰階</h3>
-<p>SIFT 只能在灰階圖片上使用，David G. Lowe 在他的<a href="https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf" target="_blank" rel="noopener">論文</a>中提到：</p>
+<p>SIFT 只能在灰階圖片上使用，David G. Lowe 在他的<a target="_blank" rel="noopener" href="https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf">論文</a>中提到：</p>
 <blockquote>
 <p>The features described in this paper use only a monochrome intensity image, so further distinctiveness could be derived from including illumination-invariant color descriptors (Funt and Finlayson, 1995; Brown and Lowe, 2002).</p>
 </blockquote>
 <p>事實上在 OpenCV 裡面實作，如果是彩色的圖片也會轉成灰階再處理：</p>
 <pre><code class="language-cpp">static Mat createInitialImage( const Mat&amp; img, bool doubleImageSize, float sigma )
-{
+&#123;
     Mat gray, gray_fpt;
     if( img.channels() == 3 || img.channels() == 4 )
         cvtColor(img, gray, COLOR_BGR2GRAY);
     else
         img.copyTo(gray);
     // ...
-}
+&#125;
 </code></pre>
 <h3 id="4-2-Ratio-Test-的重要性"><a class="header-anchor" href="#4-2-Ratio-Test-的重要性">¶ </a>4.2 Ratio Test 的重要性</h3>
 <p><code>BFMatcher().knnMatch()</code> 會根據設定 <code>k</code> 值取得左圖關鍵點對右圖關鍵點的 2 個最接近的結果。</p>
@@ -566,7 +566,7 @@ plot_matches(matches, total_img) # Good mathces
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-簡介"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-原理"><span class="toc-text">2. 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-關鍵點與描述子"><span class="toc-text">2.1 關鍵點與描述子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-特徵匹配"><span class="toc-text">2.2 特徵匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Homography-與-RANSAC"><span class="toc-text">2.3 Homography 與 RANSAC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-實作"><span class="toc-text">3. 實作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-關鍵點"><span class="toc-text">3.1 關鍵點</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-關鍵點匹配"><span class="toc-text">3.2 關鍵點匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Homography-與-RANSAC"><span class="toc-text">3.3 Homography 與 RANSAC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-拼接照片"><span class="toc-text">3.4 拼接照片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-討論"><span class="toc-text">4. 討論</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-SIFT-只能處理灰階"><span class="toc-text">4.1 SIFT 只能處理灰階</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Ratio-Test-的重要性"><span class="toc-text">4.2 Ratio Test 的重要性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-參數重要性"><span class="toc-text">4.3 參數重要性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-結論"><span class="toc-text">5. 結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B0%A1%E4%BB%8B"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8E%9F%E7%90%86"><span class="toc-text">2. 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%97%9C%E9%8D%B5%E9%BB%9E%E8%88%87%E6%8F%8F%E8%BF%B0%E5%AD%90"><span class="toc-text">2.1 關鍵點與描述子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E7%89%B9%E5%BE%B5%E5%8C%B9%E9%85%8D"><span class="toc-text">2.2 特徵匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Homography-%E8%88%87-RANSAC"><span class="toc-text">2.3 Homography 與 RANSAC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AF%A6%E4%BD%9C"><span class="toc-text">3. 實作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E9%97%9C%E9%8D%B5%E9%BB%9E"><span class="toc-text">3.1 關鍵點</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E9%97%9C%E9%8D%B5%E9%BB%9E%E5%8C%B9%E9%85%8D"><span class="toc-text">3.2 關鍵點匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Homography-%E8%88%87-RANSAC"><span class="toc-text">3.3 Homography 與 RANSAC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%8B%BC%E6%8E%A5%E7%85%A7%E7%89%87"><span class="toc-text">3.4 拼接照片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%A8%8E%E8%AB%96"><span class="toc-text">4. 討論</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-SIFT-%E5%8F%AA%E8%83%BD%E8%99%95%E7%90%86%E7%81%B0%E9%9A%8E"><span class="toc-text">4.1 SIFT 只能處理灰階</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Ratio-Test-%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">4.2 Ratio Test 的重要性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%8F%83%E6%95%B8%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">4.3 參數重要性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%B5%90%E8%AB%96"><span class="toc-text">5. 結論</span></a></li></ol>
 </div>
                 </section>
             

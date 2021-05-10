@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器引擎處理 CSS 的簡易版（二）" />
     <title>Neutrino&#39;s Blog: 瀏覽器引擎處理 CSS 的簡易版（二） </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -189,10 +189,10 @@
 <li>Attribute</li>
 </ul>
 <h3 id="Cascade"><a class="header-anchor" href="#Cascade">¶ </a>Cascade</h3>
-<p>可以先看一下 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade" target="_blank" rel="noopener">mozilla</a> 的文件。<br>
+<p>可以先看一下 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade">mozilla</a> 的文件。<br>
 簡單來說就是 style 有分好幾個等級，使用者定義高過瀏覽器預設，有加上 <code>!important</code> 的等級比沒加的高。當使用者沒有定義 style 的時候，瀏覽器就會使用自己預設的。所以你會發現 <code>&lt;h1&gt;</code> 比 <code>&lt;h2&gt;</code> 字體要大，明明自己的 CSS 沒有定義，這就是因為瀏覽器有預設的 style 了。</p>
 <h3 id="Specified-computed-and-actual-values"><a class="header-anchor" href="#Specified-computed-and-actual-values">¶ </a>Specified, computed, and actual values</h3>
-<p>這部分可以看 <a href="https://www.w3.org/TR/CSS2/cascade.html#computed-value" target="_blank" rel="noopener">W3C</a> 的文件。<br>
+<p>這部分可以看 <a target="_blank" rel="noopener" href="https://www.w3.org/TR/CSS2/cascade.html#computed-value">W3C</a> 的文件。<br>
 主要是說當瀏覽器開始解析並構建 DOM 樹，那麼就必須為 DOM 樹中的每個元素的每個屬性賦予一個值。</p>
 <p>然而每個屬性的最終值最終值是通過四步計算得來的：</p>
 <ol>
@@ -213,10 +213,10 @@
 <p>CSS 我們通常定義在 <code>.css</code> ，並被 <code>.html</code> 引入，或是在 html 中使用 <code>&lt;style&gt;</code> 標籤來著名是 CSS 的定義區塊。但我們也可以在寫 HTML DOM 的時候，直接賦予它 CSS，這就叫做 attribute。所以瀏覽器除了從 CSS 中解析之外，在處理 DOM 的時候也要留意有沒有 CSS 並把它插入 CSS 的樹當中。<br>
 例如原本應該是：</p>
 <pre><code>&lt;style&gt;
-    div {
+    div &#123;
         padding: 10px;
         color: red;
-    }
+    &#125;
 &lt;/style&gt;
 &lt;div&gt;&lt;/div&gt;
 </code></pre>
@@ -224,7 +224,7 @@
 <pre><code class="language-html">&lt;div style=&quot;padding:10px; color: red;&quot;&gt;&lt;/div&gt;
 </code></pre>
 <hr>
-<p>明天再來討論如何實作，一樣會使用 robinson 這個「玩具」專案。robinson 將 CSS 拆成兩個模組，在 <a href="https://github.com/mbrubeck/robinson/blob/master/src/css.rs" target="_blank" rel="noopener">robinson/src/css.rs</a> 和 <a href="https://github.com/mbrubeck/robinson/blob/master/src/style.rs" target="_blank" rel="noopener">robinson/src/style.rs</a>。再提一次，Servo 的 CSS 部分在 <a href="https://github.com/servo/servo/tree/master/components/style" target="_blank" rel="noopener">servo/components/style</a>，對照著看對之後我們學習 Servo 會有幫助。</p>
+<p>明天再來討論如何實作，一樣會使用 robinson 這個「玩具」專案。robinson 將 CSS 拆成兩個模組，在 <a target="_blank" rel="noopener" href="https://github.com/mbrubeck/robinson/blob/master/src/css.rs">robinson/src/css.rs</a> 和 <a target="_blank" rel="noopener" href="https://github.com/mbrubeck/robinson/blob/master/src/style.rs">robinson/src/style.rs</a>。再提一次，Servo 的 CSS 部分在 <a target="_blank" rel="noopener" href="https://github.com/servo/servo/tree/master/components/style">servo/components/style</a>，對照著看對之後我們學習 Servo 會有幫助。</p>
 <p>希望對大家有幫助，大家明天見！</p>
 
     </div>
@@ -236,12 +236,12 @@
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

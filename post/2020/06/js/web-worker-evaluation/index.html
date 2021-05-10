@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -182,7 +182,7 @@
 <p>網頁測試碼如下：</p>
 <pre><code class="language-html">&lt;!-- pi.html --&gt;
 &lt;script id=&quot;worker&quot; type=&quot;app/worker&quot;&gt;
-    addEventListener('message', function (e) {
+    addEventListener('message', function (e) &#123;
         const data = e.data;
         const thread = data.thread;
         const start = data.start;
@@ -194,24 +194,24 @@
         let x;
         let sum = 0.0;
     
-        for (let i = start; i &lt; end; i++) {
+        for (let i = start; i &lt; end; i++) &#123;
             x = (i + 0.5) * step;
             sum = sum + 4.0 / (1.0 + x * x);
-        }
+        &#125;
     
         sum = sum * step;
     
         Atomics.add(u32Arr, 0, sum * magnification | 0); // (C)
         Atomics.add(u32Arr, 1, 1); // (D)
     
-        if (Atomics.load(u32Arr, 1) === thread) { // (E)
+        if (Atomics.load(u32Arr, 1) === thread) &#123; // (E)
             const pi = u32Arr[0] / magnification;
             console.log(&quot;PI is&quot;, pi);
-        }
+        &#125;
 
         close();
 
-    }, false);
+    &#125;, false);
 &lt;/script&gt;
 &lt;script&gt;
     const thread = 4;
@@ -227,19 +227,19 @@
     u32Arr[0] = 0;
     u32Arr[1] = 0;
 
-    for (let i = 0; i &lt; thread; i++) { // (B)
+    for (let i = 0; i &lt; thread; i++) &#123; // (B)
         const blob = new Blob([document.querySelector('#worker').textContent]);
         const url = window.URL.createObjectURL(blob);
         const worker = new Worker(url);
 
-        worker.postMessage({
+        worker.postMessage(&#123;
             thread: thread,
             start: part * i,
             end: part * (i + 1),
             step: step,
             buf: u32Buf,
-        });
-    }
+        &#125;);
+    &#125;
 &lt;/script&gt;
 </code></pre>
 <h3 id="Chrome-Edge"><a class="header-anchor" href="#Chrome-Edge">¶ </a>Chrome &amp; Edge</h3>
@@ -250,16 +250,16 @@
 <p>因為都是基於 Chromium，所以表現差不多。(開發工具也一樣😂)</p>
 <p>啟動時間都差不多在 40ms，結束時間都差不多 580 ms。</p>
 <h3 id="Firefox"><a class="header-anchor" href="#Firefox">¶ </a>Firefox</h3>
-<p>Firefox 對 SharedArrayBuffer 預設是關閉，其設定值 <code>javascript.options.shared_memory</code> 預設是 <code>false</code>，即使調成 <code>true</code> 一樣還是不能使用。會吐出「<code>TypeError: The WebAssembly.Memory object cannot be serialized. The Cross-Origin-Opener-Policy and Cross-Origin-Embedder-Policy HTTP headers will enable this in the future.</code>」細節可以參照 Emscripten 中的<a href="https://github.com/emscripten-core/emscripten/issues/10014" target="_blank" rel="noopener">這條 Issue</a>。</p>
+<p>Firefox 對 SharedArrayBuffer 預設是關閉，其設定值 <code>javascript.options.shared_memory</code> 預設是 <code>false</code>，即使調成 <code>true</code> 一樣還是不能使用。會吐出「<code>TypeError: The WebAssembly.Memory object cannot be serialized. The Cross-Origin-Opener-Policy and Cross-Origin-Embedder-Policy HTTP headers will enable this in the future.</code>」細節可以參照 Emscripten 中的<a target="_blank" rel="noopener" href="https://github.com/emscripten-core/emscripten/issues/10014">這條 Issue</a>。</p>
 <p>所以在 Firefox 下無法進行平行化程式，大概只能用 Web Worker 跑獨立作業，稍微研究後認為要使用 SharedArrayBuffer 困難重重，直接放棄。</p>
 <h2 id="NodeJS"><a class="header-anchor" href="#NodeJS">¶ </a>NodeJS</h2>
 <p>Web Worker 是 API，跟 JavaScript 引擎無關，屬於 Runtime 自己要處理的東西，所以 NodeJS 實現 API 的方式跟瀏覽器有差異。</p>
 <p>使用上，主要差異是主程序要引入 <code>worker_threads</code> 函式庫中的 <code>Worker</code>，以及 Worker 裡面要呼叫 <code>parentPort</code>。</p>
 <p>測試碼如下：</p>
 <p>main.js</p>
-<pre><code class="language-js">const {
+<pre><code class="language-js">const &#123;
     Worker
-  } = require('worker_threads');
+  &#125; = require('worker_threads');
 
 const thread = 4;
 
@@ -274,22 +274,22 @@ const u32Arr = new Uint32Array(u32Buf);
 u32Arr[0] = 0;
 u32Arr[1] = 0;
 
-for (let i = 0; i &lt; thread; i++) { // (B)
+for (let i = 0; i &lt; thread; i++) &#123; // (B)
     const worker = new Worker('./worker.js');
 
-    worker.postMessage({
+    worker.postMessage(&#123;
         thread: thread,
         start: part * i,
         end: part * (i + 1),
         step: step,
         buf: u32Buf,
-    });
-}
+    &#125;);
+&#125;
 </code></pre>
 <p>worker.js</p>
-<pre><code class="language-js">const { parentPort } = require('worker_threads')
+<pre><code class="language-js">const &#123; parentPort &#125; = require('worker_threads')
 
-parentPort.onmessage = function (e) {
+parentPort.onmessage = function (e) &#123;
     const data = e.data;
     const thread = data.thread;
     const start = data.start;
@@ -301,26 +301,26 @@ parentPort.onmessage = function (e) {
     let x;
     let sum = 0.0;
 
-    for (let i = start; i &lt; end; i++) {
+    for (let i = start; i &lt; end; i++) &#123;
         x = (i + 0.5) * step;
         sum = sum + 4.0 / (1.0 + x * x);
-    }
+    &#125;
 
     sum = sum * step;
 
     Atomics.add(u32Arr, 0, sum * magnification | 0); // (C)
     Atomics.add(u32Arr, 1, 1); // (D)
 
-    if (Atomics.load(u32Arr, 1) === thread) { // (E)
+    if (Atomics.load(u32Arr, 1) === thread) &#123; // (E)
         const pi = u32Arr[0] / magnification;
         console.log(&quot;PI is&quot;, pi);
-    }
+    &#125;
 
     parentPort.close();
-};
+&#125;;
 </code></pre>
 <p>用 Node v12.14.1 執行結果如下：</p>
-<pre><code class="language-shell">$ Measure-Command {node main.js}  
+<pre><code class="language-shell">$ Measure-Command &#123;node main.js&#125;  
 
 Milliseconds      : 465
 Ticks             : 4659527
@@ -330,33 +330,33 @@ TotalMilliseconds : 465.9527
 <p>猜測是在實現 Web Worker 上的差異。先前提過 Web Worker 的實作是建立在 Runtime 上，也就是跟 V8 無關。</p>
 <h2 id="Deno"><a class="header-anchor" href="#Deno">¶ </a>Deno</h2>
 <p>很遺憾，截至本文發布為止，Deno V1.1.1 並不完整支援 Web Worker，像是其不支援 SharedArrayBuffer，Worker 也還只支援 Module Type。</p>
-<p>更進一步，可以參考我提出的 Issue「<a href="https://github.com/denoland/deno/issues/6433" target="_blank" rel="noopener">SharedArrayBuffer not works #6433</a>」。</p>
+<p>更進一步，可以參考我提出的 Issue「<a target="_blank" rel="noopener" href="https://github.com/denoland/deno/issues/6433">SharedArrayBuffer not works #6433</a>」。</p>
 <p>測試碼如下：</p>
 <p>main.js</p>
 <pre><code class="language-js">const u32Buf = new SharedArrayBuffer(2 * Uint32Array.BYTES_PER_ELEMENT);
 const u32Arr = new Uint32Array(u32Buf);
 
-const worker = new Worker(new URL(&quot;./worker.js&quot;, import.meta.url).href, { type: &quot;module&quot; });
+const worker = new Worker(new URL(&quot;./worker.js&quot;, import.meta.url).href, &#123; type: &quot;module&quot; &#125;);
 
 u32Arr[0] = 1
 
-worker.postMessage({
+worker.postMessage(&#123;
     buf: u32Buf,
-});
+&#125;);
 </code></pre>
 <p>worker.js</p>
-<pre><code class="language-js">self.onmessage = function (e) {
+<pre><code class="language-js">self.onmessage = function (e) &#123;
     const data = e.data;
     const u32Arr = new Uint32Array(data.buf);
 
     console.log(u32Arr[0])
-};
+&#125;;
 </code></pre>
 <p>執行結果預期 <code>u32Arr[0]</code> 會變成 <code>1</code>，但因為不支援所以得到 <code>undefined</code>。</p>
 <pre><code class="language-shell">$ deno run --allow-read main.js
 undefined
 </code></pre>
-<p>關於 Deno 在 Web Worker 上實現的進度可以參考其專案的<a href="https://github.com/denoland/deno/search?p=2&amp;q=Worker&amp;unscoped_q=Worker" target="_blank" rel="noopener">原始碼</a>。</p>
+<p>關於 Deno 在 Web Worker 上實現的進度可以參考其專案的<a target="_blank" rel="noopener" href="https://github.com/denoland/deno/search?p=2&amp;q=Worker&amp;unscoped_q=Worker">原始碼</a>。</p>
 <h2 id="結論"><a class="header-anchor" href="#結論">¶ </a>結論</h2>
 <p>我對 Web Worker 是非常期待的，在追逐效能的時代，網頁體驗應該高速有效率，那麼開多個執行緒的平行處理也就理所當然。同時 Web Worker 不單只是瀏覽器專用，萬物皆 JavaScript 的這年頭，跨平台也是稀鬆平常，所以 NodeJS 和 Deno 這類的 Runtime 必然也得上緊發條。</p>
 <p>實驗結果來看 Web Worker 開發平行程式可行性，顯然 Chromium 為底的瀏覽器都支援不錯，但對 Firefox 不支援感到可惜，至於 JavaScript 中的 Runtime，NodeJS 身為元老自然支援，Deno 為新起之秀在支援上還要再等等。</p>
@@ -467,7 +467,7 @@ undefined
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#簡介"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#瀏覽器"><span class="toc-text">瀏覽器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome-Edge"><span class="toc-text">Chrome &amp; Edge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Firefox"><span class="toc-text">Firefox</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS"><span class="toc-text">NodeJS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deno"><span class="toc-text">Deno</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-text">結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8"><span class="toc-text">瀏覽器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome-Edge"><span class="toc-text">Chrome &amp; Edge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Firefox"><span class="toc-text">Firefox</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS"><span class="toc-text">NodeJS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deno"><span class="toc-text">Deno</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
 </div>
                 </section>
             

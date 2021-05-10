@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -174,14 +174,14 @@
         </li>
     </ul>
     <div class="post-content">
-        <p>I am confused in these days about how to implement the parser. PhD candidate <a href="https://github.com/SLMT" target="_blank" rel="noopener">Yushan Lin</a> suggest me to see how <a href="https://github.com/vanilladb/vanillacore/" target="_blank" rel="noopener">VanillaDB</a> implement, which is a DBMS developed by his lab.</p>
-<p>There are many document about <code>VanillaDB</code> in its <a href="http://www.vanilladb.org/" target="_blank" rel="noopener">official website</a>, including <a href="http://www.vanilladb.org/slides/core/Query_Processing.pdf" target="_blank" rel="noopener">the parser one</a>. It is worth and enlightening to read the parser slide, because it is professional but not complicated.</p>
-<p>The most important part is that <code>VanillaDB</code> adopt <a href="https://en.wikipedia.org/wiki/Recursive_descent_parser" target="_blank" rel="noopener">recursive descent parser</a>. You can check out more via google the keyword. I decide to use this method to implement grammar rule parser.</p>
+        <p>I am confused in these days about how to implement the parser. PhD candidate <a target="_blank" rel="noopener" href="https://github.com/SLMT">Yushan Lin</a> suggest me to see how <a target="_blank" rel="noopener" href="https://github.com/vanilladb/vanillacore/">VanillaDB</a> implement, which is a DBMS developed by his lab.</p>
+<p>There are many document about <code>VanillaDB</code> in its <a target="_blank" rel="noopener" href="http://www.vanilladb.org/">official website</a>, including <a target="_blank" rel="noopener" href="http://www.vanilladb.org/slides/core/Query_Processing.pdf">the parser one</a>. It is worth and enlightening to read the parser slide, because it is professional but not complicated.</p>
+<p>The most important part is that <code>VanillaDB</code> adopt <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Recursive_descent_parser">recursive descent parser</a>. You can check out more via google the keyword. I decide to use this method to implement grammar rule parser.</p>
 <blockquote>
 <p>A recursive-descent parser has a method for each grammar rule, and calls these methods recursively to traverse the parse tree in prefix order.</p>
 </blockquote>
 <p>In the end, let’s update the status of the previous code. In order to lexically scan messages, I add another types in <code>Group</code>, which are <code>Operator</code>, <code>Number</code>, and <code>Identifier</code>.</p>
-<pre><code class="language-rust">pub enum Group {
+<pre><code class="language-rust">pub enum Group &#123;
     DataType,
     DoubleKeyword,
     MultiKeyword,
@@ -190,10 +190,10 @@
     Operator, // &gt;, &gt;=, ==, !=, &lt;, &lt;=
     Number,
     Identifier, // t1, a, b
-}
+&#125;
 </code></pre>
 <p>So, <code>Token</code> is also updated.</p>
-<pre><code>pub enum Token {
+<pre><code>pub enum Token &#123;
 
     // ...
 
@@ -204,7 +204,7 @@
     NE, // !=
     GT, // &gt;
     GE, // &gt;=
-}
+&#125;
 </code></pre>
 
     </div>

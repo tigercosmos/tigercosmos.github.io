@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -176,27 +176,27 @@
     <div class="post-content">
         <p>I am thinking what is the next step. Probably looks like:</p>
 <p>!FILENAME sql/parser.rs</p>
-<pre><code>    fn parse(&amp;self) {
+<pre><code>    fn parse(&amp;self) &#123;
         let mut iter = self.tokens.iter();
         let category = iter.next().unwrap().token;
 
-        match category {
-            Token::CreateDatabase =&gt; {}
-            Token::CreateTable =&gt; {}
+        match category &#123;
+            Token::CreateDatabase =&gt; &#123;&#125;
+            Token::CreateTable =&gt; &#123;&#125;
             // ...
             // ...
-            _ =&gt; {}
-        }
-    }
+            _ =&gt; &#123;&#125;
+        &#125;
+    &#125;
 </code></pre>
 <p>!FILENAME sql/create.rs</p>
-<pre><code>struct CreateDatabase {
+<pre><code>struct CreateDatabase &#123;
     // ...
-}
+&#125;
 
-struct CreateTable {
+struct CreateTable &#123;
     // ...
-}
+&#125;
 </code></pre>
 
     </div>

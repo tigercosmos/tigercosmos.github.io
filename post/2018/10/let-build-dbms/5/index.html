@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,7 +177,7 @@
         <p>It is very sad to say that, I have spent more than ten hours fighting with <code>Tokio.rs</code> from yesterday. I am going to write today’s article and go back to continue programming.</p>
 <p>Today, I will talk about RDBMS and SQL.</p>
 <h2 id="Entity-Model"><a class="header-anchor" href="#Entity-Model">¶ </a>Entity Model</h2>
-<p>Before SQL, you should understand what is entity relationship (ER) model. The ER model is first introduced by 陳品山 (Peter P.S Chen) in 1976. In short, it is a model for organizing data with many relationships. There is an introduction on <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model" target="_blank" rel="noopener">Wikipedia</a>. A ER diagram is a visualization way for a ER model.</p>
+<p>Before SQL, you should understand what is entity relationship (ER) model. The ER model is first introduced by 陳品山 (Peter P.S Chen) in 1976. In short, it is a model for organizing data with many relationships. There is an introduction on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model">Wikipedia</a>. A ER diagram is a visualization way for a ER model.</p>
 <p>A ER diagram looks like (source: Wikipedia):</p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/ER_Diagram_MMORPG.png" alt="ER diagram"></p>
 <p>As you can see, there the rectangles are entities, and entities have relationships which are diamonds. There are also ovals which are attributes for entities.</p>
@@ -191,7 +191,7 @@
 <p>This series is just for implementing a RDBMS, StellarSQL.</p>
 <h2 id="SQL"><a class="header-anchor" href="#SQL">¶ </a>SQL</h2>
 <p>Now we know what is a RDBMS. However, we need a method for creating database, reading data, searching data, or creating relationships for data. So we introduce the SQL, which means Structured Query Language. SQL is designed for programs and management systems processing data. It is particularly useful in handling structured data where there are relations between different entities/variables of the data.</p>
-<p>There is a math for supporting SQL, which is <a href="https://en.wikipedia.org/wiki/Relational_algebra" target="_blank" rel="noopener">relational algebra</a>. It is because the math that we can ensure SQL could handle data well.</p>
+<p>There is a math for supporting SQL, which is <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Relational_algebra">relational algebra</a>. It is because the math that we can ensure SQL could handle data well.</p>
 <p>SQL is a language. I will talk about the syntax later. Just take a look for now.</p>
 <p>For example, the following SQL statement selects all the <code>customers</code> from the country <code>&quot;Mexico&quot;</code>, in the <code>customers</code> table.</p>
 <pre><code class="language-SQL">SELECT * FROM customers

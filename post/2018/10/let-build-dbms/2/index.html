@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,12 +178,12 @@
 <p>As I mentioned yesterday, DBMS runs on servers. Therefore, before we develop modules of SQL parsing or database handling, we need to implement server functions.</p>
 <p>The server part of a DBMS isn’t different too much from any other backend services. You can just think we are going to develop a server and add some DBMS modules on it.</p>
 <h2 id="Shoulders-of-Giants"><a class="header-anchor" href="#Shoulders-of-Giants">¶ </a>Shoulders of Giants</h2>
-<p>Let’s take a glimpse at how MySQL does on the server part. It is always good to stand on the shoulders of giants. The “<a href="https://dev.mysql.com/doc/internals/en/guided-tour-skeleton.html" target="_blank" rel="noopener">The Skeleton of the Server Code</a>” in the internal guide of MySQL shows the underlying concepts about what a server of DBMS does. It’s recommended to read that guide before reading the following parts.</p>
+<p>Let’s take a glimpse at how MySQL does on the server part. It is always good to stand on the shoulders of giants. The “<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/internals/en/guided-tour-skeleton.html">The Skeleton of the Server Code</a>” in the internal guide of MySQL shows the underlying concepts about what a server of DBMS does. It’s recommended to read that guide before reading the following parts.</p>
 <p>Basically, I would like to follow MySQL architecture when I implement StellarSQL, but in a simplified way. I would refers some good parts in other open sources projects when I develop the project.</p>
 <p>The following snippet is the simplified server code of MySQL:</p>
 <p>!FILENAME /sql/mysqld.cc</p>
 <pre><code class="language-cc">  int main(int argc, char **argv)
-  {
+  &#123;
     _cust_check_startup();
     (void) thr_setconcurrency(concurrency);
     init_ssl();
@@ -197,14 +197,14 @@
     handle_connections_sockets(0);
     DBUG_PRINT(&quot;quit&quot;,(&quot;Exiting main thread&quot;));
     exit(0);
-  }
+  &#125;
 </code></pre>
 <p>All functions are very straightforward. <code>init_ssl</code> runs OpenSSL. <code>server_init</code> and <code>init_server_components</code> are just doing as their names. <code>start_signal_handler</code> is for interrupt and (a)synchronous procedures. <code>handle_connections_sockets</code> is for the connections.</p>
 <p>Now we have the idea of how to do. So let’s work on StellarSQL.</p>
-<h2 id="Tokio-rs-in-StellarSQL"><a class="header-anchor" href="#Tokio-rs-in-StellarSQL">¶ </a><a href="http://Tokio.rs" target="_blank" rel="noopener">Tokio.rs</a> in StellarSQL</h2>
+<h2 id="Tokio-rs-in-StellarSQL"><a class="header-anchor" href="#Tokio-rs-in-StellarSQL">¶ </a><a target="_blank" rel="noopener" href="http://Tokio.rs">Tokio.rs</a> in StellarSQL</h2>
 <p>As you can see the source code of MySQL has implemented lots of underlying functions by themselves, including lock, signal, IPC, socket and others. I am just going to do a proof of concept project of DBMS, so I would not implement such detail modules.</p>
-<p>I would use <a href="https://tokio.rs/docs/overview/" target="_blank" rel="noopener">Tokio.rs</a> in StellarSQL. This framework has done some underlying modules already, so I can focus on implementation parts of SQL and database.</p>
-<p>According to the official website of <a href="http://Tokio.rs" target="_blank" rel="noopener">Tokio.rs</a>:</p>
+<p>I would use <a target="_blank" rel="noopener" href="https://tokio.rs/docs/overview/">Tokio.rs</a> in StellarSQL. This framework has done some underlying modules already, so I can focus on implementation parts of SQL and database.</p>
+<p>According to the official website of <a target="_blank" rel="noopener" href="http://Tokio.rs">Tokio.rs</a>:</p>
 <blockquote>
 <p>Tokio is an event-driven, non-blocking I/O platform for writing asynchronous applications with Rust. At a high level, it provides a few major components:</p>
 <ul>
@@ -214,8 +214,8 @@
 These components provide the runtime components necessary for building an asynchronous application.</li>
 </ul>
 </blockquote>
-<p>Looks like <a href="http://Tokio.rs" target="_blank" rel="noopener">Tokio.rs</a> is so powerful, isn’t it?</p>
-<p>Then, I will use <a href="http://Tokio.rs" target="_blank" rel="noopener">Tokio.rs</a> to implement the basic parts of StellarSQL tomorrow.</p>
+<p>Looks like <a target="_blank" rel="noopener" href="http://Tokio.rs">Tokio.rs</a> is so powerful, isn’t it?</p>
+<p>Then, I will use <a target="_blank" rel="noopener" href="http://Tokio.rs">Tokio.rs</a> to implement the basic parts of StellarSQL tomorrow.</p>
 <p>I have run out the time today (remember the rule of 3-hours limitation?), so see you tomorrow!</p>
 
     </div>

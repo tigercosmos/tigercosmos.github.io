@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="程式,傳染病,模擬,機率,python,sir," />
+        content="程式,模擬,機率,傳染病,python,sir," />
     <meta name="description"
         content="傳染病 SIR 模型與機率模型介紹與簡易模擬" />
     <title>Neutrino&#39;s Blog: 傳染病 SIR 模型與機率模型介紹與簡易模擬 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -180,7 +180,7 @@
 <p>公共衛生對傳染病研究有很多理論模型，其中隔間模型（Compartmental Model）藉由假設整個人口被區分成幾個群體，並且在同一群體中所有個體皆有一樣的特性，藉由這幾個假設可以簡化傳染病的社學模型。</p>
 <p>在隔間模型中，易感受-感染者-康復者模型（SIR Model）是指由人口由易感受族群（Susceptible, $S$）、已感染族群（Infectious, $I$）、已康復族群（Recovered, $R$）三個部分組成的傳染病模型。模型假設傳染病可以藉由直接接觸傳染，並且每個人會隨機接觸其他人。模型中有兩個重要參數，分別是感染族群傳染給健康族群的傳染力（transmission rate）$β$，以及感染族群恢復的康復力（rate of recovered） $γ$。</p>
 <p>機率模型則是本文藉由分布函數去模擬個體互動是否造成感染的簡易模型。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="2-數學定義"><a class="header-anchor" href="#2-數學定義">¶ </a>2. 數學定義</h2>
 <p>接著對封閉族群下之易感受-感染者-康復者模型（closed SIR model)來作探討，因為短時間傳染的影響大於人口流動的影響，因此封閉模型指排除人口變化的因素，根據這條件下，我們定義：</p>
 <h3 id="2-1-SIR-模型定義"><a class="header-anchor" href="#2-1-SIR-模型定義">¶ </a>2.1 SIR 模型定義</h3>
@@ -197,7 +197,7 @@ $$ S(t) + T(t) + R(t) = N$$</p>
 <h3 id="2-2-基本傳染數-R-0"><a class="header-anchor" href="#2-2-基本傳染數-R-0">¶ </a>2.2 基本傳染數 $R_0$</h3>
 <p>在 SIR 模型中有提到傳染力 $β$ 和康復力 $γ$，這時我們要來定義這兩個參數。同時需要介紹基本傳染數。</p>
 <p>基本傳染數（basic reproduction number, $R_0$）是在傳染病學上，指在沒有外力介入，同時所有人都沒有免疫力的情況下，一個感染到某種傳染病的人，會把疾病傳染給其他多少個人的平均數。基本傳染數通常被寫成為 $R_0$。$R_0$ 的數字愈大，該傳染病在傳播初期的爆發潛力越強。</p>
-<p>根據 <a href="https://en.wikipedia.org/wiki/Basic_reproduction_number" target="_blank" rel="noopener">Wikipedia: Basic Reproduction Number</a> 數據，SARS 的 $R_0$ 約為 2~5，最近大爆發的武漢肺炎 COVID-19 大約在 1.4~3.9。</p>
+<p>根據 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Basic_reproduction_number">Wikipedia: Basic Reproduction Number</a> 數據，SARS 的 $R_0$ 約為 2~5，最近大爆發的武漢肺炎 COVID-19 大約在 1.4~3.9。</p>
 <p>$R_0$ 的定義如下：</p>
 <p>$$R_0 = 𝜏 × 𝑐̅ × d = \frac{β}{𝛾}$$</p>
 <p>其中 $𝜏$ 為每單位十間的接觸量，$𝑐̅$ 為每次接觸傳染的機率，$d$ 為感染的時間。</p>
@@ -245,7 +245,7 @@ $$</p>
 
     return s, i, r
 </code></pre>
-<p>完整包含畫圖的 Python 程式碼可以在<a href="https://gist.github.com/tigercosmos/9f0251283bda230aafe8582305cc71f1" target="_blank" rel="noopener">這邊下載</a>，可以親自跑跑看。</p>
+<p>完整包含畫圖的 Python 程式碼可以在<a target="_blank" rel="noopener" href="https://gist.github.com/tigercosmos/9f0251283bda230aafe8582305cc71f1">這邊下載</a>，可以親自跑跑看。</p>
 <p>下圖為模擬天數 20 天，$\beta$ 為 1，$\gamma$ 為 0.5，總數 2000 人一開始有 10 人感染。</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/78059251-1ca76600-73bc-11ea-8f2e-ee08af9d526a.png" alt="sir plot"></p>
 <h3 id="3-2-微觀模擬"><a class="header-anchor" href="#3-2-微觀模擬">¶ </a>3.2 微觀模擬</h3>
@@ -291,7 +291,7 @@ def RecoveredEvent(rate, dt):
         return 0
 </code></pre>
 <p>根據此函數定義，傳入的 <code>rate</code> 越大時，事件越容易發生，藉由亂數來決定此事是否在分布函數中達到「發生」，也就是要不要被感染或者康復，其中的 <code>h</code> 和 <code>k</code> 是用來調整倍率的參數。</p>
-<p>完整包含畫圖的 Python 程式碼可以在<a href="https://gist.github.com/tigercosmos/050bc988ba1be3279a1733d94540b686" target="_blank" rel="noopener">這邊下載</a>，可以親自跑跑看。</p>
+<p>完整包含畫圖的 Python 程式碼可以在<a target="_blank" rel="noopener" href="https://gist.github.com/tigercosmos/050bc988ba1be3279a1733d94540b686">這邊下載</a>，可以親自跑跑看。</p>
 <p>下圖為模擬天數 20 天，$\beta$ 為 1，$\gamma$ 為 0.5，總數 2000 人一開始有 10 人感染。同樣參數下，想讓微觀模擬的圖和巨觀的圖一樣的話，就需要去調整 <code>h</code> 和 <code>k</code>。</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/78068560-2e443a00-73cb-11ea-9d94-795d43b947dc.png" alt="agent based SIR model"></p>
 <h3 id="3-3-微觀和巨觀的比較"><a class="header-anchor" href="#3-3-微觀和巨觀的比較">¶ </a>3.3 微觀和巨觀的比較</h3>
@@ -308,16 +308,16 @@ def RecoveredEvent(rate, dt):
                 程式
             </a>,&nbsp;
         
-            <a href="/tags/%E5%82%B3%E6%9F%93%E7%97%85/">
-                傳染病
-            </a>,&nbsp;
-        
             <a href="/tags/%E6%A8%A1%E6%93%AC/">
                 模擬
             </a>,&nbsp;
         
             <a href="/tags/%E6%A9%9F%E7%8E%87/">
                 機率
+            </a>,&nbsp;
+        
+            <a href="/tags/%E5%82%B3%E6%9F%93%E7%97%85/">
+                傳染病
             </a>,&nbsp;
         
             <a href="/tags/python/">
@@ -393,7 +393,7 @@ def RecoveredEvent(rate, dt):
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-簡介"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-數學定義"><span class="toc-text">2. 數學定義</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-SIR-模型定義"><span class="toc-text">2.1 SIR 模型定義</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-基本傳染數-R-0"><span class="toc-text">2.2 基本傳染數 $R_0$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-指數分布（Exponential-Distribution）"><span class="toc-text">2.3 指數分布（Exponential Distribution）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-程式模擬"><span class="toc-text">3 程式模擬</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-巨觀模擬"><span class="toc-text">3.1 巨觀模擬</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-微觀模擬"><span class="toc-text">3.2 微觀模擬</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-微觀和巨觀的比較"><span class="toc-text">3.3 微觀和巨觀的比較</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-結論"><span class="toc-text">4 結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B0%A1%E4%BB%8B"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B8%E5%AD%B8%E5%AE%9A%E7%BE%A9"><span class="toc-text">2. 數學定義</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-SIR-%E6%A8%A1%E5%9E%8B%E5%AE%9A%E7%BE%A9"><span class="toc-text">2.1 SIR 模型定義</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%9F%BA%E6%9C%AC%E5%82%B3%E6%9F%93%E6%95%B8-R-0"><span class="toc-text">2.2 基本傳染數 $R_0$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%8C%87%E6%95%B8%E5%88%86%E5%B8%83%EF%BC%88Exponential-Distribution%EF%BC%89"><span class="toc-text">2.3 指數分布（Exponential Distribution）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%A8%8B%E5%BC%8F%E6%A8%A1%E6%93%AC"><span class="toc-text">3 程式模擬</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%B7%A8%E8%A7%80%E6%A8%A1%E6%93%AC"><span class="toc-text">3.1 巨觀模擬</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%BE%AE%E8%A7%80%E6%A8%A1%E6%93%AC"><span class="toc-text">3.2 微觀模擬</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%BE%AE%E8%A7%80%E5%92%8C%E5%B7%A8%E8%A7%80%E7%9A%84%E6%AF%94%E8%BC%83"><span class="toc-text">3.3 微觀和巨觀的比較</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B5%90%E8%AB%96"><span class="toc-text">4 結論</span></a></li></ol>
 </div>
                 </section>
             

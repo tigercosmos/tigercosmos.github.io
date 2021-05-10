@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -176,26 +176,26 @@
     <div class="post-content">
         <h2 id="1-簡介"><a class="header-anchor" href="#1-簡介">¶ </a>1. 簡介</h2>
 <p>我們都知道 Lock 有很多缺點，例如 Lock 會造成多餘的 Overhead，使用不慎也會造成 Dead Lock，所以希望能盡量避免使用 Lock。於是使用 Lock Free 的程式寫法就可以幫我們減少使用 Lock，並且在處理 Critical Section 不會有多餘的 Overhead。</p>
-<p>一種 Lock Free 的方法可以使用 <a href="https://en.wikipedia.org/wiki/Compare-and-swap" target="_blank" rel="noopener">Compare and Swap (CAS)</a> 的技術，由於他是 Atomic Instruction，所以它的代價很小，同時可以確保多執行緒時候可以資料是安全的。</p>
+<p>一種 Lock Free 的方法可以使用 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Compare-and-swap">Compare and Swap (CAS)</a> 的技術，由於他是 Atomic Instruction，所以它的代價很小，同時可以確保多執行緒時候可以資料是安全的。</p>
 <p>本文介紹 Compare and Swap 原理，並實驗證明 CAS 的 Overhead 比 Lock 還小。</p>
 <h2 id="2-Compare-and-Swap-Pseudocode"><a class="header-anchor" href="#2-Compare-and-Swap-Pseudocode">¶ </a>2. Compare and Swap Pseudocode</h2>
 <p>CAS 一般來說是由硬體支援，然後編譯器可以呼叫對應的 Instrinsic，如果將 CAS 寫成虛擬碼函數的話會長這樣：</p>
-<pre><code class="language-c++">bool CAS(int* p, int old, int new) {
-    if *p ≠ old {
+<pre><code class="language-c++">bool CAS(int* p, int old, int new) &#123;
+    if *p ≠ old &#123;
         return false;
-    }
+    &#125;
     *p ← new
     return true;
-}
+&#125;
 </code></pre>
 <p>可以看到說 CAS 指令的有三個參數，第一個是要比較的變數指標 <code>*p</code>，第二個是該指標原本舊的數值 <code>old</code>，以及該指標應該要更新的新數值 <code>new</code>。</p>
 <p>一般使用 CAS 的方法大概會是以下情境：</p>
 <pre><code class="language-c">int old, new;
 
-do {
+do &#123;
     old = *p;
     new = NEW_VALUE;
-} while(!CAS(*p, old, new));
+&#125; while(!CAS(*p, old, new));
 </code></pre>
 <p>CAS 包住的迴圈可以視為 Critical Section，當執行到 CAS 指令時，CAS 會去看 <code>*p</code> 的值和 <code>old</code> 是否一樣，一樣的話代表在執行期間沒有其他 Thread 去改動過 <code>*p</code>，於是就可以安心將 <code>*p</code> 更新成 <code>new</code> 的數值。反之，如果 <code>*p</code> 的數值和 <code>old</code> 不一樣，代表期間已經有人動過 <code>*p</code>，那麼這次迴圈數值作罷，再重新跑一次迴圈，並希望這次不會受到別的 Thread 干擾。</p>
 <p>可以看到藉由 CAS 的方法我們可以做到 Lock Free，因為我們不需要上任何鎖，但她卻不是 Block Free，因為 While 的 CAS 有機會失敗重跑，但這種情況很低，最多發生一兩次，所以我們可以做到 Thread Safe 且低 Overhead。</p>
@@ -204,20 +204,20 @@ do {
 <p>這邊我寫了一個很簡單的 Sum 程式，可以看到就是一直往上加。</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
-int main() {
+int main() &#123;
 
     int sum = 0;
 
-    for(int i = 0; i &lt; 10000000; i++) {
+    for(int i = 0; i &lt; 10000000; i++) &#123;
 
-        for(int i = 0; i &lt; 500; i++) {} // 假裝有任務要跑一段時間
+        for(int i = 0; i &lt; 500; i++) &#123;&#125; // 假裝有任務要跑一段時間
 
         sum += 3; // 故意讓他有兩個指令
         sum -= 2;
-    }
+    &#125;
 
     printf(&quot;sum = %d\n&quot;, sum);
-}
+&#125;
 </code></pre>
 <p>執行時間：</p>
 <pre><code class="language-shell">$ gcc test.c; time ./a.out
@@ -230,19 +230,19 @@ real    0m7.548s
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
 int main()
-{
+&#123;
     int sum = 0;
 
 #pragma omp parallel for shared(sum)
     for (int i = 0; i &lt; 10000000; i++)
-    {
-        for (int i = 0; i &lt; 500; i++){}
+    &#123;
+        for (int i = 0; i &lt; 500; i++)&#123;&#125;
         sum += 3;
         sum -= 2;
-    }
+    &#125;
 
     printf(&quot;sum = %d\n&quot;, sum);
-}
+&#125;
 </code></pre>
 <pre><code class="language-shell">$ gcc test.c -fopenmp; time ./a.out
 sum = 9120084
@@ -255,22 +255,22 @@ real    0m2.035s
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
 int main()
-{
+&#123;
     int sum = 0;
 
 #pragma omp parallel for shared(sum)
     for (int i = 0; i &lt; 10000000; i++)
-    {
-        for (int i = 0; i &lt; 500; i++){}
+    &#123;
+        for (int i = 0; i &lt; 500; i++)&#123;&#125;
 #pragma omp critical
-        {
+        &#123;
             sum += 3;
             sum -= 2;
-        }
-    }
+        &#125;
+    &#125;
 
     printf(&quot;sum = %d\n&quot;, sum);
-}
+&#125;
 </code></pre>
 <pre><code class="language-shell">$ gcc test.c -fopenmp; time ./a.out
 sum = 10000000
@@ -283,25 +283,25 @@ real    0m2.116s
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
 int main()
-{
+&#123;
     int sum = 0;
     int current, next;
 
 #pragma omp parallel for shared(sum) private(current, next)
     for (int i = 0; i &lt; 10000000; i++)
-    {
-        for (int i = 0; i &lt; 500; i++) {}
+    &#123;
+        for (int i = 0; i &lt; 500; i++) &#123;&#125;
         do
-        {
+        &#123;
             current = sum;
             next = current;
             next += 3;
             next -= 2;
-        } while (!__sync_bool_compare_and_swap(&amp;sum, current, next));
-    }
+        &#125; while (!__sync_bool_compare_and_swap(&amp;sum, current, next));
+    &#125;
 
     printf(&quot;sum = %d\n&quot;, sum);
-}
+&#125;
 </code></pre>
 <pre><code class="language-shell">$ gcc test.c -fopenmp; time ./a.out
 sum = 10000000
@@ -403,7 +403,7 @@ CAS 總共重跑了 262408 次，佔所有次數中的 2.6%。連續失敗兩次
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-簡介"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Compare-and-Swap-Pseudocode"><span class="toc-text">2. Compare and Swap Pseudocode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Compare-and-Swap-Example"><span class="toc-text">3. Compare and Swap Example</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Sum-Serial-Version"><span class="toc-text">3.1 Sum Serial Version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Sum-OpenMP-Multi-Thread-without-Lock"><span class="toc-text">3.2 Sum OpenMP Multi-Thread without Lock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Sum-OpenMP-Multi-Thread-with-Lock"><span class="toc-text">3.3 Sum OpenMP Multi-Thread with Lock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-Sum-OpenMP-Multi-Thread-with-Lock-Free"><span class="toc-text">3.4 Sum OpenMP Multi-Thread with Lock-Free</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-結論"><span class="toc-text">4. 結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B0%A1%E4%BB%8B"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Compare-and-Swap-Pseudocode"><span class="toc-text">2. Compare and Swap Pseudocode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Compare-and-Swap-Example"><span class="toc-text">3. Compare and Swap Example</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Sum-Serial-Version"><span class="toc-text">3.1 Sum Serial Version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Sum-OpenMP-Multi-Thread-without-Lock"><span class="toc-text">3.2 Sum OpenMP Multi-Thread without Lock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Sum-OpenMP-Multi-Thread-with-Lock"><span class="toc-text">3.3 Sum OpenMP Multi-Thread with Lock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-Sum-OpenMP-Multi-Thread-with-Lock-Free"><span class="toc-text">3.4 Sum OpenMP Multi-Thread with Lock-Free</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B5%90%E8%AB%96"><span class="toc-text">4. 結論</span></a></li></ol>
 </div>
                 </section>
             

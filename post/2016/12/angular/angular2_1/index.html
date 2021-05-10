@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -187,7 +187,7 @@
 <h4>const &amp; let</h4>
 <p>&#x56B4;&#x683C;&#x8AAA;&#x8D77;&#x4F86;&#x9019;&#x4E0D;&#x7B97;&#x662F; TS&#x7279;&#x6B8A;&#x7684;&#x6771;&#x897F;&#xFF0C;&#x5728; ES6&#x4E2D;&#x5C0D;&#x65BC;&#x5BA3;&#x544A;&#x8B8A;&#x6578;&#x5F97;&#x66F4;&#x660E;&#x78BA;&#x898F;&#x7BC4;&#x3002;</p>
 <pre><code>const cannotChange = 9; // &#x53EA;&#x8981;&#x6539;&#x8B8A;&#x9019;&#x500B;&#x5E38;&#x6578;&#xFF0C;&#x7A0B;&#x5F0F;&#x6703;&#x51FA;&#x932F;
-let canChange = [{&apos;a&apos;: &apos;1&apos;}, {&apos;b&apos;: &apos;2&apos;}]; //&#x5728;&#x4E0D;&#x6539;&#x8B8A;&#x5BA3;&#x544A;&#x7684;&#x8CC7;&#x6599;&#x578B;&#x5225;&#x7684;&#x60C5;&#x6CC1;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x6539;&#x8B8A;&#x9019;&#x500B;&#x53C3;&#x6578;
+let canChange = [&#123;&apos;a&apos;: &apos;1&apos;&#125;, &#123;&apos;b&apos;: &apos;2&apos;&#125;]; //&#x5728;&#x4E0D;&#x6539;&#x8B8A;&#x5BA3;&#x544A;&#x7684;&#x8CC7;&#x6599;&#x578B;&#x5225;&#x7684;&#x60C5;&#x6CC1;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x6539;&#x8B8A;&#x9019;&#x500B;&#x53C3;&#x6578;
 </code></pre>
 <p><code>var</code>&#x96D6;&#x7136;&#x9084;&#x662F;&#x80FD;&#x7528;&#xFF0C;&#x4F46;&#x80FD;&#x4E0D;&#x7528;&#x76E1;&#x91CF;&#x4E0D;&#x8981;&#x7528;&#xFF0C;&#x8D8A;&#x660E;&#x78BA;&#x7684;&#x898F;&#x7BC4;&#x5C0D;&#x7A0B;&#x5F0F;&#x5E6B;&#x52A9;&#x8D8A;&#x597D;&#x3002;</p>
 <h4>&#x8CC7;&#x6599;&#x578B;&#x5225;(typing)</h4>
@@ -201,7 +201,7 @@ let octal: number = 0o744;
 <p>//Stirng<br>
 let person: string = &quot;Mike&quot;; //可以用 &quot;&quot;<br>
 let age: number = 37;<br>
-let sentence: string = <code>Oh, ${person} is ${age} years old.</code>; //也可以用 <code>${}</code><br>
+let sentence: string = <code>Oh, $&#123;person&#125; is $&#123;age&#125; years old.</code>; //也可以用 <code>$&#123;&#125;</code><br>
 //上面等於 &quot;Oh, &quot; + person + &quot; is &quot; + age + &quot; years old.&quot;</p>
 <p>//Array<br>
 let list: number[] = [1, 2, 3];</p>
@@ -214,103 +214,103 @@ x[3] = true // Error 往後的變數只能是一開始設定的 string 或 numbe
 <h4>&#x578B;&#x5225;&#x8A3B;&#x91CB;(Type annotations)</h4>
 <p>&#x4EE5;&#x5F80;&#x5728; JS&#x4E2D;&#x51FD;&#x6578;&#x7684;&#x53C3;&#x6578;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x5BA3;&#x544A;&#x53C3;&#x6578;&#x7684;&#x578B;&#x5225;&#x3002;</p>
 <h5>JS:</h5>
-<pre><code>function greeter(person) {
+<pre><code>function greeter(person) &#123;
     return &quot;Hello, &quot; + person;
-}
+&#125;
 </code></pre>
 <p>&#x4F46;&#x662F;&#x9019;&#x6A23;&#x6C92;&#x4EBA;&#x77E5;&#x9053; <code>person</code>&#x662F;&#x751A;&#x9EBC;&#xFF0C;&#x5230;&#x5E95;&#x662F;&#x7269;&#x4EF6;&#x9084;&#x662F;&#x5B57;&#x4E32;&#xFF1F;</p>
 <h5>TS:</h5>
-<pre><code>function greeter(person: string) {
+<pre><code>function greeter(person: string) &#123;
     return &quot;Hello, &quot; + person;
-}
+&#125;
 </code></pre>
 <p>&#x6240;&#x4EE5; TS&#x5F37;&#x5236;&#x8981;&#x6C42;&#x53C3;&#x6578;&#x8981;&#x8A3B;&#x91CB;&#x578B;&#x5225; <code>person: string</code>&#x9019;&#x6A23;&#x4E00;&#x770B;&#x5C31;&#x77E5;&#x9053;&#x662F;&#x5B57;&#x4E32;&#xFF0C;&#x7576;&#x5C08;&#x6848;&#x8D8A;&#x505A;&#x8D8A;&#x5927;&#xFF0C;&#x51FD;&#x6578;&#x547C;&#x53EB;&#x51FD;&#x6578;&#x53C8;&#x5728;&#x547C;&#x53EB;&#x4E0B;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x53C3;&#x6578;&#x6EFF;&#x5929;&#x98DB;&#x7684;&#x6642;&#x5019;&#xFF0C;&#x624D;&#x4E0D;&#x6703;&#x641E;&#x932F;&#x8CC7;&#x6599;&#x578B;&#x5225;&#xFF0C;&#x53C8; debug&#x534A;&#x5929;&#x624D;&#x767C;&#x73FE;&#x662F;&#x8CC7;&#x6599;&#x7D66;&#x932F;&#xFF01;<br>
 &#x8A3B;&#x91CB;&#x4E5F;&#x53EF;&#x4EE5;&#x653E;&#x5165;&#x6307;&#x5B9A;&#x578B;&#x614B;&#x7684;&#x7269;&#x4EF6;&#xFF0C;&#x5C31;&#x662F;&#x63A5;&#x4E0B;&#x4F86;&#x7684; Interface&#x3002;</p>
 <h4>Interfaces</h4>
 <p>interface &#x8B93;&#x53C3;&#x6578;&#x70BA;&#x7269;&#x4EF6;&#x6642;&#xFF0C;&#x6709;&#x66F4;&#x660E;&#x78BA;&#x7684;&#x7D50;&#x69CB;&#x578B;&#x614B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x53EA;&#x662F;&#x4E1F;&#x500B;&#x53C3;&#x6578;&#x8868;&#x793A;&#x70BA;&#x4E00;&#x500B;&#x7269;&#x4EF6;&#x3002;<br>
 &#x7C21;&#x55AE;&#x7684;&#x7BC4;&#x4F8B;&#x61C9;&#x8A72;&#x53EF;&#x4EE5;&#x8B93;&#x5927;&#x5BB6;&#x61C2; interface &#x7684;&#x6982;&#x5FF5;&#x3002;</p>
-<pre><code>interface Person {
+<pre><code>interface Person &#123;
     firstName: string;
     lastName: string;
-}
-<p>function greeter(person: Person) {<br>
+&#125;
+<p>function greeter(person: Person) &#123;<br>
 return &quot;Hello, &quot; + person.firstName + &quot; &quot; + person.lastName;<br>
-}</p>
-<p>var user = { firstName: &quot;Tiger&quot;, lastName: &quot;Liu&quot; };</p>
+&#125;</p>
+<p>var user = &#123; firstName: &quot;Tiger&quot;, lastName: &quot;Liu&quot; &#125;;</p>
 <p>console.log(greeter(user));<br>
 </code></pre></p>
 <h4>&#x985E;&#x5225;(Classes)</h4>
 <p>&#x4EE5;&#x5F80;&#x5728; ES5 &#x7684; JS &#x662F;&#x6C92;&#x8FA6;&#x6CD5;&#x50CF; C++&#x3001;JAVA&#x90A3;&#x6A23;&#x76F4;&#x63A5;&#x5BA3;&#x544A;&#x985E;&#x5225;&#x7684;&#xFF0C;JS&#x958B;&#x767C;&#x8005;&#x7576;&#x7136;&#x9084;&#x662F;&#x80FD;&#x900F;&#x904E;&#x4E00;&#x4E9B;&#x6280;&#x5DE7;&#x9054;&#x5230;&#x985E;&#x4F3C;&#x6548;&#x679C;&#xFF0C;&#x4F46;&#x5C31;&#x6BD4;&#x8F03;&#x9EBB;&#x7169;&#x4E5F;&#x5F88;&#x4E0D;&#x76F4;&#x89C0;&#x3002;&#x800C; ES6 &#x7248;&#x672C;&#x4E4B;&#x5F8C; JS &#x52A0;&#x5165;&#x985E;&#x5225;&#x7684;&#x8A9E;&#x6CD5;&#x7CD6;&#xFF0C;TS &#x4E2D;&#x5C31;&#x80FD;&#x7528;&#x76F8;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x5BA3;&#x544A;&#x985E;&#x5225;&#xFF0C;&#x7DE8;&#x8B6F;&#x6210; JS&#x5F8C;&#x5176;&#x5BE6;&#x5C31;&#x662F;&#x4EE5;&#x524D;&#x6211;&#x5011;&#x7528;&#x4F86;&#x6A21;&#x64EC;&#x985E;&#x5225;&#x7684;&#x6280;&#x5DE7;&#x5566;&#xFF01;XD</p>
-<pre><code>class Student {
+<pre><code>class Student &#123;
     fullName: string;
-    constructor(public firstName, public middleInitial, public lastName) {
-        this.fullName = `${firstName} ${middleInitial} ${lastName}`;
-    }
-}
-<p>interface Person {<br>
+    constructor(public firstName, public middleInitial, public lastName) &#123;
+        this.fullName = `$&#123;firstName&#125; $&#123;middleInitial&#125; $&#123;lastName&#125;`;
+    &#125;
+&#125;
+<p>interface Person &#123;<br>
 firstName: string;<br>
 lastName: string;<br>
-}</p>
-<p>function greeter(person : Person) {<br>
-return <code>Hello, ${person.firstName} ${person.lastName}</code>;<br>
+&#125;</p>
+<p>function greeter(person : Person) &#123;<br>
+return <code>Hello, $&#123;person.firstName&#125; $&#123;person.lastName&#125;</code>;<br>
 }</p>
 <p>let user = new Student(&quot;Jane&quot;, &quot;M.&quot;, &quot;User&quot;);</p>
 <p>console.log(greeter(user));<br>
 </code></pre></p>
 <h4>&#x975C;&#x614B;&#x6210;&#x54E1;</h4>
 <p>&#x985E;&#x5225;&#x7684;&#x975C;&#x614B;&#x6210;&#x54E1;&#xFF0C;&#x4ED6;&#x7684;&#x5C6C;&#x6027;&#x5B58;&#x5728;&#x65BC;&#x985E;&#x672C;&#x8EAB;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x985E;&#x7684;&#x5BE6;&#x4F8B;&#x4E0A;</p>
-<pre><code>class Human {
+<pre><code>class Human &#123;
     static hands: number = 2;
     static legs: number = 2;
-}
+&#125;
 </code></pre>
 <h4>&#x7E7C;&#x627F;</h4>
 <p>&#x6709;&#x985E;&#x5225;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x7576;&#x7136;&#x5C31;&#x6703;&#x6709;&#x7E7C;&#x627F;&#x7684;&#x6982;&#x5FF5;</p>
-<pre><code>class Woman extends Human {
+<pre><code>class Woman extends Human &#123;
     static gender: string = &apos;female&apos;;
-}
+&#125;
 </code></pre>
 <h4>Interface &#x9032;&#x968E;</h4>
 <p>interface &#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4F86;&#x5F37;&#x5236;&#x985E;&#x5225;&#x7B26;&#x5408;&#x7D04;&#x675F;</p>
-<pre><code>interface Shape {
+<pre><code>interface Shape &#123;
     area(): number;
-}
-<p>class Circle implements Shape {<br>
+&#125;
+<p>class Circle implements Shape &#123;<br>
 radius: number;<br>
-constructor(radius: number) {<br>
+constructor(radius: number) &#123;<br>
 this.radius = radius;<br>
-}<br>
-area(): number {<br>
+&#125;<br>
+area(): number &#123;<br>
 return this.radius * this.radius * 3.1415;<br>
-}<br>
-}<br>
+&#125;<br>
+&#125;<br>
 </code></pre></p>
 <p>interface &#x4E5F;&#x53EF;&#x4EE5;&#x7E7C;&#x627F;&#x5176;&#x4ED6;&#x7684; interface</p>
-<pre><code>interface Shape {
+<pre><code>interface Shape &#123;
     area(): number;
-}
-<p>interface Color {<br>
+&#125;
+<p>interface Color &#123;<br>
 RGB: string;<br>
-}</p>
-<p>interface Thing extends Color, Shape {<br>
-}<br>
+&#125;</p>
+<p>interface Thing extends Color, Shape &#123;<br>
+&#125;<br>
 </code></pre></p>
 <h4>&#x8FED;&#x4EE3;</h4>
 <p>&#x591A;&#x4E86; <code>let ... of ...</code> &#x7684;&#x7528;&#x6CD5;</p>
 <pre><code>let list = [4, 5, 6];
-<p>for (let i in list) {<br>
+<p>for (let i in list) &#123;<br>
 console.log(i); // &quot;0&quot;, &quot;1&quot;, &quot;2&quot;,<br>
-}</p>
-<p>for (let i of list) {<br>
+&#125;</p>
+<p>for (let i of list) &#123;<br>
 console.log(i); // &quot;4&quot;, &quot;5&quot;, &quot;6&quot;<br>
-}<br>
+&#125;<br>
 </code></pre></p>
 <p><code>let ... of ...</code> &#x7684;&#x64CD;&#x4F5C;&#x5176;&#x5BE6;&#x9577;&#x9019;&#x6A23;</p>
 <pre><code>let list = [4, 5, 6];
-for (let _i = 0; _i &lt; list.length; _i++) {
+for (let _i = 0; _i &lt; list.length; _i++) &#123;
     var num = list[_i];
     console.log(num);
-}
+&#125;
 </code></pre>
  <br>
                                                     </div>
@@ -402,7 +402,7 @@ for (let _i = 0; _i &lt; list.length; _i++) {
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">TypeScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x7DE3;&amp;#x8D77;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8A9E;&amp;#x6CD5;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">const &amp; let</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8CC7;&amp;#x6599;&amp;#x578B;&amp;#x5225;(typing)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x578B;&amp;#x5225;&amp;#x8A3B;&amp;#x91CB;(Type annotations)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#"><span class="toc-text">JS:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#"><span class="toc-text">TS:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">Interfaces</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x985E;&amp;#x5225;(Classes)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x975C;&amp;#x614B;&amp;#x6210;&amp;#x54E1;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x7E7C;&amp;#x627F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">Interface &amp;#x9032;&amp;#x968E;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8FED;&amp;#x4EE3;</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">TypeScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">緣起</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">語法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">const &amp; let</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">資料型別(typing)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">型別註釋(Type annotations)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-text">JS:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-text">TS:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">Interfaces</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">類別(Classes)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">靜態成員</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">繼承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">Interface 進階</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">迭代</span></a></li></ol></li></ol></li></ol>
 </div>
                 </section>
             

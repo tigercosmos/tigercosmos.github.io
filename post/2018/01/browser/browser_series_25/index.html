@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="再談影響行動裝置瀏覽器速度的因素" />
     <title>Neutrino&#39;s Blog: 再談影響行動裝置瀏覽器速度的因素 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,8 +178,8 @@
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a></p>
 </blockquote>
 <p>本系列下來我們看了不少論文，今天我想討論一下在用手機瀏覽器上網的情況下，彼此的關聯。</p>
-<p>回顧一下，我們在<a href="https://ithelp.ithome.com.tw/articles/10194725" target="_blank" rel="noopener">為什麼手機上網速度比較慢呢？</a>一文中，討論到 RTT（網路延遲）和資源載入是使瀏覽器很慢的主要原因，這篇中討論到計算的時間幾乎沒影響。</p>
-<p>再來我們在<a href="https://ithelp.ithome.com.tw/articles/10195895" target="_blank" rel="noopener">Cache 並不會讓手機的瀏覽器更快？</a>一文中提到，cache 對於手機加速沒有顯著效果，理由是因為 CPU 的效能把快取好處吃掉一些，此外快取不見得都剛好對關鍵路徑有幫助。</p>
+<p>回顧一下，我們在<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10194725">為什麼手機上網速度比較慢呢？</a>一文中，討論到 RTT（網路延遲）和資源載入是使瀏覽器很慢的主要原因，這篇中討論到計算的時間幾乎沒影響。</p>
+<p>再來我們在<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10195895">Cache 並不會讓手機的瀏覽器更快？</a>一文中提到，cache 對於手機加速沒有顯著效果，理由是因為 CPU 的效能把快取好處吃掉一些，此外快取不見得都剛好對關鍵路徑有幫助。</p>
 <p>好了！光這兩篇論文就互相打架了。這邊我用「前者」與「後者」來表示兩者。</p>
 <p>「前者」主張 RTT 最關鍵的，計算效能可以不考慮的，還是 2011 的論文。「後者」是 2016 的論文，說 CPU 在「現在」的情況下，會嚴重影響瀏覽器單頁載入時間(page loading time, PLT)。</p>
 <p>前者那時候的手機比後者的時空背景效能不知道爛多少，卻有如此令人瞠目的結論。這邊我也不知道為什麼？</p>
@@ -189,8 +189,8 @@
 <p>2011 年的時候大家都還在使用 3G，雖然 CPU 也很慢，但是 C:N 是這邊的關鍵，可能因為那時候Ｎ比Ｃ大太多，導致「前者」得出 RTT 是關鍵的結論。</p>
 <p>至於「後者」是 2016 的時候，已經有 4G 了，而且作者沒有特別聲明是用什麼方式連線，這邊我們假設 C:N 中，後者的Ｎ相較前者的Ｎ已經變非常小了，但是Ｃ可能沒有大幅變化。那麼後者在論文中說明 CPU 影響非常巨大就是合理的。</p>
 <p>當然以上單純是我的猜測，能不能簡單用這樣模型估計都很難說。如果能實驗當然是最好，可以直接驗證我的想法對不對。雖然要還原前者時空背景可能比較難，但我們可以直接用 2018 的時空背景再做一次前者的實驗，也還是可以驗證我的猜想對不對。</p>
-<p>接著我從「<a href="http://www.ruf.rice.edu/~mobile/publications/wang2012www.pdf" target="_blank" rel="noopener">How Far Can Client-Only Solutions Go for Mobile Browser Speed?</a>」取得一些資訊。這邊我用「新者」來表示這篇論文。</p>
-<p>「新者」指出約八成的資源會在子網頁被再利用，這邊跟我在<a href="https://ithelp.ithome.com.tw/articles/10195147" target="_blank" rel="noopener">用網頁相似性來優化瀏覽器</a>介紹的論文結論差不多。而因為資源容易被再利用，所以聽起來 cache 絕對有優勢對吧？然而我們在「後者」的論文中已經被顛覆這個想法。</p>
+<p>接著我從「<a target="_blank" rel="noopener" href="http://www.ruf.rice.edu/~mobile/publications/wang2012www.pdf">How Far Can Client-Only Solutions Go for Mobile Browser Speed?</a>」取得一些資訊。這邊我用「新者」來表示這篇論文。</p>
+<p>「新者」指出約八成的資源會在子網頁被再利用，這邊跟我在<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10195147">用網頁相似性來優化瀏覽器</a>介紹的論文結論差不多。而因為資源容易被再利用，所以聽起來 cache 絕對有優勢對吧？然而我們在「後者」的論文中已經被顛覆這個想法。</p>
 <p>不過「新者」還有其他論點，在他的研究中發現，手機瀏覽網站有 75%只會逛一次，這代表 cache 在這些只瀏覽一次的網站中沒有作用。此外手機瀏覽率前十名的網站中，在使用快取的情況下，載入網頁時有約7成的資源會需要重新取得，這個數據跟「後者」接近，「後者」指出一般網站快取再被利用的機率是 0.2。但是需要從新取得的數據當中，有將近一半的快取是因為過期，需要重新驗證，而重新驗證一樣會導致 RTT。</p>
 <p>從「新者」論文中的這張圖可以發現：<br>
 <img src="https://user-images.githubusercontent.com/18013815/34614130-52bd0a58-f26b-11e7-9d3e-cf7efeaa9d31.png" alt=""></p>
@@ -212,12 +212,12 @@
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

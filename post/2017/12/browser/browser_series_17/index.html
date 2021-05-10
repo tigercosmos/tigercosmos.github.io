@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器開發進階實戰（三）捲動" />
     <title>Neutrino&#39;s Blog: 瀏覽器開發進階實戰（三）捲動 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,9 +177,9 @@
         <blockquote>
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a></p>
 </blockquote>
-<p>今天繼續以<a href="https://github.com/servo/servo" target="_blank" rel="noopener">Servo</a> 專案來討論如何實作。</p>
+<p>今天繼續以<a target="_blank" rel="noopener" href="https://github.com/servo/servo">Servo</a> 專案來討論如何實作。</p>
 <p>今天主題是 scroll，也就是捲動。當頁面大於視窗，或是元素內容大於元素本身，這時候我們常常會看到到「捲軸」出現。並且我們可以捲動視窗，這就是 scroll 做的事情了。不過今天討論的是使用 script 去做捲動。捲動牽扯到的東西太多，不可能把所有機制都講，所以今天挑一小部分來說明。</p>
-<p>在實作之前，我們先來看看<a href="https://drafts.csswg.org/cssom-view/#scrolling-box" target="_blank" rel="noopener">文件</a>怎麼寫的。</p>
+<p>在實作之前，我們先來看看<a target="_blank" rel="noopener" href="https://drafts.csswg.org/cssom-view/#scrolling-box">文件</a>怎麼寫的。</p>
 <blockquote>
 <p>Elements and viewports have an associated scrolling box if has a scrolling mechanism or it overflows its content area and the used value of the overflow-x or overflow-y property is hidden.<br>
 An element body (which will be the HTML body element) is potentially scrollable if all of the following conditions are true:</p>
@@ -195,7 +195,7 @@ An element body (which will be the HTML body element) is potentially scrollable 
 <ul>
 <li>是 layout box</li>
 <li>元素的父元素不是設定 overflow 為顯示（不然子元素也會套用顯示）</li>
-<li>元素的 computed value 的 overflow-x 和 overflow-y 不是設為顯示 （computed value 先前<a href="https://ithelp.ithome.com.tw/articles/10191967" target="_blank" rel="noopener">文章</a>有解釋過）</li>
+<li>元素的 computed value 的 overflow-x 和 overflow-y 不是設為顯示 （computed value 先前<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10191967">文章</a>有解釋過）</li>
 </ul>
 <p>再來要解釋一下，什麼是「有 overflow」？<br>
 簡單來說就是「視窗大小」小於「內容大小」。</p>
@@ -210,7 +210,7 @@ console.log(box.scrollTop); // 60
 第二、第三行是取得捲到哪裡了，所以是 getter</p>
 <hr>
 <p>好了，該知道的都知道了。我們上工！</p>
-<p>現在我們想完成 <code>scroll</code> setter 的一部分，文件在<a href="https://drafts.csswg.org/cssom-view/#dom-element-scroll" target="_blank" rel="noopener">這邊</a>，事實上 <code>scroll</code>、<code>scrollTop</code>、<code>scrollLeft</code> 在 setter 的定義都很接近。<br>
+<p>現在我們想完成 <code>scroll</code> setter 的一部分，文件在<a target="_blank" rel="noopener" href="https://drafts.csswg.org/cssom-view/#dom-element-scroll">這邊</a>，事實上 <code>scroll</code>、<code>scrollTop</code>、<code>scrollLeft</code> 在 setter 的定義都很接近。<br>
 我們今天想完成 <code>scroll</code> setter 的第十步驟。</p>
 <p>其他步驟大家可以自行點進去看，這邊就不附上了。第十步是說：</p>
 <blockquote>
@@ -230,25 +230,25 @@ console.log(box.scrollTop); // 60
 if !self.has_css_layout_box() ||
    !self.has_scrolling_box() ||
    !self.has_overflow()
-{
+&#123;
     return;
-}
+&#125;
 </code></pre>
 <p>還有文章一開始定義的幾個特性：</p>
 <pre><code>// https://drafts.csswg.org/cssom-view/#scrolling-box
-fn has_scrolling_box(&amp;self) -&gt; bool {
+fn has_scrolling_box(&amp;self) -&gt; bool &#123;
     // TODO: scrolling mechanism, such as scrollbar (We don't have scrollbar yet)
     //       self.has_scrolling_mechanism()
     self.overflow_x_is_hidden() ||
     self.overflow_y_is_hidden()
-}
+&#125;
 
-fn has_overflow(&amp;self) -&gt; bool {
+fn has_overflow(&amp;self) -&gt; bool &#123;
     self.ScrollHeight() &gt; self.ClientHeight() ||
     self.ScrollWidth() &gt; self.ClientWidth()
-}
+&#125;
 </code></pre>
-<p>這其實是一次 <a href="https://github.com/servo/servo/commit/9965f7e2cc0f722acfee5f0710b74a84d1112b54" target="_blank" rel="noopener">commit</a> 所完成的事情，大家有興趣可以點進去看那次貢獻總共做了哪些事情。</p>
+<p>這其實是一次 <a target="_blank" rel="noopener" href="https://github.com/servo/servo/commit/9965f7e2cc0f722acfee5f0710b74a84d1112b54">commit</a> 所完成的事情，大家有興趣可以點進去看那次貢獻總共做了哪些事情。</p>
 <hr>
 <p>希望有幫到大家，大家明天見！</p>
 
@@ -261,12 +261,12 @@ fn has_overflow(&amp;self) -&gt; bool {
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

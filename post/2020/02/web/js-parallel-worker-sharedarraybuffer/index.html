@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -174,8 +174,8 @@
         </li>
     </ul>
     <div class="post-content">
-        <p>JavaScript 是執行時只會用單執行緒，即便 JavaScript 大量使用並行（Concurrency）機制，像是各種 Event Handler，依舊還是只有一個執行緒，於是這樣大大限制計算的效能。解套辦法是在 JavaScript 上撰寫平行程式，使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener">Web Worker</a>、 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer" target="_blank" rel="noopener">SharedArrayBuffer</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics" target="_blank" rel="noopener">Atomics</a>。</p>
-<a id="more"></a> 
+        <p>JavaScript 是執行時只會用單執行緒，即便 JavaScript 大量使用並行（Concurrency）機制，像是各種 Event Handler，依舊還是只有一個執行緒，於是這樣大大限制計算的效能。解套辦法是在 JavaScript 上撰寫平行程式，使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Web Worker</a>、 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer">SharedArrayBuffer</a> 和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics">Atomics</a>。</p>
+<span id="more"></span> 
 <p>Web Worker 讓你這個網頁可以開啟其他執行緒來做事，但因為每個 Worker 彼此資料是獨立的，想要共用的話還需要搭配 <code>SharedArrayBuffer</code> 共享記憶體，並透過 <code>Atomics</code> 來確保資料正確。本文先介紹 Web Worker，然後分別介紹 <code>SharedArrayBuffer</code> 和 <code>Atomics</code>，最後演示如何結合使用。</p>
 <h2 id="1-Web-Worker"><a class="header-anchor" href="#1-Web-Worker">¶ </a>1. Web Worker</h2>
 <h3 id="1-1-簡介"><a class="header-anchor" href="#1-1-簡介">¶ </a>1.1 簡介</h3>
@@ -188,7 +188,7 @@ Worker 使用腳本不可以是其他網站的，也不可以開啟本地端文�
 <li>進程間通訊（IPC）<br>
 Worker 採用 share-nothing 模型，必須使用 <code>postMessage</code> 和 <code>onmessage</code> 來溝通</li>
 <li>腳本限制<br>
-不可修改 <code>DOM</code>、<code>document</code>。不可呼叫 <code>alert</code>、<code>confirm</code>。詳細規定要看 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers" target="_blank" rel="noopener">Functions and classes available to Web Workers</a>。</li>
+不可修改 <code>DOM</code>、<code>document</code>。不可呼叫 <code>alert</code>、<code>confirm</code>。詳細規定要看 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers">Functions and classes available to Web Workers</a>。</li>
 </ol>
 <h3 id="1-2-用法"><a class="header-anchor" href="#1-2-用法">¶ </a>1.2 用法</h3>
 <h4 id="1-2-1-主程序"><a class="header-anchor" href="#1-2-1-主程序">¶ </a>1.2.1 主程序</h4>
@@ -199,17 +199,17 @@ Worker 採用 share-nothing 模型，必須使用 <code>postMessage</code> 和 <
 <p>主程序發送消息給 Worker 的語法是：</p>
 <pre><code class="language-js">worker.postMessage(message, [transfer]);
 </code></pre>
-<p>其中 <code>message</code> 是要通知的訊息，可以用來區分監聽的任務，也可以用來傳物件，但是物件會是「完全拷貝」而非傳址；而 <code>transfer</code> 則是指定 <code>message</code> 中哪些物件是要直接轉移所有權（Ownership），將「<a href="https://developer.mozilla.org/en-US/docs/Web/API/Transferable" target="_blank" rel="noopener">具可轉性（Transferable）</a>」的物件，物件所有權從主程序變成 Worker。</p>
+<p>其中 <code>message</code> 是要通知的訊息，可以用來區分監聽的任務，也可以用來傳物件，但是物件會是「完全拷貝」而非傳址；而 <code>transfer</code> 則是指定 <code>message</code> 中哪些物件是要直接轉移所有權（Ownership），將「<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Transferable">具可轉性（Transferable）</a>」的物件，物件所有權從主程序變成 Worker。</p>
 <p>例如：</p>
 <pre><code class="language-js">worker.postMessage(
-  { msg: 'do_thing', buf: arrBuf }, // buf 這邊放入 arrBuf
+  &#123; msg: 'do_thing', buf: arrBuf &#125;, // buf 這邊放入 arrBuf
   [ arrBuf ] // 指明 arrBuf 要轉移
 );
 </code></pre>
 <p>主程序透過 <code>onmessage</code> 函數來接收從 Worker 傳回來的訊息：</p>
-<pre><code class="language-js">worker.onmessage = function (event) {
+<pre><code class="language-js">worker.onmessage = function (event) &#123;
   console.log('Received message ' + event.data);
-}
+&#125;
 </code></pre>
 <p>當 Worker 執行完畢，主程式可以將其關閉</p>
 <pre><code class="language-js">worker.terminate();
@@ -219,20 +219,20 @@ Worker 採用 share-nothing 模型，必須使用 <code>postMessage</code> 和 <
 <pre><code class="language-js">// myworker.js
 
 // 法 1
-onmessage = function(e) {
+onmessage = function(e) &#123;
   postMessage('You said: ' + e.data);
-}
+&#125;
 
 // 法 2
-addEventListener('message', function (e) {
+addEventListener('message', function (e) &#123;
   postMessage('You said: ' + e.data);
-}, false);
+&#125;, false);
 </code></pre>
 <p>這邊的 <code>e.data</code> 就是從主程序傳過來的 <code>message</code>。</p>
 <p>根據主程序傳過來的數據，Worker 可以選擇要做甚麼事情，例如：</p>
-<pre><code class="language-js">addEventListener('message', function (e) {
+<pre><code class="language-js">addEventListener('message', function (e) &#123;
   const cmd = e.data.cmd;
-  switch (cmd) {
+  switch (cmd) &#123;
     case 'run':
       postMessage('WORKER RAN: ' + data.msg);
       break;
@@ -242,8 +242,8 @@ addEventListener('message', function (e) {
       break;
     default:
       postMessage('Unknown command: ' + data.msg);
-  };
-}, false);
+  &#125;;
+&#125;, false);
 </code></pre>
 <p>Worker 可以透過 <code>close()</code> 來關閉自己。</p>
 <p>Worker 可以引入其他腳本：</p>
@@ -251,27 +251,27 @@ addEventListener('message', function (e) {
 </code></pre>
 <h4 id="1-2-3-錯誤處理"><a class="header-anchor" href="#1-2-3-錯誤處理">¶ </a>1.2.3 錯誤處理</h4>
 <p>主程式可以監聽 Worker 是否有錯，Worker 自己也可以監聽自己，語法相同：</p>
-<pre><code class="language-js">worker.onerror(function (event) {
+<pre><code class="language-js">worker.onerror(function (event) &#123;
   console.log(e.lineno, e.filename, e.message); // 行數、檔名、錯誤訊息
-});
+&#125;);
 
 // 或者
-worker.addEventListener('error', function (event) { /* */ });
+worker.addEventListener('error', function (event) &#123; /* */ &#125;);
 </code></pre>
 <h3 id="1-3-進程間通訊-IPC"><a class="header-anchor" href="#1-3-進程間通訊-IPC">¶ </a>1.3 進程間通訊 (IPC)</h3>
 <p>前面提到 Worker 之間通訊可以靠 message，除了物件以外還可以送各種 Binary 資料如 File、Blob、ArrayBuffer，不過都會是深度拷貝。如要避免拷貝，可以指名哪些「具可轉性物件」要做所有權轉移。瀏覽器內部機制將傳送的內容序列化（Serialization），Worker 接收後再反序列化。</p>
 <h4 id="1-3-1-深度拷貝範例"><a class="header-anchor" href="#1-3-1-深度拷貝範例">¶ </a>1.3.1 深度拷貝範例</h4>
 <pre><code class="language-js">// 主程序
 const uInt8Array = new Uint8Array(new ArrayBuffer(10));
-for (let i = 0; i &lt; uInt8Array.length; ++i) {
+for (let i = 0; i &lt; uInt8Array.length; ++i) &#123;
   uInt8Array[i] = i * 2; // [0, 2, 4, 6, 8,...]
-}
+&#125;
 worker.postMessage(uInt8Array);
 
 // Worker 程序
-onmessage = function (e) {
+onmessage = function (e) &#123;
   const uInt8Array = e.data; // 完全複製的 uInt8Array
-};
+&#125;;
 </code></pre>
 <p>深度拷貝會造成效瓶頸，轉移所有權是個好方法，通常用在影像、聲音、矩陣運算等上。Transferable 的物件有：<code> ArrayBuffer</code>、<code>MessagePort</code>、<code>ImageBitmap</code>、<code>OffscreenCanvas</code>。</p>
 <h4 id="1-3-2-轉移物件範例"><a class="header-anchor" href="#1-3-2-轉移物件範例">¶ </a>1.3.2 轉移物件範例</h4>
@@ -281,10 +281,10 @@ worker.postMessage(ab, [ab]);
 <h4 id="1-3-3-Worker-們之間通訊"><a class="header-anchor" href="#1-3-3-Worker-們之間通訊">¶ </a>1.3.3 Worker 們之間通訊</h4>
 <p>Worker 和 Worker 之間是彼此不能溝通的，但我們可以使用 <code>MessageChannel</code> 來解套：</p>
 <pre><code class="language-js">const channel = new MessageChannel();
-receivingWorker.postMessage({port: channel.port1}, [channel.port1]);
-sendingWorker.postMessage({port: channel.port2}, [channel.port2]);
+receivingWorker.postMessage(&#123;port: channel.port1&#125;, [channel.port1]);
+sendingWorker.postMessage(&#123;port: channel.port2&#125;, [channel.port2]);
 </code></pre>
-<p><code>MessageChannel</code> 的 <code>port1</code> 和 <code>port2</code> 皆為雙向管道，所以可以用 <code>onmessage</code> 和 <code>postMessage</code>，詳細範例可以參考「<a href="https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API/Using_channel_messaging" target="_blank" rel="noopener">Using channel messaging</a>」。</p>
+<p><code>MessageChannel</code> 的 <code>port1</code> 和 <code>port2</code> 皆為雙向管道，所以可以用 <code>onmessage</code> 和 <code>postMessage</code>，詳細範例可以參考「<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API/Using_channel_messaging">Using channel messaging</a>」。</p>
 <h3 id="1-4-其他"><a class="header-anchor" href="#1-4-其他">¶ </a>1.4 其他</h3>
 <h4 id="1-4-1-Web-worker-也可以和主程序在同一個檔案中"><a class="header-anchor" href="#1-4-1-Web-worker-也可以和主程序在同一個檔案中">¶ </a>1.4.1 Web worker 也可以和主程序在同一個檔案中</h4>
 <p>作法滿偷吃步：</p>
@@ -295,9 +295,9 @@ sendingWorker.postMessage({port: channel.port2}, [channel.port2]);
     &lt;/script&gt;
 
     &lt;script id=&quot;worker&quot; type=&quot;app/worker&quot;&gt;
-      addEventListener('message', function () {
+      addEventListener('message', function () &#123;
         postMessage('some message');
-      }, false);
+      &#125;, false);
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
@@ -308,13 +308,13 @@ sendingWorker.postMessage({port: channel.port2}, [channel.port2]);
 const url = window.URL.createObjectURL(blob); // 假裝是從 URL 來的
 const worker = new Worker(url);
 
-worker.onmessage = function (e) { /* */ };
+worker.onmessage = function (e) &#123; /* */ &#125;;
 </code></pre>
 <h4 id="1-4-2-Worker-也可以產生-Worker"><a class="header-anchor" href="#1-4-2-Worker-也可以產生-Worker">¶ </a>1.4.2 Worker 也可以產生 Worker</h4>
 <p>Worker 也可以是其他 Worker 的 Master，關係大概就像 <code>fork</code> 的 child 也可以去做 <code>fork</code>。Worker 和他產生的 Worker，互動方式就和原本主程式之於 Worker 一樣。</p>
 <h2 id="2-SharedArrayBuffer"><a class="header-anchor" href="#2-SharedArrayBuffer">¶ </a>2. SharedArrayBuffer</h2>
 <h3 id="2-1-簡介"><a class="header-anchor" href="#2-1-簡介">¶ </a>2.1 簡介</h3>
-<p>前面提到 Worker 的資料是獨立的，不管是透過深度拷貝或是轉移所有權，資料都不能和主程序或其他 Worker 共用。當然可以透過消息通知傳資料，但當資料很大時就顯的不切實際，因此當我們要寫平行程式時，共享資料成為必然。<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer" target="_blank" rel="noopener">SharedArrayBuffer</a> 因應而生。</p>
+<p>前面提到 Worker 的資料是獨立的，不管是透過深度拷貝或是轉移所有權，資料都不能和主程序或其他 Worker 共用。當然可以透過消息通知傳資料，但當資料很大時就顯的不切實際，因此當我們要寫平行程式時，共享資料成為必然。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer">SharedArrayBuffer</a> 因應而生。</p>
 <h3 id="2-2-用法"><a class="header-anchor" href="#2-2-用法">¶ </a>2.2 用法</h3>
 <p>以下為 <code>SharedArrayBuffer</code> 使用示例。</p>
 <h4 id="2-2-1-Master-端"><a class="header-anchor" href="#2-2-1-Master-端">¶ </a>2.2.1 Master 端</h4>
@@ -333,15 +333,15 @@ worker.postMessage(sharedBuffer); // (B)
 const sharedArray = new Int32Array(sharedBuffer); // (C)
 </code></pre>
 <p><code>(A)</code> 生成 <code>SharedArrayBuffer</code>，初始化要宣告要多大的 Buffer。</p>
-<p><code>(B)</code> 將 <code>sharedBuffer</code> 採用<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm" target="_blank" rel="noopener">結構複製（Structured Clone）</a>給 Worker，意思是 Worker 也會生出一個新的 <code>SharedArrayBuffer</code> 物件，但底層機制會讓他們映射到同一塊記憶體區間，等同傳址的概念。</p>
+<p><code>(B)</code> 將 <code>sharedBuffer</code> 採用<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm">結構複製（Structured Clone）</a>給 Worker，意思是 Worker 也會生出一個新的 <code>SharedArrayBuffer</code> 物件，但底層機制會讓他們映射到同一塊記憶體區間，等同傳址的概念。</p>
 <p><code>(C)</code> 將共用的 Buffer 轉為本地端使用的 <code>sharedArray</code>，這樣我們才可以操作元素，元素變動會直接改到共享的記憶體。</p>
 <h4 id="2-2-2-Worker-端"><a class="header-anchor" href="#2-2-2-Worker-端">¶ </a>2.2.2 Worker 端</h4>
 <pre><code class="language-js">// worker.js
 
-addEventListener('message', function (event) {
+addEventListener('message', function (event) &#123;
   const sharedBuffer = event.data;
   const sharedArray = new Int32Array(sharedBuffer); // (D)
-});
+&#125;);
 </code></pre>
 <p>Worker 可以從 <code>2.2.1</code> 的 <code>(B)</code> 取得資料，於 <code>(D)</code> 將 Buffer 轉換成可操作的 Array。此時 <code>(C)</code> 和 <code>(D)</code> 都可以修改 <code>SharedArrayBuffer</code> 的記憶體。</p>
 <h2 id="3-Atomics"><a class="header-anchor" href="#3-Atomics">¶ </a>3. Atomics</h2>
@@ -370,21 +370,21 @@ worker.postMessage(sab); // `SharedArrayBuffer` 物件傳給 Worker。
 
 const int32 = new Int32Array(sab);
 console.log(&quot;master before notify&quot;, int32[0]); // 0;
-setTimeout(()=&gt;{
+setTimeout(()=&gt;&#123;
   Atomics.store(int32, 0, 123); // 改變共用元素
   Atomics.notify(int32, 0, 1); // (A)
-}, 1000);
+&#125;, 1000);
 
 </code></pre>
 <pre><code class="language-js">// worker.js
 
-addEventListener('message', function (event) {
+addEventListener('message', function (event) &#123;
   const sharedBuffer = event.data;
   const int32 = new Int32Array(sharedBuffer);
  
   Atomics.wait(int32, 0, 0); // (B)
   console.log(&quot;worker after waiting&quot;, int32[0]); // 123
-});
+&#125;);
 </code></pre>
 <p><code>(B)</code> 這邊用 <code>Atomics.wait</code> 去檢查 <code>int32</code> 的第 <code>0</code> 個元素值和 <code>0</code> (<code>Atomics.wait</code> 第三個參數) 是否一樣，發現一樣，於是先進入睡眠。如果不一樣就不會等待。</p>
 <p>一秒鐘後，<code>(A)</code> 用 <code>Atomics.notify</code> 通知編號到 <code>1</code> 的 Worker 起來時 (<code>Atomics.notify</code> 第三個參數是計數器，預設到無限大，也就是所有 Worker 都檢查，但可以指定只檢查到第幾個 Worker)，Worker <code>1</code> 被喚醒，<code>Atomics.wait</code> 結束等待，於是繼續執行。</p>
@@ -409,10 +409,10 @@ const step = 1.0 / num_steps;
 let x;
 let sum = 0.0;
 
-for (let i = 0; i &lt; num_steps; i++) {
+for (let i = 0; i &lt; num_steps; i++) &#123;
     x = (i + 0.5) * step;
     sum = sum + 4.0 / (1.0 + x * x);
-}
+&#125;
 
 const pi = step * sum;
 </code></pre>
@@ -420,7 +420,7 @@ const pi = step * sum;
 <p>我用平行的方法將 <code>4.1</code> 程式碼改寫，執行平行版本在我的環境實測花了 <code>358</code> 毫秒。</p>
 <pre><code class="language-html">&lt;!-- pi.html --&gt;
 &lt;script id=&quot;worker&quot; type=&quot;app/worker&quot;&gt;
-    addEventListener('message', function (e) {
+    addEventListener('message', function (e) &#123;
         const data = e.data;
         const thread = data.thread;
         const start = data.start;
@@ -432,22 +432,22 @@ const pi = step * sum;
         let x;
         let sum = 0.0;
     
-        for (let i = start; i &lt; end; i++) {
+        for (let i = start; i &lt; end; i++) &#123;
             x = (i + 0.5) * step;
             sum = sum + 4.0 / (1.0 + x * x);
-        }
+        &#125;
     
         sum = sum * step;
     
         Atomics.add(u32Arr, 0, sum * magnification | 0); // (C)
         Atomics.add(u32Arr, 1, 1); // (D)
     
-        if (Atomics.load(u32Arr, 1) === thread) { // (E)
+        if (Atomics.load(u32Arr, 1) === thread) &#123; // (E)
             const pi = u32Arr[0] / magnification;
             console.log(&quot;PI is&quot;, pi);
-        }
+        &#125;
 
-    }, false);
+    &#125;, false);
 &lt;/script&gt;
 &lt;script&gt;
     const thread = 4;
@@ -463,19 +463,19 @@ const pi = step * sum;
     u32Arr[0] = 0;
     u32Arr[1] = 0;
 
-    for (let i = 0; i &lt; thread; i++) { // (B)
+    for (let i = 0; i &lt; thread; i++) &#123; // (B)
         const blob = new Blob([document.querySelector('#worker').textContent]);
         const url = window.URL.createObjectURL(blob);
         const worker = new Worker(url);
 
-        worker.postMessage({
+        worker.postMessage(&#123;
             thread: thread,
             start: part * i,
             end: part * (i + 1),
             step: step,
             buf: u32Buf,
-        });
-    }
+        &#125;);
+    &#125;
 &lt;/script&gt;
 </code></pre>
 <p>平行版本中，我用前面 <code>1.4.1</code> 提到的方法，將 worker 和主程序放在同一份檔案 <code>pi.html</code> 中，這樣做的目的只是因為比較好貼程式碼 :P。</p>
@@ -489,18 +489,18 @@ const pi = step * sum;
 <p>一般來說，開 4 個執行緒也很難做到快 4 倍，因為中間還有資料同步的成本，但基本上還是可以預期會比較快。所以如果將平行程式版本去編碼來進行相同精確度的浮點數操作，因為執行緒比較多，仍可以預期會比單緒版本還要快。(當然，如果程式碼寫得不好，導致同步成本過高，也是有機會平行化反而更差，就像一把刀子給兩個廚師用不會比較好使)</p>
 <h2 id="5-結論"><a class="header-anchor" href="#5-結論">¶ </a>5. 結論</h2>
 <p>透過 Web Worker、<code>SharedArrayBuffer</code>、<code>Atomics</code> 我們可以做到讓網頁可以平行化，這對影像處理、遊戲、AR 等之類的應用有很大幫助。不過 <code>SharedArrayBuffer</code> 目前只有 Chrome 預設有開，使用時可能要考慮其他瀏覽器相容性，此外也只支援整數(32位元)運算。</p>
-<p>藉由以上技術，我們甚至可以將 C++ 程式轉成網路程式，<code>SharedArrayBuffer</code> 讓 Emscripten 可以編譯 pthreads，而 fork 或 thread 則可以用 web worker 來辦到。<a href="https://browsix.org/" target="_blank" rel="noopener">Browsix</a> 就是一個將 Unix 程式轉成網頁程式的專案。</p>
-<p>隨著 WebAssembly 越來越成熟，我們也可以想見 Web Worker 搭配 WebAssembly 來做到更高速運算。而 <a href="https://github.com/WebAssembly/threads" target="_blank" rel="noopener">WebAssembly Thread</a> 還在討論階段，未來有可能不用靠 Web Worker 讓 WebAssembly 自己生成執行緒。</p>
+<p>藉由以上技術，我們甚至可以將 C++ 程式轉成網路程式，<code>SharedArrayBuffer</code> 讓 Emscripten 可以編譯 pthreads，而 fork 或 thread 則可以用 web worker 來辦到。<a target="_blank" rel="noopener" href="https://browsix.org/">Browsix</a> 就是一個將 Unix 程式轉成網頁程式的專案。</p>
+<p>隨著 WebAssembly 越來越成熟，我們也可以想見 Web Worker 搭配 WebAssembly 來做到更高速運算。而 <a target="_blank" rel="noopener" href="https://github.com/WebAssembly/threads">WebAssembly Thread</a> 還在討論階段，未來有可能不用靠 Web Worker 讓 WebAssembly 自己生成執行緒。</p>
 <h2 id="6-參考資料"><a class="header-anchor" href="#6-參考資料">¶ </a>6. 參考資料</h2>
 <ul>
-<li><a href="http://www.ruanyifeng.com/blog/2018/07/web-worker.html" target="_blank" rel="noopener">Web Worker 使用教程</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener">Using Web Workers</a></li>
-<li><a href="https://2ality.com/2017/01/shared-array-buffer.html#sharing-data-other-than-integers" target="_blank" rel="noopener">ES proposal: Shared memory and atomics</a></li>
-<li><a href="https://github.com/tc39/ecmascript_sharedmem/blob/master/TUTORIAL.md" target="_blank" rel="noopener">Shared memory - a brief tutorial</a></li>
-<li><a href="https://2ality.com/2017/01/messagechannel.html" target="_blank" rel="noopener">Communicating between Web Workers via MessageChannel</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer" target="_blank" rel="noopener">MDN: SharedArrayBuffer</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics" target="_blank" rel="noopener">MDN: Atomics</a></li>
-<li><a href="https://apiacoa.org/teaching/big-data/smp.en.html" target="_blank" rel="noopener">Shared memory parallel programming</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/07/web-worker.html">Web Worker 使用教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Using Web Workers</a></li>
+<li><a target="_blank" rel="noopener" href="https://2ality.com/2017/01/shared-array-buffer.html#sharing-data-other-than-integers">ES proposal: Shared memory and atomics</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tc39/ecmascript_sharedmem/blob/master/TUTORIAL.md">Shared memory - a brief tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://2ality.com/2017/01/messagechannel.html">Communicating between Web Workers via MessageChannel</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer">MDN: SharedArrayBuffer</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics">MDN: Atomics</a></li>
+<li><a target="_blank" rel="noopener" href="https://apiacoa.org/teaching/big-data/smp.en.html">Shared memory parallel programming</a></li>
 </ul>
 
     </div>
@@ -597,7 +597,7 @@ const pi = step * sum;
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Web-Worker"><span class="toc-text">1. Web Worker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-簡介"><span class="toc-text">1.1 簡介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-用法"><span class="toc-text">1.2 用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-主程序"><span class="toc-text">1.2.1 主程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-Worker-緒"><span class="toc-text">1.2.2 Worker 緒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-錯誤處理"><span class="toc-text">1.2.3 錯誤處理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-進程間通訊-IPC"><span class="toc-text">1.3 進程間通訊 (IPC)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-深度拷貝範例"><span class="toc-text">1.3.1 深度拷貝範例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-轉移物件範例"><span class="toc-text">1.3.2 轉移物件範例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-3-Worker-們之間通訊"><span class="toc-text">1.3.3 Worker 們之間通訊</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-其他"><span class="toc-text">1.4 其他</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1-Web-worker-也可以和主程序在同一個檔案中"><span class="toc-text">1.4.1 Web worker 也可以和主程序在同一個檔案中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-2-Worker-也可以產生-Worker"><span class="toc-text">1.4.2 Worker 也可以產生 Worker</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SharedArrayBuffer"><span class="toc-text">2. SharedArrayBuffer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-簡介"><span class="toc-text">2.1 簡介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-用法"><span class="toc-text">2.2 用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-Master-端"><span class="toc-text">2.2.1 Master 端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-Worker-端"><span class="toc-text">2.2.2 Worker 端</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Atomics"><span class="toc-text">3. Atomics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-簡介"><span class="toc-text">3.1 簡介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-用法"><span class="toc-text">3.2 用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-同步化"><span class="toc-text">3.2.1 同步化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-等待通知"><span class="toc-text">3.2.2 等待通知</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-原子操做"><span class="toc-text">3.2.3 原子操做</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-平行程式範例"><span class="toc-text">4. 平行程式範例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-單緒計算-PI"><span class="toc-text">4.1 單緒計算 PI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-平行計算-PI"><span class="toc-text">4.2 平行計算 PI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-結論"><span class="toc-text">5. 結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-參考資料"><span class="toc-text">6. 參考資料</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Web-Worker"><span class="toc-text">1. Web Worker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%B0%A1%E4%BB%8B"><span class="toc-text">1.1 簡介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%94%A8%E6%B3%95"><span class="toc-text">1.2 用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-%E4%B8%BB%E7%A8%8B%E5%BA%8F"><span class="toc-text">1.2.1 主程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-Worker-%E7%B7%92"><span class="toc-text">1.2.2 Worker 緒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86"><span class="toc-text">1.2.3 錯誤處理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E9%80%B2%E7%A8%8B%E9%96%93%E9%80%9A%E8%A8%8A-IPC"><span class="toc-text">1.3 進程間通訊 (IPC)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-%E6%B7%B1%E5%BA%A6%E6%8B%B7%E8%B2%9D%E7%AF%84%E4%BE%8B"><span class="toc-text">1.3.1 深度拷貝範例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-%E8%BD%89%E7%A7%BB%E7%89%A9%E4%BB%B6%E7%AF%84%E4%BE%8B"><span class="toc-text">1.3.2 轉移物件範例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-3-Worker-%E5%80%91%E4%B9%8B%E9%96%93%E9%80%9A%E8%A8%8A"><span class="toc-text">1.3.3 Worker 們之間通訊</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%85%B6%E4%BB%96"><span class="toc-text">1.4 其他</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1-Web-worker-%E4%B9%9F%E5%8F%AF%E4%BB%A5%E5%92%8C%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8C%E4%B8%80%E5%80%8B%E6%AA%94%E6%A1%88%E4%B8%AD"><span class="toc-text">1.4.1 Web worker 也可以和主程序在同一個檔案中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-2-Worker-%E4%B9%9F%E5%8F%AF%E4%BB%A5%E7%94%A2%E7%94%9F-Worker"><span class="toc-text">1.4.2 Worker 也可以產生 Worker</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SharedArrayBuffer"><span class="toc-text">2. SharedArrayBuffer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%B0%A1%E4%BB%8B"><span class="toc-text">2.1 簡介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%94%A8%E6%B3%95"><span class="toc-text">2.2 用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-Master-%E7%AB%AF"><span class="toc-text">2.2.1 Master 端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-Worker-%E7%AB%AF"><span class="toc-text">2.2.2 Worker 端</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Atomics"><span class="toc-text">3. Atomics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E7%B0%A1%E4%BB%8B"><span class="toc-text">3.1 簡介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E7%94%A8%E6%B3%95"><span class="toc-text">3.2 用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E5%90%8C%E6%AD%A5%E5%8C%96"><span class="toc-text">3.2.1 同步化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E7%AD%89%E5%BE%85%E9%80%9A%E7%9F%A5"><span class="toc-text">3.2.2 等待通知</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-%E5%8E%9F%E5%AD%90%E6%93%8D%E5%81%9A"><span class="toc-text">3.2.3 原子操做</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B9%B3%E8%A1%8C%E7%A8%8B%E5%BC%8F%E7%AF%84%E4%BE%8B"><span class="toc-text">4. 平行程式範例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%96%AE%E7%B7%92%E8%A8%88%E7%AE%97-PI"><span class="toc-text">4.1 單緒計算 PI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%B9%B3%E8%A1%8C%E8%A8%88%E7%AE%97-PI"><span class="toc-text">4.2 平行計算 PI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%B5%90%E8%AB%96"><span class="toc-text">5. 結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-text">6. 參考資料</span></a></li></ol>
 </div>
                 </section>
             

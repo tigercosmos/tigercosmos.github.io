@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -216,11 +216,11 @@ rhumerus -42.619 18.2084 -90.2387
 </code></pre>
 <p>讀完資訊檔會長這樣：</p>
 <p><img src="https://i.imgur.com/Vt5Jugt.png" alt=""></p>
-<p>更多資訊可以參考 <a href="http://mocap.cs.cmu.edu/info.php" target="_blank" rel="noopener">CMU Graphics Lab Motion Capture Database</a> 網站。</p>
+<p>更多資訊可以參考 <a target="_blank" rel="noopener" href="http://mocap.cs.cmu.edu/info.php">CMU Graphics Lab Motion Capture Database</a> 網站。</p>
 <h3 id="正向動力學"><a class="header-anchor" href="#正向動力學">¶ </a>正向動力學</h3>
 <p>正向動力學可以想成是一個動力傳遞鏈，先算出第一個關節的變化，再根據第一個關節變化去計算第二個關節的變化，以此類推。</p>
 <h4 id="概念"><a class="header-anchor" href="#概念">¶ </a>概念</h4>
-<p>概念如下列幾張圖 (source: <a href="http://alanzucconi.com" target="_blank" rel="noopener">alanzucconi.com</a>)：</p>
+<p>概念如下列幾張圖 (source: <a target="_blank" rel="noopener" href="http://alanzucconi.com">alanzucconi.com</a>)：</p>
 <p><strong>第一步</strong>：<br>
 <img src="https://i.imgur.com/kDm7vRg.png" alt=""></p>
 <p>P0 是整個骨架的 root，P1 和 P2 分別是整個骨架上的關節，並且每個關節都有三個自由度，都有自己的變化量。</p>
@@ -266,7 +266,7 @@ rhumerus -42.619 18.2084 -90.2387
 <p>以正向動力法實作，並加上時間扭曲法的呈現結果如下：</p>
 <p><img src="https://i.imgur.com/Gv0nk1Z.gif" alt=""></p>
 <p>黃色是原本影格，藍色則是使用時間扭曲後調整個影格。</p>
-<p>值得一提的是，math 函式庫轉換很複雜，實作上會因為單位轉換容易發生錯誤，像是旋轉的單位要在 degree 和 radian 之間轉換。另外 Quaternion 在使用 <a href="https://eigen.tuxfamily.org/dox/GettingStarted.html" target="_blank" rel="noopener">Eigen</a> (C++) 函式庫下的轉換也研究很久，最後才得到 Slerp  這樣寫：</p>
+<p>值得一提的是，math 函式庫轉換很複雜，實作上會因為單位轉換容易發生錯誤，像是旋轉的單位要在 degree 和 radian 之間轉換。另外 Quaternion 在使用 <a target="_blank" rel="noopener" href="https://eigen.tuxfamily.org/dox/GettingStarted.html">Eigen</a> (C++) 函式庫下的轉換也研究很久，最後才得到 Slerp  這樣寫：</p>
 <pre><code class="language-c++">auto rot1 = ComputeRotMatXyz(ToRadian(angular_vector1);
 auto rot2 = ComputeRotMatXyz(ToRadian(angular_vector2));
 auto q1 = Quaternion_t(rot1);
@@ -371,7 +371,7 @@ auto new_angular_vec = ToDegree(ComputeEulerAngleXyz(ComputeRotMat(new_q)));
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#簡介"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理與實作"><span class="toc-text">原理與實作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#骨架"><span class="toc-text">骨架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正向動力學"><span class="toc-text">正向動力學</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#數學"><span class="toc-text">數學</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#時間扭曲法"><span class="toc-text">時間扭曲法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-text">結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E8%88%87%E5%AF%A6%E4%BD%9C"><span class="toc-text">原理與實作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%A8%E6%9E%B6"><span class="toc-text">骨架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E5%8B%95%E5%8A%9B%E5%AD%B8"><span class="toc-text">正向動力學</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B8%E5%AD%B8"><span class="toc-text">數學</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%82%E9%96%93%E6%89%AD%E6%9B%B2%E6%B3%95"><span class="toc-text">時間扭曲法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
 </div>
                 </section>
             

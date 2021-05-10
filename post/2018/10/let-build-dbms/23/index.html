@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -179,44 +179,44 @@
 <p>!FILENAME component/table.rs</p>
 <pre><code>    /// `insert` row into the table
     /// `key` and `value` are `&amp;str`, and will be formated to the right type.
-    pub fn insert(&amp;mut self, row: Vec&lt;(&amp;str, &amp;str)&gt;) -&gt; Result&lt;(), TableError&gt; {
+    pub fn insert(&amp;mut self, row: Vec&lt;(&amp;str, &amp;str)&gt;) -&gt; Result&lt;(), TableError&gt; &#123;
         let mut new_row = Row::new();
 
         // insert data into row
-        for (key, value) in row {
-            match self.fields.get(key) {
-                Some(field) =&gt; {
-                    if field.not_null &amp;&amp; value == &quot;null&quot; {
+        for (key, value) in row &#123;
+            match self.fields.get(key) &#123;
+                Some(field) =&gt; &#123;
+                    if field.not_null &amp;&amp; value == &quot;null&quot; &#123;
                         return Err(TableError::InsertFieldNotNullMismatched(field.clone().name));
-                    }
+                    &#125;
                     new_row.0.insert(key.to_string(), value.to_string());
-                }
+                &#125;
                 None =&gt; return Err(TableError::InsertFieldNotExisted(key.to_string())),
-            }
-        }
+            &#125;
+        &#125;
 
         // check if the row fits the field
-        for (key, field) in self.fields.iter() {
-            match new_row.0.get(key) {
-                Some(_) =&gt; {}
-                None =&gt; {
-                    match field.clone().default {
+        for (key, field) in self.fields.iter() &#123;
+            match new_row.0.get(key) &#123;
+                Some(_) =&gt; &#123;&#125;
+                None =&gt; &#123;
+                    match field.clone().default &#123;
                         // if the attribute has default value, then insert with the default value.
                         Some(value) =&gt; new_row.0.insert(key.to_string(), value.to_string()),
                         None =&gt; return Err(TableError::InsertFieldDefaultMismatched(key.to_string())),
-                    };
-                }
-            };
-        }
+                    &#125;;
+                &#125;
+            &#125;;
+        &#125;
 
         self.rows.push(new_row);
 
         Ok(())
-    }
+    &#125;
 </code></pre>
 <p>there are also some tests for it.</p>
 <p>!FILENAME component/table.rs</p>
-<pre><code>    fn test_insert_row() {
+<pre><code>    fn test_insert_row() &#123;
         let mut table = Table::new(&quot;table_1&quot;);
         table.fields.insert(
             &quot;attr_1&quot;.to_string(),
@@ -279,7 +279,7 @@
         assert!(table.insert_row(data).is_err());
         let data = vec![(&quot;attr_1&quot;, &quot;123&quot;)];
         assert!(table.insert_row(data).is_err());
-    }
+    &#125;
 </code></pre>
 
     </div>

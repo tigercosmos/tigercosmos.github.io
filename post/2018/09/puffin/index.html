@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="english,browser,browsers,puffin browser,cloudmosa,browser architecture," />
+        content="english,browser,puffin browser,browsers,cloudmosa,browser architecture," />
     <meta name="description"
         content="How the Puffin Browser Works" />
     <title>Neutrino&#39;s Blog: How the Puffin Browser Works </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,7 +178,7 @@
 <p><img class="dz t u gs ak" src="https://miro.medium.com/max/2238/0*dWo9qcDgSr-F1adr.png" role="presentation"><br/></p>
 <p>This summer, I have been a software engineering intern at <a href="https://www.cloudmosa.com/" class="dj by hq hr hs ht" target="_blank" rel="noopener nofollow">CloudMosa, Inc.</a>, a company which develops <a href="https://www.puffinbrowser.com/" class="dj by hq hr hs ht" target="_blank" rel="noopener nofollow">Puffin Browser</a>.</p>
 <p>During two months of the summer, I have participated in some features development and fixed some bugs. Meanwhile, I have a look at the whole picture of Puffin Browser.</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <p>Puffin is a well-known remote browser with many users all over the world, and it is famous for Flash support on iOS and Android devices. Leveraging resources on remote servers allows Puffin to be faster than regular browsers, especially when browsing bandwidth-hogging or data-intensive websites on low-end mobile devices or with a low-bandwidth connection.</p>
 <p>As a remote browser, Puffin has many advantages over other popular browsers on the market, and I will discuss what makes Puffin stand out in this article.</p>
 <h2 id="Regular-browser-mechanisms"><a class="header-anchor" href="#Regular-browser-mechanisms">¶ </a>Regular browser mechanisms</h2>
@@ -306,12 +306,12 @@
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/browsers/">
-                browsers
-            </a>,&nbsp;
-        
             <a href="/tags/puffin-browser/">
                 puffin browser
+            </a>,&nbsp;
+        
+            <a href="/tags/browsers/">
+                browsers
             </a>,&nbsp;
         
             <a href="/tags/cloudmosa/">
@@ -387,7 +387,7 @@
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Puffin-is-wicked-fast-Let’s-dig-deeper-into-it"><span class="toc-text">Puffin is wicked fast. Let’s dig deeper into it.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Regular-browser-mechanisms"><span class="toc-text">Regular browser mechanisms</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-we-browse-the-Internet"><span class="toc-text">How we browse the Internet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI-application"><span class="toc-text">GUI application</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-engines"><span class="toc-text">Browser engines</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM"><span class="toc-text">DOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rules"><span class="toc-text">Rules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Style"><span class="toc-text">Style</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Layout"><span class="toc-text">Layout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Paint"><span class="toc-text">Paint</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript"><span class="toc-text">JavaScript</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-bottlenecks"><span class="toc-text">Browser bottlenecks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet-Connection"><span class="toc-text">Internet Connection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Calculation"><span class="toc-text">Calculation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Puffin-Architecture"><span class="toc-text">Puffin Architecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remote-browser-engine"><span class="toc-text">Remote browser engine</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-Client"><span class="toc-text">Browser Client</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Beyond-the-Remote-Architecture"><span class="toc-text">Beyond the Remote Architecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Benchmarks"><span class="toc-text">Benchmarks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Special-thanks"><span class="toc-text">Special thanks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#About-Me"><span class="toc-text">About Me</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Puffin-is-wicked-fast-Let%E2%80%99s-dig-deeper-into-it"><span class="toc-text">Puffin is wicked fast. Let’s dig deeper into it.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Regular-browser-mechanisms"><span class="toc-text">Regular browser mechanisms</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-we-browse-the-Internet"><span class="toc-text">How we browse the Internet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI-application"><span class="toc-text">GUI application</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-engines"><span class="toc-text">Browser engines</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM"><span class="toc-text">DOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rules"><span class="toc-text">Rules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Style"><span class="toc-text">Style</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Layout"><span class="toc-text">Layout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Paint"><span class="toc-text">Paint</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript"><span class="toc-text">JavaScript</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-bottlenecks"><span class="toc-text">Browser bottlenecks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet-Connection"><span class="toc-text">Internet Connection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Calculation"><span class="toc-text">Calculation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Puffin-Architecture"><span class="toc-text">Puffin Architecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remote-browser-engine"><span class="toc-text">Remote browser engine</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-Client"><span class="toc-text">Browser Client</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Beyond-the-Remote-Architecture"><span class="toc-text">Beyond the Remote Architecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Benchmarks"><span class="toc-text">Benchmarks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Special-thanks"><span class="toc-text">Special thanks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#About-Me"><span class="toc-text">About Me</span></a></li></ol>
 </div>
                 </section>
             

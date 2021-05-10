@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,7 +178,7 @@
 <p>前一張在介紹迴圈時，提到一些例子，例如我有一百件褲子，要一件一件檢查。或是老師巡邏學校有好幾個班級。我們知道可以用迴圈的方式，一個一個把「東西」數過一遍，也就是遍歷一次，但迴圈是「方法」，我們必須準備好東西，才能使用方法。</p>
 <p>這邊的東西就是指一百件褲子或是 20 個班級。我們需要用一個容器來儲存這些東西，在 JS 中，這個容器可以是陣列（Array），我們可以把一百件褲子放入陣列，那他就會叫做褲子陣列。</p>
 <p>事實上可以存一堆物品的容器可以是其他東西，但我們晚點再介紹。這個章節中我們要介紹何謂陣列。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <blockquote>
 <p>傳送門：此系列文章「<a href="/post/2018/11/master_js/table/">30 天 Javascript 從入門到進階</a>」</p>
 </blockquote>
@@ -269,13 +269,13 @@ names[0] = [&quot;Meow&quot;]; // 可以，因為對元素操作，不算改變�
 <p>檔案：ex4.js</p>
 <pre><code class="language-js">const children = [12, 14, 12, 16, 13, 8, 9];
 
-for(let i = 0; i &lt; children.length; i++) {
-    if(children[i] &lt;= 12) {
-        console.log(`第 ${i} 個小朋友：半票`);
-    } else {
-        console.log(`第 ${i} 個小朋友：全票`);
-    }
-}
+for(let i = 0; i &lt; children.length; i++) &#123;
+    if(children[i] &lt;= 12) &#123;
+        console.log(`第 $&#123;i&#125; 個小朋友：半票`);
+    &#125; else &#123;
+        console.log(`第 $&#123;i&#125; 個小朋友：全票`);
+    &#125;
+&#125;
 </code></pre>
 <p>執行 <code>ex4.js</code>：</p>
 <pre><code class="language-py">$ node ex5.js
@@ -316,9 +316,9 @@ console.log(arr2); // [100, 2, 3]
 <pre><code class="language-js">const arr1 = [1, 2, 3];
 const arr2 = [];
 
-for(let i = 0; i &lt; arr1.length; i++) {
+for(let i = 0; i &lt; arr1.length; i++) &#123;
     arr2[i] = arr1[i];
-}
+&#125;
 </code></pre>
 <p>我們直接用迴圈一個一個複製，因為單一變數複製時，記憶體會是不一樣的。<code>arr2</code> 原本是空的，我們直接對 <code>arr2[i]</code> 位置操作，可以直接讓沒有元素的位置有東西。</p>
 <p>要注意的是，如果陣列原本是空的 <code>[]</code>，直接在編號 <code>i</code> 位置插入值的話，陣列就會變成長度 <code>i</code>，中間會是 <code>undefined</code>。</p>
@@ -402,9 +402,9 @@ console.log(newArr);
 <p>檔案：ex6.js</p>
 <pre><code class="language-js">const children = [12, 14, 12, 16, 13, 8, 9];
 
-for(let i = 0; i &lt; children.length; i++) {
+for(let i = 0; i &lt; children.length; i++) &#123;
     children.push(10);
-}
+&#125;
 
 console.log(&quot;程式結束&quot;); // 不會跑到，因為在這之前程式會掛掉
 </code></pre>
@@ -518,7 +518,7 @@ FATAL ERROR: invalid array length Allocation failed - JavaScript heap out of mem
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">陣列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定義"><span class="toc-text">定義</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-語法"><span class="toc-text">JS 語法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建立陣列"><span class="toc-text">建立陣列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#呼叫元素"><span class="toc-text">呼叫元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改陣列"><span class="toc-text">修改陣列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混搭"><span class="toc-text">混搭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#陣列與迴圈"><span class="toc-text">陣列與迴圈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#陣列複製"><span class="toc-text">陣列複製</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法一"><span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法二"><span class="toc-text">方法二</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#陣列操作"><span class="toc-text">陣列操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#警告"><span class="toc-text">警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小結"><span class="toc-text">小結</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">陣列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E7%BE%A9"><span class="toc-text">定義</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-%E8%AA%9E%E6%B3%95"><span class="toc-text">JS 語法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E9%99%A3%E5%88%97"><span class="toc-text">建立陣列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BC%E5%8F%AB%E5%85%83%E7%B4%A0"><span class="toc-text">呼叫元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%99%A3%E5%88%97"><span class="toc-text">修改陣列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E6%90%AD"><span class="toc-text">混搭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%A3%E5%88%97%E8%88%87%E8%BF%B4%E5%9C%88"><span class="toc-text">陣列與迴圈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%A3%E5%88%97%E8%A4%87%E8%A3%BD"><span class="toc-text">陣列複製</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="toc-text">方法二</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%A3%E5%88%97%E6%93%8D%E4%BD%9C"><span class="toc-text">陣列操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AD%A6%E5%91%8A"><span class="toc-text">警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%B5%90"><span class="toc-text">小結</span></a></li></ol></li></ol>
 </div>
                 </section>
             

@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器開發進階實戰（四）font-family" />
     <title>Neutrino&#39;s Blog: 瀏覽器開發進階實戰（四）font-family </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -179,12 +179,12 @@
 </blockquote>
 <p>今天來介紹 <code>font-family</code>。</p>
 <p>當我們對 CSS 定義「字形」的時候，會使用 <code>font-family</code></p>
-<pre><code>p {
+<pre><code>p &#123;
     font-family: &quot;Times New Roman&quot;, Georgia, Serif;
-}
+&#125;
 </code></pre>
 <p><code>font-family</code> 由一串字型名稱組成，預設是瀏覽器會選取第一個字型來呈現，以上面例子來說，假設你的電腦有 <code>Times New Roman</code> 這個字型，就會用它來呈現文字；若是沒有的話，則檢查下一個，也就是 <code>Georgia</code> 是否有。如果 <code>font-family</code> 定義的字型都沒有，就會採用瀏覽器預設的字型。</p>
-<p>想了解更多的話可以看 <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/font-family" target="_blank" rel="noopener">MDN</a> 或是 <a href="https://www.w3.org/TR/CSS2/fonts.html#font-family-prop" target="_blank" rel="noopener">W3C</a> 的文件。</p>
+<p>想了解更多的話可以看 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/font-family">MDN</a> 或是 <a target="_blank" rel="noopener" href="https://www.w3.org/TR/CSS2/fonts.html#font-family-prop">W3C</a> 的文件。</p>
 <p>而今天要特別講的是<strong>預設字型的「回調」</strong>！<br>
 以下這串字：</p>
 <pre><code>のコ Hello 你好嗎 안녕하세요 Cześć Olá Здравствуйте ♫
@@ -192,40 +192,40 @@
 <p>並不是單一字型就能處理的，即使是預設字型，也要好幾種才能把這串字呈現出來。</p>
 <p>所以概念就是一串字，我們先試試看 <code>font-family</code> 的順序看能不能把字元呈現，不行的話就使用瀏覽器預設的字型，瀏覽器預設的一樣有順序，就照順序直到可以顯示出來為止。</p>
 <hr>
-<p>本系列本來都是用 Servo 介紹，不過目前的寫法並沒有實踐 <code>font-family</code>，不管如何都直接採用預設的字型。相關的程式碼在<a href="https://github.com/servo/servo/blob/master/components/gfx/platform/windows/font_list.rs" target="_blank" rel="noopener">這邊</a>。但也因為還沒實踐，所以就不拿來舉例，若是大家有興趣可以一起來貢獻把它完成。</p>
+<p>本系列本來都是用 Servo 介紹，不過目前的寫法並沒有實踐 <code>font-family</code>，不管如何都直接採用預設的字型。相關的程式碼在<a target="_blank" rel="noopener" href="https://github.com/servo/servo/blob/master/components/gfx/platform/windows/font_list.rs">這邊</a>。但也因為還沒實踐，所以就不拿來舉例，若是大家有興趣可以一起來貢獻把它完成。</p>
 <p>不過 Firefox 的 Gecko 理所當然有把它實踐囉！<br>
-這邊來看 Gecko 針對 Windows 平台的<a href="https://github.com/mozilla/gecko-dev/blob/153c591749d7807372a4ba99e2685b5461d36cf7/gfx/thebes/gfxWindowsPlatform.cpp#L604" target="_blank" rel="noopener">程式碼</a>，因為不同平台的處理方式還是有差異，所以處理字型的部分有特別切開。</p>
+這邊來看 Gecko 針對 Windows 平台的<a target="_blank" rel="noopener" href="https://github.com/mozilla/gecko-dev/blob/153c591749d7807372a4ba99e2685b5461d36cf7/gfx/thebes/gfxWindowsPlatform.cpp#L604">程式碼</a>，因為不同平台的處理方式還是有差異，所以處理字型的部分有特別切開。</p>
 <p>Gecko 使用 <code>GetCommonFallbackFonts</code> 這個函式來處理字型。</p>
 <pre><code>gfxWindowsPlatform::GetCommonFallbackFonts(uint32_t aCh, uint32_t aNextCh,
                                            Script aRunScript,
                                            nsTArray&lt;const char*&gt;&amp; aFontList)
-{
+&#123;
     EmojiPresentation emoji = GetEmojiPresentation(aCh);
-    if (emoji != EmojiPresentation::TextOnly) {
+    if (emoji != EmojiPresentation::TextOnly) &#123;
         if (aNextCh == kVariationSelector16 ||
            (aNextCh != kVariationSelector15 &amp;&amp;
-            emoji == EmojiPresentation::EmojiDefault)) {
+            emoji == EmojiPresentation::EmojiDefault)) &#123;
             // if char is followed by VS16, try for a color emoji glyph
             aFontList.AppendElement(kFontSegoeUIEmoji);
             aFontList.AppendElement(kFontEmojiOneMozilla);
-        }
-    }
+        &#125;
+    &#125;
 
     // Arial is used as the default fallback for system fallback
     aFontList.AppendElement(kFontArial);
 
-    if (!IS_IN_BMP(aCh)) {
+    if (!IS_IN_BMP(aCh)) &#123;
         uint32_t p = aCh &gt;&gt; 16;
-        if (p == 1) { // SMP plane
+        if (p == 1) &#123; // SMP plane
             aFontList.AppendElement(kFontSegoeUISymbol);
             aFontList.AppendElement(kFontEbrima);
             aFontList.AppendElement(kFontNirmalaUI);
             aFontList.AppendElement(kFontCambriaMath);
-        }
-    } else {
+        &#125;
+    &#125; else &#123;
         uint32_t b = (aCh &gt;&gt; 8) &amp; 0xff;
 
-        switch (b) {
+        switch (b) &#123;
         case 0x05:
             aFontList.AppendElement(kFontEstrangeloEdessa);
             aFontList.AppendElement(kFontCambria);
@@ -260,13 +260,13 @@
             break;
         default:
             break;
-        }
-    }
+        &#125;
+    &#125;
 
     // Arial Unicode MS has lots of glyphs for obscure characters,
     // use it as a last resort
     aFontList.AppendElement(kFontArialUnicodeMS);
-}
+&#125;
 </code></pre>
 <p>可以看到光瀏覽器預設字型就超過四十種，這也是因為各種奇形怪狀的符號實在太多，不同國家的文字使用的字型也不一樣，為了讓各種字元都能顯示，才不會出現顯示不出來變成框框的情形。</p>
 <hr>
@@ -281,12 +281,12 @@
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

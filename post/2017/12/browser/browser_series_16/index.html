@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="談談 Servo 專案" />
     <title>Neutrino&#39;s Blog: 談談 Servo 專案 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -203,18 +203,18 @@ Servo 取代 Gecko</p>
 <h2 id="Servo"><a class="header-anchor" href="#Servo">¶ </a>Servo</h2>
 <p>Servo 專案最早從 2012 年開始為實驗性質，後來 2015 在 CSS 上有重大突破，2016 時正式釋出第一版，並可以正確渲染以及效能比 Gecko 更好，於是 Mozilla 便有了量子專案，把 Servo 專案中最成熟的 CSS 模組，也就是 Stylo 整合進 Gecko，使得速度和效能變更好，也就是今年 2017/11 正式發表的新版 Firefox。</p>
 <p>本來預期是希望 Servo 能完全取代 Gecko，不過光是維護 Firefox，Mozilla 就幾乎沒什麼餘力了，投入新的 Servo 的人力就很少，進展也就很困難。長遠來看 Servo 和 Gecko 應該會互相搭配，要達到完全切割取代恐怕很難。雖然能投入的人力很少，值得慶幸的是 Servo 的志願貢獻者數量可觀，這是因為不同於 Firefox 舊時代的開發流程，Servo 採用 Github 經營社群，並透過許多 bot 來達到自動化的步驟，整體的開發體驗非常順暢，社群也非常友善，讓 Servo 上的開發者非常蓬勃。至於我則是渴望看到 Servo 完全成熟的一天，覺得將會是劃時代的突破！</p>
-<p>此外 Servo 和 Rust 有共生關係，基本上 Servo 可以說是 Rust 的最大試驗平台。Servo 專案同時也和 W3C 的<a href="https://github.com/w3c/web-platform-tests" target="_blank" rel="noopener">網路平台測試</a> 專案同步，後者是專門測試瀏覽器是否符合 W3C 標準的測試專案。此外 Servo 專案也完全照 <a href="https://whatwg.org/" target="_blank" rel="noopener">WHATWG</a> 的瀏覽器規範實作。</p>
+<p>此外 Servo 和 Rust 有共生關係，基本上 Servo 可以說是 Rust 的最大試驗平台。Servo 專案同時也和 W3C 的<a target="_blank" rel="noopener" href="https://github.com/w3c/web-platform-tests">網路平台測試</a> 專案同步，後者是專門測試瀏覽器是否符合 W3C 標準的測試專案。此外 Servo 專案也完全照 <a target="_blank" rel="noopener" href="https://whatwg.org/">WHATWG</a> 的瀏覽器規範實作。</p>
 <blockquote>
 <p>網頁超文字應用技術工作小組（Web Hypertext Application Technology Working Group, WHATWG），是一個以推動網路HTML標準為目的而成立的組織。在2004年，由Apple公司、Mozilla基金會和Opera軟體公司所組成。</p>
 </blockquote>
 <hr>
 <h2 id="連結"><a class="header-anchor" href="#連結">¶ </a>連結</h2>
-<p><a href="https://github.com/servo/servo" target="_blank" rel="noopener">Servo Github</a><br>
-<a href="https://download.servo.org/zh-TW/index.html" target="_blank" rel="noopener">下載 Servo</a> 來體驗看看<br>
-<a href="https://servo.org/zh-TW/index.html" target="_blank" rel="noopener">Servo 中文官網</a><br>
-<a href="https://www.rust-lang.org/en-US/" target="_blank" rel="noopener">Rust</a><br>
-<a href="https://doc.rust-lang.org/book/first-edition/" target="_blank" rel="noopener">Rust book</a><br>
-<a href="http://bholley.net/blog/2017/stylo.html" target="_blank" rel="noopener">how stylp brough rust and servo to firefox</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/servo/servo">Servo Github</a><br>
+<a target="_blank" rel="noopener" href="https://download.servo.org/zh-TW/index.html">下載 Servo</a> 來體驗看看<br>
+<a target="_blank" rel="noopener" href="https://servo.org/zh-TW/index.html">Servo 中文官網</a><br>
+<a target="_blank" rel="noopener" href="https://www.rust-lang.org/en-US/">Rust</a><br>
+<a target="_blank" rel="noopener" href="https://doc.rust-lang.org/book/first-edition/">Rust book</a><br>
+<a target="_blank" rel="noopener" href="http://bholley.net/blog/2017/stylo.html">how stylp brough rust and servo to firefox</a></p>
 <hr>
 <p>希望有幫到大家，大家明天見！</p>
 
@@ -227,12 +227,12 @@ Servo 取代 Gecko</p>
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">
@@ -304,7 +304,7 @@ Servo 取代 Gecko</p>
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#緣起"><span class="toc-text">緣起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rust"><span class="toc-text">Rust</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servo"><span class="toc-text">Servo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#連結"><span class="toc-text">連結</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B7%A3%E8%B5%B7"><span class="toc-text">緣起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rust"><span class="toc-text">Rust</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servo"><span class="toc-text">Servo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%A3%E7%B5%90"><span class="toc-text">連結</span></a></li></ol>
 </div>
                 </section>
             

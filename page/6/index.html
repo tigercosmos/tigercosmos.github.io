@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -180,7 +180,7 @@
         
                     <div class="post-content ">
                         <h2 id="Shell-介紹"><a class="header-anchor" href="#Shell-介紹">¶ </a>Shell 介紹</h2>
-<p>不管使用本地端 Unix、Windows 或是連線到伺服器，我們都會打開終端機（Terminal），而連線等入進去的起使畫面會是 Shell，然後開發者可以輸入指令來跑程式。某方面來說，當我們在講「使用終端機」就等同「使用 Shell」，即便他們原本代表意思其實不一樣。關於 Shell 的詳細介紹可以參考「<a href="https://en.wikipedia.org/wiki/C_shell" target="_blank" rel="noopener">C Sehll</a>」英文維基。</p>
+<p>不管使用本地端 Unix、Windows 或是連線到伺服器，我們都會打開終端機（Terminal），而連線等入進去的起使畫面會是 Shell，然後開發者可以輸入指令來跑程式。某方面來說，當我們在講「使用終端機」就等同「使用 Shell」，即便他們原本代表意思其實不一樣。關於 Shell 的詳細介紹可以參考「<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/C_shell">C Sehll</a>」英文維基。</p>
         <a href="/post/2020/01/unix/simple-shell/" class="more-link">Continue reading</a>
         </div>
     </article>
@@ -236,10 +236,10 @@
                     <div class="post-content ">
                         <p><strong>Paper</strong>: Not So Fast: Analyzing the Performance of WebAssembly vs. Native Code<br>
 <strong>Author</strong>: Abhinav Jangda, Bobby Powers, Emery D. Berger, and Arjun Guha, University of Massachusetts Amherst<br>
-<strong>Source</strong>: <a href="https://www.usenix.org/conference/atc19/presentation/jangda" target="_blank" rel="noopener">USENIX ATC 2019</a></p>
+<strong>Source</strong>: <a target="_blank" rel="noopener" href="https://www.usenix.org/conference/atc19/presentation/jangda">USENIX ATC 2019</a></p>
 <hr>
 <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
-<p>作者們先前開發了 <a href="https://github.com/plasma-umass/browsix" target="_blank" rel="noopener">BROWSIX</a>，可以讓 Unix 程式直接轉成 JavaScript 並跑在瀏覽器。BROWSIX 基本上就是把程式碼轉成 JavaScript 並且用 Browser API 來模擬 Unix System Call。此篇作者更進一步，開發 BROWSIX-WASM（fork 自 <a href="https://github.com/emscripten-core/emscripten" target="_blank" rel="noopener">Emscripten</a>）將程式碼轉成 WebAssembly，一來解決原本 JavaScript 效能不佳問題，同時也能可以拿來和 Native Code 在 SPEC CPU suite of Benchmark 上做效能比較。實驗結果 WebAssembly 在現代瀏覽器（Chrome &amp; Firefox）上慢 Native Code 大約 50%，並深入探討為什麼會這樣。</p>
+<p>作者們先前開發了 <a target="_blank" rel="noopener" href="https://github.com/plasma-umass/browsix">BROWSIX</a>，可以讓 Unix 程式直接轉成 JavaScript 並跑在瀏覽器。BROWSIX 基本上就是把程式碼轉成 JavaScript 並且用 Browser API 來模擬 Unix System Call。此篇作者更進一步，開發 BROWSIX-WASM（fork 自 <a target="_blank" rel="noopener" href="https://github.com/emscripten-core/emscripten">Emscripten</a>）將程式碼轉成 WebAssembly，一來解決原本 JavaScript 效能不佳問題，同時也能可以拿來和 Native Code 在 SPEC CPU suite of Benchmark 上做效能比較。實驗結果 WebAssembly 在現代瀏覽器（Chrome &amp; Firefox）上慢 Native Code 大約 50%，並深入探討為什麼會這樣。</p>
 <p>整體來說我覺得是很有趣的一篇論文，整理了重點並加入一些我個人的見解。</p>
         <a href="/post/2019/12/paper/browsix-wasm/" class="more-link">Continue reading</a>
         </div>
@@ -328,9 +328,9 @@
         </ul>
         
                     <div class="post-content ">
-                        <p>Unix 中 processes 之間溝通有很多種，本篇介紹 signal 的簡易使用。可以先閱讀 <a href="http://beej.us/guide/bgipc/html/single/bgipc.html#signals" target="_blank" rel="noopener">Beej 的介紹</a>。顧名思義，signal 就是程序發送和接受訊號，例如我們在使用 Shell 的時候，之所以 <code>Ctrl-C</code> 可以中斷程式執行，就是因為 Shell 捕捉到 <code>Ctrl-C</code> 發送的 <code>SIGINT</code> 訊號，知道有一個 interrupt signal，所以將程式中斷。</p>
-<p>發送 signal 可以用 <a href="http://man7.org/linux/man-pages/man2/sigaction.2.html" target="_blank" rel="noopener"><code>sigaction()</code></a> 或 <a href="http://man7.org/linux/man-pages/man7/signal.7.html" target="_blank" rel="noopener"><code>signal()</code></a>，不過建議使用 <code>sigaction</code> 因為比較新，詳細差別可以看 Stack Overflow 這篇 「<a href="https://stackoverflow.com/questions/231912/what-is-the-difference-between-sigaction-and-signal" target="_blank" rel="noopener">What is the difference between sigaction and signal?</a>」。</p>
-<p>如果想觸發 signal，可以用 <a href="http://man7.org/linux/man-pages/man2/kill.2.html" target="_blank" rel="noopener"><code>kill()</code></a> 或 <a href="http://man7.org/linux/man-pages/man3/sigqueue.3.html" target="_blank" rel="noopener"><code>sigqueue()</code></a>，差別在於後者僅限 Linux，但後者可以藉由傳送 <code>siginfo</code> 加一些資訊在 signal 中。此外一些 system call 本身也會觸發 signal，例如如果嘗試 <code>send()</code> 到不存在的 <code>socket</code>，就會觸發 <code>SIGPIPE</code>。</p>
+                        <p>Unix 中 processes 之間溝通有很多種，本篇介紹 signal 的簡易使用。可以先閱讀 <a target="_blank" rel="noopener" href="http://beej.us/guide/bgipc/html/single/bgipc.html#signals">Beej 的介紹</a>。顧名思義，signal 就是程序發送和接受訊號，例如我們在使用 Shell 的時候，之所以 <code>Ctrl-C</code> 可以中斷程式執行，就是因為 Shell 捕捉到 <code>Ctrl-C</code> 發送的 <code>SIGINT</code> 訊號，知道有一個 interrupt signal，所以將程式中斷。</p>
+<p>發送 signal 可以用 <a target="_blank" rel="noopener" href="http://man7.org/linux/man-pages/man2/sigaction.2.html"><code>sigaction()</code></a> 或 <a target="_blank" rel="noopener" href="http://man7.org/linux/man-pages/man7/signal.7.html"><code>signal()</code></a>，不過建議使用 <code>sigaction</code> 因為比較新，詳細差別可以看 Stack Overflow 這篇 「<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/231912/what-is-the-difference-between-sigaction-and-signal">What is the difference between sigaction and signal?</a>」。</p>
+<p>如果想觸發 signal，可以用 <a target="_blank" rel="noopener" href="http://man7.org/linux/man-pages/man2/kill.2.html"><code>kill()</code></a> 或 <a target="_blank" rel="noopener" href="http://man7.org/linux/man-pages/man3/sigqueue.3.html"><code>sigqueue()</code></a>，差別在於後者僅限 Linux，但後者可以藉由傳送 <code>siginfo</code> 加一些資訊在 signal 中。此外一些 system call 本身也會觸發 signal，例如如果嘗試 <code>send()</code> 到不存在的 <code>socket</code>，就會觸發 <code>SIGPIPE</code>。</p>
         <a href="/post/2019/11/unix/sigaction/" class="more-link">Continue reading</a>
         </div>
     </article>
@@ -353,7 +353,7 @@
         </ul>
         
                     <div class="post-content ">
-                        <p>當我們有很多 processes 時，並想用實現 shared memory 處理共用資料時，就可以使用 shared memory，來實作。建立 shared memory 可以使用 <code>mmap</code> 或是 System V <code>shmget</code>，但根據 Stack Overflow 「<a href="https://stackoverflow.com/questions/5656530/how-to-use-shared-memory-with-linux-in-c" target="_blank" rel="noopener">How to use shared memory with Linux in C</a>」回答，<code>shmget</code> 已經有點過時，<code>mmap</code> 則比較新和彈性。</p>
+                        <p>當我們有很多 processes 時，並想用實現 shared memory 處理共用資料時，就可以使用 shared memory，來實作。建立 shared memory 可以使用 <code>mmap</code> 或是 System V <code>shmget</code>，但根據 Stack Overflow 「<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/5656530/how-to-use-shared-memory-with-linux-in-c">How to use shared memory with Linux in C</a>」回答，<code>shmget</code> 已經有點過時，<code>mmap</code> 則比較新和彈性。</p>
 <p>Shared memory 讓我們可以建立一塊共用的記憶體空間，<code>mmap</code> 會回傳一塊記憶體空間的指標，型別是 <code>void *</code>，如果我們想要放資料進去，可以用 <code>memcpy</code> 將物件、字串或任何東西拷貝進去。我們也可以直接將 <code>void *</code> 轉型成物件指標，這樣就建立 shared object，不同 process 可以直接對 process 存取物件。</p>
         <a href="/post/2019/11/unix/mmap/" class="more-link">Continue reading</a>
         </div>

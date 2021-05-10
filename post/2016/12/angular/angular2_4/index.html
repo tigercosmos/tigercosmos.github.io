@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -255,22 +255,22 @@ tempalte:</p>
 <pre><code>&lt;button (click)=&quot;onSave()&quot;&gt;Save&lt;/button&gt;
 </code></pre>
 <p>Component:</p>
-<pre><code>@Component({
+<pre><code>@Component(&#123;
     ...
-})
-export class AppComponent {
-    onSave(): void{
+&#125;)
+export class AppComponent &#123;
+    onSave(): void&#123;
         ...
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>&#x9019;&#x7A2E;&#x4E00;&#x822C;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x62FF;&#x4F86;&#x505A;&#x6309;&#x9215;&#x547C;&#x53EB; API &#x63D0;&#x4EA4;&#x8868;&#x55AE;&#x7B49;&#x7B49;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x505A; HTML Element &#x8B8A;&#x5316;&#x7684;&#x4E92;&#x52D5;&#x3002;</p>
 <p>&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x81EA;&#x8A02;&#x7684;&#x4E8B;&#x4EF6;&#x7D81;&#x5B9A;&#xFF0C;&#x9019;&#x6642;&#x5019;&#x6211;&#x5011;&#x7528; Angular <code>EventEmitter</code><br>
 &#x6211;&#x5011;&#x9019;&#x6A23;&#x5B9A;&#x7FA9;&#x89F8;&#x767C;&#x4E8B;&#x4EF6;&#xFF1A;</p>
 <pre><code>deleteRequest = new EventEmitter&lt;Hero&gt;();
-<p>delete() {<br>
+<p>delete() &#123;<br>
 this.deleteRequest.emit(this.hero);<br>
-}<br>
+&#125;<br>
 </code></pre></p>
 <p>&#x6A21;&#x677F;&#xFF1A;</p>
 <pre><code>&lt;div&gt;
@@ -283,29 +283,29 @@ this.deleteRequest.emit(this.hero);<br>
 <p>&#x7576; <code>delete()</code> &#x57F7;&#x884C;&#xFF0C;&#x6703;&#x89F8;&#x767C; <code>deleteRequest</code> &#x7522;&#x751F;&#x7684; <code>EvevntEmitter</code> &#x7269;&#x4EF6;&#x88FD;&#x9020;&#x51FA; <code>Hero</code> &#xFF0C;&#x63A5;&#x8005; <code>&lt;hero-detail&gt;</code> &#x6703;&#x8DDF;&#x8457; <code>deleteRequest</code> &#x4E8B;&#x4EF6;&#x89F8;&#x767C;&#x7684;&#x6539;&#x8B8A;&#x800C;&#x6539;&#x8B8A;&#x3002;</p>
 <h2>&#x6578;&#x64DA;&#x7D81;&#x5B9A;</h2>
 <h3>Interpolation</h3>
-<p>&#x57FA;&#x672C;&#x5C31;&#x662F;&#x5728; <code>html</code> template &#x88E1;&#x9762;&#x52A0;&#x4E0A; <code>{ { } }</code>&#xFF0C;&#x4E2D;&#x9593;&#x5305;&#x4F4F;&#x60F3;&#x8981;&#x986F;&#x793A;&#x7684;&#x8B8A;&#x6578;&#xFF0C;&#x800C;&#x8B8A;&#x6578;&#x5247;&#x662F;&#x5BA3;&#x544A;&#x5728; <code>app.component.ts</code> &#x88E1;&#x9762;&#x3002;<br>
+<p>&#x57FA;&#x672C;&#x5C31;&#x662F;&#x5728; <code>html</code> template &#x88E1;&#x9762;&#x52A0;&#x4E0A; <code>&#123; &#123; &#125; &#125;</code>&#xFF0C;&#x4E2D;&#x9593;&#x5305;&#x4F4F;&#x60F3;&#x8981;&#x986F;&#x793A;&#x7684;&#x8B8A;&#x6578;&#xFF0C;&#x800C;&#x8B8A;&#x6578;&#x5247;&#x662F;&#x5BA3;&#x544A;&#x5728; <code>app.component.ts</code> &#x88E1;&#x9762;&#x3002;<br>
 &#x4F86;&#x770B;&#x770B;&#x7BC4;&#x4F8B;&#xFF1A;</p>
 <pre><code>// app.component.ts
-import {Component} from &apos;angular2/core&apos;;
-@Component({
+import &#123;Component&#125; from &apos;angular2/core&apos;;
+@Component(&#123;
   selector: &apos;my-app&apos;,
   templateUrl: &apos;app.component.html&apos;,
   styleUrls: [&apos;app.component.css&apos;]
-})
-export class AppComponent {
+&#125;)
+export class AppComponent &#123;
   title = &apos;Tour of Heroes&apos;;
   myHero = &apos;Windstorm&apos;;
-}
+&#125;
 </code></pre>
 <pre><code>// app.component.html
-  &lt;h1&gt;{{title}}&lt;/h1&gt;
-  &lt;h2&gt;My favorite hero is: {{myHero}}&lt;/h2&gt;
+  &lt;h1&gt;&#123;&#123;title&#125;&#125;&lt;/h1&gt;
+  &lt;h2&gt;My favorite hero is: &#123;&#123;myHero&#125;&#125;&lt;/h2&gt;
 </code></pre>
 <p>&#x6703;&#x986F;&#x793A;&#x6210;&#x9019;&#x6A23;&#xFF1A;<br>
-&#x56E0;&#x70BA;&#x662F;&#x5728;&#x540C;&#x500B; Component&#xFF0C;&#x7576; Angular &#x5728; Template &#x4E2D;&#x5075;&#x6E2C;&#x5230; <code>{ { } }</code> &#x7684;&#x6642;&#x5019;&#xFF0C; Class &#x88E1;&#x7684;&#x8B8A;&#x6578;&#x6703;&#x76F4;&#x63A5;&#x88AB;&#x653E;&#x5230; <code>{ { } }</code> &#x88E1;&#x9762;&#x3002;&#x7576;&#x8B8A;&#x6578;&#x503C;&#x767C;&#x751F;&#x6539;&#x8B8A;&#x6642;&#x4E5F;&#x6703;&#x8DDF;&#x8457;&#x66F4;&#x65B0;&#x986F;&#x793A;&#xFF0C;&#x6578;&#x503C;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x986F;&#x793A;&#x662F;&#x767C;&#x751F;&#x5728;&#x8207;&#x8996;&#x5716;&#x76F8;&#x95DC;&#x7684;&#x67D0;&#x4E9B;&#x7570;&#x6B65;&#x4E8B;&#x4EF6;&#x4E4B;&#x5F8C;&#xFF0C;&#x4F8B;&#x5982;&#x9EDE;&#x64CA;&#x3001;&#x52FE;&#x9078;&#x3001;&#x547C;&#x53EB; XHR&#x3002;</p>
+&#x56E0;&#x70BA;&#x662F;&#x5728;&#x540C;&#x500B; Component&#xFF0C;&#x7576; Angular &#x5728; Template &#x4E2D;&#x5075;&#x6E2C;&#x5230; <code>&#123; &#123; &#125; &#125;</code> &#x7684;&#x6642;&#x5019;&#xFF0C; Class &#x88E1;&#x7684;&#x8B8A;&#x6578;&#x6703;&#x76F4;&#x63A5;&#x88AB;&#x653E;&#x5230; <code>&#123; &#123; &#125; &#125;</code> &#x88E1;&#x9762;&#x3002;&#x7576;&#x8B8A;&#x6578;&#x503C;&#x767C;&#x751F;&#x6539;&#x8B8A;&#x6642;&#x4E5F;&#x6703;&#x8DDF;&#x8457;&#x66F4;&#x65B0;&#x986F;&#x793A;&#xFF0C;&#x6578;&#x503C;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x986F;&#x793A;&#x662F;&#x767C;&#x751F;&#x5728;&#x8207;&#x8996;&#x5716;&#x76F8;&#x95DC;&#x7684;&#x67D0;&#x4E9B;&#x7570;&#x6B65;&#x4E8B;&#x4EF6;&#x4E4B;&#x5F8C;&#xFF0C;&#x4F8B;&#x5982;&#x9EDE;&#x64CA;&#x3001;&#x52FE;&#x9078;&#x3001;&#x547C;&#x53EB; XHR&#x3002;</p>
 <p>&#x9084;&#x53EF;&#x4EE5;&#x62FF;&#x4F86;&#x9019;&#x6A23;&#x7528;&#xFF1A;</p>
 <pre><code>&lt;!-- &quot;The sum of 1 + 1 is 2&quot; --&gt;
-&lt;p&gt;The sum of 1 + 1 is {{1 + 1}}&lt;/p&gt;
+&lt;p&gt;The sum of 1 + 1 is &#123;&#123;1 + 1&#125;&#125;&lt;/p&gt;
 </code></pre>
 <h2>Two Way Binding</h2>
 <p>&#x9867;&#x540D;&#x601D;&#x7FA9;&#xFF0C;&#x5C31;&#x662F;&#x524D;&#x5F8C;&#x90FD;&#x80FD;&#x5F7C;&#x6B64;&#x63A7;&#x5236;&#x5C0D;&#x65B9;&#xFF0C;&#x66F4;&#x767D;&#x8A71;&#x4E00;&#x9EDE;&#x5C31;&#x662F;&#x7A0B;&#x5F0F;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x986F;&#x793A;&#xFF0C;&#x986F;&#x793A;&#x7684;&#x5730;&#x65B9;&#x4E5F;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x6309;&#x9215;&#x3001;&#x8F38;&#x5165;&#x7B49;&#x65B9;&#x5F0F;&#x6539;&#x8B8A;&#x6578;&#x64DA;&#x3002;<br>
@@ -320,7 +320,7 @@ export class AppComponent {
 <pre><code>&lt;div&gt;
   &lt;h4&gt;Select Account&lt;/h4&gt;
   &lt;select [(ngModel)]=&quot;selectedAccount&quot; (ngModelChange)=&quot;selectAccount()&quot;&gt;
-    &lt;option *ngFor=&quot;let account of accounts&quot; [ngValue]=&quot;account&quot;&gt;{{account.name}}&lt;/option&gt;
+    &lt;option *ngFor=&quot;let account of accounts&quot; [ngValue]=&quot;account&quot;&gt;&#123;&#123;account.name&#125;&#125;&lt;/option&gt;
   &lt;/select&gt;
 &lt;/div&gt;
 </code></pre>
@@ -416,7 +416,7 @@ export class AppComponent {
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x6578;&amp;#x64DA;&amp;#x7D81;&amp;#x5B9A;&amp;#x5C0F;&amp;#x8907;&amp;#x7FD2;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x6982;&amp;#x89C0;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8A9E;&amp;#x6CD5;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x7BC4;&amp;#x4F8B;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x7D81;&amp;#x5B9A; Attribute&amp;#x3001;class&amp;#x3001;style</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x7528;&amp;#x9014;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">Attribute binding (&amp;#x5C6C;&amp;#x6027;&amp;#x7D81;&amp;#x5B9A;)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">Class binding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">Style binding</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x4E8B;&amp;#x4EF6;&amp;#x7D81;&amp;#x5B9A; (Event binding)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x6578;&amp;#x64DA;&amp;#x7D81;&amp;#x5B9A;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">Interpolation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">Two Way Binding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">NgModal</span></a>
+<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">數據綁定小複習</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">概觀</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">語法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">範例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">綁定 Attribute、class、style</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">用途</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Attribute binding (屬性綁定)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Class binding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Style binding</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">事件綁定 (Event binding)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">數據綁定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Interpolation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Two Way Binding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">NgModal</span></a>
 </div>
                 </section>
             

@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -188,24 +188,24 @@
 <p>&#x5148;&#x4F86;&#x770B;&#x770B;&#x6211;&#x5011;&#x7684;&#x8A9E;&#x8A00;&#x5305;&#x6700;&#x5F8C;&#x9577;&#x600E;&#x6A23;</p>
 <pre><code>// lang-en.ts
 <p>export const LANG_EN_NAME = 'en';</p>
-<p>export const LANG_EN_TRANS = {<br>
+<p>export const LANG_EN_TRANS = &#123;<br>
 'hello world': 'hello world',<br>
 'hello greet': 'Hello, %0 %1!', // two placeholder<br>
 'well done': 'Well done %0', // one placeholder<br>
 'good bye': 'bye bye', // 只有在英文中定義<br>
-}</p>
+&#125;</p>
 <p>// lang-zh.ts</p>
 <p>export const LANG_ZH_NAME = 'zh';</p>
-<p>export const LANG_ZH_TRANS = {<br>
+<p>export const LANG_ZH_TRANS = &#123;<br>
 'hello world': '你好，世界',<br>
 'hello greet': '你好, %0 %1!',<br>
 'well done': '幹得好, %0',<br>
-};<br>
+&#125;;<br>
 </code></pre></p>
 <h3>&#x66F4;&#x65B0; translate &#x670D;&#x52D9;</h3>
 <pre><code>// app/translate/translate.service.ts
 ...
-<p>public instant(key: string, words?: string | string[]) { // 增加可能的變數<br>
+<p>public instant(key: string, words?: string | string[]) &#123; // 增加可能的變數<br>
 const translation: string = this.translate(key);</p>
 <pre><code>if (!words) return translation;
 return this.replace(translation, words); // &amp;#x547C;&amp;#x53EB; replace 
@@ -217,13 +217,13 @@ return this.replace(translation, words); // &amp;#x547C;&amp;#x53EB; replace
 <pre><code>// app/translate/translate.service.ts
 ...
 <p>private PLACEHOLDER = '%'; // 我們的佔位符</p>
-<p>public replace(word: string = '', words: string | string[] = '') {<br>
+<p>public replace(word: string = '', words: string | string[] = '') &#123;<br>
 let translation: string = word;</p>
 <pre><code>const values: string[] = [].concat(words);// &amp;#x5C0E;&amp;#x5165;&amp;#x8F38;&amp;#x5165;&amp;#x7684;&amp;#x53C3;&amp;#x6578;&amp;#x5B57;&amp;#x4E32;
-values.forEach((e, i) =&amp;gt; {
+values.forEach((e, i) =&amp;gt; &#123;
     //&amp;#x6703;&amp;#x7528; e &amp;#x66FF;&amp;#x63DB;&amp;#x6389; %i: %0, %1, ...
     translation = translation.replace(this.PLACEHOLDER.concat(&amp;lt;any&amp;gt;i), e);
-});
+&#125;);
 
 return translation;
 </code></pre>
@@ -233,10 +233,10 @@ return translation;
 <h3>&#x66F4;&#x65B0; Pipe</h3>
 <pre><code>// app/translate/translate.pipe.ts
 ...
-<p>transform(value: string, args: string | string[]): any { // args 可以是單一字串或是字串列<br>
+<p>transform(value: string, args: string | string[]): any &#123; // args 可以是單一字串或是字串列<br>
 if (!value) return;<br>
 return this._translate.instant(value, args); // 加入 args<br>
-}<br>
+&#125;<br>
 …<br>
 </code></pre></p>
 <h3>&#x66F4;&#x65B0;&#x6A21;&#x677F;</h3>
@@ -245,35 +245,35 @@ return this._translate.instant(value, args); // 加入 args<br>
 &lt;p&gt;<br>
 Translate &lt;strong class=&quot;text-muted&quot;&gt;Hello, %0 %1!&lt;/strong&gt;:<br>
 &lt;br&gt;<br>
-&lt;strong&gt;{{ &apos;hello greet&apos; | translate:[&apos;Jane&apos;, &apos;Doe&apos;] }}&lt;/strong&gt;<br>
+&lt;strong&gt;&#123;&#123; &apos;hello greet&apos; | translate:[&apos;Jane&apos;, &apos;Doe&apos;] &#125;&#125;&lt;/strong&gt;<br>
 &lt;/p&gt;</p>
 <p>&lt;!-- 單一值通道 --&gt;<br>
 &lt;p&gt;<br>
 Translate &lt;strong class=&quot;text-muted&quot;&gt;Well done %0&lt;/strong&gt;:<br>
 &lt;br&gt;<br>
-&lt;strong&gt;{{ &apos;well done&apos; | translate:&apos;John&apos; }}&lt;/strong&gt;<br>
+&lt;strong&gt;&#123;&#123; &apos;well done&apos; | translate:&apos;John&apos; &#125;&#125;&lt;/strong&gt;<br>
 &lt;/p&gt;<br>
 </code></pre></p>
 <h3>&#x5EFA;&#x7ACB;&#x4E8B;&#x4EF6;</h3>
 <pre><code>// app/translate/translate.service.ts
 ...
-<p>import { Injectable, Inject, EventEmitter } from '@angular/core'; // 引入 event emitter</p>
+<p>import &#123; Injectable, Inject, EventEmitter &#125; from '@angular/core'; // 引入 event emitter</p>
 <p>…</p>
 <p>// 增加事件<br>
 public onLangChanged: EventEmitter&lt;string&gt; = new EventEmitter&lt;string&gt;();<br>
 …</p>
 <p>// 選取用甚麼語言<br>
-public use(lang: string): void {<br>
+public use(lang: string): void &#123;<br>
 …<br>
 this.onLangChanged.emit(lang); // 發布變化<br>
-}</p>
+&#125;</p>
 <p>…<br>
 </code></pre></p>
 <h3>&#x4E3B;&#x7A0B;&#x5F0F;</h3>
 <p>&#x5148;&#x79FB;&#x9664; <code>selectLang()</code> &#x4E2D;&#x7684; <code>refreshText()</code>&#xFF0C;&#x6211;&#x5011;&#x8981;&#x91CD;&#x65B0;&#x67B6;&#x69CB;&#x3002;</p>
 <pre><code>// app/app.component.ts
 ...
-<p>ngOnInit() {<br>
+<p>ngOnInit() &#123;<br>
 // 載入一些東西<br>
 …</p>
 <pre><code>this.subscribeToLangChanged(); // subscribe to language changes
@@ -302,31 +302,31 @@ return this._translate.onLangChanged.subscribe(x =&gt; this.refreshText());<br>
 private _defaultLang: string;<br>
 private _currentLang: string;<br>
 private _fallback: boolean;</p>
-<p>public get currentLang() {<br>
+<p>public get currentLang() &#123;<br>
 return this._currentLang || this._defaultLang; // 當沒有當前選取語言時用預設語言<br>
-}</p>
-<p>public setDefaultLang(lang: string) {<br>
+&#125;</p>
+<p>public setDefaultLang(lang: string) &#123;<br>
 this._defaultLang = lang; // 設定預設<br>
-}</p>
-<p>public enableFallback(enable: boolean) {<br>
+&#125;</p>
+<p>public enableFallback(enable: boolean) &#123;<br>
 this._fallback = enable; // 是否啟用備用<br>
-}</p>
-<p>private translate(key: string): string { // 翻譯傳入的字串<br>
+&#125;</p>
+<p>private translate(key: string): string &#123; // 翻譯傳入的字串<br>
 let translation = key;</p>
 <pre><code>// &amp;#x767C;&amp;#x73FE;&amp;#x76EE;&amp;#x524D;&amp;#x9078;&amp;#x7684;&amp;#x8A9E;&amp;#x8A00;&amp;#x6709;&amp;#x9019;&amp;#x500B;&amp;#x5B57;&amp;#x4E32;
-if (this._translations[this.currentLang] &amp;amp;&amp;amp; this._translations[this.currentLang][key]) {
+if (this._translations[this.currentLang] &amp;amp;&amp;amp; this._translations[this.currentLang][key]) &#123;
     return this._translations[this.currentLang][key];
-}
+&#125;
 
 // &amp;#x4E0D;&amp;#x7528;&amp;#x5099;&amp;#x7528;
-if (!this._fallback) { 
+if (!this._fallback) &#123; 
     return translation;
-}
+&#125;
 
 // &amp;#x767C;&amp;#x73FE;&amp;#x9810;&amp;#x8A2D;&amp;#x8A9E;&amp;#x8A00;&amp;#x6709;&amp;#x9019;&amp;#x5B57;&amp;#x4E32;
-if (this._translations[this._defaultLang] &amp;amp;&amp;amp; this._translations[this._defaultLang][key]) {
+if (this._translations[this._defaultLang] &amp;amp;&amp;amp; this._translations[this._defaultLang][key]) &#123;
     return this._translations[this._defaultLang][key];
-}
+&#125;
 
 // &amp;#x90FD;&amp;#x6C92;&amp;#x6709;
 return translation;
@@ -337,7 +337,7 @@ return translation;
 <p>&#x7576;&#x7136;&#x6211;&#x5011;&#x4E5F;&#x53EF;&#x4EE5;</p>
 <pre><code>// app/app.component.ts
 ...
-<p>ngOnInit() {<br>
+<p>ngOnInit() &#123;<br>
 // 可以做一些事情…<br>
 …</p>
 <pre><code>this.subscribeToLangChanged();
@@ -356,7 +356,7 @@ this.selectLang(&amp;apos;zh&amp;apos;);
 <pre><code>&lt;p&gt;
     Translate &lt;strong class=&quot;text-muted&quot;&gt;Good bye (fallback)&lt;/strong&gt;: 
     &lt;br&gt;
-    &lt;strong&gt;{{ &apos;good bye&apos; | translate }}&lt;/strong&gt;
+    &lt;strong&gt;&#123;&#123; &apos;good bye&apos; | translate &#125;&#125;&lt;/strong&gt;
 &lt;/p&gt;
 </code></pre>
 <p>&#x4E0A;&#x9762;&#x9019;&#x4E00;&#x6BB5;&#xFF0C;&#x4E0D;&#x7BA1;&#x63DB;&#x897F;&#x73ED;&#x7259;&#x8A9E;&#x6216;&#x662F;&#x4E2D;&#x6587;&#xFF0C;&#x90FD;&#x6703;&#x56DE;&#x53BB;&#x627E;&#x82F1;&#x6587;&#x7684;&#x5B57;&#x4E32;&#x4F86;&#x7528;</p>
@@ -450,7 +450,7 @@ this.selectLang(&amp;apos;zh&amp;apos;);
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x76EE;&amp;#x6A19;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x958B;&amp;#x5DE5;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8A9E;&amp;#x8A00;&amp;#x5305;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x66F4;&amp;#x65B0; translate &amp;#x670D;&amp;#x52D9;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x66F4;&amp;#x65B0; Pipe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x66F4;&amp;#x65B0;&amp;#x6A21;&amp;#x677F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5EFA;&amp;#x7ACB;&amp;#x4E8B;&amp;#x4EF6;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x4E3B;&amp;#x7A0B;&amp;#x5F0F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x9810;&amp;#x8A2D; &amp; &amp;#x5099;&amp;#x7528;&amp;#x8A9E;&amp;#x8A00;</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">目標</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">開工</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">語言包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">更新 translate 服務</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">更新 Pipe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">更新模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">建立事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">主程式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">預設 &amp; 備用語言</span></a></li></ol></li></ol>
 </div>
                 </section>
             

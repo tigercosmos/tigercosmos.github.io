@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -240,19 +240,19 @@ Running<br>
 </code></pre></p>
 <pre><code>// app.simpleform.ts
 
-import { Component } from &apos;@angular/core&apos;;
+import &#123; Component &#125; from &apos;@angular/core&apos;;
 
-@Component({
+@Component(&#123;
   selector: &apos;simple-form&apos;,
   templateUrl: &apos;app.simpleform.html&apos;
-})
-export class SimpleFormComponent {
+&#125;)
+export class SimpleFormComponent &#123;
   //&#x9019;&#x908A;&#x8A2D;&#x5B9A;&#x63D0;&#x4EA4;&#x5F8C;&#x8981;&#x5E79;&#x561B;&#xFF0C;&#x76EE;&#x524D;&#x53EA;&#x662F; Console.log &#x51FA;&#x8CC7;&#x6599;&#x800C;&#x5DF2;
-  submitForm(form: any): void{
+  submitForm(form: any): void&#123;
     console.log(&apos;Form Data: &apos;);
     console.log(form);
-  }
-}
+  &#125;
+&#125;
 </code></pre>
 <p>&#x7A0B;&#x5F0F;&#x78BC;&#x5C31;&#x4E0D;&#x591A;&#x89E3;&#x91CB;&#xFF0C;&#x90FD;&#x6709;&#x52A0;&#x8A3B;&#x89E3;&#xFF0C;&#x6B64;&#x5916; <code>required</code> &#x6703;&#x5F37;&#x5236;&#x8981;&#x6C42;&#x4F7F;&#x7528;&#x8005;&#x8F38;&#x5165;&#xFF0C;&#x5426;&#x5247;&#x5C31;&#x6703;&#x7121;&#x6CD5;&#x63D0;&#x4EA4;&#x3002;<br>
 &#x4E0A;&#x9762;&#x7684;&#x7BC4;&#x4F8B;&#x6703;&#x9577;&#x5F97;&#x50CF;&#x9019;&#x6A23;<br>
@@ -260,20 +260,20 @@ export class SimpleFormComponent {
 <h2>&#x8907;&#x96DC;&#x4E00;&#x9EDE;&#x9EDE;&#x7248;&#x672C;</h2>
 <p>&#x597D;&#x7684;&#x4F8B;&#x5B50;&#x52DD;&#x904E;&#x842C;&#x8A00;</p>
 <pre><code>// app.complexform.ts
-<p>import { Component } from '@angular/core';<br>
+<p>import &#123; Component &#125; from '@angular/core';<br>
 // 需要引入一些程式庫<br>
-import { FormBuilder, FormGroup } from '@angular/forms';</p>
-<p>@Component({<br>
+import &#123; FormBuilder, FormGroup &#125; from '@angular/forms';</p>
+<p>@Component(&#123;<br>
 selector: 'complex-form',<br>
 templateUrl : './app.complexform.html'<br>
-})<br>
-export class ComplexFormComponent {<br>
+&#125;)<br>
+export class ComplexFormComponent &#123;<br>
 // 新建一個 FormGroup 物件<br>
 complexForm : FormGroup;</p>
 <p>// 建構一個實例 FormBuilder<br>
-constructor(fb: FormBuilder){<br>
+constructor(fb: FormBuilder)&#123;<br>
 // 用 FormBuilder 來製造我們的表格<br>
-this.complexForm = fb.group({<br>
+this.complexForm = fb.group(&#123;<br>
 // 定義表格的預設值<br>
 'firstName' : '',<br>
 'lastName': '',<br>
@@ -281,13 +281,13 @@ this.complexForm = fb.group({<br>
 'hiking' : false,<br>
 'running' : false,<br>
 'swimming' : false<br>
-})<br>
-}</p>
+&#125;)<br>
+&#125;</p>
 <p>// 提交的執行的 function<br>
-submitForm(value: any): void {<br>
+submitForm(value: any): void &#123;<br>
 console.log('Reactive Form Data:', value);<br>
-}<br>
-}<br>
+&#125;<br>
+&#125;<br>
 </code></pre></p>
 <pre><code>//app.complexform.html
 
@@ -345,17 +345,17 @@ console.log('Reactive Form Data:', value);<br>
 <p>Angular 2 &#x7684;&#x8868;&#x683C;&#x9A57;&#x8B49;&#x652F;&#x63F4;&#x6A21;&#x677F;&#x63A7;&#x5236;&#x4EE5;&#x53CA;&#x7D44;&#x4EF6;&#x63A7;&#x5236;&#xFF0C;&#x4F46;&#x662F;&#x900F;&#x904E;&#x7D44;&#x4EF6;&#x63A7;&#x5236;&#x5728;&#x8868;&#x683C;&#x9A57;&#x8B49;&#x4E0A;&#x6709;&#x66F4;&#x5927;&#x7684;&#x5F48;&#x6027;&#x3002;&#x8A73;&#x7D30;&#x53EF;&#x4EE5;&#x53C3;&#x8003; <a href="https://angular.io/docs/ts/latest/guide/forms.html" target="_blank">Angular 2 docs</a>&#x3002;</p>
 <p>&#x6211;&#x5011;&#x5F9E;&#x8907;&#x96DC;&#x677F;&#x4F86;&#x52A0;&#x5165;&#x8868;&#x683C;&#x9A57;&#x8B49;&#x529F;&#x80FD;</p>
 <pre><code>//app.validationform.ts
-<p>import { Component } from '@angular/core';<br>
+<p>import &#123; Component &#125; from '@angular/core';<br>
 // 引入 Validators<br>
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';</p>
-<p>@Component({<br>
+import &#123; FormGroup, FormBuilder, Validators &#125; from '@angular/forms';</p>
+<p>@Component(&#123;<br>
 selector: 'form-validation',<br>
 template : 'app.validationform.html'<br>
-})<br>
-export class FormValidationComponent {<br>
+&#125;)<br>
+export class FormValidationComponent &#123;<br>
 complexForm : FormGroup;</p>
-<p>constructor(fb: FormBuilder){<br>
-this.complexForm = fb.group({<br>
+<p>constructor(fb: FormBuilder)&#123;<br>
+this.complexForm = fb.group(&#123;<br>
 // 表示一定要輸入<br>
 'firstName' : [null, Validators.required],<br>
 // 表示一定要輸入，而且最短為5個字元，最多為10個字元。有多個規則時用陣列包住。<br>
@@ -364,12 +364,12 @@ this.complexForm = fb.group({<br>
 'hiking' : [false],<br>
 'running' : [false],<br>
 'swimming' : [false]<br>
-})</p>
+&#125;)</p>
 <pre><code>// &amp;#x7528;&amp;#x4F86;&amp;#x89C0;&amp;#x5BDF;&amp;#x8868;&amp;#x683C;&amp;#x5143;&amp;#x7D20;&amp;#x7684;&amp;#x8B8A;&amp;#x5316;
 console.log(this.complexForm);
-this.complexForm.valueChanges.subscribe( (form: any) =&amp;gt; {
+this.complexForm.valueChanges.subscribe( (form: any) =&amp;gt; &#123;
   console.log(&amp;apos;form changed to:&amp;apos;, form);
-}
+&#125;
 );
 </code></pre>
 <p>}</p>
@@ -385,13 +385,13 @@ console.log(value);<br>
     &lt;h2&gt;Form with Validations&lt;/h2&gt;
     &lt;form [formGroup]=&quot;complexForm&quot; (ngSubmit)=&quot;submitForm(complexForm.value)&quot;&gt;
       &lt;!-- &#x586B;&#x5BEB;&#x7684;&#x503C;&#x5FC5;&#x9808;&#x6709;&#x6548; &#x4E14; &#x53EF;&#x4EE5;&#x8B93;&#x4F7F;&#x7528;&#x8005;&#x9EDE;&#x64CA;&#x904E;&#x4E00;&#x6B21;&#x4E4B;&#x5F8C;&#x624D;&#x6703;&#x986F;&#x793A; Error ( ngClass &#x4F7F;&#x984F;&#x8272;&#x6539;&#x8B8A;) --&gt;
-      &lt;div class=&quot;form-group&quot; [ngClass]=&quot;{&apos;has-error&apos;:!complexForm.controls[&apos;firstName&apos;].valid &amp;&amp; complexForm.controls[&apos;firstName&apos;].touched}&quot;&gt;
+      &lt;div class=&quot;form-group&quot; [ngClass]=&quot;&#123;&apos;has-error&apos;:!complexForm.controls[&apos;firstName&apos;].valid &amp;&amp; complexForm.controls[&apos;firstName&apos;].touched&#125;&quot;&gt;
         &lt;label&gt;First Name:&lt;/label&gt;
         &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;John&quot; [formControl]=&quot;complexForm.controls[&apos;firstName&apos;]&quot;&gt;
         &lt;!-- .hasError(&apos;why&apos;)&#x53EF;&#x4EE5;&#x5728;&#x767C;&#x751F;&#x586B;&#x5BEB;&#x932F;&#x8AA4;&#x6642;&#x544A;&#x8A34;&#x4F7F;&#x7528;&#x8005;&#x70BA;&#x751A;&#x9EBC; Error --&gt;
         &lt;div *ngIf=&quot;complexForm.controls[&apos;firstName&apos;].hasError(&apos;required&apos;) &amp;&amp; complexForm.controls[&apos;firstName&apos;].touched&quot; class=&quot;alert alert-danger&quot;&gt;You must include a first name.&lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;form-group&quot; [ngClass]=&quot;{&apos;has-error&apos;:!complexForm.controls[&apos;lastName&apos;].valid &amp;&amp; complexForm.controls[&apos;lastName&apos;].touched}&quot;&gt;
+      &lt;div class=&quot;form-group&quot; [ngClass]=&quot;&#123;&apos;has-error&apos;:!complexForm.controls[&apos;lastName&apos;].valid &amp;&amp; complexForm.controls[&apos;lastName&apos;].touched&#125;&quot;&gt;
         &lt;label&gt;Last Name&lt;/label&gt;
         &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Doe&quot; [formControl]=&quot;complexForm.controls[&apos;lastName&apos;]&quot;&gt;
         &lt;!-- .hasError(&apos;required&apos;)&#x4EE3;&#x8868;&#x5FC5;&#x9808;&#x8981;&#x586B; --&gt;
@@ -526,7 +526,7 @@ console.log(value);<br>
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x7C21;&amp;#x55AE;&amp;#x7248;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8907;&amp;#x96DC;&amp;#x4E00;&amp;#x9EDE;&amp;#x9EDE;&amp;#x7248;&amp;#x672C;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8868;&amp;#x683C;&amp;#x9A57;&amp;#x8B49;</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">簡單版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">複雜一點點版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">表格驗證</span></a></li></ol>
 </div>
                 </section>
             

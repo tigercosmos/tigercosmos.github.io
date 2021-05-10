@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -187,34 +187,34 @@
 </blockquote>
 <h2>Why DI?</h2>
 <p>&#x975E; DI &#x7248;&#x672C;&#x5BE6;&#x4F8B; <code>Car</code>&#xFF1A;</p>
-<pre><code>export class Car {
+<pre><code>export class Car &#123;
   public engine: Engine;
   public tires: Tires;
   public description = &apos;No DI&apos;;
-  constructor() {
+  constructor() &#123;
     this.engine = new Engine();
     this.tires = new Tires();
-  }
+  &#125;
   // Method using the engine and tires
-  drive() {
-    return `${this.description} car with ` +
-      `${this.engine.cylinders} cylinders and ${this.tires.make} tires.`
-  }
-}
+  drive() &#123;
+    return `$&#123;this.description&#125; car with ` +
+      `$&#123;this.engine.cylinders&#125; cylinders and $&#123;this.tires.make&#125; tires.`
+  &#125;
+&#125;
 </code></pre>
 <p>&#x9019;&#x6A23;&#x7F3A;&#x9EDE;&#x662F;&#x9748;&#x6D3B;&#x5EA6;&#x5F88;&#x4F4E;&#xFF0C;<code>Car</code>&#x7684;&#x6240;&#x6709;&#x96F6;&#x4EF6;&#x90FD;&#x88AB;&#x5BEB;&#x6B7B;&#x4E86;&#xFF0C;&#x4EE5;&#x5F8C;&#x60F3;&#x8981;&#x7D66;&#x6539;&#x8B8A;&#x96F6;&#x4EF6;<code>Engine</code>&#x3001;<code>Tires</code>&#xFF0C;&#x662F;&#x5426;&#x8981;&#x5BEB;&#x65B0;&#x7684; Class&#xFF1F;&#x7576;&#x96F6;&#x4EF6;&#x8D8A;&#x4F86;&#x8D8A;&#x591A;&#xFF0C;&#x6BCF;&#x500B;&#x96F6;&#x4EF6;&#x90FD;&#x53EF;&#x4EE5;&#x63DB;&#x4F86;&#x63DB;&#x53BB;&#xFF0C;&#x51FA;&#x932F;&#x7684;&#x6A5F;&#x7387;&#x5C31;&#x5F88;&#x5927;&#x4E86;&#x3002;</p>
 <p>&#x518D;&#x4F86;&#x770B;&#x770B; DI &#x7248;&#x672C;&#x7684; <code>Car</code>&#xFF1A;</p>
-<pre><code>export class Car {
+<pre><code>export class Car &#123;
   public description = &apos;DI&apos;;
-  constructor(public engine: Engine, public tires: Tires) { }
-}
+  constructor(public engine: Engine, public tires: Tires) &#123; &#125;
+&#125;
 <p>let car = new Car(new Engine(), new Tires());<br>
 </code></pre></p>
 <p>&#x73FE;&#x5728;<code>car</code>&#x53EF;&#x4EE5;&#x8F15;&#x9B06;&#x88DD;&#x4E0A; <code>Engine</code>&#x548C;<code>Tires</code>&#x4E86;&#x3002;<br>
 &#x5982;&#x679C;&#x60F3;&#x8981;&#x63DB;&#x96F6;&#x4EF6;&#xFF0C;&#x53EA;&#x662F;&#x5728;&#x5BA3;&#x544A;<code>car</code>&#x7684;&#x6642;&#x5019;&#x88DD;&#x4E0A;&#x65B0;&#x7684;&#x96F6;&#x4EF6;&#x5EF6;&#x4F38; Class&#x3002;</p>
-<pre><code>class V8Engine {
-  constructor(public cylinders: number) { }
-}
+<pre><code>class V8Engine &#123;
+  constructor(public cylinders: number) &#123; &#125;
+&#125;
 // &#x63DB;&#x4E0A;&#x4E0D;&#x540C;&#x7684;&#x5F15;&#x64CE;
 let bigCylinders = 12;
 let car = new Car(new V8Engine(bigCylinders), new Tires());
@@ -247,10 +247,10 @@ Angular&#x5728;&#x555F;&#x52D5;&#x6642;&#x6703;&#x81EA;&#x52D5;&#x5275;&#x5EFA; 
 <h4>&#x7D44;&#x4EF6;&#x5167;&#x8A3B;&#x518A;</h4>
 <p>&#x5C0D;&#x65BC;&#x8A31;&#x591A;&#x7D44;&#x4EF6;&#x6703;&#x7528;&#x5230;&#x7684;&#x670D;&#x52D9;&#x3001;&#x901A;&#x9053;&#xFF0C;&#x6700;&#x4E0A;&#x5C64;&#x4E5F;&#x5C31;&#x662F;&#x7D44;&#x4EF6;&#x672C;&#x8EAB;&#x4E86;&#x3002;&#x63DB;&#x8A00;&#x4E4B;&#xFF0C;&#x9664;&#x4E86;&#x9019;&#x500B;&#x7D44;&#x4EF6;&#x5176;&#x4ED6;&#x7D44;&#x4EF6;&#x7528;&#x4E0D;&#x5230;&#xFF0C;&#x90A3;&#x9EBC;&#x6211;&#x5011;&#x4E0D;&#x9700;&#x8981;&#x628A;&#x9019;&#x4E9B;&#x670D;&#x52D9;&#x3001;&#x901A;&#x9053;&#x6CE8;&#x5165;&#x4F9D;&#x8CF4;&#x5728;&#x5168;&#x57DF;&#xFF0C;&#x53EA;&#x8981;&#x5728;&#x7D44;&#x4EF6;&#x4E4B;&#x4E0B;&#x5C31;&#x597D;&#x3002;</p>
 <p>&#x8209;&#x4F8B;&#xFF1A;</p>
-<pre><code>import { Component }          from &apos;angular2/core&apos;;
-import { HeroListComponent }  from &apos;./hero-list.component&apos;;
-import { HeroService }        from &apos;./hero.service&apos;;
-@Component({
+<pre><code>import &#123; Component &#125;          from &apos;angular2/core&apos;;
+import &#123; HeroListComponent &#125;  from &apos;./hero-list.component&apos;;
+import &#123; HeroService &#125;        from &apos;./hero.service&apos;;
+@Component(&#123;
   selector: &apos;my-heroes&apos;,
   template: `
   &lt;h2&gt;Heroes&lt;/h2&gt;
@@ -258,28 +258,28 @@ import { HeroService }        from &apos;./hero.service&apos;;
   `,
   providers:[HeroService],
   directives:[HeroListComponent]
-})
-export class HeroesComponent { }
+&#125;)
+export class HeroesComponent &#123; &#125;
 </code></pre>
 <p>&#x5176;&#x4E2D;&#x7684; <code>providers:[HeroService],</code> &#x53EA;&#x5411; <code>HeroesComponent</code> &#x548C;&#x65D7;&#x4E0B;&#x5B50;&#x7D44;&#x4EF6; <code>HeroListComponent</code> &#x63D0;&#x4F9B;&#x670D;&#x52D9;&#x3002;</p>
 <p>&#x5728;&#x57F7;&#x884C; <code>HeroesComponent</code> &#x7684;&#x6642;&#x5019;&#xFF0C; DI &#x6703;&#x627E;&#x5230;&#x4E4B;&#x524D;&#x8A3B;&#x518A;&#x7684;&#x670D;&#x52D9;&#xFF0C;&#x7136;&#x5F8C;&#x53D6;&#x5F97; <code>HeroService</code> &#x5BE6;&#x4F8B;&#xFF0C;&#x8ABF;&#x7528;&#x88E1;&#x9762;&#x7684;&#x51FD;&#x6578;&#xFF0C;&#x9019;&#x4E00;&#x5207;&#x90FD;&#x662F;&#x4EE5; DI &#x5F62;&#x5F0F;&#x9032;&#x884C;&#x3002;</p>
-<pre><code>import { Component }   from &apos;angular2/core&apos;;
-import { Hero }        from &apos;./hero&apos;;
-import { HeroService } from &apos;./hero.service&apos;;
-@Component({
+<pre><code>import &#123; Component &#125;   from &apos;angular2/core&apos;;
+import &#123; Hero &#125;        from &apos;./hero&apos;;
+import &#123; HeroService &#125; from &apos;./hero.service&apos;;
+@Component(&#123;
   selector: &apos;hero-list&apos;,
   template: `
   &lt;div *ngFor=&quot;#hero of heroes&quot;&gt;
-    {{hero.id}} - {{hero.name}}
+    &#123;&#123;hero.id&#125;&#125; - &#123;&#123;hero.name&#125;&#125;
   &lt;/div&gt;
   `,
-})
-export class HeroListComponent {
+&#125;)
+export class HeroListComponent &#123;
   heroes: Hero[];
-  constructor(heroService: HeroService) {
+  constructor(heroService: HeroService) &#123;
     this.heroes = heroService.getHeroes();
-  }
-}
+  &#125;
+&#125;
 </code></pre>
 <h4>&#x96B1;&#x5F62;&#x5F0F; DI</h4>
 <p>&#x5947;&#x602A;&#xFF1F;&#x6C92;&#x770B;&#x5230;&#x6709;&#x4F7F;&#x7528; DI &#x7684;&#x8A9E;&#x6CD5;&#x554A;&#xFF1F;<br>
@@ -291,15 +291,15 @@ let car = injector.get(Car);
 <p>injector &#x9ED8;&#x8A8D;&#x63D0;&#x4F9B;&#x7684; DI &#x90FD;&#x662F;&#x55AE;&#x4F8B;&#x5BE6;&#x4F8B;&#xFF0C;&#x6240;&#x4EE5; <code>HeroesComponent</code> &#x548C; <code>HeroListComponent</code> &#x6703;&#x5171;&#x4EAB;&#x540C;&#x4E00;&#x500B;&#x5BE6;&#x4F8B;&#x3002;&#x610F;&#x601D;&#x662F;&#xFF0C;<code>HeroesComponent</code> &#x82E5;&#x662F;&#x5C0D; DI &#x5BE6;&#x4F8B;&#x505A;&#x8B8A;&#x5316;&#xFF0C;<code>HeroListComponent</code> &#x4E0B;&#x6B21;&#x4F7F;&#x7528;&#x9019;&#x500B; DI &#x5BE6;&#x4F8B;&#x6642;&#xFF0C;&#x6703;&#x662F;&#x5DF2;&#x7D93;&#x8B8A;&#x5316;&#x904E;&#x7684;&#x5BE6;&#x4F8B;&#x3002;</p>
 <h3>Why @Injectable()?</h3>
 <p>&#x770B;&#x4E00;&#x4E0B;&#x4E0B;&#x9762;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#xFF1A;</p>
-<pre><code>import { Injectable } from &apos;@angular/core&apos;;
+<pre><code>import &#123; Injectable &#125; from &apos;@angular/core&apos;;
 @Injectable()
-export class Logger {
+export class Logger &#123;
   logs: string[] = []; // capture logs for testing
-  log(message: string) {
+  log(message: string) &#123;
     this.logs.push(message);
     console.log(message);
-  }
-}
+  &#125;
+&#125;
 </code></pre>
 <p>&#x6CE8;&#x610F;&#x5230;&#x88E1;&#x9762;&#x6709; <code>@Injectable()</code> &#x4E86;&#x55CE;&#xFF1F;</p>
 <p>&#x7167;&#x81EA;&#x9762;&#x4E0A;&#x610F;&#x601D;&#x5C31;&#x662F;&#x8981;&#x6CE8;&#x5165;&#x9019;&#x500B; class&#xFF0C;&#x4F46;&#x4E4B;&#x524D;&#x6C92;&#x6709;&#x4F7F;&#x7528; <code>@Injectable</code>  &#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; DI &#x5440;&#xFF1F;<br>
@@ -397,7 +397,7 @@ export class Logger {
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x6458;&amp;#x8981;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">Why DI?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">Angular DI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5BE6;&amp;#x73FE;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x7D44;&amp;#x4EF6;&amp;#x5167;&amp;#x8A3B;&amp;#x518A;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x96B1;&amp;#x5F62;&amp;#x5F0F; DI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text">&amp;#x55AE;&amp;#x4F8B;&amp;#x5BE6;&amp;#x4F8B;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">Why @Injectable()?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x7E3D;&amp;#x7D50;</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">摘要</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Why DI?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Angular DI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">實現</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">組件內註冊</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">隱形式 DI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">單例實例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Why @Injectable()?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">總結</span></a></li></ol>
 </div>
                 </section>
             

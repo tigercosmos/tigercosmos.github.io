@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,7 +178,7 @@
 <p>電腦科學中資料讀寫包含存取（input, I）和輸出（output, O），這也是為什麼常常看到 I/O 這個術語的原因。在電腦科學術語中中，廣義的 I/O 包含直接對檔案（file）、緩存（Buffer）以及數據流（stream）做操作。檔案就是已經存放在儲存裝置中的文件，緩存是還在記憶體中的資料，數據流則是一串序列化的抽象資料，這再晚點會深入介紹。</p>
 <p>資料傳輸在寫程式的時候，不管是你想要從文件中讀取資料，或是資料從網路上傳輸，亦或是資料在程式與程式之間傳送，都常常會用到。事實上我們寫程式通常也就是為了處理資料，如果沒有資料的話，還真的不曉得程式能做什麼事情！（有啦，算算質數之類的 XD）</p>
 <p>本篇會將 NodeJS 上會用到數據型態作介紹，當作先備知識。接著只會著重在檔案讀寫講解範例，其餘像是數據流的操作、緩存的處理，待日後的進階文章才會詳細介紹。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <blockquote>
 <p>傳送門：此系列文章「<a href="/post/2018/11/master_js/table/">30 天 Javascript 從入門到進階</a>」</p>
 </blockquote>
@@ -188,7 +188,7 @@
 <p>檔案，或稱文件。操作一份文件時，例如一個文字檔，你會需要先在系統上建立一個文件，這步驟相當於在系統的索引上登錄，此外系統會幫以配置空間給檔案。每當你要修改文件的時候，你需要先開啟那個檔案，才能進行寫入和讀取。</p>
 <p>檔案會儲存在電腦的儲存裝置上（storage），通常就是硬碟，像是 SSD，當然軟碟、光碟那些也都是。不過資料從儲存裝置存取的速度通常很慢，SSD 讀大概 500 MB/s 寫 100 MB/s，但你想想網路光纖已經都用 GB 起跳了，就知道真的很慢。</p>
 <p>因為從裝置讀取速度跟網路或記憶體相比來說很慢，因此常常會是效能的瓶頸，這種情況稱為 <a href="%5E1">I/O bound</a>，代表因為在存取檔案的時候，執行緒因為必須等 I/O 處理，而導致程式被卡住，因此效能變差。同理，如果是因為程式複雜度太高，而導致程式效能差，就稱為 CPU bound。</p>
-<p>與檔案相關的操作的函式庫，在 NodeJS 中是 <a href="https://nodejs.org/api/fs.html" target="_blank" rel="noopener"><code>fs</code></a> 模組[^3]， <code>fs</code> 亦即檔案系統（file system）的縮寫。</p>
+<p>與檔案相關的操作的函式庫，在 NodeJS 中是 <a target="_blank" rel="noopener" href="https://nodejs.org/api/fs.html"><code>fs</code></a> 模組[^3]， <code>fs</code> 亦即檔案系統（file system）的縮寫。</p>
 <h3 id="數據流（Stream）"><a class="header-anchor" href="#數據流（Stream）">¶ </a>數據流（Stream）</h3>
 <p>數據流，是指資料從一邊流向另一邊。</p>
 <p>示意圖如下，檔案複製過去的時候，會一部份一部份「流向」目的地。</p>
@@ -198,7 +198,7 @@
 <p>這個示意圖解釋了數據流，中間有個佇列（queue），你可以想像成他是子彈的彈匣，然後一發一發射把子彈（數據片段）出去：</p>
 <p><img src="/img/stream.jpeg" alt="stream"></p>
 <p>事實上在 NodeJS 中，數據流只是抽象介面層，這代表 NodeJS 都幫你處理好底層的東西，像是要怎麼處理搬運的這類問題都不用管，只要使用包裝好的 API 就可以。通常在處理 HTTP 和行程（process）的輸出時，都會用到數據流的概念。</p>
-<p>如果有用到數據流的話，NodeJS 中要引入 <a href="https://nodejs.org/api/stream.html" target="_blank" rel="noopener"><code>stream</code></a> 模組[^3]。</p>
+<p>如果有用到數據流的話，NodeJS 中要引入 <a target="_blank" rel="noopener" href="https://nodejs.org/api/stream.html"><code>stream</code></a> 模組[^3]。</p>
 <h3 id="緩存（Buffer）"><a class="header-anchor" href="#緩存（Buffer）">¶ </a>緩存（Buffer）</h3>
 <p>緩存，又稱緩衝或暫存。</p>
 <p>想像我們在數據流搬運數據，那些正在被搬的數據會需要一個承載工具，這個地方就是記憶體。相較於一次讀完，數據流是一點一點讀，所以每次只會有固定大小的資料被放入記憶體中。</p>
@@ -219,12 +219,12 @@
 <pre><code class="language-js">const fs = require('fs');
 
 // 打開文件，設定閱讀模式(r)，異步執行完會得到是否有錯(err)，正確的話得到文件物件(fd)
-fs.open('/open/some/file.txt', 'r', (err, fd) =&gt; {
+fs.open('/open/some/file.txt', 'r', (err, fd) =&gt; &#123;
   if (err) throw err;
-  fs.close(fd, (err) =&gt; { // 關閉 fd 物件，有錯的話會得到 err 回傳值
+  fs.close(fd, (err) =&gt; &#123; // 關閉 fd 物件，有錯的話會得到 err 回傳值
     if (err) throw err;
-  });
-});
+  &#125;);
+&#125;);
 </code></pre>
 <p>感覺不太直覺，因為正常思考會這樣寫（也就是其他語言通常是這樣）：</p>
 <pre><code class="language-js">//假想的寫法，都是虛擬碼
@@ -245,7 +245,7 @@ fs.close()
 </code></pre>
 <p>這時候 <code>fs.close()</code> 因為會接著被執行到，所以才剛 <code>fs.open()</code> 打開，接著會馬上被 <code>fs.close()</code> 關閉，但我們其實是希望我們要做的事情都結束才去關閉檔案，所以我們將 <code>fs.close()</code> 包在 <code>fs.open()</code> 裡面。</p>
 <p>此外我們還出查到一個現象，就是：</p>
-<pre><code class="language-js">fs.open(&quot;file&quot;, &quot;r&quot;, (err, fd) =&gt; {});
+<pre><code class="language-js">fs.open(&quot;file&quot;, &quot;r&quot;, (err, fd) =&gt; &#123;&#125;);
 </code></pre>
 <p>這邊的第一個參數和第二個參數是設定值，就是告訴函數檔案名稱(<code>file</code>)，以及用讀取的模式(<code>r</code>)。但可以看到，在第三個位置是一個箭頭函數，這個是回傳函數（callback function）[^6]的回傳值（callback）。</p>
 <p>當程式在執行一個是異步處理的函數 <code>func1</code>，此時程式已經在並行處理這個函式 <code>func1</code>，以及接下去跑接來的程式碼，假設這時候已經跑到 <code>func2</code> 和 <code>func3</code>  了，這時候程式怎樣知道 <code>func1</code> 已經得到資料並可以接下去執行？</p>
@@ -264,7 +264,7 @@ func3(); // 這是一個異步程式
 <p>檔案：ex2.js</p>
 <pre><code class="language-js">const fs = require('fs'); // 引用 fs 函式
 const stats = fs.statSync(&quot;./&quot;); // 使用讀取狀態函數 `statSync` 查看當前目錄 `./`
-console.log(`這個目錄擁有者的 UID 是 ${stats.uid}`);
+console.log(`這個目錄擁有者的 UID 是 $&#123;stats.uid&#125;`);
 </code></pre>
 <p>這時候會等到 <code>fs.statSync</code> 執行完， <code>stats</code> 真的拿到東西，程式碼才會繼續往下走。</p>
 <p>執行結果會是：</p>
@@ -276,18 +276,18 @@ console.log(`這個目錄擁有者的 UID 是 ${stats.uid}`);
 <p>檔案：ex2-error.js</p>
 <pre><code class="language-js">const fs = require('fs');
 const stats = fs.stat(&quot;./&quot;); // 異步執行
-console.log(`這個目錄擁有者的 UID 是 ${stats.uid}`); // `fs.stat` 和這行並行
+console.log(`這個目錄擁有者的 UID 是 $&#123;stats.uid&#125;`); // `fs.stat` 和這行並行
 </code></pre>
 <pre><code class="language-py">$ node ex2-error.js
 
 ./ex2-error.js.js:4
-console.log(`這個目錄擁有者的 UID 是 ${stats.uid}`);
+console.log(`這個目錄擁有者的 UID 是 $&#123;stats.uid&#125;`);
                                     ^
 
 TypeError: Cannot read property 'uid' of undefined
 </code></pre>
 <p>我們發現程式跑的時候有錯，這是因為程式碼跑到 <code>fs.stat</code> 後直接繼續往下走了，但 <code>console.log</code> 要讀取的 <code>stats</code> 還沒得到東西，因為上一行還在跑，於是就出錯了。</p>
-<p>第二種作法是使用 NodeJS 提供的 <a href="https://nodejs.org/api/util.html" target="_blank" rel="noopener"><code>util.promisify()</code></a> 函數，並搭配使用 <code>async</code> 和 <code>await</code> 語法，就能把異步的程式都轉成同步的。這邊簡單帶過，之後會再深入討論到。</p>
+<p>第二種作法是使用 NodeJS 提供的 <a target="_blank" rel="noopener" href="https://nodejs.org/api/util.html"><code>util.promisify()</code></a> 函數，並搭配使用 <code>async</code> 和 <code>await</code> 語法，就能把異步的程式都轉成同步的。這邊簡單帶過，之後會再深入討論到。</p>
 <p>所以假設想用第二種寫法的話，會長成以下這樣，看不懂也沒關係，因為只是先給大家看看：</p>
 <p>檔案：ex3.js</p>
 <pre><code class="language-js">const util = require('util');
@@ -295,15 +295,15 @@ const fs = require('fs');
 
 const stat = util.promisify(fs.stat); // 轉換 fs.state 變成 promise 型態
 
-(async () =&gt; { // 設定一個 async 函式，因為 await 一定要搭配 async
+(async () =&gt; &#123; // 設定一個 async 函式，因為 await 一定要搭配 async
 
     // 只要在 async 區間裡面，所有 promise 型態的異步函數都可以用 await
     // 來讓他們變成同步
 
     const stats = await stat(&quot;./&quot;); // 用 await 來讓程式等這行執行完
-    console.log(`這個目錄擁有者的 UID 是 ${stats.uid}`);
+    console.log(`這個目錄擁有者的 UID 是 $&#123;stats.uid&#125;`);
 
-})(); // 用隱函數方式讓他立即執行
+&#125;)(); // 用隱函數方式讓他立即執行
 </code></pre>
 <p>你可以複製 <code>ex3.js</code> 程式碼用 NodeJS 跑跑看：</p>
 <pre><code class="language-py">$ node ex3.js
@@ -359,7 +359,7 @@ const y = [];
 
 // 我們知道第一行(i = 0)沒有數據，所以從第二行(i = 1)開始找資料
 // 用迴圈從第一行跑到最後一行，並處理資料
-for (let i = 1; i &lt; lines.length; i++) {
+for (let i = 1; i &lt; lines.length; i++) &#123;
   // csv 格式用 `,` 做切割
   // 第 0 個會是 t
   // 第 1 個會是 x
@@ -370,7 +370,7 @@ for (let i = 1; i &lt; lines.length; i++) {
   t.push(items[0]);
   x.push(items[1]);
   y.push(items[2]);
-}
+&#125;
 
 // 都印出來看看
 console.log(t);
@@ -390,7 +390,7 @@ const movement = Math.sqrt(mov_x ** 2, mov_y ** 2);
 const avg_v = movement / (t[t.length - 1] - t[0]);
 
 // 在終端機上印出結果
-const output = `總位移： ${movement}\n平均速度： ${avg_v}`;
+const output = `總位移： $&#123;movement&#125;\n平均速度： $&#123;avg_v&#125;`;
 console.log(output);
 // 同時也以同步方式把結果寫到 `data.txt` 檔案中
 fs.writeFileSync(&quot;./data.txt&quot;, output);
@@ -441,19 +441,19 @@ fs.writeFileSync(&quot;./data.txt&quot;, output);
 平均速度： 0.45
 </code></pre>
 <p><code>ex4.js</code> 這是一個簡單的例子，用意是讓你瞭解到如何用程式碼來對檔案作操作，像這邊就用到讀取一個文件，然後做一些處理，最後寫到另一份文件。當然，你可以做的事情更多，<code>fs</code> 模組中還可以讓你得到目錄資訊、建立目錄、刪除文件等等，當你想要對文件做處理的時候，可以去查查查看官方文件[^3]有哪些 API 可以使用。</p>
-<p>此外在處理資料的過程中，你甚至可以結合一些其他的函式庫，像是 <a href="https://plot.ly/nodejs/getting-started/" target="_blank" rel="noopener">plotly</a>，來產生視覺化的圖表。或是搭配使用資料庫，直接將資料存進資料庫。</p>
+<p>此外在處理資料的過程中，你甚至可以結合一些其他的函式庫，像是 <a target="_blank" rel="noopener" href="https://plot.ly/nodejs/getting-started/">plotly</a>，來產生視覺化的圖表。或是搭配使用資料庫，直接將資料存進資料庫。</p>
 <h2 id="小結"><a class="header-anchor" href="#小結">¶ </a>小結</h2>
 <p>我們知道文件、數據流、緩存分別是什麼，並學會如何對一個文件做處理。我們也知道 NodeJS 中的函數有同步跟異步之分。</p>
 <p>假設你寫的是伺服器，你大概會採用異步操作資料；假設今天你只是個人需要寫個 script 來做點檔案和資料處理，那就全部用同步方式進行即可。</p>
 <p>檔案操作還有很多不同的操作方式，比方說用多執行緒來平行計算，或是我們能用數據流的方式來處理，亦或加上管線（pipeline）[^7]操作，而此篇範例只是最基本的文件操作。</p>
 <h2 id="延伸參考"><a class="header-anchor" href="#延伸參考">¶ </a>延伸參考</h2>
-<p>[^1]: <a href="https://en.wikipedia.org/wiki/I/O_bound" target="_blank" rel="noopener">Wiki: I/O bound</a><br>
-[^2]: <a href="https://medium.com/front-end-weekly/js-buffers-matter-sometimes-56150a35417f" target="_blank" rel="noopener">JS Buffers matter! Sometimes.</a><br>
-[^3]: <a href="https://nodejs.org/api/" target="_blank" rel="noopener">NodeJS official doc</a><br>
-[^4]: <a href="https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)" target="_blank" rel="noopener">Wiki: Asynchrony</a><br>
-[^5]: <a href="https://en.wikipedia.org/wiki/Concurrency_(computer_science)" target="_blank" rel="noopener">Wiki: Concurrency</a><br>
-[^6]: <a href="https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced" target="_blank" rel="noopener">JavaScript: What the heck is a Callback?</a><br>
-[^7]: <a href="https://en.wikipedia.org/wiki/Pipeline_(computing)" target="_blank" rel="noopener">Wiki: Pipeline</a></p>
+<p>[^1]: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/I/O_bound">Wiki: I/O bound</a><br>
+[^2]: <a target="_blank" rel="noopener" href="https://medium.com/front-end-weekly/js-buffers-matter-sometimes-56150a35417f">JS Buffers matter! Sometimes.</a><br>
+[^3]: <a target="_blank" rel="noopener" href="https://nodejs.org/api/">NodeJS official doc</a><br>
+[^4]: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)">Wiki: Asynchrony</a><br>
+[^5]: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Concurrency_(computer_science)">Wiki: Concurrency</a><br>
+[^6]: <a target="_blank" rel="noopener" href="https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced">JavaScript: What the heck is a Callback?</a><br>
+[^7]: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pipeline_(computing)">Wiki: Pipeline</a></p>
 
     </div>
     
@@ -541,7 +541,7 @@ fs.writeFileSync(&quot;./data.txt&quot;, output);
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">檔案讀寫</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#數據型態"><span class="toc-text">數據型態</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#檔案（file）"><span class="toc-text">檔案（file）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#數據流（Stream）"><span class="toc-text">數據流（Stream）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#緩存（Buffer）"><span class="toc-text">緩存（Buffer）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步與異步"><span class="toc-text">同步與異步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#異步執行"><span class="toc-text">異步執行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步執行"><span class="toc-text">同步執行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#檔案操作"><span class="toc-text">檔案操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小結"><span class="toc-text">小結</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#延伸參考"><span class="toc-text">延伸參考</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">檔案讀寫</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E5%9E%8B%E6%85%8B"><span class="toc-text">數據型態</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AA%94%E6%A1%88%EF%BC%88file%EF%BC%89"><span class="toc-text">檔案（file）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B8%E6%93%9A%E6%B5%81%EF%BC%88Stream%EF%BC%89"><span class="toc-text">數據流（Stream）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B7%A9%E5%AD%98%EF%BC%88Buffer%EF%BC%89"><span class="toc-text">緩存（Buffer）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E8%88%87%E7%95%B0%E6%AD%A5"><span class="toc-text">同步與異步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%95%B0%E6%AD%A5%E5%9F%B7%E8%A1%8C"><span class="toc-text">異步執行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E5%9F%B7%E8%A1%8C"><span class="toc-text">同步執行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AA%94%E6%A1%88%E6%93%8D%E4%BD%9C"><span class="toc-text">檔案操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%B5%90"><span class="toc-text">小結</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E4%BC%B8%E5%8F%83%E8%80%83"><span class="toc-text">延伸參考</span></a></li></ol></li></ol>
 </div>
                 </section>
             

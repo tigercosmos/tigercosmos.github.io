@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -175,25 +175,25 @@
     </ul>
     <div class="post-content">
         <p><img src="https://user-images.githubusercontent.com/18013815/75844309-97f31780-5e10-11ea-9743-4c02a065cb5d.png" alt="docker image"></p>
-<p><a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a> 是一個輕量的虛擬環境。</p>
+<p><a target="_blank" rel="noopener" href="https://www.docker.com/">Docker</a> 是一個輕量的虛擬環境。</p>
 <h2 id="取得-Docker"><a class="header-anchor" href="#取得-Docker">¶ </a>取得 Docker</h2>
 <h3 id="Windows"><a class="header-anchor" href="#Windows">¶ </a>Windows</h3>
-<p>Windows 下裝可以直接裝 Docker，基本上就是去官網<a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows/" target="_blank" rel="noopener">下載安裝檔</a>安裝，可以參考<a href="https://docs.docker.com/docker-for-windows/install/" target="_blank" rel="noopener">官方教學</a>。裝完後如果想要共享資料夾，要去 Docker 設定的地方「File Sharing」將之打算共享的硬碟勾選。</p>
-<p>也可以用虛擬環境來操作，使用 <a href="https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html" target="_blank" rel="noopener">VMware Workstation Player</a> 安裝 <a href="https://ubuntu.com/download/server/thank-you?country=TW&amp;version=18.04.4" target="_blank" rel="noopener">Ubuntu 18.04</a>。Ubuntu 下安裝 Docker 可以參考<a href="https://www.digitalocean.com/community/tutorial/show-to-install-and-use-docker-on-ubuntu-18-04" target="_blank" rel="noopener">這篇教學</a>。</p>
+<p>Windows 下裝可以直接裝 Docker，基本上就是去官網<a target="_blank" rel="noopener" href="https://hub.docker.com/editions/community/docker-ce-desktop-windows/">下載安裝檔</a>安裝，可以參考<a target="_blank" rel="noopener" href="https://docs.docker.com/docker-for-windows/install/">官方教學</a>。裝完後如果想要共享資料夾，要去 Docker 設定的地方「File Sharing」將之打算共享的硬碟勾選。</p>
+<p>也可以用虛擬環境來操作，使用 <a target="_blank" rel="noopener" href="https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html">VMware Workstation Player</a> 安裝 <a target="_blank" rel="noopener" href="https://ubuntu.com/download/server/thank-you?country=TW&amp;version=18.04.4">Ubuntu 18.04</a>。Ubuntu 下安裝 Docker 可以參考<a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorial/show-to-install-and-use-docker-on-ubuntu-18-04">這篇教學</a>。</p>
 <p>進入虛擬機的 Ubuntu 之後，為了讓你的 Docker 可以不用用 <code>sudo</code>，請執行以下指令：</p>
 <pre><code class="language-sh">    sudo groupadd docker
     sudo gpasswd -a $USER docker
     sudo service docker restart
 </code></pre>
 <h3 id="Linux"><a class="header-anchor" href="#Linux">¶ </a>Linux</h3>
-<p>Linux 用戶可以參考 <a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener">Docker 文檔</a>（左側選單可以選擇 Linux 發行版）。</p>
+<p>Linux 用戶可以參考 <a target="_blank" rel="noopener" href="https://docs.docker.com/install/linux/docker-ce/centos/">Docker 文檔</a>（左側選單可以選擇 Linux 發行版）。</p>
 <p>為了讓你的 Docker 可以不用用 <code>sudo</code>，請執行以下指令：</p>
 <pre><code class="language-sh">sudo groupadd docker
 sudo gpasswd -a $USER docker
 sudo service docker restart
 </code></pre>
 <h3 id="macOS"><a class="header-anchor" href="#macOS">¶ </a>macOS</h3>
-<p>請參考 <a href="https://docs.docker.com/docker-for-mac/install/" target="_blank" rel="noopener">Docker 文件</a> 下載安裝 Docker。</p>
+<p>請參考 <a target="_blank" rel="noopener" href="https://docs.docker.com/docker-for-mac/install/">Docker 文件</a> 下載安裝 Docker。</p>
 <h2 id="取得-Docker-Image"><a class="header-anchor" href="#取得-Docker-Image">¶ </a>取得 Docker Image</h2>
 <p>Docker Image 是一個事先建立好的 Docker 開發環境。</p>
 <p>用以下指令來取得 Ubuntu 官方 Docker Image 來做練習：</p>
@@ -227,7 +227,7 @@ f5283438590d
 
 $ docker run svendowideit/testimage:version3
 </code></pre>
-<p>更多指令可以參考 <a href="https://docs.docker.com/engine/reference/commandline/docker/" target="_blank" rel="noopener">Docker 文件</a>。</p>
+<p>更多指令可以參考 <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/docker/">Docker 文件</a>。</p>
 
     </div>
     
@@ -307,7 +307,7 @@ $ docker run svendowideit/testimage:version3
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#取得-Docker"><span class="toc-text">取得 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux"><span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-text">macOS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#取得-Docker-Image"><span class="toc-text">取得 Docker Image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-操作說明"><span class="toc-text">Docker 操作說明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他指令"><span class="toc-text">其他指令</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%BE%97-Docker"><span class="toc-text">取得 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux"><span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-text">macOS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%BE%97-Docker-Image"><span class="toc-text">取得 Docker Image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-%E6%93%8D%E4%BD%9C%E8%AA%AA%E6%98%8E"><span class="toc-text">Docker 操作說明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%8C%87%E4%BB%A4"><span class="toc-text">其他指令</span></a></li></ol>
 </div>
                 </section>
             

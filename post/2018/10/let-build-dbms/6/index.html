@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -202,21 +202,21 @@
 <p>!FILENAME src/main.rs</p>
 <pre><code>    let server = listener
         .incoming()
-        .for_each(move |socket| {
+        .for_each(move |socket| &#123;
             let addr = socket.peer_addr().unwrap();
-            println!(&quot;New Connection: {}&quot;, addr);
+            println!(&quot;New Connection: &#123;&#125;&quot;, addr);
 
             // Spawn a task to process the connection
             process(socket);
 
             Ok(())
-        }).map_err(|err| {
-            println!(&quot;accept error = {:?}&quot;, err);
-        });
+        &#125;).map_err(|err| &#123;
+            println!(&quot;accept error = &#123;:?&#125;&quot;, err);
+        &#125;);
 </code></pre>
 <p>The <code>process()</code> is doing the process of what I just talk about for communication above, and there are comments for explaining in the following snippet:</p>
 <p>!FILENAME src/main.rs</p>
-<pre><code>fn process(socket: TcpStream) {
+<pre><code>fn process(socket: TcpStream) &#123;
 
     // split socket into two parts
     let (reader, writer) = socket.split();
@@ -233,19 +233,19 @@
     // is pretty simple, first we parse the request and if it's valid we
     // generate a response.
     let responses =
-        messages.map(move |message| match Request::parse(&amp;message) {
+        messages.map(move |message| match Request::parse(&amp;message) &#123;
             Ok(req) =&gt; req,
-            Err(e) =&gt; return Response::Error { msg: e },
-        });
+            Err(e) =&gt; return Response::Error &#123; msg: e &#125;,
+        &#125;);
 
     // At this point `responses` is a stream of `Response` types which we
     // now want to write back out to the client. To do that we use
     // `Stream::fold` to perform a loop here, serializing each response and
     // then writing it out to the client.
-    let writes = responses.fold(writer, |writer, response| {
+    let writes = responses.fold(writer, |writer, response| &#123;
         let response = response.serialize().into_bytes();
         write_all(writer, response).map(|(w, _)| w)
-    });
+    &#125;);
 
     // `spawn` this client to ensure it
     // runs concurrently with all other clients, for now ignoring any errors
@@ -254,50 +254,50 @@
 
     // Spawn the task. Internally, this submits the task to a thread pool.
     tokio::spawn(connection);
-}
+&#125;
 </code></pre>
 <p>We see <code>message</code>, <code>response</code> and <code>request</code> in <code>main.rs</code>. These modules are defined in <code>connection</code> module.</p>
 <p><code>message</code> is for parsing the stream into a <code>Message</code>, but I don’t implement a well designed protocol. The <code>poll()</code> function will decode streams of each socket to messages, so we should implement our protocol here. Now it just see any “lines” sent from terminals entered by users as messages, so I delete <code>\n\r</code> in the function <code>poll()</code> (not showing here).</p>
 <p>Note that <code>impl&lt;A&gt; Stream for Message&lt;A&gt;</code> is needed if we want to use functions of <code>future</code> crate and spawn the task to thread pool. (Remember <code>Tokio.rs</code> is based on <code>future</code>?)</p>
 <p>!FILENAME src/connection/message.rs</p>
-<pre><code>pub struct Message&lt;A&gt; { /* ... */}
+<pre><code>pub struct Message&lt;A&gt; &#123; /* ... */&#125;
 
-pub fn new&lt;A&gt;(a: A) -&gt; Message&lt;A&gt; { /* ... */}
+pub fn new&lt;A&gt;(a: A) -&gt; Message&lt;A&gt; &#123; /* ... */&#125;
 
-impl&lt;A&gt; Stream for Message&lt;A&gt; {
-    fn poll(&amp;mut self) -&gt; Poll&lt;Option&lt;String&gt;, io::Error&gt; {/* ... */}
-}
+impl&lt;A&gt; Stream for Message&lt;A&gt; &#123;
+    fn poll(&amp;mut self) -&gt; Poll&lt;Option&lt;String&gt;, io::Error&gt; &#123;/* ... */&#125;
+&#125;
 </code></pre>
 <p><code>request</code> and <code>response</code> define the types of requests and responses. Just like HTTP, you send request in <code>get</code>, <code>post</code>, or <code>put</code>, and get response with <code>code</code> 200, 300, 400. These modules are doing the same thing.</p>
 <p>There should be many types in <code>Request</code>, but I don’t do it yet. <code>request.parse()</code> will parse the request. In this step, it will check if the request is valid, such as authentication, and then return the response. The logic here might changed, because some logic could be better.</p>
 <p>!FILENAME src/connection/request.rs</p>
 <pre><code>use Response;
 
-pub enum Request {}
+pub enum Request &#123;&#125;
 
-impl Request {
-    pub fn parse(input: &amp;str) -&gt; Result&lt;Response, String&gt; {
-        Ok(Response::OK {
+impl Request &#123;
+    pub fn parse(input: &amp;str) -&gt; Result&lt;Response, String&gt; &#123;
+        Ok(Response::OK &#123;
             msg: input.to_string(),
-        })
-    }
-}
+        &#125;)
+    &#125;
+&#125;
 </code></pre>
 <p><code>Response</code> defines all response types, and it can <code>serialize()</code> the <code>Response</code> in order to send back to the client. There will be more types, and <code>serialize()</code> will follow the protocol.</p>
 <p>!FILENAME src/connection/response.rs</p>
-<pre><code>pub enum Response {
-    OK { msg: String },
-    Error { msg: String },
-}
+<pre><code>pub enum Response &#123;
+    OK &#123; msg: String &#125;,
+    Error &#123; msg: String &#125;,
+&#125;
 
-impl Response {
-    pub fn serialize(&amp;self) -&gt; String {
-        match *self {
-            Response::OK { ref msg } =&gt; format!(&quot;{}\n&quot;, msg),
-            Response::Error { ref msg } =&gt; format!(&quot;Error: {}\n&quot;, msg),
-        }
-    }
-}
+impl Response &#123;
+    pub fn serialize(&amp;self) -&gt; String &#123;
+        match *self &#123;
+            Response::OK &#123; ref msg &#125; =&gt; format!(&quot;&#123;&#125;\n&quot;, msg),
+            Response::Error &#123; ref msg &#125; =&gt; format!(&quot;Error: &#123;&#125;\n&quot;, msg),
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>So, the communication works. Clients can connect to StellarSQL. Now StellarSQL just echoes the request to response. When I finish the database and SQL parts, it will be a real DBMS.</p>
 <p>You can build and run with:</p>

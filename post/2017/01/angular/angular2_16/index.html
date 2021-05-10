@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -193,33 +193,33 @@ By <a href="https://blog.techbridge.cc/2016/12/31/review-2016/#sthash.sxQHVfKK.d
 </ul>
 <p>&#x8A73;&#x7D30;&#x89E3;&#x91CB;&#x9019;&#x4E09;&#x7A2E;&#x5DEE;&#x5728;&#x54EA;&#x88E1;&#xFF0C;&#x53EF;&#x4EE5;&#x53C3;&#x8003;<a href="https://ithelp.ithome.com.tw/articles/10186060" target="_blank">&#x9019;&#x4E00;&#x7BC7;</a></p>
 <p>&#x8A2D;&#x7F6E; <code>encapsulation</code> &#x5927;&#x6982;&#x5C31;&#x9577;&#x9019;&#x6A23;&#xFF0C;&#x4ED6;&#x6703;&#x5728; <code>@Component</code> &#x88E1;&#x9762;</p>
-<pre><code>@Component({
+<pre><code>@Component(&#123;
   templateUrl: &apos;card.html&apos;,
   styles: [`
-    .card {
+    .card &#123;
       height: 70px;
       width: 100px;
-    }
+    &#125;
   `],
   encapsulation: ViewEncapsulation.Native
   // encapsulation: ViewEncapsulation.None
   // encapsulation: ViewEncapsulation.Emulated is default 
-})
+&#125;)
 </code></pre>
 <h2>&#x6B63;&#x984C;&#x958B;&#x59CB;</h2>
 <p>&#x63A5;&#x8457;&#x5C31;&#x4F86;&#x770B;&#x770B;&#x6709;&#x90A3;&#x4E9B;&#x6280;&#x5DE7;&#x53EF;&#x4EE5;&#x5E6B;&#x7D44;&#x4EF6;&#x52A0;&#x4E0A; CSS</p>
 <h3>&#x5BEB;&#x5728; Component &#x88E1;&#x9762;</h3>
 <p>&#x9019;&#x662F;&#x6700;&#x5E38;&#x898B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x662F;&#x6700;&#x63A8;&#x85A6;&#x7684;&#xFF0C;&#x5E38;&#x5E38;&#x6703;&#x770B;&#x5230;&#x6587;&#x4EF6;&#x90FD;&#x662F;&#x9019;&#x6A23;&#x7528;&#x3002;<br>
 &#x5728;&#x6211;&#x5011;&#x7684; <code>@Component</code> &#x4E2D;&#x5BE6;&#x9AD4;&#x5316;&#xFF1A;</p>
-<pre><code>@Component({
+<pre><code>@Component(&#123;
   templateUrl: &apos;card.html&apos;,
   styles: [`
-    .card {
+    .card &#123;
       height: 70px;
       width: 100px;
-    }
+    &#125;
   `],
-})
+&#125;)
 </code></pre>
 <p>&#x5982;&#x679C;&#x4F7F;&#x7528; view encapsulation &#x6280;&#x8853;&#x7684;&#x9810;&#x671F;&#x7D50;&#x679C;&#xFF1A;</p>
 <ul>
@@ -229,10 +229,10 @@ By <a href="https://blog.techbridge.cc/2016/12/31/review-2016/#sthash.sxQHVfKK.d
 </ul>
 <h3>.CSS</h3>
 <p><code>@Component</code> &#x7684; <code>styleUrls</code> &#x53EF;&#x4EE5;&#x5F15;&#x5165;&#x5C0D;&#x61C9;&#x7684; CSS &#x6A94;</p>
-<pre><code>@Component({
+<pre><code>@Component(&#123;
   styleUrls: [&apos;css/style.css&apos;],
   templateUrl: &apos;card.html&apos;,
-})
+&#125;)
 </code></pre>
 <p>&#x5982;&#x679C;&#x4F7F;&#x7528; view encapsulation &#x6280;&#x8853;&#x7684;&#x9810;&#x671F;&#x7D50;&#x679C;&#xFF1A;</p>
 <ul>
@@ -245,18 +245,18 @@ By <a href="https://blog.techbridge.cc/2016/12/31/review-2016/#sthash.sxQHVfKK.d
 <pre><code>//&#x65B9;&#x6CD5;&#x4E00;
 template: `
     &lt;style&gt;
-        h1 {
+        h1 &#123;
           color: purple;
-        }
+        &#125;
     &lt;/style&gt;
     &lt;h1&gt;Styling Angular Components&lt;/h1&gt;
     `
-})
+&#125;)
 </code></pre>
 <pre><code>//&#x65B9;&#x6CD5;&#x4E8C;
-@Component({
+@Component(&#123;
   template: &apos;&lt;h1 style=&quot;color:pink&quot;&gt;Styling Angular Components&lt;/h1&gt;&apos;
-})
+&#125;)
 </code></pre>
 <p>&#x5982;&#x679C;&#x4F7F;&#x7528; view encapsulation &#x6280;&#x8853;&#x7684;&#x9810;&#x671F;&#x7D50;&#x679C;&#xFF1A;</p>
 <ul>
@@ -276,13 +276,13 @@ template: `
 </ul>
 <h2>&#x512A;&#x5148;&#x9806;&#x5E8F;</h2>
 <p>&#x6709;&#x4E86;&#x9019;&#x4E09;&#x7A2E;&#x52A0;&#x5165; CSS &#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x9EBC;&#x4E00;&#x6B21;&#x90FD;&#x7528;&#x4E0A;&#x53BB;&#x6703;&#x600E;&#x6A23;&#x5462;&#xFF1F;</p>
-<pre><code>@Component({
+<pre><code>@Component(&#123;
 	selector: &apos;my-app&apos;,
 <pre><code>//Component style
 styles: [`
-h1 {
+h1 &#123;
   color: red;
-}
+&#125;
 `],
 
 //External style
@@ -291,9 +291,9 @@ styleUrls[&amp;apos;style.css&amp;apos;],
 // Template inline style
 template: `
 &amp;lt;style&amp;gt;
-h1 {
+h1 &#123;
   color: purple;
-}
+&#125;
 &amp;lt;/style&amp;gt;
 &amp;lt;h1 style=&amp;quot;color:green&amp;quot;&amp;gt;Styling Angular Components&amp;lt;/h1&amp;gt;
 `
@@ -397,7 +397,7 @@ h1 {
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x984C;&amp;#x5916;&amp;#x8A71;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x89E3;&amp;#x91CB;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x6B63;&amp;#x984C;&amp;#x958B;&amp;#x59CB;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5BEB;&amp;#x5728; Component &amp;#x88E1;&amp;#x9762;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">.CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x6A21;&amp;#x677F;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x512A;&amp;#x5148;&amp;#x9806;&amp;#x5E8F;</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">題外話</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">解釋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">正題開始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">寫在 Component 裡面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">.CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">優先順序</span></a></li></ol>
 </div>
                 </section>
             

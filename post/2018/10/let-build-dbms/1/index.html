@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,7 +177,7 @@
         <h2 id="Introduction-to-DBMS"><a class="header-anchor" href="#Introduction-to-DBMS">¶ </a>Introduction to DBMS</h2>
 <p>A database management system (DBMS) is a software run on server, which controls many databases. MongoDB, MySQL, Oracle, PostgreSQL, etc., all are DBMS.</p>
 <p>A DBMS verifies authenticity of connections. It schedules tasks of requests, including inserting, deleting, or searching in a DB. It enforces rules, which defined by the users, for each transactions, such as specified types of data.</p>
-<p>There are some materials good to read: “<a href="https://www.geeksforgeeks.org/database-management-system-introduction-set-1/" target="_blank" rel="noopener">Database Management System – Introduction</a>” on GeeksforGeeks, or “<a href="https://medium.com/omarelgabrys-blog/database-introduction-part-1-4844fada1fb0" target="_blank" rel="noopener">Database — Introduction</a>” by Omar El Gabry on Medium. There are also many good articles that introduce to DBMS on the Internet, so I would not talk too much about it.</p>
+<p>There are some materials good to read: “<a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/database-management-system-introduction-set-1/">Database Management System – Introduction</a>” on GeeksforGeeks, or “<a target="_blank" rel="noopener" href="https://medium.com/omarelgabrys-blog/database-introduction-part-1-4844fada1fb0">Database — Introduction</a>” by Omar El Gabry on Medium. There are also many good articles that introduce to DBMS on the Internet, so I would not talk too much about it.</p>
 <p>Once you know what is a DBMS, you would have an overview about what we are going to implement on StellarSQL. DBMS is a server service. It should be able to do any things on databases. It should be able to parse SQL languages. It needs a storage systems. It might have good algorithms for searching DB, storing data, or scheduling tasks. There might be much more functions for a DBMS, and I would finish them one by one.</p>
 <h2 id="Setup-Environment"><a class="header-anchor" href="#Setup-Environment">¶ </a>Setup Environment</h2>
 <p>Ok, we are ready to program the StellarSQL!</p>
@@ -186,7 +186,7 @@
 <p>Enter the command in terminal to install Rust:</p>
 <pre><code class="language-bash">curl https://sh.rustup.rs -sSf | sh
 </code></pre>
-<p>Once installing Rust, it will also installed Cargo for you. Cargo is a tool for running Rust and installing packages. It’s recommended to read the <a href="https://doc.rust-lang.org/book/2018-edition/index.html" target="_blank" rel="noopener">Rust book</a> if you have not learned Rust before. It’s fine if you just read the rust code directly, because you still can understand the logic of the code in StellarSQL.</p>
+<p>Once installing Rust, it will also installed Cargo for you. Cargo is a tool for running Rust and installing packages. It’s recommended to read the <a target="_blank" rel="noopener" href="https://doc.rust-lang.org/book/2018-edition/index.html">Rust book</a> if you have not learned Rust before. It’s fine if you just read the rust code directly, because you still can understand the logic of the code in StellarSQL.</p>
 <h2 id="Code"><a class="header-anchor" href="#Code">¶ </a>Code</h2>
 <p>StellarSQL is on Github. You could get the source code of StellarSQL</p>
 <pre><code class="language-bash">git clone https://github.com/tigercosmos/StellarSQL
@@ -213,12 +213,12 @@ cd StellarSQL
 <pre><code>    let yml = load_yaml!(&quot;../cli.yml&quot;);
     let m = App::from_yaml(yml).get_matches();
 
-    let port = if let Some(port_) = m.value_of(&quot;port&quot;) {
+    let port = if let Some(port_) = m.value_of(&quot;port&quot;) &#123;
         port_
-    } else {
+    &#125; else &#123;
         dotenv!(&quot;PORT&quot;)
-    };
-    println!(&quot;StellarSQL running on {} port&quot;, port);
+    &#125;;
+    println!(&quot;StellarSQL running on &#123;&#125; port&quot;, port);
 </code></pre>
 <p>Now we can parse arguments and read values from configuration! In this example, if <code>PORT</code> is not in the arguments, it would use the default value from <code>.env</code>.</p>
 <p>That’s all for today!</p>

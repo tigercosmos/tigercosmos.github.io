@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器開發進階實戰（二）XML Serialize for HTML" />
     <title>Neutrino&#39;s Blog: 瀏覽器開發進階實戰（二）XML Serialize for HTML </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,9 +177,9 @@
         <blockquote>
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a></p>
 </blockquote>
-<p>今天繼續以<a href="https://github.com/servo/servo" target="_blank" rel="noopener">Servo</a> 專案來討論如何實作。</p>
+<p>今天繼續以<a target="_blank" rel="noopener" href="https://github.com/servo/servo">Servo</a> 專案來討論如何實作。</p>
 <p>我們先前提到 html 會需要被 parse，而反過來的動作就是 serialize 了。</p>
-<p>以下擷取 <a href="https://w3c.github.io/DOM-Parsing/#widl-Element-innerHTML" target="_blank" rel="noopener">W3C</a> 的說明：<br>
+<p>以下擷取 <a target="_blank" rel="noopener" href="https://w3c.github.io/DOM-Parsing/#widl-Element-innerHTML">W3C</a> 的說明：<br>
 (就不翻譯了 :P）</p>
 <hr>
 <p>For example: the innerHTML API is a common way to both parse and serialize a DOM (it does both). If a particular Node, has the following in-memory DOM:</p>
@@ -202,43 +202,43 @@
 <pre><code>myDiv.innerHTML = &quot;&lt;span&gt;new&lt;/span&gt;&lt;em&gt;children!&lt;/em&gt;&quot;;
 </code></pre>
 <hr>
-<p>今天要做的事情也不是太難，parser 已經有寫好的 <a href="https://github.com/servo/html5ever" target="_blank" rel="noopener">html5ever</a> 專門處理 html、xml 的解析和序列化。我們要做的就是把它引入 <code>Element</code> 裡面，讓 element 能夠做解析和序列化。</p>
-<p>可以看<a href="https://github.com/servo/servo/commit/06759fd0fd4e6a1b905cb93fb023b389d7f73bc3" target="_blank" rel="noopener">這個 commit</a>，是把 xml 序列化引入到 Element 的模組中。</p>
-<pre><code>pub fn xmlSerialize(&amp;self, traversal_scope: XmlTraversalScope) -&gt; Fallible&lt;DOMString&gt; {
+<p>今天要做的事情也不是太難，parser 已經有寫好的 <a target="_blank" rel="noopener" href="https://github.com/servo/html5ever">html5ever</a> 專門處理 html、xml 的解析和序列化。我們要做的就是把它引入 <code>Element</code> 裡面，讓 element 能夠做解析和序列化。</p>
+<p>可以看<a target="_blank" rel="noopener" href="https://github.com/servo/servo/commit/06759fd0fd4e6a1b905cb93fb023b389d7f73bc3">這個 commit</a>，是把 xml 序列化引入到 Element 的模組中。</p>
+<pre><code>pub fn xmlSerialize(&amp;self, traversal_scope: XmlTraversalScope) -&gt; Fallible&lt;DOMString&gt; &#123;
         let mut writer = vec![];
         match xmlSerialize::serialize(&amp;mut writer,
                         &amp;self.upcast::&lt;Node&gt;(),
-                        XmlSerializeOpts {
+                        XmlSerializeOpts &#123;
                             traversal_scope: traversal_scope,
                             ..Default::default()
-                        }) {
+                        &#125;) &#123;
             Ok(()) =&gt; Ok(DOMString::from(String::from_utf8(writer).unwrap())),
             Err(_) =&gt; panic!(&quot;Cannot serialize element&quot;),
-        }
-}
+        &#125;
+&#125;
 </code></pre>
 <p>innerHTML</p>
 <pre><code>/// &lt;https://w3c.github.io/DOM-Parsing/#widl-Element-innerHTML&gt;
-fn GetInnerHTML(&amp;self) -&gt; Fallible&lt;DOMString&gt; {
+fn GetInnerHTML(&amp;self) -&gt; Fallible&lt;DOMString&gt; &#123;
     let qname = QualName::new(self.prefix().clone(),
                               self.namespace().clone(),
                               self.local_name().clone());
-    if document_from_node(self).is_html_document() {
+    if document_from_node(self).is_html_document() &#123;
         return self.serialize(ChildrenOnly(Some(qname)));
-    } else {
+    &#125; else &#123;
         return self.xmlSerialize(XmlChildrenOnly(Some(qname)));
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>outerHTML</p>
 <pre><code>// https://dvcs.w3.org/hg/innerhtml/raw-file/tip/index.html#widl-Element-outerHTML
-fn GetOuterHTML(&amp;self) -&gt; Fallible&lt;DOMString&gt; {
-    if document_from_node(self).is_html_document() {
+fn GetOuterHTML(&amp;self) -&gt; Fallible&lt;DOMString&gt; &#123;
+    if document_from_node(self).is_html_document() &#123;
         return self.serialize(IncludeNode);
-    } else {
+    &#125; else &#123;
         return self.xmlSerialize(XmlIncludeNode);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <hr>
 <p>希望有幫到大家，大家明天見！</p>
@@ -252,12 +252,12 @@ fn GetOuterHTML(&amp;self) -&gt; Fallible&lt;DOMString&gt; {
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器引擎處理 CSS 的簡易版（三）" />
     <title>Neutrino&#39;s Blog: 瀏覽器引擎處理 CSS 的簡易版（三） </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,36 +177,36 @@
         <blockquote>
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a></p>
 </blockquote>
-<p>明天一樣討論 robinson 這個「玩具」專案。讓我們來直接看 <a href="https://github.com/mbrubeck/robinson/blob/master/src/style.rs" target="_blank" rel="noopener">robinson/src/style.rs</a> 這邊如何實作 style。如果你還沒看過 CSS 系列的前兩部分，建議你先看一下。如果是系列的新讀者，建議你從第一篇開始讀。</p>
+<p>明天一樣討論 robinson 這個「玩具」專案。讓我們來直接看 <a target="_blank" rel="noopener" href="https://github.com/mbrubeck/robinson/blob/master/src/style.rs">robinson/src/style.rs</a> 這邊如何實作 style。如果你還沒看過 CSS 系列的前兩部分，建議你先看一下。如果是系列的新讀者，建議你從第一篇開始讀。</p>
 <p>這邊要注意一下，我們昨天提到的四個特性，在這邊都沒有實作，這邊做的部分只是最簡單的，把 CSS 綁定 DOM。也就是讓 DOM 能有顏色、大小之類的樣子。</p>
 <h2 id="程式"><a class="header-anchor" href="#程式">¶ </a>程式</h2>
 <p>這邊我們定義一個 <code>StyledNode</code> 作為 style tree 的節點。還記得 DOM tree + CSS tree = style tree 嗎？</p>
 <pre><code>pub fn style_tree&lt;'a&gt;(root: &amp;'a Node, stylesheet: &amp;'a Stylesheet) 
--&gt; StyledNode&lt;'a&gt; {
+-&gt; StyledNode&lt;'a&gt; &#123;
 
-    StyledNode {
+    StyledNode &#123;
         node: root,
-        specified_values: match root.node_type {
+        specified_values: match root.node_type &#123;
             NodeType::Element(ref elem) =&gt; 
                 specified_values(elem, stylesheet),
             NodeType::Text(_) =&gt; HashMap::new()
-        },
+        &#125;,
         children: root.children
                       .iter()
                       .map(|child| style_tree(child, stylesheet))
                       .collect(),
-    }
+    &#125;
     
-}
+&#125;
 </code></pre>
 <p>每個節點對應的 DOM 和 style 的屬性</p>
 <pre><code>/// A node with associated style data.
 
-pub struct StyledNode&lt;'a&gt; {
+pub struct StyledNode&lt;'a&gt; &#123;
     pub node: &amp;'a Node,
     pub specified_values: PropertyMap,
     pub children: Vec&lt;StyledNode&lt;'a&gt;&gt;,
-}
+&#125;
 </code></pre>
 <hr>
 <p>接著從 CSS tree 中，遍佈的尋找對應的 DOM，為什麼從 CSS tree 而不是 DOM tree 呢？因為 CSS 一定會有對應的 DOM （除非是無效 CSS），而 DOM 不一定會有對應的 CSS，所以從 CSS 找 DOM 效率比較高。</p>
@@ -214,83 +214,83 @@ pub struct StyledNode&lt;'a&gt; {
 <p>所以這邊直接遍佈 Stylesheet，這時候每檢查一個 rule 會呼叫 <code>match_rule</code>，每次 <code>match_rule</code> 會再檢查 selectors。</p>
 <pre><code>// Find all CSS rules that match the given element.
 
-fn matching_rules&lt;'a&gt;(elem: &amp;ElementData, stylesheet: &amp;'a Stylesheet) -&gt; Vec&lt;MatchedRule&lt;'a&gt;&gt; {
+fn matching_rules&lt;'a&gt;(elem: &amp;ElementData, stylesheet: &amp;'a Stylesheet) -&gt; Vec&lt;MatchedRule&lt;'a&gt;&gt; &#123;
     stylesheet.rules.iter()
               .filter_map(|rule| match_rule(elem, rule))
               .collect()
-}
+&#125;
 </code></pre>
 <pre><code>// If `rule` matches `elem`, return a `MatchedRule`. 
 // Otherwise return `None`.
 
 fn match_rule&lt;'a&gt;(elem: &amp;ElementData, rule: &amp;'a Rule) 
--&gt; Option&lt;MatchedRule&lt;'a&gt;&gt; {
+-&gt; Option&lt;MatchedRule&lt;'a&gt;&gt; &#123;
     rule.selectors.iter()
         .find(|selector| matches(elem, *selector))
         .map(|selector| (selector.specificity(), rule))
-}
+&#125;
 </code></pre>
 <hr>
 <p>藉由之前在 DOM 模組做的，這邊可以輕鬆取得 DOM 的 CSS 是什麼。</p>
-<pre><code>impl ElementData {
-    pub fn id(&amp;self) -&gt; Option&lt;&amp;String&gt; {
+<pre><code>impl ElementData &#123;
+    pub fn id(&amp;self) -&gt; Option&lt;&amp;String&gt; &#123;
         self.attributes.get(&quot;id&quot;)
-    }
+    &#125;
 
-    pub fn classes(&amp;self) -&gt; HashSet&lt;&amp;str&gt; {
-        match self.attributes.get(&quot;class&quot;) {
+    pub fn classes(&amp;self) -&gt; HashSet&lt;&amp;str&gt; &#123;
+        match self.attributes.get(&quot;class&quot;) &#123;
             Some(classlist) =&gt; classlist.split(' ').collect(),
             None =&gt; HashSet::new()
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>再藉由 <code>matches</code> 由 selector 去對應 DOM 的 CSS，如果有匹配就回傳</p>
 <pre><code>/// Selector matching:
-fn matches(elem: &amp;ElementData, selector: &amp;Selector) -&gt; bool {
-    match *selector {
+fn matches(elem: &amp;ElementData, selector: &amp;Selector) -&gt; bool &#123;
+    match *selector &#123;
         Selector::Simple(ref simple_selector) =&gt; 
             matches_simple_selector(elem, simple_selector)
-    }
-}
+    &#125;
+&#125;
 
-fn matches_simple_selector(elem: &amp;ElementData, selector: &amp;SimpleSelector) -&gt; bool {
+fn matches_simple_selector(elem: &amp;ElementData, selector: &amp;SimpleSelector) -&gt; bool &#123;
     // Check type selector
-    if selector.tag_name.iter().any(|name| elem.tag_name != *name) {
+    if selector.tag_name.iter().any(|name| elem.tag_name != *name) &#123;
         return false
-    }
+    &#125;
 
     // Check ID selector
-    if selector.id.iter().any(|id| elem.id() != Some(id)) {
+    if selector.id.iter().any(|id| elem.id() != Some(id)) &#123;
         return false;
-    }
+    &#125;
 
     // Check class selectors
     let elem_classes = elem.classes();
-    if selector.class.iter().any(|class| !elem_classes.contains(&amp;**class)) {
+    if selector.class.iter().any(|class| !elem_classes.contains(&amp;**class)) &#123;
         return false;
-    }
+    &#125;
 
     // We didn't find any non-matching selector components.
     true
-}
+&#125;
 </code></pre>
 <hr>
 <p>最後我們就讓本文一開始提到的 <code>style_tree</code>  藉由執行 <code>specified_values</code> 取得樹裡面的數值，取得方式是靠上面提到的 <code>matching_rules</code>。</p>
 <pre><code>/// Apply styles to a single element, returning the specified styles.
-fn specified_values(elem: &amp;ElementData, stylesheet: &amp;Stylesheet) -&gt; PropertyMap {
+fn specified_values(elem: &amp;ElementData, stylesheet: &amp;Stylesheet) -&gt; PropertyMap &#123;
     let mut values = HashMap::new();
     let mut rules = matching_rules(elem, stylesheet);
 
     // Go through the rules from lowest to highest specificity.
     rules.sort_by(|&amp;(a, _), &amp;(b, _)| a.cmp(&amp;b));
-    for (_, rule) in rules {
-        for declaration in &amp;rule.declarations {
+    for (_, rule) in rules &#123;
+        for declaration in &amp;rule.declarations &#123;
             values.insert(declaration.name.clone(), declaration.value.clone());
-        }
-    }
+        &#125;
+    &#125;
     values
-}
+&#125;
 </code></pre>
 <hr>
 <p>以上就是簡單的 style tree 實作方式，其實眼尖的話就可以發現沒什麼技術，等於就是好幾個迴圈去做匹配，只是寫法比較好看而已。這種寫法是完全線性，非常沒效率，最新的 Servo 的 Stylo 就針對這部份做高效能的優化，其中一項就是平行化處理樹。</p>
@@ -305,12 +305,12 @@ fn specified_values(elem: &amp;ElementData, stylesheet: &amp;Stylesheet) -&gt; P
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">
@@ -382,7 +382,7 @@ fn specified_values(elem: &amp;ElementData, stylesheet: &amp;Stylesheet) -&gt; P
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#程式"><span class="toc-text">程式</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BC%8F"><span class="toc-text">程式</span></a></li></ol>
 </div>
                 </section>
             

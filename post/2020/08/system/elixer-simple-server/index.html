@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -175,17 +175,17 @@
     </ul>
     <div class="post-content">
         <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
-<p><a href="https://elixir-lang.org/" target="_blank" rel="noopener">Elixir</a> 是一個動態 Functional Programming 語言，專門用來打造可擴展且易維護的系統。</p>
-<p>Elixir 基於 Erlang VM 所建，適合用在需要低延遲、分散式、錯誤容忍（fault-tolerant）的系統上，同時也可以用在網頁開發、嵌入式軟體、資料處理、多媒體處理等用途上。這篇文章「<a href="https://serokell.io/blog/history-of-erlang-and-elixir" target="_blank" rel="noopener">Game of Phones: History of Erlang and Elixir</a>」介紹了 Elixir 來龍去脈，值得一看。</p>
+<p><a target="_blank" rel="noopener" href="https://elixir-lang.org/">Elixir</a> 是一個動態 Functional Programming 語言，專門用來打造可擴展且易維護的系統。</p>
+<p>Elixir 基於 Erlang VM 所建，適合用在需要低延遲、分散式、錯誤容忍（fault-tolerant）的系統上，同時也可以用在網頁開發、嵌入式軟體、資料處理、多媒體處理等用途上。這篇文章「<a target="_blank" rel="noopener" href="https://serokell.io/blog/history-of-erlang-and-elixir">Game of Phones: History of Erlang and Elixir</a>」介紹了 Elixir 來龍去脈，值得一看。</p>
 <p>Elixir 寫起來滿有趣的，寫了之後才意識到原來 JS 和 Rust 從 Functional Programming 借鏡了不少概念，所以在從頭學 Elixir 的過程，一些 FP 的特色，像是 Pattern Matching、Enumerable 都已經在先前接觸過。</p>
-<p>看完<a href="https://elixir-lang.org/getting-started/introduction.html" target="_blank" rel="noopener">官方的語言教學</a>後，覺得需要藉由寫小專案更熟悉，所以就研究如何用 Elixir 建造一個簡單的 HTTP Server。</p>
-<a id="more"></a>
-<p>本文範例參考 Wes Dunn 的「<a href="https://www.jungledisk.com/blog/2018/03/19/tutorial-a-simple-http-server-in-elixir/" target="_blank" rel="noopener">Elixir Programming: Creating a Simple HTTP Server in Elixir</a>」，不過刪減和補充一些原文沒有的內容，讓我們藉由撰寫一個簡易 HTTP Server 練習開發 Elixir 專案。</p>
+<p>看完<a target="_blank" rel="noopener" href="https://elixir-lang.org/getting-started/introduction.html">官方的語言教學</a>後，覺得需要藉由寫小專案更熟悉，所以就研究如何用 Elixir 建造一個簡單的 HTTP Server。</p>
+<span id="more"></span>
+<p>本文範例參考 Wes Dunn 的「<a target="_blank" rel="noopener" href="https://www.jungledisk.com/blog/2018/03/19/tutorial-a-simple-http-server-in-elixir/">Elixir Programming: Creating a Simple HTTP Server in Elixir</a>」，不過刪減和補充一些原文沒有的內容，讓我們藉由撰寫一個簡易 HTTP Server 練習開發 Elixir 專案。</p>
 <p>強烈建議跟著本文一起進行操作，會對開發 Elixir 更有感覺！</p>
 <h2 id="設定-Elixir-環境"><a class="header-anchor" href="#設定-Elixir-環境">¶ </a>設定 Elixir 環境</h2>
-<p>你可以參考<a href="https://elixir-lang.org/install.html" target="_blank" rel="noopener">官方文件</a>來安裝 Elixir。</p>
+<p>你可以參考<a target="_blank" rel="noopener" href="https://elixir-lang.org/install.html">官方文件</a>來安裝 Elixir。</p>
 <p>如果你是 macOS 直接用 <code>brew install elixir</code> 即可。</p>
-<p>如果是 Linux 用戶，<code>yum install elixir</code> 或 <code>apt install elixir</code>。不過我自己用 apt 時候失敗了，這時候可以考慮用 <code>asdf</code> 版本管理工具 （很鬧的名字）來安裝，可以參考這個 <a href="https://gist.github.com/rubencaro/6a28138a40e629b06470" target="_blank" rel="noopener">Gist</a>。</p>
+<p>如果是 Linux 用戶，<code>yum install elixir</code> 或 <code>apt install elixir</code>。不過我自己用 apt 時候失敗了，這時候可以考慮用 <code>asdf</code> 版本管理工具 （很鬧的名字）來安裝，可以參考這個 <a target="_blank" rel="noopener" href="https://gist.github.com/rubencaro/6a28138a40e629b06470">Gist</a>。</p>
 <h2 id="準備-Elixir專案"><a class="header-anchor" href="#準備-Elixir專案">¶ </a>準備 Elixir專案</h2>
 <p>首先我們要建立一個 Elixir 專案</p>
 <pre><code class="language-shell">$ mkdir simple_server &amp;&amp; cd simple_server
@@ -233,16 +233,16 @@ Are you sure you want to install &quot;https://repo.hex.pm/installs/1.10.0/hex-0
 </ul>
 <p>在 Elixir 中 <code>mix.exs</code> 相當於 NodeJS 的 <code>package.json</code>，基本上就是專案設定檔。</p>
 <p>找到 <code>mix.exs</code> 中的 <code>deps</code> 函數，在 <code>[]</code> 裡面插入：</p>
-<pre><code>{:plug_cowboy, &quot;~&gt; 2.3&quot;},
-{:cowboy, &quot;~&gt; 2.8&quot;},
-{:plug, &quot;~&gt; 1.10&quot;},
-{:poison, &quot;~&gt; 3.1&quot;}
+<pre><code>&#123;:plug_cowboy, &quot;~&gt; 2.3&quot;&#125;,
+&#123;:cowboy, &quot;~&gt; 2.8&quot;&#125;,
+&#123;:plug, &quot;~&gt; 1.10&quot;&#125;,
+&#123;:poison, &quot;~&gt; 3.1&quot;&#125;
 </code></pre>
 <p>在 <code>mix.exs</code> 的 <code>application</code> 改成：</p>
 <pre><code>def application do
 [
   extra_applications: [:logger, :cowboy, :plug, :poison],
-  mod: {SimpleServer.Application, []}
+  mod: &#123;SimpleServer.Application, []&#125;
 ]
 end
 </code></pre>
@@ -309,13 +309,13 @@ end
 
   # 基本的 POST 處理 JSON
   post &quot;/post&quot; do
-    {:ok, body, conn} = read_body(conn)
+    &#123;:ok, body, conn&#125; = read_body(conn)
 
     body = Poison.decode!(body)
 
     IO.inspect(body) # 印出 body
 
-    send_resp(conn, 201, &quot;created: #{get_in(body, [&quot;message&quot;])}&quot;)
+    send_resp(conn, 201, &quot;created: #&#123;get_in(body, [&quot;message&quot;])&#125;&quot;)
   end
 
   # 沒匹配到的預設回應
@@ -325,8 +325,8 @@ end
 
 # &lt;&lt;&lt;
 </code></pre>
-<p>以上程式碼都還算直觀。路由的部分是用 Elixir 的 <a href="https://elixir-lang.org/getting-started/pattern-matching.html" target="_blank" rel="noopener">Pattern Matching</a>（模式匹配）來判斷。</p>
-<p><code>/hello</code> 就是簡單的 GET 請求，<code>Plug</code> 本身會提供 <a href="https://github.com/elixir-plug/plug#the-plugconn-struct" target="_blank" rel="noopener"><code>conn</code> Struct</a>，代表 Request 本身的資訊，我們將他 Pipe（<code>|&gt;</code>）給 <code>put_resp_content_type</code> 再 Pipe 給 <code>send_resp</code> 送出。<a href="https://elixir-lang.org/getting-started/enumerables-and-streams.html#the-pipe-operator" target="_blank" rel="noopener">Pipe</a> 是 Elixir 非常有趣的運算子，可以將資料一個傳一個給函數執行，概念跟 Shell 的 Pipe 一樣。</p>
+<p>以上程式碼都還算直觀。路由的部分是用 Elixir 的 <a target="_blank" rel="noopener" href="https://elixir-lang.org/getting-started/pattern-matching.html">Pattern Matching</a>（模式匹配）來判斷。</p>
+<p><code>/hello</code> 就是簡單的 GET 請求，<code>Plug</code> 本身會提供 <a target="_blank" rel="noopener" href="https://github.com/elixir-plug/plug#the-plugconn-struct"><code>conn</code> Struct</a>，代表 Request 本身的資訊，我們將他 Pipe（<code>|&gt;</code>）給 <code>put_resp_content_type</code> 再 Pipe 給 <code>send_resp</code> 送出。<a target="_blank" rel="noopener" href="https://elixir-lang.org/getting-started/enumerables-and-streams.html#the-pipe-operator">Pipe</a> 是 Elixir 非常有趣的運算子，可以將資料一個傳一個給函數執行，概念跟 Shell 的 Pipe 一樣。</p>
 <p>在 <code>/post</code> 的部分，<code>read_body</code> 是 <code>Plug</code> 提供的函數，可以將 Request 做拆解，我們取得 Body 的部分，用 <code>Poison.decode!</code> 去解析 JSON，最後再送出回應。</p>
 <p>最後如果 <code>match _</code> 代表含括剩下所有部分，也就是預設值，在這邊我們設定沒有規範的路徑就是 <code>404</code>。</p>
 <h2 id="啟動-Server"><a class="header-anchor" href="#啟動-Server">¶ </a>啟動 Server</h2>
@@ -338,7 +338,7 @@ $ iex -S mix # 互動模式
 <p>我們可以用以下請求測試：</p>
 <pre><code class="language-shell">$ curl -v &quot;http://localhost:8085/hello&quot;
 $ curl -v &quot;http://localhost:8085/should-be-404&quot;
-$ curl -v -H 'Content-Type: application/json' &quot;http://localhost:8085/post&quot; -d '{&quot;message&quot;: &quot;hello world&quot; }'
+$ curl -v -H 'Content-Type: application/json' &quot;http://localhost:8085/post&quot; -d '&#123;&quot;message&quot;: &quot;hello world&quot; &#125;'
 </code></pre>
 <p>然後可以看到 Elixir 輸出：</p>
 <pre><code class="language-shell">23:53:47.295 [debug] GET /hello
@@ -348,7 +348,7 @@ $ curl -v -H 'Content-Type: application/json' &quot;http://localhost:8085/post&q
 23:53:53.553 [debug] Sent 404 in 89µs
 
 23:53:59.919 [debug] POST /post
-%{&quot;message&quot; =&gt; &quot;hello world&quot;}
+%&#123;&quot;message&quot; =&gt; &quot;hello world&quot;&#125;
 23:53:59.933 [debug] Sent 201 in 14ms
 </code></pre>
 <p>耶！回應都有照我們預期。</p>
@@ -433,7 +433,7 @@ $ curl -v -H 'Content-Type: application/json' &quot;http://localhost:8085/post&q
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#簡介"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#設定-Elixir-環境"><span class="toc-text">設定 Elixir 環境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#準備-Elixir專案"><span class="toc-text">準備 Elixir專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用-Hex-管理套件"><span class="toc-text">用 Hex 管理套件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#設定-Server"><span class="toc-text">設定 Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加入路由"><span class="toc-text">加入路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#啟動-Server"><span class="toc-text">啟動 Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-text">結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-Elixir-%E7%92%B0%E5%A2%83"><span class="toc-text">設定 Elixir 環境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BA%96%E5%82%99-Elixir%E5%B0%88%E6%A1%88"><span class="toc-text">準備 Elixir專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-Hex-%E7%AE%A1%E7%90%86%E5%A5%97%E4%BB%B6"><span class="toc-text">用 Hex 管理套件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-Server"><span class="toc-text">設定 Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5%E8%B7%AF%E7%94%B1"><span class="toc-text">加入路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%95%9F%E5%8B%95-Server"><span class="toc-text">啟動 Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
 </div>
                 </section>
             

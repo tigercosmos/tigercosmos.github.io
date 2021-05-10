@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -175,12 +175,12 @@
     </ul>
     <div class="post-content">
         <h2 id="1-簡介"><a class="header-anchor" href="#1-簡介">¶ </a>1. 簡介</h2>
-<p><a href="https://en.wikipedia.org/wiki/Camera_resectioning" target="_blank" rel="noopener">相機校正 (Camera Calibration)</a>是指取得相機的各種參數。意思是我們可以得到這個相機拍下這張照片時，這照片上的某個 2D 點對應到他現實世界的 3D 點的所有參數，包含 intrinsic parameters (相機本身參數) 和 extrinsic parameters (<a href="https://zh.wikipedia.org/wiki/%E5%AE%9A%E5%90%91_(%E5%90%91%E9%87%8F%E7%A9%BA%E9%96%93)" target="_blank" rel="noopener">定向</a>參數)。</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Camera_resectioning">相機校正 (Camera Calibration)</a>是指取得相機的各種參數。意思是我們可以得到這個相機拍下這張照片時，這照片上的某個 2D 點對應到他現實世界的 3D 點的所有參數，包含 intrinsic parameters (相機本身參數) 和 extrinsic parameters (<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AE%9A%E5%90%91_(%E5%90%91%E9%87%8F%E7%A9%BA%E9%96%93)">定向</a>參數)。</p>
 <p>照片 2D 點與現實世界 3D 點的關係如下：</p>
 <p>$$\mathbf{\tilde m} = \mathbf A [\mathbf R \quad \mathbf t] \mathbf {\tilde M}$$</p>
 <p>其中 $\mathbf{\tilde m}$ 是照片座標向量 $[u, v, 1]^T$，$\mathbf {\tilde M}$ 是現實座標向量 $[X, Y, Z, 1]^T$，而 $\mathbf A$ 是 intrinsic matrix、$[\mathbf R \quad \mathbf t]$ 是 extrinsic matrix。</p>
 <p>關於相機校正可參考 Richard Szeliski 所著《Computer Vision: Algorithms and Applications》第六章 Feature-based alignment。</p>
-<p>要取得照片對應現實世界的 3D 點座標不容易，但如果利用有模式 (pattern) 的平面物品，例如棋盤，因為每個格子相對座標都是已知的，且可以假設其 $Z$ 座標都是相同的，就可以直接藉由多張棋盤的照片，直接還原其 intrisic matrix 和 extrinsic matrix。本文著重於 Zhengyou Zhang 在<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf" target="_blank" rel="noopener">〈A Flexible New Technique for Camera Calibration〉</a>所提出用 2D 模式 (2D pattern) 來做相機校正的方法，針對其數學做更明白的解釋和程式碼示例。</p>
+<p>要取得照片對應現實世界的 3D 點座標不容易，但如果利用有模式 (pattern) 的平面物品，例如棋盤，因為每個格子相對座標都是已知的，且可以假設其 $Z$ 座標都是相同的，就可以直接藉由多張棋盤的照片，直接還原其 intrisic matrix 和 extrinsic matrix。本文著重於 Zhengyou Zhang 在<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf">〈A Flexible New Technique for Camera Calibration〉</a>所提出用 2D 模式 (2D pattern) 來做相機校正的方法，針對其數學做更明白的解釋和程式碼示例。</p>
 <h2 id="2-求-Homography"><a class="header-anchor" href="#2-求-Homography">¶ </a>2. 求 Homography</h2>
 <p>以下將平面模式物品皆用棋盤來代稱。當我們把現實座標的棋盤設為 $Z=0$ ，我們會得到：</p>
 <p>$$<br>
@@ -448,7 +448,7 @@ tvecs.append(t)
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-簡介"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-求-Homography"><span class="toc-text">2. 求 Homography</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Intrisic-Parameters-的限制"><span class="toc-text">3. Intrisic Parameters 的限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-求-Intrisic-Parameters"><span class="toc-text">4. 求 Intrisic Parameters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-求-extrinsic-parameters"><span class="toc-text">5. 求 extrinsic parameters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV-的-calibrateCamera-函數"><span class="toc-text">OpenCV 的 calibrateCamera 函數</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extrinsic-視覺化"><span class="toc-text">Extrinsic 視覺化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些小技巧"><span class="toc-text">一些小技巧</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B0%A1%E4%BB%8B"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%B1%82-Homography"><span class="toc-text">2. 求 Homography</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Intrisic-Parameters-%E7%9A%84%E9%99%90%E5%88%B6"><span class="toc-text">3. Intrisic Parameters 的限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B1%82-Intrisic-Parameters"><span class="toc-text">4. 求 Intrisic Parameters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%B1%82-extrinsic-parameters"><span class="toc-text">5. 求 extrinsic parameters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV-%E7%9A%84-calibrateCamera-%E5%87%BD%E6%95%B8"><span class="toc-text">OpenCV 的 calibrateCamera 函數</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extrinsic-%E8%A6%96%E8%A6%BA%E5%8C%96"><span class="toc-text">Extrinsic 視覺化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-text">一些小技巧</span></a></li></ol>
 </div>
                 </section>
             

@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="用網頁相似性來優化瀏覽器" />
     <title>Neutrino&#39;s Blog: 用網頁相似性來優化瀏覽器 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,10 +177,10 @@
         <blockquote>
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a></p>
 </blockquote>
-<p>前兩天（<a href="https://ithelp.ithome.com.tw/articles/10194936?sc=hot" target="_blank" rel="noopener">1</a>＆<a href="https://ithelp.ithome.com.tw/articles/10194725?sc=hot" target="_blank" rel="noopener">2</a>）都找了比較有趣的論文來寫，沒意外都登上熱門了。不過是時候回來講一些比較硬的東西了！</p>
+<p>前兩天（<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10194936?sc=hot">1</a>＆<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10194725?sc=hot">2</a>）都找了比較有趣的論文來寫，沒意外都登上熱門了。不過是時候回來講一些比較硬的東西了！</p>
 <h2 id="論文"><a class="header-anchor" href="#論文">¶ </a>論文</h2>
-<p>今天研究的論文是「 <a href="http://wwwconference.org/proceedings/www2014/proceedings/p575.pdf" target="_blank" rel="noopener">Similarity-based Web Browser Optimization</a> 」，顧名思義是使用網頁本身得相似性，讓瀏覽器渲染的效能可以更優化。這邊只截取重點和加入我一些心得，大家有興趣可以點連結去看原始論文。</p>
-<p>在看本文之前，推薦大家先看一篇文章「<a href="https://blog.techbridge.cc/2016/04/02/Browser-Rendering-Optimization/" target="_blank" rel="noopener">Browser Rendering Optimization(中文)</a>」，這是以前端開發者角度探討如何讓網頁渲染更優化。先了解如何在前端中做優化，再來看如何以瀏覽器架構本身達到優化，相信會更有收穫！</p>
+<p>今天研究的論文是「 <a target="_blank" rel="noopener" href="http://wwwconference.org/proceedings/www2014/proceedings/p575.pdf">Similarity-based Web Browser Optimization</a> 」，顧名思義是使用網頁本身得相似性，讓瀏覽器渲染的效能可以更優化。這邊只截取重點和加入我一些心得，大家有興趣可以點連結去看原始論文。</p>
+<p>在看本文之前，推薦大家先看一篇文章「<a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2016/04/02/Browser-Rendering-Optimization/">Browser Rendering Optimization(中文)</a>」，這是以前端開發者角度探討如何讓網頁渲染更優化。先了解如何在前端中做優化，再來看如何以瀏覽器架構本身達到優化，相信會更有收穫！</p>
 <hr>
 <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
 <p>首先我們從過去研究中知道幾件事</p>
@@ -189,7 +189,7 @@
 <li>優化 javascript 的運算最多就快 7％ 左右</li>
 </ul>
 <p>所以如果我們想做優化瀏覽器渲染的速度，看起來著重在 CSS 似乎影響最大！<br>
-這篇論文沿用 Zhang <a href="http://et.al" target="_blank" rel="noopener">et.al</a> 提倡的 Smart Caching 想法，也就是將 style 算好的結果暫存，減少之後碰到一樣的 style 還要重複計算。</p>
+這篇論文沿用 Zhang <a target="_blank" rel="noopener" href="http://et.al">et.al</a> 提倡的 Smart Caching 想法，也就是將 style 算好的結果暫存，減少之後碰到一樣的 style 還要重複計算。</p>
 <p>可以看到像維基百科不同項目頁面，相似度就很高<br>
 <img src="https://user-images.githubusercontent.com/18013815/34462183-fcc89040-ee78-11e7-8e6b-77ca8e27f05c.png" alt=""></p>
 <p>再來看看各家網站的子網頁相似度如何，包含 HTML 和 CSS<br>
@@ -206,7 +206,7 @@
 <hr>
 <h2 id="演算法"><a class="header-anchor" href="#演算法">¶ </a>演算法</h2>
 <p>接著是演算法的部分了，概念是如果同目錄下有其他網頁，就可以直接採用他們的 cache，若是沒有則搜尋鄰近路徑其他網頁有沒有機會。</p>
-<p>首先是搜尋，將所有網頁以 graph 的方式處理，就有了「網頁距離」的概念。由於最相鄰的網頁（也就是路徑接近）越容易有相似的 style，所以距離最短的也就越有可能，於是我們採用 <a href="http://www.csie.ntnu.edu.tw/~u91029/Graph.html#4" target="_blank" rel="noopener">Breadth-first Search(BFS)</a>來做這件事。如果當前網頁還沒建立好 style tree，就採用 BFS 找最鄰近的網頁的 style tree 來用。</p>
+<p>首先是搜尋，將所有網頁以 graph 的方式處理，就有了「網頁距離」的概念。由於最相鄰的網頁（也就是路徑接近）越容易有相似的 style，所以距離最短的也就越有可能，於是我們採用 <a target="_blank" rel="noopener" href="http://www.csie.ntnu.edu.tw/~u91029/Graph.html#4">Breadth-first Search(BFS)</a>來做這件事。如果當前網頁還沒建立好 style tree，就採用 BFS 找最鄰近的網頁的 style tree 來用。</p>
 <p>再來是 style 的比對<br>
 <img src="https://user-images.githubusercontent.com/18013815/34462376-88c2690a-ee7d-11e7-9143-6b8401e62449.png" alt=""><br>
 我們知道 child 會繼承 parent，所以如果 parent 本身就不一樣了，也就代表 child 通通沒機會用 cache，也就是要重算。那如果 parent 一樣，則對 child 一個一個檢查。</p>
@@ -240,12 +240,12 @@
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">
@@ -317,7 +317,7 @@
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#論文"><span class="toc-text">論文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#簡介"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#演算法"><span class="toc-text">演算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#成效"><span class="toc-text">成效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#心得"><span class="toc-text">心得</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AB%96%E6%96%87"><span class="toc-text">論文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%94%E7%AE%97%E6%B3%95"><span class="toc-text">演算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E6%95%88"><span class="toc-text">成效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%83%E5%BE%97"><span class="toc-text">心得</span></a></li></ol>
 </div>
                 </section>
             

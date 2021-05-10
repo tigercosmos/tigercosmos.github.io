@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -176,12 +176,12 @@
     <div class="post-content">
         <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
 <p>透過效能分析工具 (Profiler)，我們可以得知更多關於軟體的運行資訊，像是花了多少記憶體、多少 CPU Cycles、多少 Cache Misses、I/O 處理時間等等，這些資訊對我們去找到程式效能瓶頸很有幫助。想辦法找到那裡讓程式變慢，進而最大化效能，便是我們做效能分析的最大目的。</p>
-<p>本文將介紹 Linux 上的 <a href="http://www.brendangregg.com/perf.html" target="_blank" rel="noopener">perf</a> 效能分析工具，藉由一個簡單的程式範例，示範如何使用 perf 去分析一隻程式，我們將會發現使用分析工具時能更輕易的發現問題根源。本文參考 Gabriel Krisman Bertaz 寫的 <a href="https://www.collabora.com/news-and-blog/blog/2017/03/21/performance-analysis-in-linux/" target="_blank" rel="noopener">Performance analysis in Linux</a>。</p>
-<a id="more"></a>
+<p>本文將介紹 Linux 上的 <a target="_blank" rel="noopener" href="http://www.brendangregg.com/perf.html">perf</a> 效能分析工具，藉由一個簡單的程式範例，示範如何使用 perf 去分析一隻程式，我們將會發現使用分析工具時能更輕易的發現問題根源。本文參考 Gabriel Krisman Bertaz 寫的 <a target="_blank" rel="noopener" href="https://www.collabora.com/news-and-blog/blog/2017/03/21/performance-analysis-in-linux/">Performance analysis in Linux</a>。</p>
+<span id="more"></span>
 <p>本文可以搭配我的教學影片：</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Mba2ONCA0kI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 id="一個-Branch-Prediction-的範例"><a class="header-anchor" href="#一個-Branch-Prediction-的範例">¶ </a>一個 Branch Prediction 的範例</h2>
-<p>Stack Overflow 上有一個很火的問題「<a href="https://stackoverflow.com/questions/11227809/" target="_blank" rel="noopener">Why is processing a sorted array faster than processing an unsorted array?</a>」。</p>
+<p>Stack Overflow 上有一個很火的問題「<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/11227809/">Why is processing a sorted array faster than processing an unsorted array?</a>」。</p>
 <p>問題的 Code 如下：</p>
 <p><code>test.cc</code>：</p>
 <pre><code class="language-c++">#include &lt;algorithm&gt;
@@ -189,7 +189,7 @@
 #include &lt;iostream&gt;
 
 int main()
-{
+&#123;
     // 測試用陣列
     const int arr_len = 32768;
     int data[arr_len];
@@ -202,17 +202,17 @@ int main()
     long long sum = 0;
 
     for (int i = 0; i &lt; 30000; ++i)
-    {
+    &#123;
         for (int c = 0; c &lt; arr_len; ++c)
-        {
-            if (data[c] &gt;= 128) { // 故意選 256 一半  
+        &#123;
+            if (data[c] &gt;= 128) &#123; // 故意選 256 一半  
                 sum += data[c];
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
     std::cout &lt;&lt; &quot;sum = &quot; &lt;&lt; sum &lt;&lt; std::endl;
-}
+&#125;
 </code></pre>
 <p>首先我們先編譯未排序版本：</p>
 <pre><code class="language-shell">$ g++ test.cc -o unsort
@@ -327,7 +327,7 @@ sum = 94479480000
 <p><code>perf stat</code> 可以直接看到統計資料，如果有很高的 Context Switch、Page Fault、Branch Miss 都代表程式本身效能有待優化。</p>
 <p>以 <code>unsort</code> 為例可以看到 Branch Miss 特別高 (排序版本會幾乎是 0)，這時我們就可以去看原本的程式哪邊有條件判斷，然後根據 Annotate 的時間比例，就可以快速找到問題點。另外從 Cycle 上我們也可以發現兩個版本差了三倍之多。</p>
 <blockquote>
-<p>更多 perf 的用法可以參考 Brendan Gregg 的「<a href="http://www.brendangregg.com/perf.html" target="_blank" rel="noopener">perf Examples</a>」。另外這個 HackMD 的<a href="https://hackmd.io/@1IzBzEXXRsmj6-nLXZ9opw/HkBl5kCSU" target="_blank" rel="noopener">筆記</a>也挺不錯的。</p>
+<p>更多 perf 的用法可以參考 Brendan Gregg 的「<a target="_blank" rel="noopener" href="http://www.brendangregg.com/perf.html">perf Examples</a>」。另外這個 HackMD 的<a target="_blank" rel="noopener" href="https://hackmd.io/@1IzBzEXXRsmj6-nLXZ9opw/HkBl5kCSU">筆記</a>也挺不錯的。</p>
 </blockquote>
 <h2 id="結論"><a class="header-anchor" href="#結論">¶ </a>結論</h2>
 <p>本文介紹 perf 的簡單用法，用簡單的範例程式示範如何去觀察效能並找出可能的問題原因。</p>
@@ -415,7 +415,7 @@ sum = 94479480000
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#簡介"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一個-Branch-Prediction-的範例"><span class="toc-text">一個 Branch Prediction 的範例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Perf-效能分析工具"><span class="toc-text">Perf 效能分析工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-perf"><span class="toc-text">使用 perf</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Perf-Record"><span class="toc-text">Perf Record</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perf-Annotate"><span class="toc-text">Perf Annotate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perf-Stat"><span class="toc-text">Perf Stat</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-text">結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%80%8B-Branch-Prediction-%E7%9A%84%E7%AF%84%E4%BE%8B"><span class="toc-text">一個 Branch Prediction 的範例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Perf-%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7"><span class="toc-text">Perf 效能分析工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-perf"><span class="toc-text">使用 perf</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Perf-Record"><span class="toc-text">Perf Record</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perf-Annotate"><span class="toc-text">Perf Annotate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perf-Stat"><span class="toc-text">Perf Stat</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
 </div>
                 </section>
             

@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,效能分析,平行化,WebAssembly,paper,CPU SPEC," />
+        content="browser,效能分析,平行化,paper,WebAssembly,CPU SPEC," />
     <meta name="description"
         content="[論文] 好像沒有那麼快：WebAssembly vs. Native Code 程式碼效能分析" />
     <title>Neutrino&#39;s Blog: [論文] 好像沒有那麼快：WebAssembly vs. Native Code 程式碼效能分析 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -176,22 +176,22 @@
     <div class="post-content">
         <p><strong>Paper</strong>: Not So Fast: Analyzing the Performance of WebAssembly vs. Native Code<br>
 <strong>Author</strong>: Abhinav Jangda, Bobby Powers, Emery D. Berger, and Arjun Guha, University of Massachusetts Amherst<br>
-<strong>Source</strong>: <a href="https://www.usenix.org/conference/atc19/presentation/jangda" target="_blank" rel="noopener">USENIX ATC 2019</a></p>
+<strong>Source</strong>: <a target="_blank" rel="noopener" href="https://www.usenix.org/conference/atc19/presentation/jangda">USENIX ATC 2019</a></p>
 <hr>
 <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
-<p>作者們先前開發了 <a href="https://github.com/plasma-umass/browsix" target="_blank" rel="noopener">BROWSIX</a>，可以讓 Unix 程式直接轉成 JavaScript 並跑在瀏覽器。BROWSIX 基本上就是把程式碼轉成 JavaScript 並且用 Browser API 來模擬 Unix System Call。此篇作者更進一步，開發 BROWSIX-WASM（fork 自 <a href="https://github.com/emscripten-core/emscripten" target="_blank" rel="noopener">Emscripten</a>）將程式碼轉成 WebAssembly，一來解決原本 JavaScript 效能不佳問題，同時也能可以拿來和 Native Code 在 SPEC CPU suite of Benchmark 上做效能比較。實驗結果 WebAssembly 在現代瀏覽器（Chrome &amp; Firefox）上慢 Native Code 大約 50%，並深入探討為什麼會這樣。</p>
+<p>作者們先前開發了 <a target="_blank" rel="noopener" href="https://github.com/plasma-umass/browsix">BROWSIX</a>，可以讓 Unix 程式直接轉成 JavaScript 並跑在瀏覽器。BROWSIX 基本上就是把程式碼轉成 JavaScript 並且用 Browser API 來模擬 Unix System Call。此篇作者更進一步，開發 BROWSIX-WASM（fork 自 <a target="_blank" rel="noopener" href="https://github.com/emscripten-core/emscripten">Emscripten</a>）將程式碼轉成 WebAssembly，一來解決原本 JavaScript 效能不佳問題，同時也能可以拿來和 Native Code 在 SPEC CPU suite of Benchmark 上做效能比較。實驗結果 WebAssembly 在現代瀏覽器（Chrome &amp; Firefox）上慢 Native Code 大約 50%，並深入探討為什麼會這樣。</p>
 <p>整體來說我覺得是很有趣的一篇論文，整理了重點並加入一些我個人的見解。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <p>原論文摘要：</p>
 <blockquote>
 <p>All major web browsers now support WebAssembly, a low-level bytecode intended to serve as a compilation target for code written in languages like C and C++. A key goal of WebAssembly is performance parity with native code; previous work reports near parity, with many applications compiled to WebAssembly running on average 10% slower than native code. However, this evaluation was limited to a suite of scientific kernels, each consisting of roughly 100 lines of code. Running more substantial applications was not possible because compiling code to WebAssembly is only part of the puzzle: standard Unix APIs are not available in the web browser environment. To address this challenge, we build Browsix-Wasm , a significant extension to Browsix that, for the first time, makes it possible to run unmodified WebAssembly-compiled Unix applications directly inside the browser. We then use Browsix-Wasm to conduct the first large-scale evaluation of the performance of WebAssembly vs. native. Across the SPEC CPU suite of benchmarks, we find a substantial performance gap: applications compiled to WebAssembly run slower by an average of 45% (Firefox) to 55% (Chrome), with peak slowdowns of 2.08× (Firefox) and 2.5× (Chrome). We identify the causes of this performance degradation, some of which are due to missing optimizations and code generation issues, while others are inherent to the WebAssembly platform.</p>
 </blockquote>
 <h2 id="WebAssembly"><a class="header-anchor" href="#WebAssembly">¶ </a>WebAssembly</h2>
-<p>WebAssembly（WASM）在瀏覽器中是一個獨立模組，他也可以是獨立的程式。詳細介紹可以看 Lin Clark 寫的<a href="https://hacks.mozilla.org/2018/10/webassemblys-post-mvp-future/" target="_blank" rel="noopener">介紹</a>。一個 WASM 模組由 4GB 的線性記憶體、function table、WASM code 所組成。具備 <a href="https://en.wikipedia.org/wiki/Stack_machine" target="_blank" rel="noopener">stack machine</a>、手動管理記憶體、Structed control flow、與 JS 協作、Type safe 等特性。</p>
+<p>WebAssembly（WASM）在瀏覽器中是一個獨立模組，他也可以是獨立的程式。詳細介紹可以看 Lin Clark 寫的<a target="_blank" rel="noopener" href="https://hacks.mozilla.org/2018/10/webassemblys-post-mvp-future/">介紹</a>。一個 WASM 模組由 4GB 的線性記憶體、function table、WASM code 所組成。具備 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Stack_machine">stack machine</a>、手動管理記憶體、Structed control flow、與 JS 協作、Type safe 等特性。</p>
 <h2 id="從-BROWSIX-到-BROWSIX-Wasm"><a class="header-anchor" href="#從-BROWSIX-到-BROWSIX-Wasm">¶ </a>從 BROWSIX 到 BROWSIX-Wasm</h2>
-<p>BROWSIX 可以處理 socket、pipe、file system 等 System Call（<a href="https://github.com/plasma-umass/browsix-emscripten/blob/browsix-wasm/src/library_browsix.js" target="_blank" rel="noopener">Source Code</a>），並將每個 System Call 都丟給一個 WebWorker。原先 BROWSIX 因為是 JavaScript，每個 Process(WebWorker 用來模擬 process) 記憶體都放在一個 Buffer 並和 kernel(一個 <code>SharedArrayBuffer</code>)分享用來做溝通，這樣會有個很大問題，因為 Chrome 中給 JS 的最大 Heap 空間大概是 2.2 GB，假設每個 Process 各吃掉 500 MB，那就只能最多有四個 Process 做 Concurrency。同時 WebAssembly 也不支援 <code>SharedArrayBuffer</code>，再者 WASM 的 WebWorker 不支援 Atomic 指令（原先 BROWSIX 用來等待 System Call）。因此原本 BROWSIX 的 Kernel-process 溝通的方式若改成 WebAssembly 實作時則不可行。</p>
+<p>BROWSIX 可以處理 socket、pipe、file system 等 System Call（<a target="_blank" rel="noopener" href="https://github.com/plasma-umass/browsix-emscripten/blob/browsix-wasm/src/library_browsix.js">Source Code</a>），並將每個 System Call 都丟給一個 WebWorker。原先 BROWSIX 因為是 JavaScript，每個 Process(WebWorker 用來模擬 process) 記憶體都放在一個 Buffer 並和 kernel(一個 <code>SharedArrayBuffer</code>)分享用來做溝通，這樣會有個很大問題，因為 Chrome 中給 JS 的最大 Heap 空間大概是 2.2 GB，假設每個 Process 各吃掉 500 MB，那就只能最多有四個 Process 做 Concurrency。同時 WebAssembly 也不支援 <code>SharedArrayBuffer</code>，再者 WASM 的 WebWorker 不支援 Atomic 指令（原先 BROWSIX 用來等待 System Call）。因此原本 BROWSIX 的 Kernel-process 溝通的方式若改成 WebAssembly 實作時則不可行。</p>
 <p>為了解決這個問題，BROWSIX 修改了 Emscripten Runtime（C++ 轉 WASM 工具）稱之 BROWSIX-Wasm，讓每個 process 產生一個是 <code>SharedArrayBuffer</code> 的隨機 64 MB Buffer 用來當介面，WASM 的資料都寫到這個隨機 Buffer，然後傳訊息告訴 Kernel 去讀這個 Buffer，因為是透過 <code>SharedArrayBuffer</code> 所以可以用原先的溝通方法。所以關係就是 WASM &lt;-&gt; 隨機 Buffer &lt;-&gt; Kernel。</p>
-<p>其實 Emscripten 似乎已經有支援 pthread 了，可以參考<a href="https://emscripten.org/docs/porting/pthreads.html" target="_blank" rel="noopener">這篇文件</a>，也許是實作方式有差，我還沒深入去研究細節。</p>
+<p>其實 Emscripten 似乎已經有支援 pthread 了，可以參考<a target="_blank" rel="noopener" href="https://emscripten.org/docs/porting/pthreads.html">這篇文件</a>，也許是實作方式有差，我還沒深入去研究細節。</p>
 <p>論文中特別提到 BROWSIX 處理 BrowserFS 是直接開一段記憶體空間，每次有 Append 時就開更大的空間並將原本的資料拷貝過去，這方法有點類似 C++ STD 中 Vector 的作法，不過這樣在小量資料時會有嚴重的負荷，所以他們讓 Buffer 每次增加都至少 4KB，可以有效優化小量增加資料時的效能。</p>
 <h2 id="BROWSIX-SPEC"><a class="header-anchor" href="#BROWSIX-SPEC">¶ </a>BROWSIX-SPEC</h2>
 <p><img src="https://user-images.githubusercontent.com/18013815/71056747-606fba00-2195-11ea-852e-8252067f801b.png" alt="browsix-spec arch"><br>
@@ -206,15 +206,15 @@
 <h2 id="案例研究"><a class="header-anchor" href="#案例研究">¶ </a>案例研究</h2>
 <p>再來就是整篇論文最精彩的部分了，個案分析一個 Matrix 相乘程式碼 <code>matmul.c</code>。比較 Clang 將 Matrix C code 轉成 <code>x86-64</code> 組語，和 Chrome 將 Matrix WASM（從 C 轉成）轉成 <code>x86-64</code> 組語，兩者的差異。</p>
 <p>論文圖 <code>7.a matmul.c</code>:</p>
-<pre><code class="c">void matmul (int C[NI][NJ], int A[NI][NK], int B[NK][NJ]) {
-  for (int i = 0; i < NI; i++) {
-    for (int k = 0; k < NK; k++) {
-      for (int j = 0; j < NJ; j++) {  // 原論文這邊有打錯 j 成 k
+<pre><code class="c">void matmul (int C[NI][NJ], int A[NI][NK], int B[NK][NJ]) &#123;
+  for (int i = 0; i < NI; i++) &#123;
+    for (int k = 0; k < NK; k++) &#123;
+      for (int j = 0; j < NJ; j++) &#123;  // 原論文這邊有打錯 j 成 k
         C[i][j] += A[i][k] * B[k][j];
-      }
-    }
-  }
-}
+      &#125;
+    &#125;
+  &#125;
+&#125;
 </code></pre>
 <p>X86-84 Code，論文圖 <code>7.b</code> 和 <code>7.c</code>：</p>
 <div>
@@ -230,7 +230,7 @@
 <ul>
 <li>Chrome 沒有有效利用 Memory addressing。例如 Clang 在 <code>7b</code> 的 14 行只用一行，Chrome 卻在處理 <code>ecx</code> 上花了三行。</li>
 <li><code>r13</code> 和 <code>r10</code> 被 V8 佔用，Chrome 可用的 Register 比較少</li>
-<li>Chrome 比較多 brach。例如 <code>7b</code> 的 9 和 15 行，Clang 藉由翻轉 counter 來減少條件檢查（這邊用到 x86 的特性，<a href="https://c9x.me/x86/html/file_module_x86_id_5.html" target="_blank" rel="noopener">add</a> 會去改 ZF flag，讓 jne 可以跳出）。Chrome 為了避免 Register spill 所以必須 jump，例如 <code>7c</code> 的 7 到 9 行。</li>
+<li>Chrome 比較多 brach。例如 <code>7b</code> 的 9 和 15 行，Clang 藉由翻轉 counter 來減少條件檢查（這邊用到 x86 的特性，<a target="_blank" rel="noopener" href="https://c9x.me/x86/html/file_module_x86_id_5.html">add</a> 會去改 ZF flag，讓 jne 可以跳出）。Chrome 為了避免 Register spill 所以必須 jump，例如 <code>7c</code> 的 7 到 9 行。</li>
 </ul>
 <h2 id="效能分析"><a class="header-anchor" href="#效能分析">¶ </a>效能分析</h2>
 <p>平均來說 Chrome 和 Firefox 都會產生 Native Code 兩倍左右的 Instruction retired（就是執行多少行），而越少會越快，所以 Native Code 的測試結果才比較快。</p>
@@ -264,12 +264,12 @@
                 平行化
             </a>,&nbsp;
         
-            <a href="/tags/webassembly/">
-                WebAssembly
-            </a>,&nbsp;
-        
             <a href="/tags/paper/">
                 paper
+            </a>,&nbsp;
+        
+            <a href="/tags/webassembly/">
+                WebAssembly
             </a>,&nbsp;
         
             <a href="/tags/cpu-spec/">
@@ -341,7 +341,7 @@
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#簡介"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebAssembly"><span class="toc-text">WebAssembly</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#從-BROWSIX-到-BROWSIX-Wasm"><span class="toc-text">從 BROWSIX 到 BROWSIX-Wasm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BROWSIX-SPEC"><span class="toc-text">BROWSIX-SPEC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#測試評估"><span class="toc-text">測試評估</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#案例研究"><span class="toc-text">案例研究</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效能分析"><span class="toc-text">效能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Register"><span class="toc-text">Register</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Branch"><span class="toc-text">Branch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache"><span class="toc-text">Cache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結果與討論"><span class="toc-text">結果與討論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebAssembly"><span class="toc-text">WebAssembly</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%9E-BROWSIX-%E5%88%B0-BROWSIX-Wasm"><span class="toc-text">從 BROWSIX 到 BROWSIX-Wasm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BROWSIX-SPEC"><span class="toc-text">BROWSIX-SPEC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%AC%E8%A9%A6%E8%A9%95%E4%BC%B0"><span class="toc-text">測試評估</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6"><span class="toc-text">案例研究</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-text">效能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Register"><span class="toc-text">Register</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Branch"><span class="toc-text">Branch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache"><span class="toc-text">Cache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E6%9E%9C%E8%88%87%E8%A8%8E%E8%AB%96"><span class="toc-text">結果與討論</span></a></li></ol>
 </div>
                 </section>
             

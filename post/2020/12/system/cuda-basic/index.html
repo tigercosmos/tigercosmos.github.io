@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -175,10 +175,10 @@
     </ul>
     <div class="post-content">
         <h2 id="1-簡介"><a class="header-anchor" href="#1-簡介">¶ </a>1. 簡介</h2>
-<p>GPU 以前是用來算圖形介面，後來有了通用 GPU 運算 (General Purpose GPU, GPGPU) 技術的誕生，因為 GPU 架構擁有非常多執行緒，在跑程式的時候可以將大量的數值運算交給 GPU，而邏輯的部分交給 CPU，這也是常見的 GPGPU 使用方式。其中 Nvidia 便是第一個提出 GPGPU 概念的公司，其公司提出 <a href="https://zh.wikipedia.org/wiki/CUDA" target="_blank" rel="noopener">CUDA</a> 技術，讓開發者可以用一般寫 C 的語法去驅動 GPU 來做運算。</p>
+<p>GPU 以前是用來算圖形介面，後來有了通用 GPU 運算 (General Purpose GPU, GPGPU) 技術的誕生，因為 GPU 架構擁有非常多執行緒，在跑程式的時候可以將大量的數值運算交給 GPU，而邏輯的部分交給 CPU，這也是常見的 GPGPU 使用方式。其中 Nvidia 便是第一個提出 GPGPU 概念的公司，其公司提出 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/CUDA">CUDA</a> 技術，讓開發者可以用一般寫 C 的語法去驅動 GPU 來做運算。</p>
 <h2 id="2-CUDA-安裝"><a class="header-anchor" href="#2-CUDA-安裝">¶ </a>2. CUDA 安裝</h2>
 <p>CUDA 有很多個版本，如果直接用 <code>apt install cuda</code> 不一定安裝到自己需要的版本。</p>
-<p>除了一般的 CUDA 程式，我們可能還會想要給 Pytorch 或 Tensorflow 使用。比較好的做法是去官方網站找自己需要的版本，不過要記住要去 <a href="https://developer.nvidia.com/CUDA-TOOLKIT-ARCHIVE" target="_blank" rel="noopener">CUDA Toolkit Archive</a> 的頁面選版本，不然 Nvidia 官網會直接導引到最新的版本。</p>
+<p>除了一般的 CUDA 程式，我們可能還會想要給 Pytorch 或 Tensorflow 使用。比較好的做法是去官方網站找自己需要的版本，不過要記住要去 <a target="_blank" rel="noopener" href="https://developer.nvidia.com/CUDA-TOOLKIT-ARCHIVE">CUDA Toolkit Archive</a> 的頁面選版本，不然 Nvidia 官網會直接導引到最新的版本。</p>
 <p>大家可以照著我下面指示安裝。</p>
 <h3 id="2-1-CUDA-安裝"><a class="header-anchor" href="#2-1-CUDA-安裝">¶ </a>2.1 CUDA 安裝</h3>
 <p>以下以 CUDA 11.0 版本為範例。首先去 Archive 頁面，選 11.0 點進去，然後照個你的需求把選項勾一勾。</p>
@@ -223,12 +223,12 @@ $ /sbin/ldconfig -N -v $(sed 's/:/ /' &lt;&lt;&lt; $LD_LIBRARY_PATH) 2&gt;/dev/n
 <h3 id="2-6-其他"><a class="header-anchor" href="#2-6-其他">¶ </a>2.6 其他</h3>
 <p>如果上面安裝方法沒用的話，也可以參考這幾篇有用的文章：</p>
 <ul>
-<li><a href="https://medium.com/@ayush.goc/easy-installation-of-cuda-toolkit-on-ubuntu-18-04-7931394c1233" target="_blank" rel="noopener">Easy installation of Cuda Toolkit on Ubuntu 18.04</a></li>
-<li><a href="https://sh-tsang.medium.com/tutorial-cuda-v10-2-cudnn-v7-6-5-installation-ubuntu-18-04-3d24c157473f" target="_blank" rel="noopener">Tutorial: CUDA v10.2 + CUDNN v7.6.5 Installation @ Ubuntu 18.04</a></li>
-<li><a href="https://medium.com/@stephengregory_69986/installing-cuda-10-1-on-ubuntu-20-04-e562a5e724a0" target="_blank" rel="noopener">Installing CUDA 10.1 on Ubuntu 20.04</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@ayush.goc/easy-installation-of-cuda-toolkit-on-ubuntu-18-04-7931394c1233">Easy installation of Cuda Toolkit on Ubuntu 18.04</a></li>
+<li><a target="_blank" rel="noopener" href="https://sh-tsang.medium.com/tutorial-cuda-v10-2-cudnn-v7-6-5-installation-ubuntu-18-04-3d24c157473f">Tutorial: CUDA v10.2 + CUDNN v7.6.5 Installation @ Ubuntu 18.04</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@stephengregory_69986/installing-cuda-10-1-on-ubuntu-20-04-e562a5e724a0">Installing CUDA 10.1 on Ubuntu 20.04</a></li>
 </ul>
 <h2 id="3-CUDA-程式範例"><a class="header-anchor" href="#3-CUDA-程式範例">¶ </a>3. CUDA 程式範例</h2>
-<p>想學好 CUDA 最好的辦法是看官方教學文件 <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html" target="_blank" rel="noopener">CUDA C++ Programming Guide</a>，畢竟是 Nvidia 自己家的產品。Gerassimos 寫的 <a href="https://www.tenlong.com.tw/products/9787111557685?list_name=srh" target="_blank" rel="noopener">Multicore and GPU Programming: An Integrated Approach</a> 這本書也挺好的，很適合入門。</p>
+<p>想學好 CUDA 最好的辦法是看官方教學文件 <a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html">CUDA C++ Programming Guide</a>，畢竟是 Nvidia 自己家的產品。Gerassimos 寫的 <a target="_blank" rel="noopener" href="https://www.tenlong.com.tw/products/9787111557685?list_name=srh">Multicore and GPU Programming: An Integrated Approach</a> 這本書也挺好的，很適合入門。</p>
 <p>這邊提供一個簡單的範例：</p>
 <p><code>matadd.cu</code>：</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
@@ -240,7 +240,7 @@ $ /sbin/ldconfig -N -v $(sed 's/:/ /' &lt;&lt;&lt; $LD_LIBRARY_PATH) 2&gt;/dev/n
 
 // GPU 的 Kernel
 __global__ void MatAdd(float *A, float *B, float *C)
-{
+&#123;
     // 根據 CUDA 模型，算出當下 thread 對應的 x 與 y
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     int j = blockIdx.y * blockDim.y + threadIdx.y;
@@ -249,13 +249,13 @@ __global__ void MatAdd(float *A, float *B, float *C)
     int idx = j * N + i;
 
     if (i &lt; N &amp;&amp; j &lt; N)
-    {
+    &#123;
         C[idx] = A[idx] + B[idx];
-    }
-}
+    &#125;
+&#125;
 
 int main()
-{
+&#123;
 
     float *h_A, *h_B, *h_C;
     float *d_A, *d_B, *d_C;
@@ -269,11 +269,11 @@ int main()
 
     // 初始化 Host 的數值
     for (i = 0; i &lt; (N * N); i++)
-    {
+    &#123;
         h_A[i] = 1.0;
         h_B[i] = 2.0;
         h_C[i] = 0.0;
-    }
+    &#125;
 
     // 宣告 Device (GPU) 記憶體
     cudaMalloc((void **)&amp;d_A, N * N * sizeof(float));
@@ -299,13 +299,13 @@ int main()
 
     // 驗證正確性
     for (i = 0; i &lt; (N * N); i++)
-    {
+    &#123;
         if (h_C[i] != 3.0)
-        {
+        &#123;
             printf(&quot;Error:%f, idx:%d\n&quot;, h_C[i], i);
             break;
-        }
-    }
+        &#125;
+    &#125;
 
     printf(&quot;PASS\n&quot;);
 
@@ -320,7 +320,7 @@ int main()
     cudaFree(d_C);
 
     return 0;
-}
+&#125;
 </code></pre>
 <p>在 GPU 運算中，最小執行單位稱作 Kernel，等同 GPU 上的每個 Thread 要執行的函數。所以可以看到我宣告 <code>__global__ void MatAdd()</code> 函數，<code>__global__</code> 告訴編譯器這是 GPU 的函數，<code>MatAdd()</code> 裡面顧名思義是將 A、B 兩個矩陣的同個 index 相加到 C。</p>
 <p>資料有分 Host 端跟 Device 端，Host 就是我們的 CPU，而 Device 則是指 GPU。Host 宣告記憶體就是一般的 <code>malloc</code>，但 GPU 要宣告記憶體則要用 <code>cudaMalloc</code>。</p>
@@ -442,7 +442,7 @@ PASS
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-簡介"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CUDA-安裝"><span class="toc-text">2. CUDA 安裝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-CUDA-安裝"><span class="toc-text">2.1 CUDA 安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-CuDNN-安裝"><span class="toc-text">2.2 CuDNN 安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-OpenCL-安裝"><span class="toc-text">2.3 OpenCL 安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-系統設定"><span class="toc-text">2.4 系統設定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-檢查安裝"><span class="toc-text">2.5 檢查安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-其他"><span class="toc-text">2.6 其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-CUDA-程式範例"><span class="toc-text">3. CUDA 程式範例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-結論"><span class="toc-text">4. 結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B0%A1%E4%BB%8B"><span class="toc-text">1. 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CUDA-%E5%AE%89%E8%A3%9D"><span class="toc-text">2. CUDA 安裝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-CUDA-%E5%AE%89%E8%A3%9D"><span class="toc-text">2.1 CUDA 安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-CuDNN-%E5%AE%89%E8%A3%9D"><span class="toc-text">2.2 CuDNN 安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-OpenCL-%E5%AE%89%E8%A3%9D"><span class="toc-text">2.3 OpenCL 安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E7%B3%BB%E7%B5%B1%E8%A8%AD%E5%AE%9A"><span class="toc-text">2.4 系統設定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E6%AA%A2%E6%9F%A5%E5%AE%89%E8%A3%9D"><span class="toc-text">2.5 檢查安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%85%B6%E4%BB%96"><span class="toc-text">2.6 其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-CUDA-%E7%A8%8B%E5%BC%8F%E7%AF%84%E4%BE%8B"><span class="toc-text">3. CUDA 程式範例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B5%90%E8%AB%96"><span class="toc-text">4. 結論</span></a></li></ol>
 </div>
                 </section>
             

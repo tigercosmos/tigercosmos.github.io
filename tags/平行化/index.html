@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -286,7 +286,7 @@
         </ul>
         
                     <div class="post-content ">
-                        <p>JavaScript 是執行時只會用單執行緒，即便 JavaScript 大量使用並行（Concurrency）機制，像是各種 Event Handler，依舊還是只有一個執行緒，於是這樣大大限制計算的效能。解套辦法是在 JavaScript 上撰寫平行程式，使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener">Web Worker</a>、 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer" target="_blank" rel="noopener">SharedArrayBuffer</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics" target="_blank" rel="noopener">Atomics</a>。</p>
+                        <p>JavaScript 是執行時只會用單執行緒，即便 JavaScript 大量使用並行（Concurrency）機制，像是各種 Event Handler，依舊還是只有一個執行緒，於是這樣大大限制計算的效能。解套辦法是在 JavaScript 上撰寫平行程式，使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Web Worker</a>、 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer">SharedArrayBuffer</a> 和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics">Atomics</a>。</p>
         <a href="/post/2020/02/web/js-parallel-worker-sharedarraybuffer/" class="more-link">Continue reading</a>
         </div>
     </article>
@@ -315,10 +315,10 @@
                     <div class="post-content ">
                         <p><strong>Paper</strong>: Not So Fast: Analyzing the Performance of WebAssembly vs. Native Code<br>
 <strong>Author</strong>: Abhinav Jangda, Bobby Powers, Emery D. Berger, and Arjun Guha, University of Massachusetts Amherst<br>
-<strong>Source</strong>: <a href="https://www.usenix.org/conference/atc19/presentation/jangda" target="_blank" rel="noopener">USENIX ATC 2019</a></p>
+<strong>Source</strong>: <a target="_blank" rel="noopener" href="https://www.usenix.org/conference/atc19/presentation/jangda">USENIX ATC 2019</a></p>
 <hr>
 <h2 id="簡介"><a class="header-anchor" href="#簡介">¶ </a>簡介</h2>
-<p>作者們先前開發了 <a href="https://github.com/plasma-umass/browsix" target="_blank" rel="noopener">BROWSIX</a>，可以讓 Unix 程式直接轉成 JavaScript 並跑在瀏覽器。BROWSIX 基本上就是把程式碼轉成 JavaScript 並且用 Browser API 來模擬 Unix System Call。此篇作者更進一步，開發 BROWSIX-WASM（fork 自 <a href="https://github.com/emscripten-core/emscripten" target="_blank" rel="noopener">Emscripten</a>）將程式碼轉成 WebAssembly，一來解決原本 JavaScript 效能不佳問題，同時也能可以拿來和 Native Code 在 SPEC CPU suite of Benchmark 上做效能比較。實驗結果 WebAssembly 在現代瀏覽器（Chrome &amp; Firefox）上慢 Native Code 大約 50%，並深入探討為什麼會這樣。</p>
+<p>作者們先前開發了 <a target="_blank" rel="noopener" href="https://github.com/plasma-umass/browsix">BROWSIX</a>，可以讓 Unix 程式直接轉成 JavaScript 並跑在瀏覽器。BROWSIX 基本上就是把程式碼轉成 JavaScript 並且用 Browser API 來模擬 Unix System Call。此篇作者更進一步，開發 BROWSIX-WASM（fork 自 <a target="_blank" rel="noopener" href="https://github.com/emscripten-core/emscripten">Emscripten</a>）將程式碼轉成 WebAssembly，一來解決原本 JavaScript 效能不佳問題，同時也能可以拿來和 Native Code 在 SPEC CPU suite of Benchmark 上做效能比較。實驗結果 WebAssembly 在現代瀏覽器（Chrome &amp; Firefox）上慢 Native Code 大約 50%，並深入探討為什麼會這樣。</p>
 <p>整體來說我覺得是很有趣的一篇論文，整理了重點並加入一些我個人的見解。</p>
         <a href="/post/2019/12/paper/browsix-wasm/" class="more-link">Continue reading</a>
         </div>

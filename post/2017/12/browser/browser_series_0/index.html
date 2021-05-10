@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="做一個瀏覽器之前，先來認識瀏覽器" />
     <title>Neutrino&#39;s Blog: 做一個瀏覽器之前，先來認識瀏覽器 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -179,7 +179,7 @@
 </blockquote>
 <p><img src="https://browser-update.org/img/shot%20update.png" alt=""></p>
 <h2 id="Why"><a class="header-anchor" href="#Why">¶ </a>Why</h2>
-<p>很久以前就想寫關於瀏覽器的系列文章了，至於多久以前，其實大概也才幾個月吧。幾個月前我突然想往開源社群發展，誤打誤撞便開始了我對 Mozilla 的 Servo 專案的<a href="https://medium.com/@tigercosmos/%E8%B8%8F%E5%85%A5-mozilla-servo-%E5%85%A9%E5%80%8B%E6%9C%88%E7%9A%84%E5%BF%83%E5%BE%97-9eaf41e021f9" target="_blank" rel="noopener">貢獻之路</a>。Servo 專案是新一代瀏覽器引擎，強調平行化處理，因此速度會更快。在上面我也算是活躍社群貢獻者，幾個月下來對瀏覽器引擎開發也算或多或少有了解。事實上我更想從網路上吸取大量相關知識，可惜瀏覽器不是顯學，幾乎沒什麼資料可以參考，有也就那幾篇。而我專門挑中文資料缺少的領域寫文章，雖然其實這次英文資料也少得可憐，如果能讓中文界對於瀏覽器的了解更深一步，我很樂意寫文章彌補一點缺憾！系列大概分兩大主軸，其一是輕鬆簡單的原理和背景知識，其二則是比較進階的實作方式。</p>
+<p>很久以前就想寫關於瀏覽器的系列文章了，至於多久以前，其實大概也才幾個月吧。幾個月前我突然想往開源社群發展，誤打誤撞便開始了我對 Mozilla 的 Servo 專案的<a target="_blank" rel="noopener" href="https://medium.com/@tigercosmos/%E8%B8%8F%E5%85%A5-mozilla-servo-%E5%85%A9%E5%80%8B%E6%9C%88%E7%9A%84%E5%BF%83%E5%BE%97-9eaf41e021f9">貢獻之路</a>。Servo 專案是新一代瀏覽器引擎，強調平行化處理，因此速度會更快。在上面我也算是活躍社群貢獻者，幾個月下來對瀏覽器引擎開發也算或多或少有了解。事實上我更想從網路上吸取大量相關知識，可惜瀏覽器不是顯學，幾乎沒什麼資料可以參考，有也就那幾篇。而我專門挑中文資料缺少的領域寫文章，雖然其實這次英文資料也少得可憐，如果能讓中文界對於瀏覽器的了解更深一步，我很樂意寫文章彌補一點缺憾！系列大概分兩大主軸，其一是輕鬆簡單的原理和背景知識，其二則是比較進階的實作方式。</p>
 <h2 id="What"><a class="header-anchor" href="#What">¶ </a>What</h2>
 <p>何謂瀏覽器，大家每天都在用，感覺我都不需要說明了呢！你每天用的 Chrome、Firefox 就是瀏覽器，你操作的是他的使用者介面，也就是網頁的畫面呈現好了，你還可以使用一些介面上功能，例如書籤、歷史紀錄、回到上一頁等等之類的東西，方便你瀏覽網頁。但是在你看到「看得到的」網頁之前，網頁都只是冰冷的程式碼，這就要靠瀏覽器引擎來做處理，讓程式碼變成一塊一塊的圖形和文字。一個好的瀏覽器要兼具使用介面友善跟程式處理快速，簡單來說就是你使用起來覺得很直觀很方便，瀏覽網站的時候覺得速度很快。在排除網路速度、電腦規格的情況下，好的瀏覽器帶你上天堂，爛的瀏覽器讓你生不如死。</p>
 <h2 id="How"><a class="header-anchor" href="#How">¶ </a>How</h2>
@@ -204,12 +204,12 @@
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">
@@ -281,7 +281,7 @@
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-text">Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What"><span class="toc-text">What</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下載"><span class="toc-text">下載</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解析"><span class="toc-text">解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Layout-＆-Render"><span class="toc-text">Layout ＆ Render</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-text">Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What"><span class="toc-text">What</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BC%89"><span class="toc-text">下載</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90"><span class="toc-text">解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Layout-%EF%BC%86-Render"><span class="toc-text">Layout ＆ Render</span></a></li></ol></li></ol>
 </div>
                 </section>
             

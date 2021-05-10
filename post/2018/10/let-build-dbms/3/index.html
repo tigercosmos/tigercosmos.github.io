@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,17 +177,17 @@
         <p>StellarSQL is a relational DBMS (RDBMS). Usually, RDBMS is 2-tier client/server architecture, which includes a server and a client. A client might be any devices which wants to access databases, and a server is running a DBMS for handling requests from clients.</p>
 <p>There must be a protocol between client and server, in order to communication and data transmission. MySQL and PostgreSQL apply message stream communication as their protocol. MySQL and PostgreSQL do talk about protocol on their document:</p>
 <ul>
-<li>MySQL: <a href="https://dev.mysql.com/doc/dev/mysql-server/8.0.2/PAGE_PROTOCOL.html" target="_blank" rel="noopener">Client/Server Protocol</a></li>
-<li>PostgreSQL: <a href="https://www.postgresql.org/docs/9.5/static/protocol-overview.html#PROTOCOL-MESSAGE-CONCEPTS" target="_blank" rel="noopener">Chapter 50. Frontend/Backend Protocol</a></li>
+<li>MySQL: <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/dev/mysql-server/8.0.2/PAGE_PROTOCOL.html">Client/Server Protocol</a></li>
+<li>PostgreSQL: <a target="_blank" rel="noopener" href="https://www.postgresql.org/docs/9.5/static/protocol-overview.html#PROTOCOL-MESSAGE-CONCEPTS">Chapter 50. Frontend/Backend Protocol</a></li>
 </ul>
 <p>Of course, you can also use HTTP protocol. Firebase is a NoSQL cloud database, and clients send HTTP requests for querying data. However HTTP is somehow too “fat” for the purpose of data querying, so message stream might be suitable in the case of DBMS.</p>
-<p>Now, we can start to develop a little about <a href="http://Tokio.rs" target="_blank" rel="noopener">Tokio.rs</a> for StellarSQL, which we talked about on yesterday.</p>
+<p>Now, we can start to develop a little about <a target="_blank" rel="noopener" href="http://Tokio.rs">Tokio.rs</a> for StellarSQL, which we talked about on yesterday.</p>
 <h2 id="Create-server"><a class="header-anchor" href="#Create-server">¶ </a>Create server</h2>
 <p>Based on the reason above, I would also use message stream communication as the protocol for StellarSQL.</p>
 <p>I will think about the detail of the protocol in the following days. But now, we can implement the part of TCP stream by using <code>Tokio.rs</code> first.</p>
 <p>We create a server first:</p>
 <p>!FILENAME src/main.rs</p>
-<pre><code>    let addr = format!(&quot;127.0.0.1:{}&quot;, port).parse().unwrap();
+<pre><code>    let addr = format!(&quot;127.0.0.1:&#123;&#125;&quot;, port).parse().unwrap();
 
     // Bind a TCP listener to the socket address.
     // Note that this is the Tokio TcpListener, which is fully async.
@@ -197,23 +197,23 @@
     // incoming connection.
     let server = listener
         .incoming()
-        .for_each(move |socket| {
+        .for_each(move |socket| &#123;
             // Spawn a task to process the connection
             // TODO process()
             Ok(())
-        }).map_err(|err| {
-            println!(&quot;accept error = {:?}&quot;, err);
-        });
+        &#125;).map_err(|err| &#123;
+            println!(&quot;accept error = &#123;:?&#125;&quot;, err);
+        &#125;);
 
     tokio::run(server);
-    println!(&quot;StellarSQL running on {} port&quot;, port);
+    println!(&quot;StellarSQL running on &#123;&#125; port&quot;, port);
 </code></pre>
 <p>Continue to the day before yesterday, we let address use the port from arguments or configuration. So the server will serve at <code>127.0.0.1:PORT</code>.</p>
 <p>Then we let server listen to any sockets input from connections. For servers or DBMS, it is always that clients ask requests and servers answer responses. So, you could see there is a <code>listener</code> that will handles any sockets, which I remain it as TODO.</p>
 <p>Finally, we run the server with <code>tokio::run(server)</code>. According to the document, the Tokio is a pre-configured “out of the box” runtime for building asynchronous applications. It includes both a reactor and a task scheduler. This means applications are multi-threaded by default. In this case, we just use the default setting by Tokio.</p>
 <h2 id="Message"><a class="header-anchor" href="#Message">¶ </a>Message</h2>
 <p>I also define the <code>Message</code> for message streaming. The <code>Message</code> struct is really basic and straightforward now. I will finish it and define the protocol in the following days. Then, we could use it for client/server communication later.</p>
-<pre><code>pub struct Message {
+<pre><code>pub struct Message &#123;
     /// The TCP socket.
     socket: TcpStream,
 
@@ -223,18 +223,18 @@
 
     /// Buffer used to stage data before writing it to the socket.
     wr: BytesMut,
-}
+&#125;
 
-impl Message {
+impl Message &#123;
     /// Create a new `Message` codec backed by the socket
-    fn new(socket: TcpStream) -&gt; Self {
-        Message {
+    fn new(socket: TcpStream) -&gt; Self &#123;
+        Message &#123;
             socket,
             rd: BytesMut::new(),
             wr: BytesMut::new(),
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 
     </div>

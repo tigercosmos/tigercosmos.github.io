@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="先來看看瀏覽器內核長怎樣吧！" />
     <title>Neutrino&#39;s Blog: 先來看看瀏覽器內核長怎樣吧！ </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,7 +178,7 @@
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a><br>
 上一篇文章提到瀏覽器會需要解析、渲染，這部分就要靠瀏覽器引擎來處理，又可以稱為排版引擎（layout engine）、瀏覽器內核（web browser engine）、渲染引擎（rendering engine）或樣版引擎。不論怎麼稱呼，就是負責把程式碼變成使用者可以看到的畫面。</p>
 </blockquote>
-<p>下面這張圖源自 <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/" target="_blank" rel="noopener">hacks.mozilla.org</a>，我認為將內核的工作呈現的滿清楚的，包含從網路取得網頁，與使用者端互動，引擎進行 js、css、html 解析，以及渲染畫面到使用者端。<br>
+<p>下面這張圖源自 <a target="_blank" rel="noopener" href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">hacks.mozilla.org</a>，我認為將內核的工作呈現的滿清楚的，包含從網路取得網頁，與使用者端互動，引擎進行 js、css、html 解析，以及渲染畫面到使用者端。<br>
 <img src="https://hacks.mozilla.org/files/2017/05/browser-diagram-full-2.png" alt=""></p>
 <p>一個瀏覽器的內核是由好多模組組成，其中瀏覽器引擎只是其中一塊，並且可以作為獨立模組，也就是說同一個瀏覽器引擎，可以衍伸為好多個瀏覽器。這概念跟汽車很像，如同你可以把汽車原本的四缸引擎換成渦輪引擎一樣。而渦輪引擎也可以裝在各種車款當中。了解了之後，我們知道 Firefox 和 SeaMonkey 這兩款瀏覽器都是使用 Gecko 引擎，但 Chrome 則不是，就是這個概念！</p>
 <p>一個完整設計的瀏覽器引擎非常龐大複雜，Blink、 Gecko、 WebKit 這幾個市佔率最高的大佬，哪一個不是幾百萬行的程式碼，即便是比較年輕、簡單的引擎，像是 Servo 或是 WeasyPrint 也都是幾十萬行起跳。這使得一般人很難一探究竟，更別說想要貢獻了！如果能懂原理，知道簡化版的實作方式，在真正碰到複雜的程式碼的時候，也比較能從容應對。</p>
@@ -195,12 +195,12 @@
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

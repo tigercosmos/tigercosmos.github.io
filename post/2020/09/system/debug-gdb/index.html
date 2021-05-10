@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,11 +177,11 @@
         <h2 id="Introduction"><a class="header-anchor" href="#Introduction">¶ </a>Introduction</h2>
 <p>Big open source projects are huge, such as the Servo browser in Rust. I have counted the lines of code for you. There are almost a hundred thousand lines of code in the Servo project. To develop such a big project, knowing how to debug in a right way is very important, since you would like to find the bottleneck in a fast and efficient way.</p>
 <p>In this article, I will teach you some tips to use GDB developing and debugging your Rust code and the Servo project. The debug method can be also applied to C/C++ as well.</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <h2 id="So-How-to-Debug"><a class="header-anchor" href="#So-How-to-Debug">¶ </a>So, How to Debug?</h2>
 <p>I assume you are not familiar with software developing, but you have some skills to write codes.</p>
 <p>So when you want to know somethings in the box, you might add some lines, such as:</p>
-<pre><code>println!(&quot;{:?}&quot;, SOMETHING);
+<pre><code>println!(&quot;&#123;:?&#125;&quot;, SOMETHING);
 </code></pre>
 <p>This is a simple method. Straightforward enough! It does help you to figure out what’s going on about the code.</p>
 <p>However, it requires compiling each time when you want to know another variable’s value in the program. Besides, when your program crashes or causes memory leak, it is hard to trace the underlying problem.</p>
@@ -189,7 +189,7 @@
 <p>I will talk about how to use GDB then. LLDB is very similar to GDB. Basically, their commands are almost the same, so I would just introduce how to use GDB to debug the Rust and the Servo.</p>
 <h2 id="Introduction-to-GDB"><a class="header-anchor" href="#Introduction-to-GDB">¶ </a>Introduction to GDB</h2>
 <blockquote>
-<p>“GDB, the GNU Project debugger, allows you to see what is going on ‘inside’ another program while it executes — or what another program was doing at the moment it crashed.” — from <a href="http://gnu.org" target="_blank" rel="noopener">gnu.org</a></p>
+<p>“GDB, the GNU Project debugger, allows you to see what is going on ‘inside’ another program while it executes — or what another program was doing at the moment it crashed.” — from <a target="_blank" rel="noopener" href="http://gnu.org">gnu.org</a></p>
 </blockquote>
 <p>In other words, GDB allows you to control the program running and to get more information from the inside of the code.</p>
 <p>For example, you can stop the program at a certain line in a file, which is called a “breakpoint”. When the program stops at the breakpoint, you can print them to see the values of the variables in the breakpoint scope.</p>
@@ -204,16 +204,16 @@ cd hello_cargo
 </code></pre>
 <p>Then, let’s start!</p>
 <p>In order to show how to use GDB, I have designed a sample code. Please copy the following code to your <code>./src/main.rs</code>:</p>
-<pre><code>fn main() {
+<pre><code>fn main() &#123;
     let name = &quot;Tiger&quot;;
     let msg = make_hello_string(&amp;name);
-    println!(&quot;{}&quot;, msg);
-}
+    println!(&quot;&#123;&#125;&quot;, msg);
+&#125;
 
-fn make_hello_string(name: &amp;str) -&gt; String {
-    let hello_str = format!(&quot;Hi {}, how are you?&quot;, name);
+fn make_hello_string(name: &amp;str) -&gt; String &#123;
+    let hello_str = format!(&quot;Hi &#123;&#125;, how are you?&quot;, name);
     hello_str
-}
+&#125;
 </code></pre>
 <p>To build this code, simply run <code>cargo build</code>.</p>
 <p>There would be an executable file <code>./target/debug/hello_cargo</code>. The build is set as debug mode by default, and we can use the debug build to run with GDB. However, if it is a release build, you cannot run with GDB, since the debug information is lost.</p>
@@ -294,7 +294,7 @@ $1 = &quot;Tiger&quot;
 #0  hello_cargo::make_hello_string (name=...) at src/main.rs:9
 9	    hello_str
 (gdb) print hello_str
-$2 = alloc::string::String {vec: alloc::vec::Vec&lt;u8&gt; {buf: alloc::raw_vec::RawVec&lt;u8, alloc::heap::Heap&gt; {ptr: core::ptr::Unique&lt;u8&gt; {pointer: core::nonzero::NonZero&lt;*const u8&gt; (0x7ffff6c22060 &quot;Hi Tiger, how are you?\000&quot;), _marker: core::marker::PhantomData&lt;u8&gt;}, cap: 34, a: alloc::heap::Heap}, len: 22}}
+$2 = alloc::string::String &#123;vec: alloc::vec::Vec&lt;u8&gt; &#123;buf: alloc::raw_vec::RawVec&lt;u8, alloc::heap::Heap&gt; &#123;ptr: core::ptr::Unique&lt;u8&gt; &#123;pointer: core::nonzero::NonZero&lt;*const u8&gt; (0x7ffff6c22060 &quot;Hi Tiger, how are you?\000&quot;), _marker: core::marker::PhantomData&lt;u8&gt;&#125;, cap: 34, a: alloc::heap::Heap&#125;, len: 22&#125;&#125;
 </code></pre>
 <h3 id="continue"><a class="header-anchor" href="#continue">¶ </a>continue</h3>
 <p>After checking some information we want know, we might want the program to continue. Use <code>continue</code> or <code>c</code> to continue running the code. The program will keep running until it meets another breakpoints or finish the execution.</p>

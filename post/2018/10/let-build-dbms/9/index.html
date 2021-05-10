@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -176,24 +176,24 @@
     <div class="post-content">
         <p>Today, I am going to implement the lexical scanner for StellarSQL. It would be a quite big engineering, so I could only do the part 1 today. I don’t even know how many parts it would be, but I would do my best.</p>
 <p>There is a standard for SQL by ISO, which is “ISO/IEC 9075”. Moreover, every DBMS have their own SQL syntax. Those DBMS follow the standard and add the extension syntax. An extension is only for a certain DBMS which define and implement it, and would not work on another one.</p>
-<p>The full list of keywords is too long and we usually do not use most of all. More syntax supported, more complicated a DBMS is. To keep StellarSQL simple, I use the <a href="https://www.w3schools.com/sql/sql_ref_keywords.asp" target="_blank" rel="noopener">keywords list</a> in W3C SQL Tutorial, which is a basic version.</p>
+<p>The full list of keywords is too long and we usually do not use most of all. More syntax supported, more complicated a DBMS is. To keep StellarSQL simple, I use the <a target="_blank" rel="noopener" href="https://www.w3schools.com/sql/sql_ref_keywords.asp">keywords list</a> in W3C SQL Tutorial, which is a basic version.</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/47444318-ce665e80-d7e8-11e8-9197-f01d1fc3d300.png" alt="keywords list"></p>
 <p>Basically, these keywords are enough for normal usage.</p>
-<p>So, I define these keywords in file <a href="https://github.com/tigercosmos/StellarSQL/tree/master/src/sql/symbol.rs" target="_blank" rel="noopener">src/sql/symbol.rs</a>.</p>
+<p>So, I define these keywords in file <a target="_blank" rel="noopener" href="https://github.com/tigercosmos/StellarSQL/tree/master/src/sql/symbol.rs">src/sql/symbol.rs</a>.</p>
 <p>!FILENAME src/sql/symbol.rs</p>
-<pre><code>struct Symbol {
+<pre><code>struct Symbol &#123;
     name: String,
     len: u32,
     token: Token,
     group: Group,
-}
+&#125;
 
-enum Group {
+enum Group &#123;
     Keyword,
     Function,
-}
+&#125;
 
-enum Token {
+enum Token &#123;
     Add,
     AddConstraint,
     Alter,
@@ -222,9 +222,9 @@ enum Token {
     Values,
     View,
     Where,
-}
+&#125;
 </code></pre>
-<p>The <code>Symbol</code> structure stores information for tokens, which includes <code>name</code>, <code>token</code>, and <code>group</code>. For example, a Symbol of “CREATE” keyword is <code>Symbol{ name: &quot;CREATE&quot;, token: Token::CREATE, group: Group::keyword }</code>.</p>
+<p>The <code>Symbol</code> structure stores information for tokens, which includes <code>name</code>, <code>token</code>, and <code>group</code>. For example, a Symbol of “CREATE” keyword is <code>Symbol&#123; name: &quot;CREATE&quot;, token: Token::CREATE, group: Group::keyword &#125;</code>.</p>
 <p><code>Token</code> stores all keywords of SQL that the scanner needs to know.</p>
 <p><code>Group</code> classify the symbol a keywords or a function.</p>
 <p>I am studying the code of MySQL for more than 4 hours. That’s why it looks like I don’t write too much code. I will continue tomorrow.</p>

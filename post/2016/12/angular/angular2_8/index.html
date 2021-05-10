@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -182,23 +182,23 @@
 <pre><code>&lt;base href=&quot;/&quot;&gt;
 </code></pre>
 <p>&#x4F7F;&#x7528; Angular &#x6642;&#x5019;&#xFF0C;&#x6211;&#x5011;&#x8981;&#x5C0E;&#x5165;&#x6A21;&#x7D44; <code>@angular/router</code></p>
-<pre><code>import { ROUTER_PROVIDERS } from &apos;@angular/router&apos;;
+<pre><code>import &#123; ROUTER_PROVIDERS &#125; from &apos;@angular/router&apos;;
 </code></pre>
 <h2>&#x914D;&#x7F6E;</h2>
 <p>Angular &#x900F;&#x904E; <code>RouteDefinition</code> &#x4F86;&#x8A2D;&#x5B9A; URL &#x7D66;&#x700F;&#x89BD;&#x5668;&#x67E5;&#x8A62;&#xFF0C;&#x800C;&#x4E00;&#x822C;&#x8DEF;&#x7531;&#x6703;&#x8A2D;&#x5B9A;&#x5728; Parent Component (&#x7236;&#x5143;&#x4EF6;)&#xFF0C;&#x7136;&#x5F8C;&#x900F;&#x904E; <code>@Routes</code> &#x88DD;&#x98FE;&#x5668;&#x4F86;&#x8A3B;&#x518A;&#x8DEF;&#x7531;&#x3002;</p>
-<pre><code>@Component({ ... })
+<pre><code>@Component(&#123; ... &#125;)
 @Routes([
-  {path: &apos;/crisis-center&apos;, component: CrisisListComponent},
-  {path: &apos;/heroes&apos;,        component: HeroListComponent},
-  {path: &apos;/hero/:id&apos;,      component: HeroDetailComponent}
+  &#123;path: &apos;/crisis-center&apos;, component: CrisisListComponent&#125;,
+  &#123;path: &apos;/heroes&apos;,        component: HeroListComponent&#125;,
+  &#123;path: &apos;/hero/:id&apos;,      component: HeroDetailComponent&#125;
 ])
-export class AppComponent  implements OnInit {
-  constructor(private router: Router) {}
-<p>ngOnInit() {<br>
+export class AppComponent  implements OnInit &#123;
+  constructor(private router: Router) &#123;&#125;
+<p>ngOnInit() &#123;<br>
 // 導向 crisis-center 頁面<br>
 this.router.navigate(['/crisis-center']);<br>
-}<br>
-}<br>
+&#125;<br>
+&#125;<br>
 </code></pre></p>
 <p><code>@Routes</code> &#x88E1;&#x9762;&#x7B2C;&#x4E09;&#x7A2E;&#x7528;&#x6CD5;&#x662F;&#x7528;&#x4F86;&#x53C3;&#x6578;&#x50B3;&#x5740;&#xFF0C;<code>/:id</code> &#x7528;&#x4F86;&#x8F38;&#x5165;&#x53C3;&#x6578;&#xFF0C;&#x4F8B;&#x5982; <code>/hero/58</code></p>
 <h3>Router Outlet</h3>
@@ -226,7 +226,7 @@ this.router.navigate(['/crisis-center']);<br>
 <pre><code>  &lt;h1 class=&quot;title&quot;&gt;Angular Router&lt;/h1&gt;
   &lt;nav&gt;
     &lt;a [routerLink]=&quot;[&apos;/crisis-center&apos;]&quot;&gt;Crisis Center&lt;/a&gt;
-    &lt;a [routerLink]=&quot;[&apos;/crisis-center/1&apos;, { foo: &apos;foo&apos; }]&quot;&gt;Dragon Crisis&lt;/a&gt;
+    &lt;a [routerLink]=&quot;[&apos;/crisis-center/1&apos;, &#123; foo: &apos;foo&apos; &#125;]&quot;&gt;Dragon Crisis&lt;/a&gt;
     &lt;a [routerLink]=&quot;[&apos;/crisis-center/2&apos;]&quot;&gt;Shark Crisis&lt;/a&gt;
   &lt;/nav&gt;
   &lt;router-outlet&gt;&lt;/router-outlet&gt;
@@ -238,61 +238,61 @@ this.router.navigate(['/crisis-center']);<br>
 <p>&#x5047;&#x8A2D;&#x6709;&#x500B;&#x9801;&#x9762;&#x5FC5;&#x9808;&#x8981;&#x767B;&#x5165;&#x624D;&#x80FD;&#x5920;&#x770B;&#x5230;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8981;&#x7D93;&#x904E;&#x8A8D;&#x8B49;&#x624D;&#x80FD;&#x700F;&#x89BD;&#x9801;&#x9762;&#xFF0C;&#x90A3;&#x9EBC;&#x672A;&#x767B;&#x5165;&#x7684;&#x4EBA;&#x5C31;&#x6703;&#x88AB;&#x5C0E;&#x5411;&#x767B;&#x5165;&#x9801;&#x9762;&#x3002;<br>
 &#x59D1;&#x4E14;&#x7A31;&#x9019;&#x7A2E;&#x670D;&#x52D9;&#x53EB;&#x505A;&#x8A8D;&#x8B49;&#x5B88;&#x885B;&#xFF0C;&#x6211;&#x5011;&#x5728;&#x6839;&#x76EE;&#x9304;&#x5BEB;&#x4E00;&#x500B;&#x5B88;&#x885B;&#xFF0C;&#x9019;&#x6A23;&#x5176;&#x4ED6;&#x9801;&#x9762;&#x4E4B;&#x5F8C;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x3002;</p>
 <pre><code>//auth-guard.service.ts
-<p>import { Injectable }     from '@angular/core';<br>
-import { CanActivate }    from '@angular/router';</p>
+<p>import &#123; Injectable &#125;     from '@angular/core';<br>
+import &#123; CanActivate &#125;    from '@angular/router';</p>
 <p>@Injectable()<br>
-export class AuthGuard implements CanActivate {<br>
-canActivate() {<br>
+export class AuthGuard implements CanActivate &#123;<br>
+canActivate() &#123;<br>
 console.log('AuthGuard#canActivate called');<br>
 return true;<br>
-}<br>
-}<br>
+&#125;<br>
+&#125;<br>
 </code></pre></p>
 <p>&#x9019;&#x4FBF;&#x53EA;&#x662F;&#x8B93;&#x5B88;&#x885B; log &#x8A0A;&#x606F;&#xFF0C;&#x4E26;&#x56DE;&#x50B3; <code>true</code> &#x8B93;&#x5C0E;&#x5411;&#x7E7C;&#x7E8C;&#x3002;</p>
 <p>&#x63A5;&#x8457;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6211;&#x5011;&#x7684; <code>canActivate</code> &#x4FDD;&#x8B77;&#x63AA;&#x65BD;</p>
 <pre><code>//admin/admin-routing.module.ts  
-<p>import { AuthGuard } from '…/auth-guard.service';</p>
+<p>import &#123; AuthGuard &#125; from '…/auth-guard.service';</p>
 <p>const adminRoutes: Routes = [<br>
-{<br>
+&#123;<br>
 path: 'admin',<br>
 component: AdminComponent,<br>
 canActivate: [AuthGuard],<br>
 children: [<br>
-{<br>
+&#123;<br>
 path: '',<br>
 children: [<br>
-{ path: 'crises', component: ManageCrisesComponent },<br>
-{ path: 'heroes', component: ManageHeroesComponent },<br>
-{ path: '', component: AdminDashboardComponent }<br>
+&#123; path: 'crises', component: ManageCrisesComponent &#125;,<br>
+&#123; path: 'heroes', component: ManageHeroesComponent &#125;,<br>
+&#123; path: '', component: AdminDashboardComponent &#125;<br>
 ],<br>
-}<br>
+&#125;<br>
 ]<br>
-}<br>
+&#125;<br>
 ];</p>
-<p>@NgModule({<br>
+<p>@NgModule(&#123;<br>
 imports: [<br>
 RouterModule.forChild(adminRoutes)<br>
 ],<br>
 exports: [<br>
 RouterModule<br>
 ]<br>
-})<br>
-export class AdminRoutingModule {}<br>
+&#125;)<br>
+export class AdminRoutingModule &#123;&#125;<br>
 </code></pre></p>
 <p>&#x9019;&#x6A23;&#x5B50;&#x6211;&#x5011;&#x7C21;&#x55AE;&#x7684;&#x5B88;&#x885B;&#x4FBF;&#x6709;&#x4FDD;&#x8B77;&#x5230; <code>admin</code> &#x9019;&#x500B;&#x9801;&#x9762;&#x4E86;&#x3002;</p>
 <p>&#x82E5;&#x8981;&#x66F4;&#x8CBC;&#x5207;&#x771F;&#x5BE6;&#x4E00;&#x9EDE;&#x7684;&#x5B88;&#x885B;&#x6A23;&#x8C8C;&#x7684;&#x8A71;&#xFF0C;&#x5927;&#x6982;&#x6703;&#x9577;&#x9019;&#x6A23;</p>
 <pre><code>//auth-guard.service.ts
-<p>import { Injectable }       from '@angular/core';<br>
-import {<br>
+<p>import &#123; Injectable &#125;       from '@angular/core';<br>
+import &#123;<br>
 CanActivate, Router,<br>
 ActivatedRouteSnapshot,<br>
 RouterStateSnapshot<br>
-}                           from '@angular/router';<br>
-import { AuthService }      from './auth.service';</p>
+&#125;                           from '@angular/router';<br>
+import &#123; AuthService &#125;      from './auth.service';</p>
 <p>@Injectable()<br>
-export class AuthGuard implements CanActivate {<br>
-constructor(private authService: AuthService, private router: Router) {}</p>
-<p>canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {<br>
+export class AuthGuard implements CanActivate &#123;<br>
+constructor(private authService: AuthService, private router: Router) &#123;&#125;</p>
+<p>canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean &#123;<br>
 let url: string = state.url;</p>
 <pre><code>return this.checkLogin(url);
 </code></pre>
@@ -399,7 +399,7 @@ return false;
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x57FA;&amp;#x790E;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x914D;&amp;#x7F6E;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">Router Outlet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8DEF;&amp;#x7531;&amp;#x9023;&amp;#x7D50; (Router Links)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8A8D;&amp;#x8B49;&amp;#x5B88;&amp;#x885B;</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">基礎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">Router Outlet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">路由連結 (Router Links)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">認證守衛</span></a></li></ol>
 </div>
                 </section>
             

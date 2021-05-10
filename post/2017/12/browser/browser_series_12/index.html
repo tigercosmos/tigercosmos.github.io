@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器引擎處理版面佈局的簡易版（三）" />
     <title>Neutrino&#39;s Blog: 瀏覽器引擎處理版面佈局的簡易版（三） </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -177,20 +177,20 @@
         <blockquote>
 <p>本系列目錄 <a href="/post/2018/02/browser/browser_series_33/">《來做個網路瀏覽器吧！》文章列表</a></p>
 </blockquote>
-<p>接續昨天討論 <a href="https://github.com/mbrubeck/robinson/blob/master/src/layout.rs" target="_blank" rel="noopener">robinson/src/layout.rs</a> 這個 layout 模組。</p>
-<p>一般來說，box 是從上到下堆起來的，如果有定義是 inline 的話，則是從左到右。不過這是在 Normal flow 的情況下，也就是沒有定義「<a href="https://www.w3.org/TR/CSS2/visuren.html#positioning-scheme" target="_blank" rel="noopener">位置</a>」，不然你也可以讓某個 box 固定在那邊，也就是不會受任何東西影響他的位置，或是讓某個 box 從右邊對齊。</p>
+<p>接續昨天討論 <a target="_blank" rel="noopener" href="https://github.com/mbrubeck/robinson/blob/master/src/layout.rs">robinson/src/layout.rs</a> 這個 layout 模組。</p>
+<p>一般來說，box 是從上到下堆起來的，如果有定義是 inline 的話，則是從左到右。不過這是在 Normal flow 的情況下，也就是沒有定義「<a target="_blank" rel="noopener" href="https://www.w3.org/TR/CSS2/visuren.html#positioning-scheme">位置</a>」，不然你也可以讓某個 box 固定在那邊，也就是不會受任何東西影響他的位置，或是讓某個 box 從右邊對齊。</p>
 <hr>
 <p>LayoutBox 算出 layout 的初始函數，針對自己是那種型別來開始，這個專案中目前只實作 block。<br>
 所以以下都是針對 block 的算法做解釋。</p>
 <pre><code>// implimpl&lt;'a&gt; LayoutBox&lt;'a&gt;
 
     /// Lay out a box and its descendants.
-    fn layout(&amp;mut self, containing_block: Dimensions) {
-        match self.box_type {
+    fn layout(&amp;mut self, containing_block: Dimensions) &#123;
+        match self.box_type &#123;
             BlockNode(_) =&gt; self.layout_block(containing_block),
-            InlineNode(_) | AnonymousBlock =&gt; {} // TODO
-        }
-    }
+            InlineNode(_) | AnonymousBlock =&gt; &#123;&#125; // TODO
+        &#125;
+    &#125;
 </code></pre>
 <hr>
 <p>一個 box 實際大小高度會受子影響，而自己的寬度會限制子的排列。</p>
@@ -209,7 +209,7 @@
 <p>了解了上面的概念後之後我們開始實作</p>
 <hr>
 <p>這邊排版一個 block box 的做法：</p>
-<pre><code>fn layout_block(&amp;mut self, containing_block: Dimensions) {
+<pre><code>fn layout_block(&amp;mut self, containing_block: Dimensions) &#123;
     // 子受父的寬度影響
     self.calculate_block_width(containing_block);
 
@@ -221,42 +221,42 @@
 
     // 父的高度受子影響，所以要等子算完才得到父
     self.calculate_block_height();
-}
+&#125;
 </code></pre>
 <p>如果子內容超過父，是為 overflow。反之子內容比父內容少，是為 underflow。<br>
-在 auto 模式下， normal flow 處理 block 的時候，有一套<a href="https://www.w3.org/TR/CSS2/visudet.html#blockwidth" target="_blank" rel="noopener">演算法</a>來想辦法盡量讓子元素符合父。<br>
+在 auto 模式下， normal flow 處理 block 的時候，有一套<a target="_blank" rel="noopener" href="https://www.w3.org/TR/CSS2/visudet.html#blockwidth">演算法</a>來想辦法盡量讓子元素符合父。<br>
 也就是藉由調整大家的 margin 來達到目的。<br>
 例如子元素超過父元素，但是如果把子元素的 margin 拿掉，就吻合了。<br>
 或著是子元素填不滿父元素，這時候就把子元素的 margin 加長。</p>
 <pre><code>// Calculate the width of a block-level non-replaced element in normal flow.
 // Sets the horizontal margin/padding/border dimensions, and the `width`.
-fn calculate_block_width(&amp;mut self, containing_block: Dimensions) {
+fn calculate_block_width(&amp;mut self, containing_block: Dimensions) &#123;
     ...
-}
+&#125;
 </code></pre>
 <p>將子元素和自己本身的內容區域進行排版</p>
-<pre><code>fn layout_block_children(&amp;mut self) {
+<pre><code>fn layout_block_children(&amp;mut self) &#123;
     // 將 `self.dimensions.height` 設為全部內容加起來的總高度
     let d = &amp;mut self.dimensions;
-    for child in &amp;mut self.children {
+    for child in &amp;mut self.children &#123;
         child.layout(*d);
         // 把所有子元素的高度相加
         d.content.height = d.content.height + child.dimensions.margin_box().height;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>這邊概念滿簡單的，如果高度有定義，他就是那麼高，不然就由內容高度決定</p>
 <pre><code>    /// Height of a block-level non-replaced element in normal flow with overflow visible.
-    fn calculate_block_height(&amp;mut self) {
+    fn calculate_block_height(&amp;mut self) &#123;
         // If the height is set to an explicit length, use that exact length.
         // Otherwise, just keep the value set by `layout_block_children`.
-        if let Some(Length(h, Px)) = self.get_style_node().value(&quot;height&quot;) {
+        if let Some(Length(h, Px)) = self.get_style_node().value(&quot;height&quot;) &#123;
             self.dimensions.content.height = h;
-        }
-}
+        &#125;
+&#125;
 </code></pre>
 <p>如何算出位置呢？簡單來說就是取得先前 box 的位置，在針對自己的 margin、padding 作處理，因為我們的位置是針對最裡面的 comtent area 來訂。（意思就是邊邊雖然雖然佔面積，但元素的原點是在 cotent area）</p>
-<pre><code>    fn calculate_block_position(&amp;mut self, containing_block: Dimensions) {
+<pre><code>    fn calculate_block_position(&amp;mut self, containing_block: Dimensions) &#123;
         let style = self.get_style_node();
         let d = &amp;mut self.dimensions;
 
@@ -279,7 +279,7 @@ fn calculate_block_width(&amp;mut self, containing_block: Dimensions) {
         // Position the box below all the previous boxes in the container.
         d.content.y = containing_block.content.height + containing_block.content.y +
                       d.margin.top + d.border.top + d.padding.top;
-}
+&#125;
 </code></pre>
 <hr>
 <p>就由以上的程式，就可以把一個一個的 box 堆疊起來。<br>
@@ -295,12 +295,12 @@ fn calculate_block_width(&amp;mut self, containing_block: Dimensions) {
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">

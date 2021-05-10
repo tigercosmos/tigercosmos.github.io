@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -174,20 +174,20 @@
         </li>
     </ul>
     <div class="post-content">
-        <p>Working on the parser. When I write the following function <code>Parser::new</code>, I encounter lifetime issue. No matter how I add lifetime syntax <code>'a</code>, ’<code>b</code> in the function. I cannot pass the compiler.</p>
+        <p>Working on the parser. When I write the following function <code>Parser::new</code>, I encounter lifetime issue. No matter how I add lifetime syntax <code>'a</code>, '<code>b</code> in the function. I cannot pass the compiler.</p>
 <p>!FILENAME sql/parser.rs</p>
 <pre><code>// The old version
-struct Parser&lt;'a&gt; {
+struct Parser&lt;'a&gt; &#123;
     tokens: Vec&lt;Symbol&lt;'a&gt;&gt;,
-}
+&#125;
 
-impl&lt;'a&gt; Parser&lt;'a&gt; {
-    fn new(message: &amp;'a str) -&gt; Parser&lt;'a&gt; {
+impl&lt;'a&gt; Parser&lt;'a&gt; &#123;
+    fn new(message: &amp;'a str) -&gt; Parser&lt;'a&gt; &#123;
         let mut s: Scanner&lt;'a&gt; =  Scanner::new(message);
         let tokens = s.scan_tokens();
-        Parser { tokens }
-    }
-}
+        Parser &#123; tokens &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>The error is:</p>
 <pre><code class="language-log">error[E0597]: `s` does not live long enough
@@ -196,7 +196,7 @@ impl&lt;'a&gt; Parser&lt;'a&gt; {
 12 |         let tokens = s.scan_tokens();
    |                      ^ borrowed value does not live long enough
 ...
-15 |     }
+15 |     &#125;
    |     - borrowed value only lives until here
    |
 </code></pre>
@@ -206,17 +206,17 @@ impl&lt;'a&gt; Parser&lt;'a&gt; {
 <pre><code>use sql::lexer::Scanner;
 use sql::symbol::Symbol;
 
-struct Parser {
+struct Parser &#123;
     tokens: Vec&lt;Symbol&gt;,
-}
+&#125;
 
-impl Parser {
-    fn new(message: &amp;str) -&gt; Parser {
+impl Parser &#123;
+    fn new(message: &amp;str) -&gt; Parser &#123;
         let mut s: Scanner = Scanner::new(message);
         let tokens: Vec&lt;Symbol&gt; = s.scan_tokens();
-        Parser { tokens }
-    }
-}
+        Parser &#123; tokens &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>It works very well.</p>
 <p>This story tells us, when you implement a <code>struct</code> in Rust, it is better to let the type <code>String</code> in the fields. Though it will be stored at heap, but it will be easier with lifetime handling – once using <code>&amp;str</code> as type, you must add <code>'a</code> lifetime for the <code>struct</code>, and all other <code>fn</code> or <code>struct</code> that use this <code>struct</code>. Also, all objects related to this <code>struct</code> in lifetime <code>'a</code>, will all live as long as <code>'a</code>, and it seems not a good idea. So, <code>String</code> next time.</p>

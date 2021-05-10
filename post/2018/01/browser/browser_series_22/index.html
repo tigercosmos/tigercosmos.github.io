@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="瀏覽器的安全連線（HTTPS）與實作" />
     <title>Neutrino&#39;s Blog: 瀏覽器的安全連線（HTTPS）與實作 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -179,7 +179,7 @@
 </blockquote>
 <h2 id="前言"><a class="header-anchor" href="#前言">¶ </a>前言</h2>
 <p>今天來談談瀏覽器的安全性連線，也就是講講 HTTPS 是甚麼以及怎麼做？<br>
-老樣子我們又回到講解 <a href="https://github.com/servo/servo" target="_blank" rel="noopener">Servo</a> 的時候囉～</p>
+老樣子我們又回到講解 <a target="_blank" rel="noopener" href="https://github.com/servo/servo">Servo</a> 的時候囉～</p>
 <h2 id="What"><a class="header-anchor" href="#What">¶ </a>What?</h2>
 <p>相信大家瀏覽網站的時候常常會看到「綠色的?」，點擊一下他會告訴你是安全連線<br>
 <img src="https://user-images.githubusercontent.com/18013815/34487501-8bf635d2-f00f-11e7-83d8-1fbeeedb1c5d.png" alt=""><br>
@@ -187,78 +187,78 @@
 <blockquote>
 <p>當 Firefox 連線到一個使用安全連線的網站（網址以 “https://” 開頭）時，Firefox 會檢驗網站憑證的正確性以及連線的加密強度以確保您的隱私。如果憑證無法被驗證，或連線使用了不夠強的加密演算法，Firefox 會中斷與網站的連線</p>
 </blockquote>
-<p>想暸解 HTTPS 更多的話可以看 <a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">維基百科</a> 和 <a href="https://ithelp.ithome.com.tw/articles/10000019" target="_blank" rel="noopener">這篇</a>。礙於篇幅就不重述。</p>
+<p>想暸解 HTTPS 更多的話可以看 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE">維基百科</a> 和 <a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10000019">這篇</a>。礙於篇幅就不重述。</p>
 <h2 id="How？"><a class="header-anchor" href="#How？">¶ </a>How？</h2>
-<p>Servo 在網路連線上的實現都在 <a href="https://github.com/servo/servo/tree/master/components/net" target="_blank" rel="noopener"><code>servo/components/net/</code></a>。裡面包含處理 http、https 協定、headers、cookies、resources 等等。</p>
+<p>Servo 在網路連線上的實現都在 <a target="_blank" rel="noopener" href="https://github.com/servo/servo/tree/master/components/net"><code>servo/components/net/</code></a>。裡面包含處理 http、https 協定、headers、cookies、resources 等等。</p>
 <p>而今天的重點是瀏覽器的安全性連線，那麼重點當然就在 HTTPS 和 SSl 的連線部分囉！</p>
-<p>相關的程式碼在 <a href="https://github.com/servo/servo/blob/master/components/net/connector.rs" target="_blank" rel="noopener">/components/net/connector.rs</a>，並不會很長，大家可以點進去看看。（以下的範例碼我有把原始碼重新排版過）</p>
+<p>相關的程式碼在 <a target="_blank" rel="noopener" href="https://github.com/servo/servo/blob/master/components/net/connector.rs">/components/net/connector.rs</a>，並不會很長，大家可以點進去看看。（以下的範例碼我有把原始碼重新排版過）</p>
 <p>這邊程式的實現是處理「連線」，同時可以應付 HTTP 和 HTTPS。而如果是 HTTPS 的連線就用 SSL 的 Client 去包裝。</p>
 <p>這邊先定義連線的物件</p>
-<pre><code>pub struct HttpsConnector {
+<pre><code>pub struct HttpsConnector &#123;
     ssl: OpensslClient,
-}
+&#125;
 
-impl HttpsConnector {
-    fn new(ssl: OpensslClient) -&gt; HttpsConnector {
-        HttpsConnector {
+impl HttpsConnector &#123;
+    fn new(ssl: OpensslClient) -&gt; HttpsConnector &#123;
+        HttpsConnector &#123;
             ssl: ssl,
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>這邊是在連線時決定要採用 HTTP 還是 HTTPS 協議</p>
-<pre><code>impl NetworkConnector for HttpsConnector {
+<pre><code>impl NetworkConnector for HttpsConnector &#123;
     type Stream = HttpsStream&lt;&lt;OpensslClient as SslClient&gt;::Stream&gt;;
 
     fn connect(&amp;self, host: &amp;str, port: u16, scheme: &amp;str) 
         -&gt; HyperResult&lt;Self::Stream&gt;
-    {
-        if scheme != &quot;http&quot; &amp;&amp; scheme != &quot;https&quot; {
+    &#123;
+        if scheme != &quot;http&quot; &amp;&amp; scheme != &quot;https&quot; &#123;
             return Err(HyperError::Io(
                 io::Error::new(io::ErrorKind::InvalidInput,
                                &quot;Invalid scheme for Http&quot;)));
-        }
+        &#125;
 
         // Perform host replacement when making the actual 
         // TCP connection.
         let addr = &amp;(&amp;*replace_host(host), port);
         let stream = HttpStream(TcpStream::connect(addr)?);
 
-        if scheme == &quot;http&quot; {
+        if scheme == &quot;http&quot; &#123;
             Ok(HttpsStream::Http(stream))
-        } else {
+        &#125; else &#123;
             // Do not perform host replacement on the host that is
             // used for verifying any SSL certificate encountered.
             self.ssl.wrap_client(stream, host).map(HttpsStream::Https)
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>對連線方式不熟的話，建議把本文一開始建議閱讀資料看完。<br>
 使用 SSL 的時候會用到 TLS，所以這邊有 <code>SslMethod::tls()</code>，此外還要檢查憑證（CA）<br>
 都沒問題就可以順利用 SSL 傳輸囉！</p>
 <pre><code>pub type Connector = HttpsConnector;
 
-pub fn create_ssl_client(ca_file: &amp;PathBuf) -&gt; OpensslClient {
+pub fn create_ssl_client(ca_file: &amp;PathBuf) -&gt; OpensslClient &#123;
     let mut ssl_connector_builder = 
         SslConnectorBuilder::new(SslMethod::tls()).unwrap();
-    {
+    &#123;
         let context = ssl_connector_builder.builder_mut();
         context.set_ca_file(ca_file).expect(&quot;could not set CA file&quot;);
         context.set_cipher_list(DEFAULT_CIPHERS)
             .expect(&quot;could not set ciphers&quot;);
         context.set_options(
             SSL_OP_NO_SSLV2 | SSL_OP_NO_SSLV3 | SSL_OP_NO_COMPRESSION);
-    }
+    &#125;
     let ssl_connector = ssl_connector_builder.build();
     OpensslClient::from(ssl_connector)
-}
+&#125;
 
 pub fn create_http_connector(ssl_client: OpensslClient) 
--&gt; Pool&lt;Connector&gt; {
+-&gt; Pool&lt;Connector&gt; &#123;
     let https_connector = HttpsConnector::new(ssl_client);
     Pool::with_connector(Default::default(), https_connector)
-}
+&#125;
 </code></pre>
 <hr>
 <p>希望對大家有幫助，我們明天見！</p>
@@ -272,12 +272,12 @@ pub fn create_http_connector(ssl_client: OpensslClient)
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">
@@ -349,7 +349,7 @@ pub fn create_http_connector(ssl_client: OpensslClient)
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What"><span class="toc-text">What?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How？"><span class="toc-text">How？</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What"><span class="toc-text">What?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How%EF%BC%9F"><span class="toc-text">How？</span></a></li></ol>
 </div>
                 </section>
             

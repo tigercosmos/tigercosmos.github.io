@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,browsers,puffin browser,puffin oS phone,cloudmosa," />
+        content="browser,puffin browser,browsers,puffin oS phone,cloudmosa," />
     <meta name="description"
         content="Puffin OS Phone 是台灣軟體開發商 CloudMosa 所研發，搭載其自家作業系統 Puffin OS 的低階智慧手機，CloudMosa 團隊開發的智慧手機將主打第三世界市場，以極低價的成本，藉由其在後端渲染瀏覽器 Puffin Browser 的成熟技術，讓即便網速很低且硬體不強的情況下，仍有市面中階手機在穩定網路環境的使用體驗。本文將深入討論 Puffin OS Phone 的各種面向。" />
     <title>Neutrino&#39;s Blog: 深度分析 Puffin OS Phone—搶攻第三世界的智慧手機 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -178,10 +178,10 @@
 <p>Puffin OS Phone 是台灣軟體開發商 CloudMosa 所研發，搭載其自家作業系統 Puffin OS 的低階智慧手機，CloudMosa 團隊開發的智慧手機將主打第三世界市場，以極低價的成本，藉由其在後端渲染瀏覽器 Puffin Browser 的成熟技術，讓即便網速很低且硬體不強的情況下，仍有市面中階手機在穩定網路環境的使用體驗。本文將深入討論 Puffin OS Phone (之後以 POP 代稱) 的各種面向。</p>
 <h2 id="智慧手機與開發中國家"><a class="header-anchor" href="#智慧手機與開發中國家">¶ </a>智慧手機與開發中國家</h2>
 <p>科技始於人性，科技更該是人權之一。</p>
-<p>根據 <a href="https://data.worldbank.org/" target="_blank" rel="noopener">The World Bank</a> 報告，對比高收入國家和中低收入國家，截至 2017 年前者有 85% 網路普及率對比後者只有 43%；而令人訝異的是 2018 年手機訂閱普及率(每一百人)前者有 126%，後者則是 100%。也就是說這個世界幾乎每個人都有一台手機，但中低收入國家的網路普及率卻不及一半。</p>
+<p>根據 <a target="_blank" rel="noopener" href="https://data.worldbank.org/">The World Bank</a> 報告，對比高收入國家和中低收入國家，截至 2017 年前者有 85% 網路普及率對比後者只有 43%；而令人訝異的是 2018 年手機訂閱普及率(每一百人)前者有 126%，後者則是 100%。也就是說這個世界幾乎每個人都有一台手機，但中低收入國家的網路普及率卻不及一半。</p>
 <p>接著再比較不同世界國家每個人享有的頻寬大小 (Kb/s)：</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/73361354-c5174c00-42df-11ea-965b-120af2e600ca.jpg" alt="bandwidth comparison"><br>
-(來源：<a href="https://tcdata360.worldbank.org/indicators/entrp.inet.bandwidth?country=USA&amp;indicator=3405&amp;countries=IND,IRQ,KEN,MYS,SOM,TUR,EGY,CHN&amp;viz=bar_chart&amp;years=2016&amp;indicators=944" target="_blank" rel="noopener">The World Bank</a>)</p>
+(來源：<a target="_blank" rel="noopener" href="https://tcdata360.worldbank.org/indicators/entrp.inet.bandwidth?country=USA&amp;indicator=3405&amp;countries=IND,IRQ,KEN,MYS,SOM,TUR,EGY,CHN&amp;viz=bar_chart&amp;years=2016&amp;indicators=944">The World Bank</a>)</p>
 <p>圖中可以發現美國遠遠是世界平均兩倍，但是東南亞(印度、馬來西亞)、非洲(肯亞)或中東(埃及)國家卻低於世界平均，其中印度、中國、埃及更是遠遠低於平均。也就是說中低收入 43% 享有網路的人口，其享受的網路服務頻寬卻是十分有限的。</p>
 <p>所以我們推斷甚麼？</p>
 <p>中低收入國家的人民普遍有手機，但也許是低價的傻瓜手機，同時他們大多數人並沒有享有網路服務，即便有網路也比較慢。</p>
@@ -189,7 +189,7 @@
 <p>Puffin OS Phone 想要解決的問題便是針對上述問題而生，POP 希望讓開發中國家的人民可以用低價取得智慧手機，同時在頻寬有限下，還可以享有好的手機上網體驗，所以他們基於原本有的 Puffin Browser 技術開發出 Puffin OS，並整合手機生產鏈，製造出價格非常親民的 POP 低階智慧手機，卻可以讓使用體驗堪比中高階智慧手機。</p>
 <h2 id="開箱"><a class="header-anchor" href="#開箱">¶ </a>開箱</h2>
 <p>開箱過程可以看劉胖胖拍開箱影片，裡面介紹 POP 包裝、手機介面、使用體驗、軟體安裝等等，所以我就不多作介紹。</p>
-<p>影片：<a href="https://www.youtube.com/watch?v=z1HfsgXsFxg" target="_blank" rel="noopener">Puffin OS Phone開箱！台灣團隊自製作業系統，以KaiOS為目標的智慧型手機</a></p>
+<p>影片：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=z1HfsgXsFxg">Puffin OS Phone開箱！台灣團隊自製作業系統，以KaiOS為目標的智慧型手機</a></p>
 <h2 id="Puffin-OS-Phone-技術原理"><a class="header-anchor" href="#Puffin-OS-Phone-技術原理">¶ </a>Puffin OS Phone 技術原理</h2>
 <p>原本 CloudMosa 便有 Puffin Browser，其後端渲染瀏覽器的性質，其實在各種手機上都可以有效降低手機計算量和網路頻寬用量，瀏覽器的技術原理我寫在「<a href="https://tigercosmos.xyz/post/2018/09/puffin/">How the Puffin Browser Works</a>」一文中，簡單來說 Puffin 背後有數據中心把原本瀏覽器要打開網頁下載資源和渲染網頁的步驟做掉，使用者因而減少計算資源和流量。</p>
 <p>所以更進一步，反正 Web 已經可以打天下，大多數服務都可以用 Web App (就是開一個網頁當作是應用程式) 來取得，那麼何必都用 Native App (一般在 Play 商店下載的應用程式) 呢？例如 Instagram、Facebook、新聞、郵件等等，哪一個不是 Web App 辦不到的？一個全部基於 Web App 的作業系統油然而生，於是誕生 Puffin OS ，為根據 Android 修改的簡化版，在整個作業系統中加入 Puffin 技術，並拔除所有 Google Service，因為非常佔空間，且不再需要 Play Store。</p>
@@ -224,7 +224,7 @@
 <p>都是 Puffin 架構的 POP 和 X10 Puffin，是高階手機獲勝。同時，都使用 Chrome 的 J2 Chrome 和 X10 Chrome 中，高階手機還是獲勝。意思是，計算能力的確有影響。</p>
 <p>但在有網速限制的情況下，Puffin 架構就顯得格外有效。Puffin OS Phone 和 X10 搭配 Puffin Browser 分別都佔了第二名和第一名。也就是說，相比 4G 的實驗結果，在 3G 網速下，Puffin 架構有決定性影響，POP 這種低階手機在採用 Puffin OS 之後，效能甚至比高階手機 X10 搭配 Chrome 來得快。</p>
 <h3 id="實驗探討"><a class="header-anchor" href="#實驗探討">¶ </a>實驗探討</h3>
-<p>要解釋 Puffin 架構為啥在低網速 (3G) 下特別有效，大家可以看一下我之前的文章「<a href="/post/2017/12/browser/browser_series_18/">為什麼手機上網速度比較慢呢？</a>」體會一下網速差異影響到底有多劇烈。所以當 Puffin 架構引入時，不僅減少計算量，同時也減少下載頻寬和<a href="https://en.wikipedia.org/wiki/Round-trip_delay_time" target="_blank" rel="noopener">來回通訊延遲</a>的影響，因此可以有效突破效能瓶頸。</p>
+<p>要解釋 Puffin 架構為啥在低網速 (3G) 下特別有效，大家可以看一下我之前的文章「<a href="/post/2017/12/browser/browser_series_18/">為什麼手機上網速度比較慢呢？</a>」體會一下網速差異影響到底有多劇烈。所以當 Puffin 架構引入時，不僅減少計算量，同時也減少下載頻寬和<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Round-trip_delay_time">來回通訊延遲</a>的影響，因此可以有效突破效能瓶頸。</p>
 <h2 id="結論"><a class="header-anchor" href="#結論">¶ </a>結論</h2>
 <p>當大家都買得起 iPhone ，且方案可以用 4G 吃到飽，Puffin OS Phone 顯得完全沒吸引力。但如同我在文章所分析的，在世界上還有許多國家的民眾只負擔的起低階智慧手機，並且沒有很好的通訊建設。POP 一隻只賣 40 多美金，一般的低階手機像 J2 都還要賣 100 美金，價錢對中低收入國家真的非常有吸引力，而 CloudMosa 的目標客群正是第三世界國家。</p>
 <p>根據實驗結果，證實了在通訊建設不好的環境，例如只有 3G 網路的地區，或是即使有 4G 網路但因為嚴重塞車導致速度低落的地區，搭配 Puffin OS 的 POP 有絕對優勢。也就是說，當大家都只買得起低階手機，又處於網速很慢的地區，POP 就會獨占鰲頭。</p>
@@ -239,12 +239,12 @@
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/browsers/">
-                browsers
-            </a>,&nbsp;
-        
             <a href="/tags/puffin-browser/">
                 puffin browser
+            </a>,&nbsp;
+        
+            <a href="/tags/browsers/">
+                browsers
             </a>,&nbsp;
         
             <a href="/tags/puffin-os-phone/">
@@ -320,7 +320,7 @@
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#智慧手機與開發中國家"><span class="toc-text">智慧手機與開發中國家</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#開箱"><span class="toc-text">開箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Puffin-OS-Phone-技術原理"><span class="toc-text">Puffin OS Phone 技術原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效能實測"><span class="toc-text">效能實測</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#實驗方法"><span class="toc-text">實驗方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#實驗結果"><span class="toc-text">實驗結果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4G-實驗"><span class="toc-text">4G 實驗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3G-實驗"><span class="toc-text">3G 實驗</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#實驗探討"><span class="toc-text">實驗探討</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-text">結論</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E6%85%A7%E6%89%8B%E6%A9%9F%E8%88%87%E9%96%8B%E7%99%BC%E4%B8%AD%E5%9C%8B%E5%AE%B6"><span class="toc-text">智慧手機與開發中國家</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E7%AE%B1"><span class="toc-text">開箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Puffin-OS-Phone-%E6%8A%80%E8%A1%93%E5%8E%9F%E7%90%86"><span class="toc-text">Puffin OS Phone 技術原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E8%83%BD%E5%AF%A6%E6%B8%AC"><span class="toc-text">效能實測</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%A6%E9%A9%97%E6%96%B9%E6%B3%95"><span class="toc-text">實驗方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%A6%E9%A9%97%E7%B5%90%E6%9E%9C"><span class="toc-text">實驗結果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4G-%E5%AF%A6%E9%A9%97"><span class="toc-text">4G 實驗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3G-%E5%AF%A6%E9%A9%97"><span class="toc-text">3G 實驗</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%A6%E9%A9%97%E6%8E%A2%E8%A8%8E"><span class="toc-text">實驗探討</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
 </div>
                 </section>
             

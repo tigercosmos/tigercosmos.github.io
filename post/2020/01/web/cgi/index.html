@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -176,7 +176,7 @@
     <div class="post-content">
         <h2 id="CGI-介紹"><a class="header-anchor" href="#CGI-介紹">¶ </a>CGI 介紹</h2>
 <p>Common Gateway Interface, CGI 讓伺服器(Server)將路由(Route)轉給轉外部程式(CGI 程式)，使外部程式可以直接和客戶端(通常為瀏覽器) 互動。在 WEB 剛興起的時候，主要還是處於靜態伺服階段，單純傳送檔案或文字資訊而已。如果想要有表單之類的互動，也就是動態網站的話，就要靠呼叫外部程式來幫忙。隨著網路科技的發達，CGI 至今仁廣泛使用，像是 PHP 搭配 Apache。不過同時也有其他架構興起，例如以 Python、NodeJS、PHP、Java 等語言為基礎的網頁框架，像是 Flask 或 Express，抑或著實現前後端分離的 RESTful API 架構。</p>
-<a id="more"></a> 
+<span id="more"></span> 
 <p>CGI 基本原理是，瀏覽器傳送請求(Request)給伺服器，伺服器以環境變數的方式將使用者傳送的資料傳給「外部可執行程式」，讓外部程式根據這些資訊來執行，並將結果傳回給伺服器，伺服器再將結果傳回給瀏覽器。也就是說，伺服器將工作打包給外部程式做，做完之後得到結果送回給客戶端，所以才叫做 Gateway，因為伺服器只負責指派任務。其中外部程式會以 STDIN 和 STDOUT 的方式接收資料和回傳資料給伺服器。</p>
 <p>架構圖如下：</p>
 <pre><code>
@@ -190,16 +190,16 @@
  |        |    HTTP        |        |     STDOUT     |         |
  +--------+    Response    +--------+                +---------+
 </pre></code> 
-<p>詳細的規範定義在 <a href="https://tools.ietf.org/html/rfc3875" target="_blank" rel="noopener">RFC 3875: The Common Gateway Interface (CGI) Version 1.1</a>，有興趣的人可以翻來看看。</p>
+<p>詳細的規範定義在 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc3875">RFC 3875: The Common Gateway Interface (CGI) Version 1.1</a>，有興趣的人可以翻來看看。</p>
 <h2 id="示例"><a class="header-anchor" href="#示例">¶ </a>示例</h2>
-<p>接著我們要來實現簡單的 CGI 程式。本文的範例程式碼放在 Github 上<a href="https://github.com/tigercosmos/cgi_demo" target="_blank" rel="noopener">(連結)</a>，請 clone 下來玩玩看。</p>
+<p>接著我們要來實現簡單的 CGI 程式。本文的範例程式碼放在 Github 上<a target="_blank" rel="noopener" href="https://github.com/tigercosmos/cgi_demo">(連結)</a>，請 clone 下來玩玩看。</p>
 <p>操作這個 DEMO 首先要 clone 專案，然後編譯它：</p>
 <pre><code class="shell">$ git clone https://github.com/tigercosmos/cgi_demo
 $ cd cgi_demo
 $ make
 $ ./server 8880
 </pre></code>
-<p>接著用瀏覽器打開 <a href="http://localhost:8880/print_env.cgi?a=1" target="_blank" rel="noopener">http://localhost:8880/print_env.cgi?a=1</a></p>
+<p>接著用瀏覽器打開 <a target="_blank" rel="noopener" href="http://localhost:8880/print_env.cgi?a=1">http://localhost:8880/print_env.cgi?a=1</a></p>
 <p><img src="https://user-images.githubusercontent.com/18013815/73074976-c4547380-3ef5-11ea-9ae9-c3d4514579fe.png" alt="CGI 視窗"></p>
 <h2 id="說明"><a class="header-anchor" href="#說明">¶ </a>說明</h2>
 <p>首先，我們要建立 Web 伺服器，原則上你可以用任何語言來實現。這邊我用 Boost Asio 實現簡單的 TCP Server，你可能需要看一下 Boost 教學來搞懂在幹嘛，但如果你之前寫過其他語言的伺服器，其實本質是很像的。</p>
@@ -208,14 +208,14 @@ $ ./server 8880
 
 socket_.async_read_some(
     boost::asio::buffer(data_, max_length),
-    [this, self](boost::system::error_code ec, std::size_t length) {
+    [this, self](boost::system::error_code ec, std::size_t length) &#123;
       sscanf(data_, "%s %s %s %s %s", REQUEST_METHOD, REQUEST_URI,
               SERVER_PROTOCOL, blackhole, HTTP_HOST);
 
-      if (!ec) {
+      if (!ec) &#123;
         do_write(length);
-      }
-    });
+      &#125;
+    &#125;);
 </pre></code>
 <p>當你用瀏覽器連上 <code>localhost:8880/print_env.cgi?a=1</code> 的時候，會看到 <code>data_</code> 印出這樣的訊息：</p>
 <pre><code class="log">GET /print_env.cgi?a=1 HTTP/1.1
@@ -236,10 +236,10 @@ Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6
 <pre><code class="c++">// server.cpp line 94
 
 global_io_service.notify_fork(io_service::fork_prepare);
-if (fork() != 0) {
+if (fork() != 0) &#123;
   global_io_service.notify_fork(io_service::fork_parent);
   socket_.close();
-} else {
+&#125; else &#123;
   global_io_service.notify_fork(io_service::fork_child);
   int sock = socket_.native_handle();
   dup2(sock, STDERR_FILENO);
@@ -247,14 +247,14 @@ if (fork() != 0) {
   dup2(sock, STDOUT_FILENO);
   socket_.close();
 
-  if (execlp(EXEC_FILE, EXEC_FILE, NULL) < 0) {
+  if (execlp(EXEC_FILE, EXEC_FILE, NULL) < 0) &#123;
     std::cout << "Content-type:text/html\r\n\r\n FAIL";
-  }
-}
+  &#125;
+&#125;
 </pre></code>
 <p>這邊我們假設 <code>EXEC_FILE</code> 必定是 CGI 程式，並沒有去特別處理，但如果是一個完整的伺服器，例如 Apache，就會去檢查程式是否有符合 CGI Spec 以及 URI 是否為 <code>.cgi</code> 結尾等等。</p>
-<p>這時當瀏覽器打開 <a href="http://localhost:8880/print_env.cgi?a=1" target="_blank" rel="noopener">http://localhost:8880/print_env.cgi?a=1</a> 的時候，伺服器取得 HTTP 請求，於是 <code>fork()</code> 出新的 porcess 並 <code>exec()</code> 執行 <code>./print_env.cgi</code>，同時 Query <code>a=1</code> 也會經由環境變數傳給 <code>./print_env.cgi</code>。</p>
-<p>在 <code>print_env.cgi.cpp</code> 檔案中，<code>int main(int, char* const[], char* const envp[])</code> 中的 <code>envp[]</code> 取得環境變數，並經由 <code>for (int i = 0; envp[i]; ++i) { cout &lt;&lt; envp[i] &lt;&lt; endl; }</code> 印出。</p>
+<p>這時當瀏覽器打開 <a target="_blank" rel="noopener" href="http://localhost:8880/print_env.cgi?a=1">http://localhost:8880/print_env.cgi?a=1</a> 的時候，伺服器取得 HTTP 請求，於是 <code>fork()</code> 出新的 porcess 並 <code>exec()</code> 執行 <code>./print_env.cgi</code>，同時 Query <code>a=1</code> 也會經由環境變數傳給 <code>./print_env.cgi</code>。</p>
+<p>在 <code>print_env.cgi.cpp</code> 檔案中，<code>int main(int, char* const[], char* const envp[])</code> 中的 <code>envp[]</code> 取得環境變數，並經由 <code>for (int i = 0; envp[i]; ++i) &#123; cout &lt;&lt; envp[i] &lt;&lt; endl; &#125;</code> 印出。</p>
 <p>當然，這只是示範，真實應用場景，可能是一個 form action，所有欄位都存在 Query 中傳給伺服器，CGI 程式由環境變數取得表單資料，然後操作資料庫，然後呈現處理後的數據。</p>
 
     </div>
@@ -343,7 +343,7 @@ if (fork() != 0) {
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CGI-介紹"><span class="toc-text">CGI 介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#說明"><span class="toc-text">說明</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CGI-%E4%BB%8B%E7%B4%B9"><span class="toc-text">CGI 介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-text">示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AA%AA%E6%98%8E"><span class="toc-text">說明</span></a></li></ol>
 </div>
                 </section>
             

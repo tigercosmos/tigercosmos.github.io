@@ -4,7 +4,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="keywords"
-        content="browser,瀏覽器,鐵人賽,來做個網路瀏覽器吧！," />
+        content="browser,鐵人賽,瀏覽器,來做個網路瀏覽器吧！," />
     <meta name="description"
         content="Mozilla / Servo 瀏覽器引擎開發環境架設" />
     <title>Neutrino&#39;s Blog: Mozilla / Servo 瀏覽器引擎開發環境架設 </title>
@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -182,7 +182,7 @@
 <blockquote>
 <p>此專案由 Mozilla 贊助，並以全新的系統級程式語言 Rust 編寫，Servo 專案旨在實現更好的平行化、安全性、模組化以及高效能。</p>
 </blockquote>
-<p>想了解更多可以進<a href="https://servo.org/zh-TW/index.html" target="_blank" rel="noopener">官網</a>看，開玩笑的 030 ，想從官網了解還不如訂閱我的文章 XD 我是說真的，官網真的沒啥內容，不過還是要推銷一下，因為是我翻譯的喔！</p>
+<p>想了解更多可以進<a target="_blank" rel="noopener" href="https://servo.org/zh-TW/index.html">官網</a>看，開玩笑的 030 ，想從官網了解還不如訂閱我的文章 XD 我是說真的，官網真的沒啥內容，不過還是要推銷一下，因為是我翻譯的喔！</p>
 <p>Servo 詳細在幹嘛，技術細節、突破留到以後的文章再說。 汪！汪！</p>
 <p><img src="https://download.servo.org/doge-tiny.png" alt="servo"></p>
 <h2 id="Rust"><a class="header-anchor" href="#Rust">¶ </a>Rust</h2>
@@ -191,7 +191,7 @@
 <p>Rust是一個由 Mozilla 主導開發的通用、編譯型程式語言。它的設計準則為「安全，並行，實用」支援函數式、平行化、程序式以及物件導向的程式設計風格。</p>
 </blockquote>
 <h2 id="Envornment"><a class="header-anchor" href="#Envornment">¶ </a>Envornment</h2>
-<p>安裝 <a href="https://github.com/servo/servo" target="_blank" rel="noopener">Servo</a> 的環境參考 <code>README</code> 做就好，因為各系統做法差異很大，直接照文件做最快。不過這邊還是貼上 macOS, Ubuntu, Windows 的做法。</p>
+<p>安裝 <a target="_blank" rel="noopener" href="https://github.com/servo/servo">Servo</a> 的環境參考 <code>README</code> 做就好，因為各系統做法差異很大，直接照文件做最快。不過這邊還是貼上 macOS, Ubuntu, Windows 的做法。</p>
 <h3 id="取得-Servo"><a class="header-anchor" href="#取得-Servo">¶ </a>取得 Servo</h3>
 <pre><code>git clone https://github.com/servo/servo
 cd servo
@@ -219,7 +219,7 @@ export OPENSSL_LIB_DIR=&quot;$(brew --prefix openssl)/lib&quot;
 <pre><code>./mach build -d
 </code></pre>
 <h3 id="Windows"><a class="header-anchor" href="#Windows">¶ </a>Windows</h3>
-<p>原本文件是寫裝 VS2017，這邊我建議裝 <a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15" target="_blank">VS2017 build tool</a> 就好。這是我花很多時間得出的心得，官方文件的這個方案也是我改的。不過後來我都不用 Windows 開發了。</p>
+<p>原本文件是寫裝 VS2017，這邊我建議裝 <a target="_blank" href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15">VS2017 build tool</a> 就好。這是我花很多時間得出的心得，官方文件的這個方案也是我改的。不過後來我都不用 Windows 開發了。</p>
 <ol>
 <li>下載安裝 Build Tools for Visual Studio 2017</li>
 <li>安裝 python2.7 x86-x64 and <code>pip install virtualenv</code></li>
@@ -251,10 +251,10 @@ export OPENSSL_LIB_DIR=&quot;$(brew --prefix openssl)/lib&quot;
 git clone https://github.com/rust-lang/rust.git
 </code></pre>
 <p>接者更改 VSCode 的 <code>setting.json</code>，左下角有個齒輪，點擊就可以看到。加入這兩行。</p>
-<pre><code>{
+<pre><code>&#123;
   &quot;rust.rustLangSrcPath&quot;: &quot;/Users/XXXX/home/rust/src&quot;,
   &quot;rust.formatOnSave&quot;: true
-}
+&#125;
 </code></pre>
 <ul>
 <li>最後在 VSCode 外掛下載 TOML extension，讓他可以支援 <code>.toml</code> 檔案。這相當於 node 中 <code>json</code> 的功能。</li>
@@ -272,12 +272,12 @@ git clone https://github.com/rust-lang/rust.git
                 browser
             </a>,&nbsp;
         
-            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
-                瀏覽器
-            </a>,&nbsp;
-        
             <a href="/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD/">
                 鐵人賽
+            </a>,&nbsp;
+        
+            <a href="/tags/%E7%80%8F%E8%A6%BD%E5%99%A8/">
+                瀏覽器
             </a>,&nbsp;
         
             <a href="/tags/%E4%BE%86%E5%81%9A%E5%80%8B%E7%B6%B2%E8%B7%AF%E7%80%8F%E8%A6%BD%E5%99%A8%E5%90%A7%EF%BC%81/">
@@ -349,7 +349,7 @@ git clone https://github.com/rust-lang/rust.git
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Servo"><span class="toc-text">Servo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rust"><span class="toc-text">Rust</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Envornment"><span class="toc-text">Envornment</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#取得-Servo"><span class="toc-text">取得 Servo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-text">macOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rust-2"><span class="toc-text">Rust</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rust-3"><span class="toc-text">Rust</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDE"><span class="toc-text">IDE</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Servo"><span class="toc-text">Servo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rust"><span class="toc-text">Rust</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Envornment"><span class="toc-text">Envornment</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%96%E5%BE%97-Servo"><span class="toc-text">取得 Servo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-text">macOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rust-2"><span class="toc-text">Rust</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rust-3"><span class="toc-text">Rust</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDE"><span class="toc-text">IDE</span></a></li></ol></li></ol>
 </div>
                 </section>
             

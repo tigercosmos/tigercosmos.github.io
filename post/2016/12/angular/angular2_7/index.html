@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -189,13 +189,13 @@
 <h2>&#x8DEF;&#x5F91;&#x7269;&#x4EF6;</h2>
 <p>&#x70BA;&#x4E86;&#x5340;&#x5206; lazy loading&#xFF0C;&#x6211;&#x5011;&#x8981;&#x5EFA;&#x7ACB;&#x4E00;&#x500B;&#x8DEF;&#x5F91;&#x7269;&#x4EF6;&#x5305;&#x542B; <code>loadChildren</code> &#x7279;&#x6027;&#x3002;&#x5728;&#x9019;&#x7269;&#x4EF6;&#x88E1;&#x9762;&#x8981;&#x8A2D;&#x5B9A; module &#x7684;&#x540D;&#x7A31;&#x548C;&#x8DEF;&#x5F91;&#x3002;</p>
 <pre><code>//app.routes.ts
-<p>import {Routes, RouterModule} from &quot;@angular/router&quot;;<br>
-import {ModuleWithProviders} from &quot;@angular/core&quot;;</p>
+<p>import &#123;Routes, RouterModule&#125; from &quot;@angular/router&quot;;<br>
+import &#123;ModuleWithProviders&#125; from &quot;@angular/core&quot;;</p>
 <p>const appRoutes: Routes  = [<br>
 // 假設有首頁<br>
-{ path: &quot;&quot;, redirectTo: &quot;home&quot;, pathMatch: &quot;full&quot; },</p>
+&#123; path: &quot;&quot;, redirectTo: &quot;home&quot;, pathMatch: &quot;full&quot; &#125;,</p>
 <pre><code>// &amp;#x8981;&amp;#x8655;&amp;#x7406;&amp;#x7684; Product APP &amp;#x9801;&amp;#x9762;
-{ path: &amp;quot;product&amp;quot;, loadChildren: &amp;quot;app/product/product.module#ProductModule&amp;quot;  }
+&#123; path: &amp;quot;product&amp;quot;, loadChildren: &amp;quot;app/product/product.module#ProductModule&amp;quot;  &#125;
 </code></pre>
 <p>];</p>
 <p>export const routing: ModuleWithProviders  = RouterModule.forRoot(appRoutes);<br>
@@ -203,30 +203,30 @@ import {ModuleWithProviders} from &quot;@angular/core&quot;;</p>
 <p>&#x9019;&#x6A23;&#x4EE3;&#x8868; URL &#x6703;&#x5F9E; <code>/product</code> &#x958B;&#x59CB;&#xFF0C; angular &#x8DEF;&#x7531;&#x5C07;&#x6703;&#x5F97;&#x5230; module &#x6A94;&#x6848; <code>app/product/product.module</code> &#x4E26;&#x9810;&#x671F;&#x6709; <code>ProductModule</code> &#x9019;&#x500B; class&#x3002;</p>
 <h2>&#x8DEF;&#x7531; Module</h2>
 <pre><code>//product/product.routing.ts
-<p>import {RouterModule} from &quot;@angular/router&quot;;<br>
-import {ModuleWithProviders} from &quot;@angular/core&quot;;<br>
-import {ProductComponent} from &quot;./product.component&quot;;<br>
+<p>import &#123;RouterModule&#125; from &quot;@angular/router&quot;;<br>
+import &#123;ModuleWithProviders&#125; from &quot;@angular/core&quot;;<br>
+import &#123;ProductComponent&#125; from &quot;./product.component&quot;;<br>
 // 小零件 ( 各種用到的東西 )<br>
-import {ProductsListComponent} from &quot;./products-list.component&quot;;<br>
-import {ProductDetailsComponent} from &quot;./product-details.component&quot;;</p>
+import &#123;ProductsListComponent&#125; from &quot;./products-list.component&quot;;<br>
+import &#123;ProductDetailsComponent&#125; from &quot;./product-details.component&quot;;</p>
 <p>const routes = [<br>
-{<br>
+&#123;<br>
 path: &quot;&quot;, //設定根目錄為這一層<br>
 component: ProductComponent,<br>
 // Product 包含的小組件們<br>
 children: [<br>
-{path: &quot;&quot;, component: ProductsListComponent},<br>
-{path: &quot;:id&quot;, component: ProductDetailsComponent}<br>
+&#123;path: &quot;&quot;, component: ProductsListComponent&#125;,<br>
+&#123;path: &quot;:id&quot;, component: ProductDetailsComponent&#125;<br>
 ]<br>
-}<br>
+&#125;<br>
 ];</p>
 <p>export const routing: ModuleWithProviders = RouterModule.forChild(routes);<br>
 </code></pre></p>
 <h2>&#x8A2D;&#x5B9A; Component</h2>
 <p>&#x5B9A;&#x7FA9; <code>ProductComponent</code></p>
 <pre><code>//product/product.component.ts
-import {Component} from &quot;@angular/core&quot;;
-<p>@Component({<br>
+import &#123;Component&#125; from &quot;@angular/core&quot;;
+<p>@Component(&#123;<br>
 template: <code>        &amp;lt;my-nav&amp;gt;&amp;lt;/my-nav&amp;gt;         &amp;lt;h1&amp;gt;Products&amp;lt;/h1&amp;gt;         &amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;    </code><br>
 })<br>
 export class ProductComponent {}<br>
@@ -234,18 +234,18 @@ export class ProductComponent {}<br>
 <p><code>router-outlet</code> &#x6703;&#x5448;&#x73FE;&#x9019;&#x500B; module &#x5167;&#x5BB9;</p>
 <h2>&#x6709; Lazy Load &#x7684; Module</h2>
 <pre><code>//product/product.module.ts
-<p>import {NgModule} from &quot;@angular/core&quot;;<br>
-import {ProductsService} from &quot;./products.service&quot;;<br>
-import {ProductsListComponent} from &quot;./products-list.component&quot;;<br>
-import {ProductDetailsComponent} from &quot;./product-details.component&quot;;<br>
-import {routing} from &quot;./product.routing&quot;;<br>
-import {ProductComponent} from &quot;./product.component&quot;;</p>
-<p>@NgModule({<br>
+<p>import &#123;NgModule&#125; from &quot;@angular/core&quot;;<br>
+import &#123;ProductsService&#125; from &quot;./products.service&quot;;<br>
+import &#123;ProductsListComponent&#125; from &quot;./products-list.component&quot;;<br>
+import &#123;ProductDetailsComponent&#125; from &quot;./product-details.component&quot;;<br>
+import &#123;routing&#125; from &quot;./product.routing&quot;;<br>
+import &#123;ProductComponent&#125; from &quot;./product.component&quot;;</p>
+<p>@NgModule(&#123;<br>
 declarations: [ProductComponent, ProductsListComponent, ProductDetailsComponent],<br>
 imports: [routing],<br>
 providers: [ProductsService],<br>
-})<br>
-export class ProductModule {}<br>
+&#125;)<br>
+export class ProductModule &#123;&#125;<br>
 </code></pre></p>
 <p>&#x9019;&#x908A;&#x6703;&#x7528;&#x5230; <code>product.routing</code> &#x7684; <code>routing</code>&#x3002;</p>
 <h2>&#x6E2C;&#x8A66;</h2>
@@ -260,31 +260,31 @@ export class ProductModule {}<br>
 <h3>&#x65B9;&#x5F0F;</h3>
 <p>&#x5047;&#x8A2D;&#x6709;&#x5169;&#x500B; Components <code>fast</code> &amp; <code>slow</code></p>
 <pre><code>//src/components/fast.ts
-import { Component } from &apos;@angular/core&apos;;
-<p>@Component({<br>
+import &#123; Component &#125; from &apos;@angular/core&apos;;
+<p>@Component(&#123;<br>
 selector: 'fast',<br>
 template: <code>    &amp;lt;p&amp;gt;Fast Content&amp;lt;/p&amp;gt;  </code><br>
 })</p>
 <p>export class FastComponent { }<br>
 </code></pre></p>
 <pre><code>//src/components/slow.ts
-import { Component } from &apos;@angular/core&apos;;
+import &#123; Component &#125; from &apos;@angular/core&apos;;
 
-@Component({
+@Component(&#123;
   selector: &apos;slow&apos;,
   template: `
     &lt;p&gt;Slow Content&lt;/p&gt;
   `
-})
+&#125;)
 
-export class SlowComponent { }
+export class SlowComponent &#123; &#125;
 </code></pre>
 <p>&#x5728; Template &#x88E1;&#x9762;&#x8F09;&#x5165; Component &#x662F;&#x6700;&#x5E38;&#x7528;&#x8F09;&#x5165;&#x65B9;&#x5F0F;&#x3002;&#x975E;&#x5E38;&#x7C21;&#x55AE;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5B58;&#x653E;&#x76F8;&#x61C9;&#x7684; <code>selector</code> &#xFF0C;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x5C31;&#x6703;&#x81EA;&#x5DF1;&#x627E;&#x5230;&#x4E26;&#x7DE8;&#x8B6F;&#x3002;</p>
 <pre><code>//app.component.ts
-import {Component} from &apos;@angular/core&apos;
-<p>import {FastComponent} from 'src/components/fast'<br>
-import {SlowComponent} from 'src/components/slow'</p>
-<p>@Component({<br>
+import &#123;Component&#125; from &apos;@angular/core&apos;
+<p>import &#123;FastComponent&#125; from 'src/components/fast'<br>
+import &#123;SlowComponent&#125; from 'src/components/slow'</p>
+<p>@Component(&#123;<br>
 selector: 'template-load',<br>
 template: <code>      &amp;lt;h1&amp;gt;&amp;#x65B9;&amp;#x5F0F;&amp;#x4E00;&amp;#xFF1A;template &amp;#x52D5;&amp;#x614B;&amp;#x8F09;&amp;#x5165;&amp;lt;/h1&amp;gt;       &amp;lt;fast&amp;gt;&amp;lt;/fast&amp;gt;       &amp;lt;slow&amp;gt;&amp;lt;/slow&amp;gt;  </code>,<br>
 directives: [ FastComponent, SlowComponent ]<br>
@@ -384,7 +384,7 @@ constructor() {</p>
                 <section class="aside-section">
                     <h1>TOC</h1>
 <div class="toc-container">
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x524D;&amp;#x8A00;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x5BE6;&amp;#x73FE;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8DEF;&amp;#x5F91;&amp;#x7269;&amp;#x4EF6;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8DEF;&amp;#x7531; Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x8A2D;&amp;#x5B9A; Component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x6709; Lazy Load &amp;#x7684; Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x6E2C;&amp;#x8A66;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">&amp;#x88DC;&amp;#x5145;&amp;#xFF1A;&amp;#x6A21;&amp;#x677F;&amp;#x8F09;&amp;#x5165;&amp;#x7D44;&amp;#x4EF6;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">&amp;#x65B9;&amp;#x5F0F;</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">實現</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">路徑物件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">路由 Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">設定 Component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">有 Lazy Load 的 Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">測試</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">補充：模板載入組件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">方式</span></a></li></ol></li></ol>
 </div>
                 </section>
             

@@ -101,7 +101,7 @@
     <link href="https://unpkg.com/octomments/build/ocs-ui.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206289145662773"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Neutrino's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
@@ -175,11 +175,11 @@
     </ul>
     <div class="post-content">
         <h2 id="Introduction"><a class="header-anchor" href="#Introduction">¶ </a>Introduction</h2>
-<p>VGG16 is a convolutional neural network model introduced by K. Simonyan and A. Zisserman from the University of Oxford in the paper “Very Deep Convolutional Networks for Large-Scale Image Recognition”. It is a famous model for image recognition in ILSVRC-2014, and it has some well-known counterparts like AlexNet, GoogleNet, and ResNet. The more detail about VGG16 can refer to this article, “<a href="https://neurohive.io/en/popular-networks/vgg16/" target="_blank" rel="noopener">VGG16 – Convolutional Network for Classification and Detection</a>”.</p>
+<p>VGG16 is a convolutional neural network model introduced by K. Simonyan and A. Zisserman from the University of Oxford in the paper “Very Deep Convolutional Networks for Large-Scale Image Recognition”. It is a famous model for image recognition in ILSVRC-2014, and it has some well-known counterparts like AlexNet, GoogleNet, and ResNet. The more detail about VGG16 can refer to this article, “<a target="_blank" rel="noopener" href="https://neurohive.io/en/popular-networks/vgg16/">VGG16 – Convolutional Network for Classification and Detection</a>”.</p>
 <p>In this post, I built VGG16 model from scratch in two versions. The first one is written in pure C++, where all operations of layers are implemented only by C++ running on CPU. The second one is using CUDA, cudnn and cublas, which leverages the advantages of GPU to speed up the operations of the neural network.</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/100784827-bd1dc080-344a-11eb-8a65-76be05809123.png" alt="Vgg16 architecture"></p>
 <h2 id="VGG16-in-C"><a class="header-anchor" href="#VGG16-in-C">¶ </a>VGG16 in C++</h2>
-<p>I wrote the program as header-only framework. I believe it has good architecture to be scalable and extendable. You can check the repo on Github:<a href="https://github.com/tigercosmos/simple-vgg16" target="_blank" rel="noopener">simple-vgg16</a>.</p>
+<p>I wrote the program as header-only framework. I believe it has good architecture to be scalable and extendable. You can check the repo on Github:<a target="_blank" rel="noopener" href="https://github.com/tigercosmos/simple-vgg16">simple-vgg16</a>.</p>
 <p>Take a look at the way to use the framework.</p>
 <pre><code class="language-c++">    // prepare the input data
     auto input = sv::Tensor&lt;double&gt;(224, 224, 3); // 224 x 224 x 3
@@ -240,10 +240,10 @@ Total:  110Mb,  133M,   11308M
 @@ result @@
 0.0413532 0.0416434 0.0412649 0.0419855 0.0412341 ... so many ... 0.0415309 0.0406799 0.0418257 0.0416706 0.0413013
 </code></pre>
-<p>You can gain insight in <a href="https://github.com/tigercosmos/simple-vgg16" target="_blank" rel="noopener">simple-vgg16</a> on Github. Welcome to fork it and modify it.</p>
+<p>You can gain insight in <a target="_blank" rel="noopener" href="https://github.com/tigercosmos/simple-vgg16">simple-vgg16</a> on Github. Welcome to fork it and modify it.</p>
 <h2 id="VGG16-in-CUDA"><a class="header-anchor" href="#VGG16-in-CUDA">¶ </a>VGG16 in CUDA</h2>
 <p>CPU run slower than GPU in certain cases, such as matrix operations, which are used a lot in deep learning models. In order to improve the speed of the running time of deep neural network, adapting CUDA or its libraries like cudnn or cublas does help by exploiting GPU computing.</p>
-<p>I use CUDA to implement the VGG16 net as the second version. You can check it on Github: <a href="https://github.com/tigercosmos/simple-vgg16-cu" target="_blank" rel="noopener">simple-vgg16-cu</a>. Just like the previous C++ one, it is a work for proof-of-concept. The convolution layers are implemented by cudnn, and the fully-connected layer is implemented in cublas.</p>
+<p>I use CUDA to implement the VGG16 net as the second version. You can check it on Github: <a target="_blank" rel="noopener" href="https://github.com/tigercosmos/simple-vgg16-cu">simple-vgg16-cu</a>. Just like the previous C++ one, it is a work for proof-of-concept. The convolution layers are implemented by cudnn, and the fully-connected layer is implemented in cublas.</p>
 <p>By using API like <code>cudnnConvolutionBiasActivationForward</code>, <code>cudnnPoolingForward</code>, <code>cublasSgemm</code>, it is easy to use these neural network (NN) APIs to implement models using CUDA to run on GPU. The CUDA series libraries really improve the efficiency of developing NN models with a considerable inference/training speedup, so it is always encouraged to use these kind of libraries.</p>
 <p>GPU run only seconds while the CPU runs about minutes. The following is the running time for each layers.</p>
 <pre><code>CONV 224x224x64 84 ms
