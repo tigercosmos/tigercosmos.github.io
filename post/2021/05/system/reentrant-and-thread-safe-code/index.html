@@ -181,14 +181,14 @@
 <p>A system is said to be concurrent if it can support two or more actions in progress at the same time. A system is said to be parallel if it can support two or more actions executing simultaneously. The key concept and difference between these definitions is the phrase “in progress.”</p>
 <p>一個系統稱做並行是當他可以同時執行兩個行進中的任務。一個系統稱為平行是當它可以同時執行多個任務。兩者關鍵差異是「行進中」。</p>
 </blockquote>
-<p>並行化可以在單一核心上可以藉由交錯地執行任務來辦到，有趣的是並行化也可以在多個核心上以平行的方式執行。某種程度上並行跟平行做的事情滿像的，但「行進中」精闢點出兩者區別。</p>
+<p>並行化可以在單一核心上可以藉由交錯地執行任務來辦到，有趣的是並行化也可以在多個核心上以平行的方式執行。某種程度上並行跟平行做的事情滿像的，但「行進中」精闢點出兩者區別，並且英文中 simultaneously 有 “happening or being done at exactly the same time” 的特性。</p>
 <p>對於平行和並行不熟的同學可以考慮複習 Operating System Concepts 第四章「Threads &amp; Concurrency」，或是 <a href="https://pages.cs.wisc.edu/~remzi/OSTEP/" target="_blank" rel="noopener">Operating Systems: Three Easy Pieces</a> 的 「Concurrency」 章節。</p>
 <p>而在並行與平行中，為了確保程式執行邏輯正確性和資料正確性，就會需要討論 Reentrancy 和 Thread-safe 分別是啥玩意。</p>
 <p><img src="https://user-images.githubusercontent.com/18013815/117589349-823b5980-b15b-11eb-825d-55307d4c044b.png" alt="Cover"></p>
 <h2 id="2-Reentrancy"><a class="header-anchor" href="#2-Reentrancy">¶ </a>2. Reentrancy</h2>
-<p>在電腦科學中，<a href="https://zh.wikipedia.org/wiki/%E5%8F%AF%E9%87%8D%E5%85%A5" target="_blank" rel="noopener">Reentrancy (可重入)</a> 代表一個程式或子程式裡面的程式碼可以「在任意時刻被中斷，然後作業系統調度執行另外一段程式碼，當再次回來執行這段程式碼時卻不會出錯」。</p>
-<p>白話一點的講就是，一段程式碼跑到一半，被先暫停了，暫停理由可能是因為作業系統 (OS) 要做 Context Switch (上下文交換)，或是自己進行遞迴，總之程式碼在暫停之後，接著繼續執行的時候，如果程式碼的跑的邏輯結果跟原本預期一模一樣，就稱為 Reentrant Code (可重入程式碼)。</p>
-<p>Reentrancy 在單執行緒的形況下就可以做討論，像是程式是否能在被 OS 中斷 (Interrupt) 後，再次直接恢復執行？換句話說，如果被中斷後要能繼續執行，應該要是 Reentrant Code，否則回來的時候答案就錯了。這邊還有個有趣的問題，那就是 <a href="https://stackoverflow.com/questions/18132580/does-an-interrupt-handler-have-to-be-reentrant" target="_blank" rel="noopener">Interrupt Handler 需要是 Reentrant 嗎</a>？簡單的答案是，除非你的 Handler 是巢狀的 (一個接一個呼叫)，否則是不需要擔心，另外像是 Linux 會有遮罩阻止另一個 Interrupt 打斷目前的 Interrupt。</p>
+<p>在電腦科學中，<a href="https://zh.wikipedia.org/wiki/%E5%8F%AF%E9%87%8D%E5%85%A5" target="_blank" rel="noopener">Reentrancy (可重入)</a> 代表一個程式或子程式裡面的程式碼可以「在任意時刻發生中斷 (Interruption)，然後作業系統調度執行另外一段程式碼，當再次回來執行這段程式碼時卻不會出錯」。</p>
+<p>至於為甚麼程式會甚麼會有中斷，有可能是內部自己的行為像是 <code>jump</code> 或 <code>call</code>，抑或是外部行為像是 Interrupt 或 Signal。也就是說，在程式執行的過程中，中斷的發生無關乎作業系統 (OS) 是否存在，沒有 OS 情況下，自身的行為也可能會引發中斷，所以還是要注意 Reentrancy 影響。</p>
+<p>Reentrancy 在單執行緒的形況下就可以做討論，像是程式是否能在被 OS Interrupt 後，再次直接恢復執行？換句話說，如果被中斷後要能繼續執行，應該要是 Reentrant Code，否則回來的時候答案就錯了。這邊還有個有趣的問題，那就是 <a href="https://stackoverflow.com/questions/18132580/does-an-interrupt-handler-have-to-be-reentrant" target="_blank" rel="noopener">Interrupt Handler 需要是 Reentrant 嗎</a>？簡單的答案是，除非你的 Handler 是巢狀的 (一個接一個呼叫)，否則是不需要擔心，另外像是 Linux 會有遮罩阻止另一個 Interrupt 打斷目前的 Interrupt。</p>
 <p>Reentrancy 非常重要是因為在 Concurrent Programming (並行程式) 開發中，我們需要確保異步程式 (Asynchronous Program) 在做任務切換的時候，中斷不會影響我們執行正確性。此外當我們使用遞迴的時候，預期他就是 Reentrant 否則會出錯。</p>
 <h2 id="3-Thread-safe"><a class="header-anchor" href="#3-Thread-safe">¶ </a>3. Thread-safe</h2>
 <p>另一方面， <a href="https://zh.wikipedia.org/zh-tw/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8" target="_blank" rel="noopener">Thread-safe (執行緒安全)</a>是指某個函數、函數庫在多執行緒環境中被呼叫時，能夠正確地處理多個執行緒之間的公用變數 (全域變數、共享變數)，使程式功能正確完成。</p>
@@ -341,9 +341,9 @@ void my_func() {
 </ul>
 <h2 id="6-Reentrant-與-Thread-Safe-函式庫"><a class="header-anchor" href="#6-Reentrant-與-Thread-Safe-函式庫">¶ </a>6. Reentrant 與 Thread-Safe 函式庫</h2>
 <p>Reentrant 與 Thread-Safe 函式庫在我們寫平行程式或開發異步程式的時候很重要。</p>
-<p>在 GNU C 函式庫中，有分以下安全等級：MT-Safe (Multi-Thread-Safe)、AS-Safe (Async-Signal-Safe)、AC-Safe (Async-Cancel-Safe) 以及各種不安全的等級。</p>
+<p>在 GNU C 函式庫中，有分以下安全 (Safety) 等級：MT-Safe (Multi-Thread-Safe)、AS-Safe (Async-Signal-Safe)、AC-Safe (Async-Cancel-Safe) 以及各種不安全的等級。</p>
 <p>一些 C 標準函式庫的函式，像是 <code>ctime</code> 和 <code>strtok</code> 就不是 Reentrant。但通常他們會有一個對應的 Reentrant 版本，名稱通常會是 <code>_r</code> 後綴，例如 <code>strtok_r</code> 或 <code>rand_r</code>。</p>
-<p>事實上我們也可以透過 <code>man</code> 指令來確認，例如在 Ubuntu 16 上我查 <code>man rand_r</code>，得到以下結果 (片段)：</p>
+<p>事實上我們也可以透過 <code>man</code> 命令 (Command) 來確認，例如在 Ubuntu 16 上我查 <code>man rand_r</code>，得到以下結果 (片段)：</p>
 <pre><code>ATTRIBUTES
        For an explanation of the terms used in this section, see attributes(7).
 
@@ -353,7 +353,8 @@ void my_func() {
        │rand(), rand_r(), srand() │ Thread safety │ MT-Safe │
        └──────────────────────────┴───────────────┴─────────┘
 </code></pre>
-<p>可以看到我們查到 <code>rand_r</code> 是 MT-Safe，意味著我們可以用他在平行程式中，並且會執行正確且安全。</p>
+<p>可以看到我們查到 <code>rand_r</code> 是 MT-Safe，意味著我們可以用他在平行程式中。MT-Safe 強調在多執行緒 (MT) 的環境中，原本預期的功能 (如這邊的亂數產生器) 仍可正確地展現，且不該存在因為放到多執行緒而有的錯誤 (即 functional safety)。</p>
+<p>所以要注意的是，<code>MT-Safe</code> 不代表程式碼就是完全安全的，例如當連續呼叫 MT-Safe 的程式的時候，行為可能會是無法預期的。</p>
 <p>那你可能就要問了，那如果我在平行程式上用非 MT-Safe 的函數呢？那可能會有兩種可能，一種是你得到錯的答案，因為他就不是安全的，第二種是你可能效率會比較差，因為他可能會不斷去搶外部變數。舉例來說，假設你在平行程式去呼叫 <code>rand</code> 而非 <code>rand_r</code>，那你將會發現亂數產生的速度會極慢 (甚至會不正確)，因為 <code>rand</code> 的實作中，就有使用 <code>static</code>。</p>
 <h2 id="7-參考資料"><a class="header-anchor" href="#7-參考資料">¶ </a>7. 參考資料</h2>
 <ol>
