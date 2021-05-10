@@ -15,7 +15,7 @@ Concurrency (並行) 和 Parallelism (平行) 是非常像的概念。前者是�
 >
 > 一個系統稱做並行是當他可以同時執行兩個行進中的任務。一個系統稱為平行是當它可以同時執行多個任務。兩者關鍵差異是「行進中」。
 
-並行化可以在單一核心上可以藉由交錯地執行任務來辦到，有趣的是並行化也可以在多個核心上以平行的方式執行。某種程度上並行跟平行做的事情滿像的，但「行進中」精闢點出兩者區別，並且英文中 simultaneously 有 "happening or being done at exactly the same time" 的特性。
+並行化可以在單核處理器 (Single Core) 上可以藉由交錯地執行任務來辦到，有趣的是並行化也可以在多核處理器上以平行的方式執行。某種程度上並行跟平行做的事情滿像的，但「行進中」精闢點出兩者區別，並且英文中 simultaneously 有 "happening or being done at exactly the same time" 的特性。
 
 對於平行和並行不熟的同學可以考慮複習 Operating System Concepts 第四章「Threads & Concurrency」，或是 [Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/) 的 「Concurrency」 章節。
 
@@ -25,19 +25,19 @@ Concurrency (並行) 和 Parallelism (平行) 是非常像的概念。前者是�
 
 ## 2. Reentrancy 
 
-在電腦科學中，[Reentrancy (可重入)](https://zh.wikipedia.org/wiki/%E5%8F%AF%E9%87%8D%E5%85%A5) 代表一個程式或子程式裡面的程式碼可以「在任意時刻發生中斷 (Interruption)，然後作業系統調度執行另外一段程式碼，當再次回來執行這段程式碼時卻不會出錯」。
+在電腦科學中，[Reentrancy (可重入)](https://zh.wikipedia.org/wiki/%E5%8F%AF%E9%87%8D%E5%85%A5) 代表一個程式或子程式裡面的程式碼可以「在任意時刻發生中斷 (Interruption)，然後作業系統排程 (Schedule) 執行另外一段程式碼，當再次回來執行這段程式碼時卻不會出錯」。
 
 至於為甚麼程式會甚麼會有中斷，有可能是內部自己的行為像是 `jump` 或 `call`，抑或是外部行為像是 Interrupt 或 Signal。也就是說，在程式執行的過程中，中斷的發生無關乎作業系統 (OS) 是否存在，沒有 OS 情況下，自身的行為也可能會引發中斷，所以還是要注意 Reentrancy 影響。
 
 Reentrancy 在單執行緒的形況下就可以做討論，像是程式是否能在被 OS Interrupt 後，再次直接恢復執行？換句話說，如果被中斷後要能繼續執行，應該要是 Reentrant Code，否則回來的時候答案就錯了。這邊還有個有趣的問題，那就是 [Interrupt Handler 需要是 Reentrant 嗎](https://stackoverflow.com/questions/18132580/does-an-interrupt-handler-have-to-be-reentrant)？簡單的答案是，除非你的 Handler 是巢狀的 (一個接一個呼叫)，否則是不需要擔心，另外像是 Linux 會有遮罩阻止另一個 Interrupt 打斷目前的 Interrupt。
 
-Reentrancy 非常重要是因為在 Concurrent Programming (並行程式) 開發中，我們需要確保異步程式 (Asynchronous Program) 在做任務切換的時候，中斷不會影響我們執行正確性。此外當我們使用遞迴的時候，預期他就是 Reentrant 否則會出錯。
+Reentrancy 非常重要是因為在 Concurrent Programming (並行程式設計) 開發中，我們需要確保異步程式 (Asynchronous Program) 在做任務切換的時候，中斷不會影響我們執行正確性。此外當我們使用遞迴的時候，預期他就是 Reentrant 否則會出錯。
 
 ## 3. Thread-safe
 
 另一方面， [Thread-safe (執行緒安全)](https://zh.wikipedia.org/zh-tw/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)是指某個函數、函數庫在多執行緒環境中被呼叫時，能夠正確地處理多個執行緒之間的公用變數 (全域變數、共享變數)，使程式功能正確完成。
 
-Thread-safe 在平行程式中很重要，因為平行計算的過程中，往往很多資料是共用的，這樣處理資料的時候，很容易讓資料產生 [Race Conditions](https://en.wikipedia.org/wiki/Race_condition#Computing)，因此如何確保資料在每個 Thread 都有被鄭去讀寫就很關鍵。
+Thread-safe 在平行程式中很重要，因為平行計算的過程中，往往很多資料是共用的，這樣處理資料的時候，很容易讓資料產生 [Race Conditions](https://en.wikipedia.org/wiki/Race_condition#Computing)，因此如何確保資料在每個 Thread 都有被正確進行讀寫就很關鍵。
 
 所以 Thread-safe 基本上就是在避免資料發生 Data Racing，實現機制可以使用 Reentrancy，但也可以使用 Thread-Local Data (只存在自己執行緒的資料)、不可改變的物件 (Immutable Objects)、互斥鎖 (Mutex)、原子化操作 (Atomic Operations)。
 
