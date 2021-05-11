@@ -1,0 +1,23 @@
+<article class="post">
+    <h2 class="post-title">
+        <%= page.title %>
+    </h2>
+    <div class="post-content">
+        <%- page.content %>
+    </div>
+
+    <hr class="hr-color">
+
+    <div id="comments"></div>
+    <script src="https://unpkg.com/octomments/build/ocs.min.js"></script>
+    <script>
+        Octomments({
+            github: {
+                owner: 'tigercosmos',
+                repo: 'blog',
+            },
+            issueNumber: 6,
+            renderer: [OctommentsRenderer, '#comments']
+        }).init();
+    </script>
+</article>
