@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tigercosmos.xyz/"/>
-  <updated>2021-05-11T14:23:40.756Z</updated>
+  <updated>2021-05-13T15:24:28.036Z</updated>
   <id>https://tigercosmos.xyz/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>「台灣社交距離」App 背後技術原理：接觸通知系統與保護隱私的接觸追蹤技術</title>
+    <link href="https://tigercosmos.xyz/post/2021/05/exposure-notification/"/>
+    <id>https://tigercosmos.xyz/post/2021/05/exposure-notification/</id>
+    <published>2021-05-13T15:25:00.000Z</published>
+    <updated>2021-05-13T15:24:28.036Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#簡介&quot;&gt;¶ &lt;/a&gt;簡介&lt;/h2&gt;
+&lt;p&gt;近日衛生部公佈了「台灣社交距離」App，有鑑於該 App 完全沒提及技術細節 (實在是非常不應該)，以及網路上各大新聞媒體報導也沒介紹
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="接觸通知系統" scheme="https://tigercosmos.xyz/tags/%E6%8E%A5%E8%A7%B8%E9%80%9A%E7%9F%A5%E7%B3%BB%E7%B5%B1/"/>
+    
+      <category term="公共衛生" scheme="https://tigercosmos.xyz/tags/%E5%85%AC%E5%85%B1%E8%A1%9B%E7%94%9F/"/>
+    
+      <category term="covid-19" scheme="https://tigercosmos.xyz/tags/covid-19/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深入理解 Reentrancy 和 Thread-safe</title>
     <link href="https://tigercosmos.xyz/post/2021/05/system/reentrant-and-thread-safe-code/"/>
     <id>https://tigercosmos.xyz/post/2021/05/system/reentrant-and-thread-safe-code/</id>
     <published>2021-05-09T22:20:08.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.044Z</updated>
     
     <summary type="html">
     
@@ -53,7 +83,7 @@
     <link href="https://tigercosmos.xyz/post/2021/05/story/ta-of-parallel-programming-course/"/>
     <id>https://tigercosmos.xyz/post/2021/05/story/ta-of-parallel-programming-course/</id>
     <published>2021-05-03T18:00:00.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -89,7 +119,7 @@
     <link href="https://tigercosmos.xyz/post/2021/01/autobiography/nctu-4/"/>
     <id>https://tigercosmos.xyz/post/2021/01/autobiography/nctu-4/</id>
     <published>2021-01-27T06:00:00.000Z</published>
-    <updated>2021-05-11T14:23:40.748Z</updated>
+    <updated>2021-05-13T15:24:28.032Z</updated>
     
     <summary type="html">
     
@@ -130,7 +160,7 @@
     <link href="https://tigercosmos.xyz/post/2021/01/story/physics-dream/"/>
     <id>https://tigercosmos.xyz/post/2021/01/story/physics-dream/</id>
     <published>2021-01-04T22:25:00.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -157,7 +187,7 @@
     <link href="https://tigercosmos.xyz/post/2021/01/2021-new-year-resolution/"/>
     <id>https://tigercosmos.xyz/post/2021/01/2021-new-year-resolution/</id>
     <published>2021-01-04T18:00:00.000Z</published>
-    <updated>2021-05-11T14:23:40.744Z</updated>
+    <updated>2021-05-13T15:24:28.024Z</updated>
     
     <summary type="html">
     
@@ -188,7 +218,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/system/cuda-basic/"/>
     <id>https://tigercosmos.xyz/post/2020/12/system/cuda-basic/</id>
     <published>2020-12-09T23:00:00.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -218,7 +248,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/system/floating-number-cpu-gpu/"/>
     <id>https://tigercosmos.xyz/post/2020/12/system/floating-number-cpu-gpu/</id>
     <published>2020-12-04T16:06:40.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -250,7 +280,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/paper/datacenter-analysis-tpu/"/>
     <id>https://tigercosmos.xyz/post/2020/12/paper/datacenter-analysis-tpu/</id>
     <published>2020-12-03T15:46:00.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -286,7 +316,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/ai/vgg16-from-scratch/"/>
     <id>https://tigercosmos.xyz/post/2020/12/ai/vgg16-from-scratch/</id>
     <published>2020-12-01T21:30:00.000Z</published>
-    <updated>2021-05-11T14:23:40.744Z</updated>
+    <updated>2021-05-13T15:24:28.024Z</updated>
     
     <summary type="html">
     
@@ -324,7 +354,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/system/cas-lock-free/"/>
     <id>https://tigercosmos.xyz/post/2020/10/system/cas-lock-free/</id>
     <published>2020-10-27T18:25:00.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -356,7 +386,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/ai/googlenet/"/>
     <id>https://tigercosmos.xyz/post/2020/10/ai/googlenet/</id>
     <published>2020-10-22T23:15:00.000Z</published>
-    <updated>2021-05-11T14:23:40.744Z</updated>
+    <updated>2021-05-13T15:24:28.024Z</updated>
     
     <summary type="html">
     
@@ -390,7 +420,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/</id>
     <published>2020-10-21T15:46:00.000Z</published>
-    <updated>2021-05-11T14:23:40.752Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -422,7 +452,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/</id>
     <published>2020-10-21T15:34:00.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -456,7 +486,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/</id>
     <published>2020-10-21T15:25:00.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -492,7 +522,7 @@
     <link href="https://tigercosmos.xyz/post/2020/09/system/debug-gdb/"/>
     <id>https://tigercosmos.xyz/post/2020/09/system/debug-gdb/</id>
     <published>2020-09-21T09:17:00.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -521,7 +551,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/measurement-bias/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/measurement-bias/</id>
     <published>2020-08-30T10:30:00.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -552,7 +582,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/perf-basic/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/perf-basic/</id>
     <published>2020-08-28T16:20:08.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.044Z</updated>
     
     <summary type="html">
     
@@ -577,7 +607,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/</id>
     <published>2020-08-23T16:09:00.000Z</published>
-    <updated>2021-05-11T14:23:40.756Z</updated>
+    <updated>2021-05-13T15:24:28.040Z</updated>
     
     <summary type="html">
     
@@ -602,7 +632,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/"/>
     <id>https://tigercosmos.xyz/post/2020/08/autobiography/nctu-3/</id>
     <published>2020-08-19T04:00:00.000Z</published>
-    <updated>2021-05-11T14:23:40.748Z</updated>
+    <updated>2021-05-13T15:24:28.032Z</updated>
     
     <summary type="html">
     
@@ -624,34 +654,6 @@
       <category term="交大觀察與心得" scheme="https://tigercosmos.xyz/tags/%E4%BA%A4%E5%A4%A7%E8%A7%80%E5%AF%9F%E8%88%87%E5%BF%83%E5%BE%97/"/>
     
       <category term="美術社" scheme="https://tigercosmos.xyz/tags/%E7%BE%8E%E8%A1%93%E7%A4%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>完整介紹 WebAssembly 使用方式</title>
-    <link href="https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/"/>
-    <id>https://tigercosmos.xyz/post/2020/08/js/webassembly-intro/</id>
-    <published>2020-08-16T16:05:30.000Z</published>
-    <updated>2021-05-11T14:23:40.752Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-簡介&quot;&gt;¶ &lt;/a&gt;1. 簡介&lt;/h2&gt;
-&lt;p&gt;先來說說 WebAssembly 是甚麼，為甚麼我們需要這玩意？&lt;/p&gt;
-&lt;p&gt;如今網頁技術已經無所不在，人們上網時間佔一天好幾個小時，人們透過網路享受各種服務，各種應用服務也漸漸都轉移到網頁上，桌面程式或手機程式也越來越多採用網頁程式 (Web App) 或混合式程式 (Hybrid App)，可以說網頁技術已經主宰了世界。&lt;/p&gt;
-&lt;p&gt;網頁是採用 JavaScript (JS) 語言，隨著瀏覽器進步、JS 引擎發展，我們似乎已經達到優化效能的瓶頸，JS 不管怎樣快，由於是直譯式語言，會一行一行讀程式碼同時進行編譯，這種模式鐵定會比編譯式語言像是 C++ 還要慢。那你會問，為啥網頁不用 C++ 這種編譯式語言？這是因為不管是事先編好，編譯出來的執行檔會很大，這樣傳給瀏覽器反而會造成網路傳輸花太多時間，或是瀏覽器拿到檔案才開始編譯，那要等他全部編完才能跑也會花太多時間。所以直譯式語言的 JS 先傳給瀏覽器，由於是原始檔檔案不會很大傳輸時間就還行，然後拿到檔案後一行一行編譯，先編譯好的部分可以先跑，也不會讓速度過慢。&lt;/p&gt;
-&lt;p&gt;不管如何，JS 效能已經到上限了，人們開始想要怎樣讓網頁可以在瀏覽器上跑得更快，於是就有 WebAssembly (WASM) 的誕生了，WASM 是一個低階類似組合語言的語言，其效能可以接近原生 (Native) 的程式，像是 C++ 或 Rust 跑出來的效能。開發網頁時，JS 和 WASM 會搭配使用，概念簡單來說是一般程式邏輯一樣給 JS 跑，但把部分負擔很重的程式碼改成事先編譯的 WASM，這樣就可以讓效能更加進化。同時享有 JS 可以快速啟動的好處，也享有 WASM 在運算複雜的程式碼上有高效能的表現。&lt;/p&gt;
-&lt;p&gt;接下來本文將會介紹如何使用 JS 搭配 WASM 進行開發。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="browsers" scheme="https://tigercosmos.xyz/tags/browsers/"/>
-    
-      <category term="JavaScript" scheme="https://tigercosmos.xyz/tags/javascript/"/>
-    
-      <category term="WebAssembly" scheme="https://tigercosmos.xyz/tags/webassembly/"/>
     
   </entry>
   
