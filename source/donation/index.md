@@ -16,8 +16,15 @@ date: 2020-04-11 00:00:00
 
 ### 街口支付
 
-您可以透過**街口支付**
-<a href='/donation'><img src="https://user-images.githubusercontent.com/18013815/79032620-8ef92100-7bda-11ea-8c29-f4f1a3be8fdb.png" width="30%"></a>
+您可以透過**街口支付** (掃描 QR Code 或點[此連結](https://www.jkopay.com/transfer?j=Transfer:900347084))
+<img src="https://user-images.githubusercontent.com/18013815/79032620-8ef92100-7bda-11ea-8c29-f4f1a3be8fdb.png" width="300px">
+
+### 銀行轉帳
+
+您可以透過**玉山銀行**轉帳
+- 手動輸入： 808 玉山銀行 0462979185426 金額：45
+- App 掃碼︰
+<img src="https://user-images.githubusercontent.com/18013815/118236826-252c0480-b4c9-11eb-856d-b907dcc3a989.png" width="200px">
 
 ### Paypal
 
