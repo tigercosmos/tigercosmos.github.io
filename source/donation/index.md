@@ -23,7 +23,7 @@ date: 2020-04-11 00:00:00
 
 您可以透過**玉山銀行**轉帳
 - 手動輸入： 808 玉山銀行 0462979185426 金額：45
-- App 掃碼︰
+- 玉山 App 掃碼︰
 <img src="https://user-images.githubusercontent.com/18013815/118236826-252c0480-b4c9-11eb-856d-b907dcc3a989.png" width="200px">
 
 ### Paypal
