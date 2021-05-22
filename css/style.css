@@ -372,12 +372,12 @@ blockquote {
 .aside-section {
   margin: 0 0 3em;
 }
-.aside-section h1 {
+.aside-section h2 {
   font: 1.25em/1.2 Lora;
   margin: 0.67em 0;
   color: #777;
 }
-.aside-section h1:before {
+.aside-section h2:before {
   content: '';
   display: inline-block;
   position: relative;
