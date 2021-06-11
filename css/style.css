@@ -516,9 +516,6 @@ body a:hover {
   color: #ddd !important;
 }
 body p code {
-  font-size: 1.2rem;
-}
-body code {
   font-size: 1rem;
 }
 .container {

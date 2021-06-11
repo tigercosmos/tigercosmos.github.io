@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tigercosmos.xyz/"/>
-  <updated>2021-06-03T04:29:03.700Z</updated>
+  <updated>2021-06-11T23:08:55.535Z</updated>
   <id>https://tigercosmos.xyz/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JavaScript 遍歷 Array 的四種方法：for、for-in、for-of、forEach()</title>
+    <link href="https://tigercosmos.xyz/post/2021/06/js/js-array-for-methods/"/>
+    <id>https://tigercosmos.xyz/post/2021/06/js/js-array-for-methods/</id>
+    <published>2021-06-11T23:00:00.000Z</published>
+    <updated>2021-06-11T23:08:55.535Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-簡介&quot;&gt;¶ &lt;/a&gt;1. 簡介&lt;/h2&gt;
+&lt;p&gt;長話短說，要遍歷 JS Array 裡面的所有元素，可以直接使用以下語法。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;for&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="效能分析" scheme="https://tigercosmos.xyz/tags/%E6%95%88%E8%83%BD%E5%88%86%E6%9E%90/"/>
+    
+      <category term="JavaScript" scheme="https://tigercosmos.xyz/tags/javascript/"/>
+    
+      <category term="array" scheme="https://tigercosmos.xyz/tags/array/"/>
+    
+      <category term="陣列" scheme="https://tigercosmos.xyz/tags/%E9%99%A3%E5%88%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>計算攝影學 (Computational Photography) 簡介（一）</title>
     <link href="https://tigercosmos.xyz/post/2021/06/cv/computation-photography-1/"/>
     <id>https://tigercosmos.xyz/post/2021/06/cv/computation-photography-1/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-06-03T04:29:03.700Z</updated>
+    <updated>2021-06-11T23:08:55.531Z</updated>
     
     <summary type="html">
     
@@ -59,7 +92,7 @@
     <link href="https://tigercosmos.xyz/post/2021/05/exposure-notification/"/>
     <id>https://tigercosmos.xyz/post/2021/05/exposure-notification/</id>
     <published>2021-05-13T15:25:00.000Z</published>
-    <updated>2021-06-03T04:29:03.700Z</updated>
+    <updated>2021-06-11T23:08:55.531Z</updated>
     
     <summary type="html">
     
@@ -89,7 +122,7 @@
     <link href="https://tigercosmos.xyz/post/2021/05/system/reentrant-and-thread-safe-code/"/>
     <id>https://tigercosmos.xyz/post/2021/05/system/reentrant-and-thread-safe-code/</id>
     <published>2021-05-09T22:20:08.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.539Z</updated>
     
     <summary type="html">
     
@@ -121,7 +154,7 @@
     <link href="https://tigercosmos.xyz/post/2021/05/story/ta-of-parallel-programming-course/"/>
     <id>https://tigercosmos.xyz/post/2021/05/story/ta-of-parallel-programming-course/</id>
     <published>2021-05-03T18:00:00.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.539Z</updated>
     
     <summary type="html">
     
@@ -157,7 +190,7 @@
     <link href="https://tigercosmos.xyz/post/2021/01/autobiography/nctu-4/"/>
     <id>https://tigercosmos.xyz/post/2021/01/autobiography/nctu-4/</id>
     <published>2021-01-27T06:00:00.000Z</published>
-    <updated>2021-06-03T04:29:03.696Z</updated>
+    <updated>2021-06-11T23:08:55.527Z</updated>
     
     <summary type="html">
     
@@ -198,7 +231,7 @@
     <link href="https://tigercosmos.xyz/post/2021/01/story/physics-dream/"/>
     <id>https://tigercosmos.xyz/post/2021/01/story/physics-dream/</id>
     <published>2021-01-04T22:25:00.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.539Z</updated>
     
     <summary type="html">
     
@@ -225,7 +258,7 @@
     <link href="https://tigercosmos.xyz/post/2021/01/2021-new-year-resolution/"/>
     <id>https://tigercosmos.xyz/post/2021/01/2021-new-year-resolution/</id>
     <published>2021-01-04T18:00:00.000Z</published>
-    <updated>2021-06-03T04:29:03.692Z</updated>
+    <updated>2021-06-11T23:08:55.523Z</updated>
     
     <summary type="html">
     
@@ -256,7 +289,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/system/cuda-basic/"/>
     <id>https://tigercosmos.xyz/post/2020/12/system/cuda-basic/</id>
     <published>2020-12-09T23:00:00.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.539Z</updated>
     
     <summary type="html">
     
@@ -286,7 +319,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/system/floating-number-cpu-gpu/"/>
     <id>https://tigercosmos.xyz/post/2020/12/system/floating-number-cpu-gpu/</id>
     <published>2020-12-04T16:06:40.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.539Z</updated>
     
     <summary type="html">
     
@@ -318,7 +351,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/paper/datacenter-analysis-tpu/"/>
     <id>https://tigercosmos.xyz/post/2020/12/paper/datacenter-analysis-tpu/</id>
     <published>2020-12-03T15:46:00.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.535Z</updated>
     
     <summary type="html">
     
@@ -354,7 +387,7 @@
     <link href="https://tigercosmos.xyz/post/2020/12/ai/vgg16-from-scratch/"/>
     <id>https://tigercosmos.xyz/post/2020/12/ai/vgg16-from-scratch/</id>
     <published>2020-12-01T21:30:00.000Z</published>
-    <updated>2021-06-03T04:29:03.692Z</updated>
+    <updated>2021-06-11T23:08:55.523Z</updated>
     
     <summary type="html">
     
@@ -392,7 +425,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/system/cas-lock-free/"/>
     <id>https://tigercosmos.xyz/post/2020/10/system/cas-lock-free/</id>
     <published>2020-10-27T18:25:00.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.539Z</updated>
     
     <summary type="html">
     
@@ -424,7 +457,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/ai/googlenet/"/>
     <id>https://tigercosmos.xyz/post/2020/10/ai/googlenet/</id>
     <published>2020-10-22T23:15:00.000Z</published>
-    <updated>2021-06-03T04:29:03.692Z</updated>
+    <updated>2021-06-11T23:08:55.523Z</updated>
     
     <summary type="html">
     
@@ -458,7 +491,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/Deep-Learning-Hardware/</id>
     <published>2020-10-21T15:46:00.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.535Z</updated>
     
     <summary type="html">
     
@@ -490,7 +523,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/deep-learning-nature2015/</id>
     <published>2020-10-21T15:34:00.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.535Z</updated>
     
     <summary type="html">
     
@@ -524,7 +557,7 @@
     <link href="https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/"/>
     <id>https://tigercosmos.xyz/post/2020/10/paper/machine-learning-at-Facebook/</id>
     <published>2020-10-21T15:25:00.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.535Z</updated>
     
     <summary type="html">
     
@@ -560,7 +593,7 @@
     <link href="https://tigercosmos.xyz/post/2020/09/system/debug-gdb/"/>
     <id>https://tigercosmos.xyz/post/2020/09/system/debug-gdb/</id>
     <published>2020-09-21T09:17:00.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.539Z</updated>
     
     <summary type="html">
     
@@ -589,7 +622,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/measurement-bias/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/measurement-bias/</id>
     <published>2020-08-30T10:30:00.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.539Z</updated>
     
     <summary type="html">
     
@@ -620,7 +653,7 @@
     <link href="https://tigercosmos.xyz/post/2020/08/system/perf-basic/"/>
     <id>https://tigercosmos.xyz/post/2020/08/system/perf-basic/</id>
     <published>2020-08-28T16:20:08.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
+    <updated>2021-06-11T23:08:55.539Z</updated>
     
     <summary type="html">
     
@@ -637,31 +670,6 @@
       <category term="linux" scheme="https://tigercosmos.xyz/tags/linux/"/>
     
       <category term="perf" scheme="https://tigercosmos.xyz/tags/perf/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用 Elixir 建立簡易 HTTP Server</title>
-    <link href="https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/"/>
-    <id>https://tigercosmos.xyz/post/2020/08/system/elixer-simple-server/</id>
-    <published>2020-08-23T16:09:00.000Z</published>
-    <updated>2021-06-03T04:29:03.704Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;簡介&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#簡介&quot;&gt;¶ &lt;/a&gt;簡介&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://elixir-lang.org/&quot;&gt;Elixir&lt;/a&gt; 是一個動態 Functional Programming 語言，專門用來打造可擴展且易維護的系統。&lt;/p&gt;
-&lt;p&gt;Elixir 基於 Erlang VM 所建，適合用在需要低延遲、分散式、錯誤容忍（fault-tolerant）的系統上，同時也可以用在網頁開發、嵌入式軟體、資料處理、多媒體處理等用途上。這篇文章「&lt;a href=&quot;https://serokell.io/blog/history-of-erlang-and-elixir&quot;&gt;Game of Phones: History of Erlang and Elixir&lt;/a&gt;」介紹了 Elixir 來龍去脈，值得一看。&lt;/p&gt;
-&lt;p&gt;Elixir 寫起來滿有趣的，寫了之後才意識到原來 JS 和 Rust 從 Functional Programming 借鏡了不少概念，所以在從頭學 Elixir 的過程，一些 FP 的特色，像是 Pattern Matching、Enumerable 都已經在先前接觸過。&lt;/p&gt;
-&lt;p&gt;看完&lt;a href=&quot;https://elixir-lang.org/getting-started/introduction.html&quot;&gt;官方的語言教學&lt;/a&gt;後，覺得需要藉由寫小專案更熟悉，所以就研究如何用 Elixir 建造一個簡單的 HTTP Server。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="http server" scheme="https://tigercosmos.xyz/tags/http-server/"/>
-    
-      <category term="elixir" scheme="https://tigercosmos.xyz/tags/elixir/"/>
     
   </entry>
   
