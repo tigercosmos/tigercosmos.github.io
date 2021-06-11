@@ -442,9 +442,11 @@ forEach 1.9450000002980232
 for-of 13.973299995064735
 </code></pre>
 <p>這個結果就十分意外了，<code>for</code> 依舊是效能最好的，<code>forEach</code> 表現也不錯，<code>for-in</code> 和 <code>for-of</code> 幾乎一樣差，這感覺需要看 V8 是怎麼編譯的，如果有誰知道背後的原因可以跟我說，我再回來這邊補充。</p>
+<p>這意味著，如果遍歷的東西是物件的話，<code>forEach</code> 似乎可以得到比較好的最佳化。不過由於我的實驗有點簡陋，也有可能是在這個情況下他表現比較好，但我們大概能有個底，<code>for</code> 跟 <code>forEach</code> 應該是比較適合拿來做物件的遍歷。</p>
+<p>真實情況下，如果你很在乎效能，建議都實做看看，最後選效能最好的那個寫法就好。</p>
 <h2 id="7-結論"><a class="header-anchor" href="#7-結論">¶ </a>7. 結論</h2>
 <p>本文介紹遍歷 Array 元素的多種方法，分別為 <code>for</code>、<code>for-in</code>、<code>forEach</code> 和 <code>for-of</code>，並在最後做簡單的效能實驗。</p>
-<p>範例大量參考 Axel Rauschmayer 文章，Axel 本身算是 JS 專家，他在文章中提倡 <code>for-of</code> 是最好的寫法，但我並不同意，如同最後的效能測試，我們可以發現最一般的 <code>for</code> 表現卻是最好。所以在一般情況下我們有理由繼續用 <code>for</code>，即使會寫出沒那麼帥氣的程式與法。但如果這點效能差異是允許的，你也可以考慮使用其他遍歷 Array 的方法，有時候好閱讀比效能好還重要。</p>
+<p>範例大量參考 Axel Rauschmayer 文章，Axel 本身算是 JS 專家，他在文章中提倡 <code>for-of</code> 是最好的寫法，但我並不同意，如同最後的效能測試，我們可以發現一般的 <code>for</code> 普遍表現最優。所以在一般情況下為了速度我們有理由繼續用 <code>for</code>，即使會寫出沒那麼帥氣的程式與法。但如果這點效能差異是允許的，你也可以考慮使用其他遍歷 Array 的方法，有時候好閱讀比效能好還重要。</p>
 <h2 id="8-參考資料"><a class="header-anchor" href="#8-參考資料">¶ </a>8. 參考資料</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://2ality.com/2021/01/looping-over-arrays.html">Looping over Arrays: for vs. for-in vs. .forEach() vs. for-of</a></li>
