@@ -94,7 +94,7 @@ for (const key in arr) {
 
 所以不太建議用 `for-in` 來遍歷 Array，因為它看 Keys，可能會有意外的行為。
 
-此外因為是 Keys，所以 Array 的 Index 會是字串而分數字。
+此外因為是 Keys，所以 Array 的 Index 會是字串而非數字。
 
 它會遍歷所有可以枚舉的屬性，包含自身跟繼承的，這可能會是不錯的好處。
 
@@ -210,7 +210,7 @@ for (const [key, value] of myMap) {
 
 測試方法很簡單，就是遍歷所有元素，存取裡的數值，然後看哪個方法速度最快。
 
-這只是非常件單的測試，可能不夠周全，但大概可以給我們一點概念。
+這只是非常簡單的測試，可能不夠周全，但大概可以給我們一點概念。
 
 ### 6.1 Array 裡面都是數字
 
@@ -234,47 +234,51 @@ let time_marker;
 // ===
 time_marker = performance.now();
 sum = 0;
-for (let i = 0; i < 100000; i++) {
-    sum += arr[i];
-}
+for (let j = 0; j < 50; j++) // 放大 50 倍
+    for (let i = 0; i < 100000; i++) {
+        sum += arr[i];
+    }
 console.log("for", performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-for (const i in arr) {
-    sum += arr[i];
-}
+for (let j = 0; j < 50; j++)
+    for (const i in arr) {
+        sum += arr[i];
+    }
 console.log("for-in", performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-arr.forEach(v => {
-    sum += v;
-});
+for (let j = 0; j < 50; j++)
+    arr.forEach(v => {
+        sum += v;
+    });
 console.log("forEach", performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-for (const v of arr) {
-    sum += v;
-}
-console.log("for-of", performance.now() - time_marker);
+for (let j = 0; j < 50; j++)
+    for (const v of arr) {
+        sum += v;
+    }
+console.log("for of", performance.now() - time_marker);
 ```
 
 跑出來結果是
 
 ```
 $ node .\test.js
-for 3.6556000038981438
-for-in 16.136700004339218
-forEach 6.303700000047684
-for-of 7.72919999808073
+for 41.0147999972105
+for-in 541.3449000120163
+forEach 91.50919999182224
+for of 49.270000010728836
 ```
 
-其實滿合理的，`for` 迴圈在本身都是處理數字情況下，編譯器是非常好做優化的，相對的其他語法編譯出來的指令 (Instruction) 就會比較複雜。`for-in` 特別面應該是因為它是將 Index 當作 String 在處理，這樣的話中間的消耗其實十分大。
+其實滿合理的，`for` 迴圈在本身都是處理數字情況下，編譯器是非常好做優化的，相對的其他語法編譯出來的指令 (Instruction) 就會比較複雜。`for-in` 特別慢應該是因為它是將 Index 當作 String 在處理，這樣的話中間的消耗其實十分大，此外他可能需要去枚舉所有繼承的屬性。
 
 ### 6.2 Array 裡面都是物件
 
@@ -301,49 +305,55 @@ let time_marker;
 // ===
 time_marker = performance.now();
 sum = 0;
-for (let i = 0; i < 100000; i++) {
-    sum += arr[i].a;
-}
+for (let j = 0; j < 50; j++) // 放大 50 倍
+    for (let i = 0; i < 100000; i++) {
+        sum += arr[i].a;
+    }
 console.log("for", performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-for (const i in arr) {
-    sum += arr[i].a;
-}
+for (let j = 0; j < 50; j++)
+    for (const i in arr) {
+        sum += arr[i].a;
+    }
 console.log("for-in", performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-arr.forEach(v => {
-    sum += v.a;
-});
+for (let j = 0; j < 50; j++)
+    arr.forEach(v => {
+        sum += v.a;
+    });
 console.log("forEach", performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-for (const v of arr) {
-    sum += v.a;
-}
-console.log("for-of", performance.now() - time_marker);
+for (let j = 0; j < 50; j++)
+    for (const v of arr) {
+        sum += v.a;
+    }
+console.log("for of", performance.now() - time_marker);
 ```
 
 讓我們來看看結果：
 
 ```
 $ node .\test2.js
-for 2.7576999962329865
-for-in 11.11490000039339
-forEach 1.9450000002980232
-for-of 13.973299995064735
+for 18.817900002002716
+for-in 438.9100999981165
+forEach 56.67289999127388
+for of 25.645999997854233
 ```
 
-這個結果就十分意外了，`for` 依舊效能不錯，`forEach` 表現最好，`for-in` 和 `for-of` 幾乎一樣差，這感覺需要看 V8 是怎麼編譯的，如果有誰知道背後的原因可以跟我說，我再回來這邊補充。
+這個結果就十分意外了，`for` 依舊效能最好，其次是 `for-of`，而 `for-in` 依舊是最差的，我想理由大概跟前面例子差不多。
 
-這意味著，如果遍歷的東西是物件的話，`forEach` 似乎可以得到比較好的最佳化。不過由於我的實驗有點簡陋，也有可能是在這個情況下他表現比較好，但我們大概能有個底，`for` 跟 `forEach` 應該是比較適合拿來做物件的遍歷。
+這意味著，不管遍歷甚麼，似乎 `for` 都比較容易得到比較好的最佳化，至於為甚麼我不清楚，可能需要去分析 V8 編譯出來的 IR 才能比較好判斷。
+
+不過由於我的實驗有點簡陋，也有可能是在這個情況下他表現比較好，但我們大概能有個底，`for` 或 `for-of` 應該是比較適合拿來做物件的遍歷。
 
 真實情況下，如果你很在乎效能，建議都實做看看，最後選效能最好的那個寫法就好。
 
@@ -351,7 +361,7 @@ for-of 13.973299995064735
 
 本文介紹遍歷 Array 元素的多種方法，分別為 `for`、`for-in`、`forEach` 和 `for-of`，並在最後做簡單的效能實驗。
 
-範例大量參考 Axel Rauschmayer 文章，Axel 本身算是 JS 專家，他在文章中提倡 `for-of` 是最好的寫法，但我並不同意，如同最後的效能測試，我們可以發現一般的 `for` 普遍表現優異。所以在一般情況下為了速度我們有理由繼續用 `for`，即使會寫出沒那麼帥氣的程式語法。但如果這點效能差異是允許的，你也可以考慮使用其他遍歷 Array 的方法，有時候好閱讀比效能好還重要。
+範例大量參考 Axel Rauschmayer 文章，Axel 本身算是 JS 專家，他在文章中提倡 `for-of` 是最好的寫法，但我並不同意，如同最後的效能測試，我們可以發現一般的 `for` 表現都是最好的。所以在一般情況下為了速度我們有理由繼續用 `for`，即使會寫出沒那麼帥氣的程式語法。但如果這點效能差異是允許的，你也可以考慮使用其他遍歷 Array 的方法，有時候好閱讀比效能好還重要。
 
 ## 8. 參考資料
 
