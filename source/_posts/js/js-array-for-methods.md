@@ -71,6 +71,8 @@ for (let index=0; index < arr.length; index++) {
 
 不過它的好處是起始、結束、間隔都可以自訂。
 
+就文章最後的實驗結果，`for` 的表現也是所有遍歷方法中最快的，可以說是樸實無華卻一鳴驚人。
+
 ## 3. `for-in` 迴圈語法
 
 `for-in` 也是 ES1 就有，他會遍歷物件 (Object) 中的 Keys。
