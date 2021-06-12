@@ -241,7 +241,7 @@ for (const key in arr) &#123;
 // 'prop'
 </code></pre>
 <p>所以不太建議用 <code>for-in</code> 來遍歷 Array，因為它看 Keys，可能會有意外的行為。</p>
-<p>此外因為是 Keys，所以 Array 的 Index 會是字串而分數字。</p>
+<p>此外因為是 Keys，所以 Array 的 Index 會是字串而非數字。</p>
 <p>它會遍歷所有可以枚舉的屬性，包含自身跟繼承的，這可能會是不錯的好處。</p>
 <h2 id="4-Array-自帶的-forEach-函數"><a class="header-anchor" href="#4-Array-自帶的-forEach-函數">¶ </a>4. Array 自帶的 <code>forEach()</code> 函數</h2>
 <p><code>Array.prototype.forEach()</code> 是 ES5 有的語法，時至今日其實滿常見的。它讓遍歷行為被包裝成一個 Callback 函數，語法有 Functional Programming 的味道。</p>
@@ -326,7 +326,7 @@ for (const [key, value] of myMap) &#123;
 <p>既然我們有這麼多種方法，那哪一種寫法效能最好呢？</p>
 <p>我準備了兩種測資，一種是 Array 裡面都是單純的數字而已，另一種是 Array 裡面放的都是物件。</p>
 <p>測試方法很簡單，就是遍歷所有元素，存取裡的數值，然後看哪個方法速度最快。</p>
-<p>這只是非常件單的測試，可能不夠周全，但大概可以給我們一點概念。</p>
+<p>這只是非常簡單的測試，可能不夠周全，但大概可以給我們一點概念。</p>
 <h3 id="6-1-Array-裡面都是數字"><a class="header-anchor" href="#6-1-Array-裡面都是數字">¶ </a>6.1 Array 裡面都是數字</h3>
 <p>不囉嗦，直接上 Code：</p>
 <pre><code class="language-js">// test1.js
@@ -346,43 +346,47 @@ let time_marker;
 // ===
 time_marker = performance.now();
 sum = 0;
-for (let i = 0; i &lt; 100000; i++) &#123;
-    sum += arr[i];
-&#125;
+for (let j = 0; j &lt; 50; j++) // 放大 50 倍
+    for (let i = 0; i &lt; 100000; i++) &#123;
+        sum += arr[i];
+    &#125;
 console.log(&quot;for&quot;, performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-for (const i in arr) &#123;
-    sum += arr[i];
-&#125;
+for (let j = 0; j &lt; 50; j++)
+    for (const i in arr) &#123;
+        sum += arr[i];
+    &#125;
 console.log(&quot;for-in&quot;, performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-arr.forEach(v =&gt; &#123;
-    sum += v;
-&#125;);
+for (let j = 0; j &lt; 50; j++)
+    arr.forEach(v =&gt; &#123;
+        sum += v;
+    &#125;);
 console.log(&quot;forEach&quot;, performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-for (const v of arr) &#123;
-    sum += v;
-&#125;
-console.log(&quot;for-of&quot;, performance.now() - time_marker);
+for (let j = 0; j &lt; 50; j++)
+    for (const v of arr) &#123;
+        sum += v;
+    &#125;
+console.log(&quot;for of&quot;, performance.now() - time_marker);
 </code></pre>
 <p>跑出來結果是</p>
 <pre><code>$ node .\test.js
-for 3.6556000038981438
-for-in 16.136700004339218
-forEach 6.303700000047684
-for-of 7.72919999808073
+for 41.0147999972105
+for-in 541.3449000120163
+forEach 91.50919999182224
+for of 49.270000010728836
 </code></pre>
-<p>其實滿合理的，<code>for</code> 迴圈在本身都是處理數字情況下，編譯器是非常好做優化的，相對的其他語法編譯出來的指令 (Instruction) 就會比較複雜。<code>for-in</code> 特別面應該是因為它是將 Index 當作 String 在處理，這樣的話中間的消耗其實十分大。</p>
+<p>其實滿合理的，<code>for</code> 迴圈在本身都是處理數字情況下，編譯器是非常好做優化的，相對的其他語法編譯出來的指令 (Instruction) 就會比較複雜。<code>for-in</code> 特別慢應該是因為它是將 Index 當作 String 在處理，這樣的話中間的消耗其實十分大，此外他可能需要去枚舉所有繼承的屬性。</p>
 <h3 id="6-2-Array-裡面都是物件"><a class="header-anchor" href="#6-2-Array-裡面都是物件">¶ </a>6.2 Array 裡面都是物件</h3>
 <p>我將 Code 稍作修改：</p>
 <pre><code class="language-js">// test2.js
@@ -405,48 +409,53 @@ let time_marker;
 // ===
 time_marker = performance.now();
 sum = 0;
-for (let i = 0; i &lt; 100000; i++) &#123;
-    sum += arr[i].a;
-&#125;
+for (let j = 0; j &lt; 50; j++) // 放大 50 倍
+    for (let i = 0; i &lt; 100000; i++) &#123;
+        sum += arr[i].a;
+    &#125;
 console.log(&quot;for&quot;, performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-for (const i in arr) &#123;
-    sum += arr[i].a;
-&#125;
+for (let j = 0; j &lt; 50; j++)
+    for (const i in arr) &#123;
+        sum += arr[i].a;
+    &#125;
 console.log(&quot;for-in&quot;, performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-arr.forEach(v =&gt; &#123;
-    sum += v.a;
-&#125;);
+for (let j = 0; j &lt; 50; j++)
+    arr.forEach(v =&gt; &#123;
+        sum += v.a;
+    &#125;);
 console.log(&quot;forEach&quot;, performance.now() - time_marker);
 
 // ===
 time_marker = performance.now();
 sum = 0;
-for (const v of arr) &#123;
-    sum += v.a;
-&#125;
-console.log(&quot;for-of&quot;, performance.now() - time_marker);
+for (let j = 0; j &lt; 50; j++)
+    for (const v of arr) &#123;
+        sum += v.a;
+    &#125;
+console.log(&quot;for of&quot;, performance.now() - time_marker);
 </code></pre>
 <p>讓我們來看看結果：</p>
 <pre><code>$ node .\test2.js
-for 2.7576999962329865
-for-in 11.11490000039339
-forEach 1.9450000002980232
-for-of 13.973299995064735
+for 18.817900002002716
+for-in 438.9100999981165
+forEach 56.67289999127388
+for of 25.645999997854233
 </code></pre>
-<p>這個結果就十分意外了，<code>for</code> 依舊效能不錯，<code>forEach</code> 表現最好，<code>for-in</code> 和 <code>for-of</code> 幾乎一樣差，這感覺需要看 V8 是怎麼編譯的，如果有誰知道背後的原因可以跟我說，我再回來這邊補充。</p>
-<p>這意味著，如果遍歷的東西是物件的話，<code>forEach</code> 似乎可以得到比較好的最佳化。不過由於我的實驗有點簡陋，也有可能是在這個情況下他表現比較好，但我們大概能有個底，<code>for</code> 跟 <code>forEach</code> 應該是比較適合拿來做物件的遍歷。</p>
+<p>這個結果就十分意外了，<code>for</code> 依舊效能最好，其次是 <code>for-of</code>，而 <code>for-in</code> 依舊是最差的，我想理由大概跟前面例子差不多。</p>
+<p>這意味著，不管遍歷甚麼，似乎 <code>for</code> 都比較容易得到比較好的最佳化，至於為甚麼我不清楚，可能需要去分析 V8 編譯出來的 IR 才能比較好判斷。</p>
+<p>不過由於我的實驗有點簡陋，也有可能是在這個情況下他表現比較好，但我們大概能有個底，<code>for</code> 或 <code>for-of</code> 應該是比較適合拿來做物件的遍歷。</p>
 <p>真實情況下，如果你很在乎效能，建議都實做看看，最後選效能最好的那個寫法就好。</p>
 <h2 id="7-結論"><a class="header-anchor" href="#7-結論">¶ </a>7. 結論</h2>
 <p>本文介紹遍歷 Array 元素的多種方法，分別為 <code>for</code>、<code>for-in</code>、<code>forEach</code> 和 <code>for-of</code>，並在最後做簡單的效能實驗。</p>
-<p>範例大量參考 Axel Rauschmayer 文章，Axel 本身算是 JS 專家，他在文章中提倡 <code>for-of</code> 是最好的寫法，但我並不同意，如同最後的效能測試，我們可以發現一般的 <code>for</code> 普遍表現優異。所以在一般情況下為了速度我們有理由繼續用 <code>for</code>，即使會寫出沒那麼帥氣的程式語法。但如果這點效能差異是允許的，你也可以考慮使用其他遍歷 Array 的方法，有時候好閱讀比效能好還重要。</p>
+<p>範例大量參考 Axel Rauschmayer 文章，Axel 本身算是 JS 專家，他在文章中提倡 <code>for-of</code> 是最好的寫法，但我並不同意，如同最後的效能測試，我們可以發現一般的 <code>for</code> 表現都是最好的。所以在一般情況下為了速度我們有理由繼續用 <code>for</code>，即使會寫出沒那麼帥氣的程式語法。但如果這點效能差異是允許的，你也可以考慮使用其他遍歷 Array 的方法，有時候好閱讀比效能好還重要。</p>
 <h2 id="8-參考資料"><a class="header-anchor" href="#8-參考資料">¶ </a>8. 參考資料</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://2ality.com/2021/01/looping-over-arrays.html">Looping over Arrays: for vs. for-in vs. .forEach() vs. for-of</a></li>
