@@ -224,6 +224,7 @@ for (let index=0; index &lt; arr.length; index++) &#123;
 </code></pre>
 <p>有時候要存取 Array 裡的物件要指定 Index 會有點冗長。</p>
 <p>不過它的好處是起始、結束、間隔都可以自訂。</p>
+<p>就文章最後的實驗結果，<code>for</code> 的表現也是所有遍歷方法中最快的，可以說是樸實無華卻一鳴驚人。</p>
 <h2 id="3-for-in-迴圈語法"><a class="header-anchor" href="#3-for-in-迴圈語法">¶ </a>3. <code>for-in</code> 迴圈語法</h2>
 <p><code>for-in</code> 也是 ES1 就有，他會遍歷物件 (Object) 中的 Keys。</p>
 <p>注意在一般情況下，Keys 就是 Arrays 的 Index，但如果有特別賦予 Array 屬性 (Property) 的話，就會讓遍歷行為多拜訪這些屬性。</p>
