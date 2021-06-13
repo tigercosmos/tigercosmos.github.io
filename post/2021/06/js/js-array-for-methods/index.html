@@ -268,8 +268,8 @@ arr.forEach(elem =&gt; &#123;
 // 'c'
 </code></pre>
 <p>有兩種寫法，端看你要不要 Index 資訊。</p>
-<p>這種語法的好處是我們可以直接得到 Array 裡面的元素，看起來會比較乾淨。</p>
-<p>不過缺點是 Callback 裡不能有 <code>await</code>，且不能提前中斷。</p>
+<p>這種語法的好處是我們可以直接得到 Array 裡面的元素，看起來會比較乾淨，不過 Callback 的元素修改是不會影響到原本的 Array。</p>
+<p>此外這方法缺點是 Callback 裡不能有 <code>await</code>，且不能提前中斷。</p>
 <p>如果你真的很想要提前中斷的話，你可以使用 <code>Array.prototype.some()</code>、<code>Array.prototype.every()</code> 函數幫助你操作，這邊就不多作介紹。我自己是不建議使用，畢竟我看這麼多專案還沒怎麼看過人用，而且一般情況要中斷的話用 <code>for</code> 的語法會比較清楚。</p>
 <h2 id="5-for-of-迴圈語法"><a class="header-anchor" href="#5-for-of-迴圈語法">¶ </a>5. <code>for-of</code> 迴圈語法</h2>
 <p>ES6 有了 <code>for-of</code> 語法，這大概就是結合 <code>forEach</code> 可以直接得到元素的好處，外加 <code>for</code> 可以用 <code>break</code>、<code>continue</code> 做到更彈性操作。</p>
@@ -285,7 +285,7 @@ for (const elem of arr) &#123;
 // 'c'
 </code></pre>
 <p>現在你可以在 <code>for-of</code> 中直接得到元素了，並且裡面可以使用 <code>await</code>，你也可以提早中斷迴圈。</p>
-<p>當你只需要直接取得元素，<strong>不需要 Index 資訊時</strong>，這應該是最棒的寫法了。</p>
+<p>當你只需要直接取得元素，<strong>不需要 Index 資訊時</strong>，這應該是最棒的寫法了。但要注意的是，<code>for-of</code> 中的物件操作是不會影響到原本 Array。</p>
 <p>當然如果你真的很想要 Index 的話可以這樣寫：</p>
 <pre><code class="language-js">const arr = ['chocolate', 'vanilla', 'strawberry'];
 
