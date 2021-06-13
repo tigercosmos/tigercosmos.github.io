@@ -453,6 +453,7 @@ for of 25.645999997854233
 <p>這個結果就十分意外了，<code>for</code> 依舊效能最好，其次是 <code>for-of</code>，而 <code>for-in</code> 依舊是最差的，我想理由大概跟前面例子差不多。</p>
 <p>這意味著，不管遍歷甚麼，似乎 <code>for</code> 都比較容易得到比較好的最佳化，至於為甚麼我不清楚，可能需要去分析 V8 編譯出來的 IR 才能比較好判斷。</p>
 <p>不過由於我的實驗有點簡陋，也有可能是在這個情況下他表現比較好，但我們大概能有個底，<code>for</code> 或 <code>for-of</code> 應該是比較適合拿來做物件的遍歷。</p>
+<p>至於 <code>for-of</code> 都稍慢 <code>for</code>，可以猜測是 <code>for-of</code> 在迴圈中會對物件產生 Shallow Copy，因此多了額外的開銷。</p>
 <p>真實情況下，如果你很在乎效能，建議都實做看看，最後選效能最好的那個寫法就好。</p>
 <h2 id="7-結論"><a class="header-anchor" href="#7-結論">¶ </a>7. 結論</h2>
 <p>本文介紹遍歷 Array 元素的多種方法，分別為 <code>for</code>、<code>for-in</code>、<code>forEach</code> 和 <code>for-of</code>，並在最後做簡單的效能實驗。</p>
