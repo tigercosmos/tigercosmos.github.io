@@ -392,3 +392,5 @@ FATAL ERROR: invalid array length Allocation failed - JavaScript heap out of mem
 ## 小結
 
 本篇介紹陣列的概念，陣列可以有排列性的儲存很多元素，並可以隨意改變裡面的元素，或是在陣列前面後面放入新的元素，或是刪除元素。陣列是非常常使用的資料儲存方式，並且通常會搭配迴圈來做列舉，並對每個元素操作。
+
+> 這篇看完之後可以看進階的技巧：[JavaScript 遍歷 Array 的四種方法：for、for-in、for-of、forEach()](/post/2021/06/js/js-array-for-methods/)

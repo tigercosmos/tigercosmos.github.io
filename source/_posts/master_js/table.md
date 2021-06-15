@@ -23,6 +23,7 @@ tags: [JavaScript, 程式, 30 天 Javascript 從入門到進階]
   - 模組化與套件
   - 同步與異步
   - Javascript 語法進階
+    - [JavaScript 遍歷 Array 的四種方法：for、for-in、for-of、forEach()](/post/2021/06/js/js-array-for-methods/)
 - 第二部：進階觀念
   - 資料結構
   - 演算法
